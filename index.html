@@ -547,17 +547,21 @@ margin: 20px;
   
     
     <br><br>
-
+<!--1 -->
     <div class="content-right">
       <div class="box" onclick="showInput()">
         <h3>Masukkan No IMEI via Server</h3>
         <p>Contoh: 123456789012345</p>
         <div id="input-container" style="display: none">
-          <input type="text" id="imei-input" placeholder="Masukkan No IMEI">
-          <button onclick="sendWhatsAppMessageFromInput()">Kirim</button>
+          <input type="text" id="imei-input1" placeholder="Masukkan No IMEI 1">
+          <input type="text" id="imei-input2" placeholder="Masukkan No IMEI 2">
+          <button onclick="sendWhatsAppMessageFromInput()">
+            <i class="fas fa-paper-plane"></i> Kirim
+          </button>
+          
         </div>
-  
       </div>
+      
      
       <div class="box" onclick="showPopup()">
         <h3>Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
@@ -781,7 +785,7 @@ function closeImageModal() {
     </div>
   </footer>
  
-
+<!--1 -->
   <script>
     function showInput() {
       var inputContainer = document.getElementById('input-container');
@@ -789,25 +793,28 @@ function closeImageModal() {
     }
   
     function sendWhatsAppMessageFromInput() {
-      var imeiInput = document.getElementById('imei-input');
-      var imei = imeiInput.value.trim();
-  
-      // Validasi panjang nomor IMEI
-      if (imei.length !== 15) {
-        alert('Nomor IMEI harus terdiri dari 15 digit.');
-        return;
-      }
-  
-      // Validasi hanya mengandung angka
-      if (!/^\d+$/.test(imei)) {
-        alert('Nomor IMEI hanya boleh mengandung angka.');
-        return;
-      }
-  
-      var encodedMessage = encodeURIComponent('No IMEI: ' + imei);
-      var url = 'https://api.whatsapp.com/send?phone=+6283129564658&text=' + encodedMessage;
-      window.open(url);
-    }
+  var imeiInput1 = document.getElementById('imei-input1');
+  var imeiInput2 = document.getElementById('imei-input2');
+  var imei1 = imeiInput1.value.trim();
+  var imei2 = imeiInput2.value.trim();
+
+  // Validasi panjang nomor IMEI
+  if (imei1.length !== 15 || imei2.length !== 15) {
+    alert('Nomor IMEI harus terdiri dari 15 digit.');
+    return;
+  }
+
+  // Validasi hanya mengandung angka
+  if (!/^\d+$/.test(imei1) || !/^\d+$/.test(imei2)) {
+    alert('Nomor IMEI hanya boleh mengandung angka.');
+    return;
+  }
+
+  var encodedMessage = encodeURIComponent('No IMEI 1: ' + imei1 + '\nNo IMEI 2: ' + imei2);
+  var url = 'https://api.whatsapp.com/send?phone=+6283129564658&text=' + encodedMessage;
+  window.open(url);
+}
+
   
     function sendWhatsAppMessage(number, message) {
       var encodedMessage = encodeURIComponent(message);
