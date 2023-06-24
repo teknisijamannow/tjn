@@ -548,19 +548,94 @@ margin: 20px;
     
     <br><br>
 <!--1 -->
-    <div class="content-right">
-      <div class="box" onclick="showInput()">
-        <h3>Masukkan No IMEI via Server</h3>
+<div class="content-right">
+  <div class="box" onclick="showInputs()">
+    <h3>Masukkan No IMEI via Server</h3>
         <p>Contoh: 123456789012345</p>
-        <div id="input-container" style="display: none">
-          <input type="text" id="imei-input1" placeholder="Masukkan No IMEI 1">
-          <input type="text" id="imei-input2" placeholder="Masukkan No IMEI 2">
-          <button onclick="sendWhatsAppMessageFromInput()">
-            <i class="fas fa-paper-plane"></i> Kirim
-          </button>
-          
+    <div id="input-container" style="display: none">
+      <div id="input-section">
+        <div class="input-group">
+          <input type="text" class="nama-input" placeholder="Nama Pengirim">
+        </div>
+        <div class="imei-group">
+          <input type="text" class="imei-input" placeholder="IMEI 1">
+          <input type="text" class="imei-input" placeholder="IMEI 2">
         </div>
       </div>
+      <br>
+      <button onclick="addInputs()">
+        <i class="fas fa-plus"></i> Tambah
+      </button>
+      <button onclick="sendWhatsAppMessageFromInputs()">
+        <i class="fas fa-paper-plane"></i> Kirim
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function showInputs() {
+      var inputContainer = document.getElementById('input-container');
+      inputContainer.style.display = 'block';
+    }
+
+    function addInputs() {
+      var inputSection = document.getElementById('input-section');
+      var imeiCount = document.getElementsByClassName('imei-input').length;
+      var newInputsHTML = '';
+
+      newInputsHTML += '<div class="input-group">';
+      newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
+      newInputsHTML += '</div>';
+      newInputsHTML += '<div class="imei-group">';
+      newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1">';
+      newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2">';
+      newInputsHTML += '</div>';
+
+      inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
+    }
+
+    function sendWhatsAppMessageFromInputs() {
+      var namaInputs = document.getElementsByClassName('nama-input');
+      var imeiGroups = document.getElementsByClassName('imei-group');
+      var message = '';
+
+      for (var i = 0; i < namaInputs.length; i++) {
+        var namaInput = namaInputs[i];
+        var namaValue = namaInput.value.trim();
+        if (namaValue !== '') {
+          message += 'Nama Pengirim: ' + namaValue + '\n';
+
+          var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
+          for (var j = 0; j < imeiInputs.length; j++) {
+            var imeiInput = imeiInputs[j];
+            var imeiValue = imeiInput.value.trim();
+            if (imeiValue !== '') {
+              message += 'IMEI ' + (j + 1) + ': ' + imeiValue + '\n';
+            }
+          }
+        }
+      }
+
+      if (message === '') {
+        alert('Mohon masukkan data pengirim.');
+        return;
+      }
+
+      var encodedMessage = encodeURIComponent(message);
+      var phoneNumber = '+6283129564658'; // Ganti dengan nomor WhatsApp yang dituju
+      var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
+      window.open(url);
+    }
+  </script>
+
+
+
+      
+      
+      
+      
+      
+      
       
      
       <div class="box" onclick="showPopup()">
@@ -785,43 +860,7 @@ function closeImageModal() {
     </div>
   </footer>
  
-<!--1 -->
-  <script>
-    function showInput() {
-      var inputContainer = document.getElementById('input-container');
-      inputContainer.style.display = 'block';
-    }
-  
-    function sendWhatsAppMessageFromInput() {
-  var imeiInput1 = document.getElementById('imei-input1');
-  var imeiInput2 = document.getElementById('imei-input2');
-  var imei1 = imeiInput1.value.trim();
-  var imei2 = imeiInput2.value.trim();
 
-  // Validasi panjang nomor IMEI
-  if (imei1.length !== 15 || imei2.length !== 15) {
-    alert('Nomor IMEI harus terdiri dari 15 digit.');
-    return;
-  }
-
-  // Validasi hanya mengandung angka
-  if (!/^\d+$/.test(imei1) || !/^\d+$/.test(imei2)) {
-    alert('Nomor IMEI hanya boleh mengandung angka.');
-    return;
-  }
-
-  var encodedMessage = encodeURIComponent('No IMEI 1: ' + imei1 + '\nNo IMEI 2: ' + imei2);
-  var url = 'https://api.whatsapp.com/send?phone=+6283129564658&text=' + encodedMessage;
-  window.open(url);
-}
-
-  
-    function sendWhatsAppMessage(number, message) {
-      var encodedMessage = encodeURIComponent(message);
-      var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
-      window.open(url);
-    }
-  </script>
  
  
  <script>
