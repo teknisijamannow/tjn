@@ -626,6 +626,11 @@ margin: 20px;
       var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
       window.open(url);
     }
+     function sendWhatsAppMessage(number, message) {
+         var encodedMessage = encodeURIComponent(message);
+         var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
+         window.open(url);
+       }
   </script>
 
 
