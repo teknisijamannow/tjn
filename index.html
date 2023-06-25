@@ -655,12 +655,30 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .jumbotron-bg {
-  background: linear-gradient(to bottom, #00b7ff, #ffffff00);
+ background-color: #00000000;
   color: #fff;
 }
 
 
+   /* Tampilan untuk layar HP */
+   @media (max-width: 767px) {
+    .navbar-toggler {
+      display: none;
+    }
 
+    .navbar-collapse {
+      display: block !important;
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .navbar-nav .nav-item {
+      margin: 0 10px;
+    }
+  }
   </style>
 </head>
 
@@ -681,10 +699,6 @@
           <li class="nav-item" id="nav-produk">
             <a class="nav-link" href="#" onclick="showContent('produk')">Produk</a>
           </li>
-          <!--
-          <li class="nav-item" id="nav-pemesanan">
-            <a class="nav-link" href="#" onclick="showContent('pemesanan')">Pemesanan</a>
-          </li> -->
           <li class="nav-item" id="nav-kontak">
             <a class="nav-link" href="#" onclick="showContent('kontak')">Tentang Kami</a>
           </li>
@@ -692,13 +706,10 @@
       </div>
     </div>
   </nav>
-  <br><br><br>
-  <script>
-    function toggleNavbar() {
-      var navbar = document.getElementById('navbar');
-      navbar.classList.toggle('opened');
-    }
-  </script>
+
+  
+  
+  
 
   <script>
     function showContent(page) {
@@ -723,30 +734,10 @@
     });
   </script>
 
-  <!-- 
-  <script>
-    function showContent(page) {
-      // Menampilkan konten sesuai dengan halaman yang dipilih
-      var content = document.getElementsByClassName('page-content');
-      for (var i = 0; i < content.length; i++) {
-        content[i].style.display = 'none';
-      }
-      document.getElementById('content-' + page).style.display = 'block';
-
-      // Menandai menu navigasi yang aktif
-      var navItems = document.getElementsByClassName('nav-item');
-      for (var j = 0; j < navItems.length; j++) {
-        navItems[j].classList.remove('active');
-      }
-      document.getElementById('nav-' + page).classList.add('active');
-    }
-  </script>
--->
-  <div id="content-dashboard" class="page-content">
+<br><br><br>
 
     <!-- Konten dashboard -->
-
-
+  <div id="content-dashboard" class="page-content">
 
     <div class="content">
       <div class="content-left">
@@ -759,14 +750,8 @@
           BESIBAND - AUTH MI SERVER - AUTH OPPO<br>
           SERVER. DLL
         </p>
-
-
-
-
-      </div><br>
-
-
-      <br><br>
+      </div>
+      <br><br><br>
       <!--1 -->
       <div class="content-right">
         <div class="box" onclick="showInputs(event)">
@@ -1244,10 +1229,7 @@
 
   </div>
 
-  <div id="content-pemesanan" class="page-content" style="display: none;">
 
-    <!-- Konten pemesanan -->
-  </div>
 
   <div id="content-kontak" class="page-content" style="display: none;">
 <br><br><br>
