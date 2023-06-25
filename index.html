@@ -14,7 +14,40 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
+ .promo-box {
+      background-color: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .promo-box h4 {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .promo-box p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    .promo-box i {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #007bff;
+  transition: transform 0.2s ease;
+}
+
+.promo-box i:hover {
+  transform: scale(1.1);
+}
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -473,7 +506,7 @@
 
     .sub-card {
       flex-basis: 30%;
-      background-color: #00000088;
+      background-color: #00b7ff91;
       padding: 10px;
       border-radius: 8px;
       text-align: center;
@@ -517,12 +550,15 @@
 
       .sub-card {
         flex-basis: calc(50% - 10px);
-        margin: 5px;
+        margin: 5px
 
       }
 
       .sub-card h4 {
         font-size: 11px;
+      }
+      .sub-card a {
+        font-size: 12px;
       }
     }
 
@@ -607,6 +643,36 @@
         padding: 6px 12px;
       }
     }
+
+    .about-section {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 50px;
+    }
+    .about-section p {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #00e1ff;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-media-icons a:hover {
+  color: #333;
+}
+
   </style>
 </head>
 
@@ -627,9 +693,10 @@
           <li class="nav-item" id="nav-produk">
             <a class="nav-link" href="#" onclick="showContent('produk')">Produk</a>
           </li>
+          <!--
           <li class="nav-item" id="nav-pemesanan">
             <a class="nav-link" href="#" onclick="showContent('pemesanan')">Pemesanan</a>
-          </li>
+          </li> -->
           <li class="nav-item" id="nav-kontak">
             <a class="nav-link" href="#" onclick="showContent('kontak')">Kontak</a>
           </li>
@@ -877,9 +944,12 @@
         window.location.href =
           'https://bit.ly/3CAjX9f';
       });
+      document.querySelector('.custom-box').addEventListener('click', function () {
+    window.location.href = 'https://bit.ly/3CAjX9f';
+  });
     </script>
 
-    <div class="card" style="background-color: #00000000;">
+    <div class="card" style="background-color: #00000057;">
       <h3>Bahan Download Remote via PC/Laptop</h3>
       <div class="card-container">
         <div class="sub-card">
@@ -1015,6 +1085,10 @@
   <div id="content-produk" class="page-content" style="display: none;">
     <!-- Konten produk -->
     <br><br><br>
+   
+    
+
+
     <div class="container">
       <div class="row">
        <div class="col-lg-4 col-md-6">
@@ -1128,16 +1202,144 @@
   </div>
 
   <div id="content-kontak" class="page-content" style="display: none;">
-
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 text-center">
+      <img src="img/po.png" alt="Logo" class="img-fluid logo">
+    </div>
+    <div class="col-lg-10">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="about-section">
+            <p>
+              TEKNISI JAMAN NOW adalah layanan perbaikan smartphone yang profesional. Kami menyediakan layanan perbaikan untuk semua merek dan model smartphone dengan standar kualitas yang tinggi. Selain itu, kami juga memberikan layanan jasa remote untuk memudahkan pelanggan dalam mendapatkan bantuan teknis.
+            </p>
+            <p>
+              Kami mengerti bahwa kebutuhan teknisi handphone semakin berkembang. Oleh karena itu, kami juga menyediakan layanan rental tool untuk memenuhi kebutuhan teknisi dalam melakukan pekerjaan mereka. Dengan rental tool dari kami, teknisi handphone dapat mengakses perangkat dan perangkat lunak yang diperlukan untuk perbaikan smartphone dengan mudah dan efisien.
+            </p>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div><br><br><br><br>
     <!-- Konten kontak -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="promo-box">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Servis HP</h4>
+            <p>Kami menyediakan layanan perbaikan smartphone dengan kualitas terbaik.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="promo-box">
+            <i class="fas fa-tools"></i>
+            <h4>Rental Tool</h4>
+            <p>Kami menyewakan berbagai alat dan perangkat untuk kebutuhan teknisi handphone.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="promo-box">
+            <a href="tel:+6283129564658">
+              <i class="fas fa-phone" style="color: #008a05;"></i>
+              <h4>Nomor Telepon</h4></a>
+              <p>Hubungi kami di nomor telepon +62 831-2956-4658</p>
+            
+          </div>
+        </div>
+        
+        <script>
+          const phoneLink = document.querySelector('.promo-box a');
+          phoneLink.addEventListener('click', function (event) {
+            event.stopPropagation();
+            window.open('tel:+6283129564658');
+          });
+        </script>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="promo-box">
+            <a href="https://wa.me/6283129564658" target="_blank">
+              <i class="fab fa-whatsapp" style="color: #02ff2c;"></i>
+              <h4>WhatsApp</h4> </a>
+              <p>Hubungi kami melalui WhatsApp di nomor +62 831-2956-4658</p>
+           
+          </div>
+        </div>
+        <script>
+          const whatsappLink = document.querySelector('.promo-box a');
+          whatsappLink.addEventListener('click', function (event) {
+            event.stopPropagation();
+            window.open('https://wa.me/6283129564658', '_blank');
+          });
+        </script>
+        <div class="col-md-4">
+          <div class="promo-box">
+            <a href="https://www.youtube.com/@teknisijamannow" target="_blank">
+              <i class="fab fa-youtube" style="color: #ff0303;"></i>
+              <h4>YouTube</h4>
+              
+            </a>
+            <p>Kunjungi channel TEKNISI JAMAN NOW banyak tips seputar perbaikan smartphone.</p>
+          </div>
+        </div>
+        
+        <script>
+          const youtubeLink = document.querySelector('.promo-box a');
+          youtubeLink.addEventListener('click', function (event) {
+            event.stopPropagation();
+            window.open('https://www.youtube.com/@teknisijamannow', '_blank');
+          });
+        </script>
+        
+        <div class="col-md-4">
+          <div class="promo-box">
+            <a href="mailto:karomahpemalang0@gmail.com" target="_blank">
+              <i class="fas fa-envelope" style="color: #e71e1e;"></i>
+              <h4>Email</h4></a>
+              <p>Kirimkan email ke alamat kami di karomahpemalang0@gmail.com</p>
+            
+          </div>
+        </div>
+        
+        <script>
+          const emailLink = document.querySelector('.promo-box a');
+          emailLink.addEventListener('click', function (event) {
+            event.stopPropagation();
+            window.open('mailto:karomahpemalang0@gmail.com', '_blank');
+          });
+        </script>
+        
+      </div>
+      
+      
+      
+    </div><br><br><br>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 
 
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
+ 
   <br><br><br><br><br>
   <footer class="footer">
     <p>Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
@@ -1148,6 +1350,7 @@
       <a href="#">Hubungi Kami</a>
     </div>
   </footer>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 
