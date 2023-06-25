@@ -5,24 +5,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tampilan Web yang Profesional</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Viga&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
   <style>
-    /* CSS untuk tampilan web */
-    body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('img/00.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-    
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.685);
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/00.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+
     .navbar-brand img {
       animation: pulse 6s infinite;
       height: 70px;
@@ -33,9 +59,11 @@
       0% {
         transform: scale(1);
       }
+
       50% {
         transform: scale(0.8);
       }
+
       100% {
         transform: scale(1);
       }
@@ -49,14 +77,13 @@
 
     .navbar .nav-link {
       transition: all 0.3s;
-      margin-right: 20px;
+  font-weight: bold;
+margin-right: 5px;
+margin-left: 5px;
     }
 
-    .navbar .nav-link:hover {
-      background: linear-gradient(to bottom, #00000083, #ffffff00);
-      border-radius: 10px;
-    }
    
+
     /* Content */
     .content {
       padding: 20px;
@@ -68,51 +95,49 @@
 
     .content-left {
       flex: 1;
-      
+
     }
 
     .content-left h2 {
-      font-size: 28px;
+      font-size: 40px;
       font-weight: bold;
       margin-bottom: 20px;
       color: #e6e6e6;
-      background-color: #00000080;
-      padding: 5px;
-      width: 300px;
-      margin: 10px;
+      
+     
     }
-    
+
     .content-left p {
       font-size: 20px;
       font-family: 'Open Sans', sans-serif;
     }
 
     .content-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.content-right .box {
-  background: linear-gradient(to bottom, #00b7ff, #ffffff00);
-  padding: 20px;
-  color: #e6e6e6;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
+    .content-right .box {
+      background: linear-gradient(to bottom, #00b7ff, #ffffff00);
+      padding: 20px;
+      color: #e6e6e6;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
 
-.content-right .box:hover {
-  transform: scale(1.05);
-}
+    .content-right .box:hover {
+      transform: scale(1.05);
+    }
 
-.content-right .box h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
- 
-}
+    .content-right .box h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
 
-    
+    }
+
+
     /* Footer */
     .footer {
       background: linear-gradient(to bottom, #11394900, #000000);
@@ -152,347 +177,368 @@
       color: rgba(212, 61, 61, 0.842);
     }
 
-  
-    
-    
+
+
+
     #pr {
       font-family: 'Viga';
       color: #e6e6e6;
       text-align: left;
     }
+
     /* popup */
     .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
 
-.popup {
-  background-color: #e6e6e6;
-  padding: 20px;
-  max-width: 400px;
-  text-align: center;
-  position: relative;
-  border-radius: 10px;
-}
-
-.popup h3 {
-  margin-top: 0;
-}
-
-.popup p {
-  margin-bottom: 20px;
-}
-
-.popup .number {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.popup .number span {
-  margin-right: 10px;
-}
-
-.popup .number .btn {
-  margin-left: auto;
-  display: inline-block;
-  padding: 3px 7px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.popup .number .btn:not(:last-child) {
-  margin-right: 10px;
-}
-
-.overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
- /* Media query untuk layar ponsel */
- @media only screen and (max-width: 480px) {
     .popup {
-      font-size: 12px;
-      padding: 8px;
-      width: 300px;
+      background-color: #e6e6e6;
+      padding: 20px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      border-radius: 10px;
     }
 
     .popup h3 {
-      font-size: 14px;
-      margin: 8px 0;
+      margin-top: 0;
     }
 
     .popup p {
-      font-size: 12px;
-      margin: 4px 0;
+      margin-bottom: 20px;
     }
 
-    .number span {
-      font-size: 12px;
+    .popup .number {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
     }
 
-    .account-number {
-      font-size: 12px;
+    .popup .number span {
+      margin-right: 10px;
     }
 
-    .btn {
-      font-size: 10px;
+    .popup .number .btn {
+      margin-left: auto;
+      display: inline-block;
+      padding: 3px 7px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
-  }
 
-#input-container {
-  display: none;
-  margin-top: 10px;
-}
+    .popup .number .btn:not(:last-child) {
+      margin-right: 10px;
+    }
 
-#imei-input {
-  padding: 5px;
-  margin-right: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-button {
-  padding: 5px 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    /* Media query untuk layar ponsel */
+    @media only screen and (max-width: 480px) {
+      .popup {
+        font-size: 12px;
+        padding: 8px;
+        width: 300px;
+      }
 
-.content {
-    display: flex;
-    justify-content: space-between;
-  }
+      .popup h3 {
+        font-size: 14px;
+        margin: 8px 0;
+      }
 
-  .box {
-    width: 100%;
-  }
+      .popup p {
+        font-size: 12px;
+        margin: 4px 0;
+      }
 
-  /* Styles for mobile screens */
-  @media (max-width: 768px) {
+      .number span {
+        font-size: 12px;
+      }
+
+      .account-number {
+        font-size: 12px;
+      }
+
+      .btn {
+        font-size: 10px;
+      }
+    }
+
+    #input-container {
+      display: none;
+      margin-top: 10px;
+    }
+
+    #imei-input {
+      padding: 5px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
     .content {
-      flex-direction: column;
+      display: flex;
+      justify-content: space-between;
     }
 
     .box {
+      width: 100%;
+    }
+
+    /* Styles for mobile screens */
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+
+      .box {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #pr {
+        font-size: 16px;
+        text-align: left;
+      }
+    }
+
+
+    .custom-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 20px;
+      background: linear-gradient(to bottom, #000000, #ffffff00);
+      padding: 20px;
+      margin: 30px;
+      width: 300px;
+      border-radius: 10px;
     }
-  }
-  @media (max-width: 768px) {
-    #pr {
-      font-size: 16px;
-      text-align: left;
+
+    .custom-box-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-  }
+
+    .custom-box-logo {
+      width: 100px;
+      margin-right: 10px;
+    }
+
+    .custom-box-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+      color: #e6e6e6;
+    }
+
+    .custom-box-icon {
+      font-size: 30px;
+      margin-left: 10px;
+      cursor: pointer;
+      color: #02ff2c;
+    }
+
+    .custom-box-icon:hover {
+      transform: scale(1.2);
+      color: #008a05;
+    }
 
 
-  .custom-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    background: linear-gradient(to bottom, #58e26f, #ffffff00);
-    padding: 20px;
-    margin: 30px;
-    width: 300px;
-    border-radius: 10px;
-  }
 
-  .custom-box-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .testimonial-section {
+      text-align: center;
+      padding: 20px;
+    }
 
-  .custom-box-logo {
-    width: 100px;
-    margin-right: 10px;
-  }
+    .testimonial-section h2 {
+      margin-top: 0;
+    }
 
-  .custom-box-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-    color: #e6e6e6;
-  }
+    .testimonial-slider {
+      width: 700px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+      justify-content: center;
+      align-items: center;
+      /* Menengahkan secara vertikal */
 
-  .custom-box-icon {
-    font-size: 30px;
-    margin-left: 10px;
-    cursor: pointer;
-    color: #0278ff;
-  }
+    }
 
-  .custom-box-icon:hover {
-    transform: scale(1.2);
-    color: #00ff08;
-  }
-  
+    .testimonial-slide {
+      text-align: center;
+    }
+
+    .testimonial-slide img {
+      width: 250px;
+
+      border-radius: 10px;
+      margin-bottom: 10px;
+      justify-self: center;
+      /* Menengahkan secara horizontal */
+    }
+
+    .testimonial-slide h3 {
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal img {
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin: 20px auto;
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-slider {
+        width: 90%;
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-slide img {
+        width: 150px;
+      }
+    }
+
+    .card {
+      max-width: 100%;
+      background-color: #00000000;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-top: 0;
+      text-align: center;
+      font-family: 'Viga';
+      color: #ffffff;
+
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .sub-card {
+      flex-basis: 30%;
+      background-color: #00000088;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+box-shadow: #ffffff;
+      transition: transform 0.3s ease;
+    }
+
+    .sub-card:hover {
+      transform: scale(1.05);
+    }
 
 
-  .testimonial-section {
-  text-align: center;
-  padding: 20px;
+    .sub-card h4 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #f5f5f5;
+    }
+
+    .sub-card a {
+      display: block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #1eff00;
+      font-weight: bold;
+    }
+    .sub-card a:hover {
+  color: #fff;
+  background-color: #1eff00;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.testimonial-section h2 {
-  margin-top: 0;
-}
+    @media (max-width: 768px) {
+      .card {
+        padding: 10px;
+      }
 
-.testimonial-slider {
-  width:700px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 20px;
-  justify-content: center;
-  align-items: center; /* Menengahkan secara vertikal */
-  
-}
+      .card h3 {
+        font-size: 18px;
+      }
 
-.testimonial-slide {
-  text-align: center;
-}
+      .sub-card {
+        flex-basis: calc(50% - 10px);
+        margin: 5px;
 
-.testimonial-slide img {
-  width: 250px;
+      }
 
-  border-radius: 10px;
-  margin-bottom: 10px;
-  justify-self: center; /* Menengahkan secara horizontal */
-}
-
-.testimonial-slide h3 {
-  margin: 0;
-  color: #ffffff;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-.modal img {
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
-  margin: 20px auto;
-}
-
-.modal .close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .testimonial-slider {
-    width: 90%;
-    grid-template-columns: 1fr;
-  }
-
-  .testimonial-slide img {
-    width: 150px;
-  }
-}
-
-.card {
-  max-width: 100%;
-  background-color: #0000008c;
-  border-radius: 8px;
-  padding: 20px;
-margin: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-}
-
-.card h3 {
-  font-size: 24px;
-  margin-top: 0;
- text-align: center;
- font-family: 'Viga';
- color: #e6e6e6;
-
-}
-
-.card-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.sub-card {
-  flex-basis: 30%;
-  background-color: #fafafabb;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
+      .sub-card h4 {
+        font-size: 11px;
+      }
+    }
  
-  transition: transform 0.3s ease;
-}
-
-.sub-card:hover {
-  transform: scale(1.05);
-}
-
-
-.sub-card h4 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-.sub-card a {
-  display: block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .card {
-    padding: 10px;
-  }
-  
-  .card h3 {
-    font-size: 18px;
-  }
-  
-  .sub-card {
-    flex-basis: calc(50% - 10px);
-    margin: 5px;
-
-  }
-  
-  .sub-card h4 {
-    font-size: 11px;
-  }
-}
+  /* Styling untuk menu navigasi */
+  .navbar .nav-item.active {
+      font-weight: bold;
+      background: linear-gradient(to bottom, #00b7ff, #ffffff00);
+      color: #ffffff !important;
+      border-radius: 5px;
+      padding: 2px 3px;
+    }
 
 
 
@@ -500,43 +546,88 @@ margin: 20px;
 </head>
 
 <body>
- 
-  <nav class="navbar navbar-expand-lg navbar-dark">
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Layanan</a>
+          <li class="nav-item" id="nav-dashboard">
+            <a class="nav-link" href="#" onclick="showContent('dashboard')">Dashboard</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Produk</a>
+          <li class="nav-item" id="nav-produk">
+            <a class="nav-link" href="#" onclick="showContent('produk')">Produk</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pemesanan</a>
+          <li class="nav-item" id="nav-pemesanan">
+            <a class="nav-link" href="#" onclick="showContent('pemesanan')">Pemesanan</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Kontak</a>
+          <li class="nav-item" id="nav-kontak">
+            <a class="nav-link" href="#" onclick="showContent('kontak')">Kontak</a>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+  </nav><br><br><br>
+
+
+  <script>
+    function showContent(page) {
+      // Menampilkan konten sesuai dengan halaman yang dipilih
+      var content = document.getElementsByClassName('page-content');
+      for (var i = 0; i < content.length; i++) {
+        content[i].style.display = 'none';
+      }
+      document.getElementById('content-' + page).style.display = 'block';
   
-
-
-
+      // Menandai menu navigasi yang aktif
+      var navItems = document.getElementsByClassName('nav-item');
+      for (var j = 0; j < navItems.length; j++) {
+        navItems[j].classList.remove('active');
+      }
+      document.getElementById('nav-' + page).classList.add('active');
+    }
   
+    // Menandai dashboard sebagai halaman aktif saat halaman dibuka
+    document.addEventListener('DOMContentLoaded', function() {
+      showContent('dashboard');
+    });
+  </script>
+  
+  <!-- 
+  <script>
+    function showContent(page) {
+      // Menampilkan konten sesuai dengan halaman yang dipilih
+      var content = document.getElementsByClassName('page-content');
+      for (var i = 0; i < content.length; i++) {
+        content[i].style.display = 'none';
+      }
+      document.getElementById('content-' + page).style.display = 'block';
+
+      // Menandai menu navigasi yang aktif
+      var navItems = document.getElementsByClassName('nav-item');
+      for (var j = 0; j < navItems.length; j++) {
+        navItems[j].classList.remove('active');
+      }
+      document.getElementById('nav-' + page).classList.add('active');
+    }
+  </script>
+-->
+  <div id="content-dashboard" class="page-content">
+    
+    <!-- Konten dashboard -->
+    
+
 
   <div class="content">
     <div class="content-left">
       <h2>TERIMA JASA REMOTE</h2>
       <p id="pr">TOOL/AKTIVASI TOOL</p>
       <p id="pr">
-        
+
         TERIMA JASA REMOTE UNLOK PATREN - FRP -<br>
         BYPASS ICOUD - UNLOCK ICLOUD - UNLOCK<br>
         BYPASS MICLOUD - CHANGE IMEI - REPAIR<br>
@@ -544,116 +635,118 @@ margin: 20px;
         SERVER. DLL
       </p>
     </div><br>
-  
-    
+
+
     <br><br>
-<!--1 -->
-<div class="content-right">
-  <div class="box" onclick="showInputs()">
-    <h3>Masukkan No IMEI via Server</h3>
+    <!--1 -->
+    <div class="content-right">
+      <div class="box" onclick="showInputs()">
+        <h3>Masukkan No IMEI via Server</h3>
         <p>Contoh: 123456789012345</p>
-    <div id="input-container" style="display: none">
-      <div id="input-section">
-        <div class="input-group">
-          <input type="text" class="nama-input" placeholder="Nama Pengirim">
-        </div>
-        <div class="imei-group">
-          <input type="text" class="imei-input" placeholder="IMEI 1">
-          <input type="text" class="imei-input" placeholder="IMEI 2">
+        <div id="input-container" style="display: none">
+          <div id="input-section">
+            <div class="input-group">
+              <input type="text" class="nama-input" placeholder="Nama Pengirim">
+            </div>
+            <div class="imei-group">
+              <input type="text" class="imei-input" placeholder="IMEI 1">
+              <input type="text" class="imei-input" placeholder="IMEI 2">
+            </div>
+          </div>
+          <br>
+          <button onclick="addInputs()">
+            <i class="fas fa-plus"></i> Tambah
+          </button>
+          <button onclick="sendWhatsAppMessageFromInputs()">
+            <i class="fas fa-paper-plane"></i> Kirim
+          </button>
         </div>
       </div>
-      <br>
-      <button onclick="addInputs()">
-        <i class="fas fa-plus"></i> Tambah
-      </button>
-      <button onclick="sendWhatsAppMessageFromInputs()">
-        <i class="fas fa-paper-plane"></i> Kirim
-      </button>
-    </div>
-  </div>
 
-  <script>
-    function showInputs() {
-      var inputContainer = document.getElementById('input-container');
-      inputContainer.style.display = 'block';
-    }
+      <script>
+        function showInputs() {
+          var inputContainer = document.getElementById('input-container');
+          inputContainer.style.display = 'block';
+        }
 
-    function addInputs() {
-      var inputSection = document.getElementById('input-section');
-      var imeiCount = document.getElementsByClassName('imei-input').length;
-      var newInputsHTML = '';
+        function addInputs() {
+          var inputSection = document.getElementById('input-section');
+          var imeiCount = document.getElementsByClassName('imei-input').length;
+          var newInputsHTML = '';
 
-      newInputsHTML += '<div class="input-group">';
-      newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
-      newInputsHTML += '</div>';
-      newInputsHTML += '<div class="imei-group">';
-      newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1">';
-      newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2">';
-      newInputsHTML += '</div>';
+          newInputsHTML += '<div class="input-group">';
+          newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
+          newInputsHTML += '</div>';
+          newInputsHTML += '<div class="imei-group">';
+          newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1">';
+          newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2">';
+          newInputsHTML += '</div>';
 
-      inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
-    }
+          inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
+        }
 
-    function sendWhatsAppMessageFromInputs() {
-      var namaInputs = document.getElementsByClassName('nama-input');
-      var imeiGroups = document.getElementsByClassName('imei-group');
-      var message = '';
+        function sendWhatsAppMessageFromInputs() {
+          var namaInputs = document.getElementsByClassName('nama-input');
+          var imeiGroups = document.getElementsByClassName('imei-group');
+          var message = '';
 
-      for (var i = 0; i < namaInputs.length; i++) {
-        var namaInput = namaInputs[i];
-        var namaValue = namaInput.value.trim();
-        if (namaValue !== '') {
-          message += 'Nama Pengirim: ' + namaValue + '\n';
+          for (var i = 0; i < namaInputs.length; i++) {
+            var namaInput = namaInputs[i];
+            var namaValue = namaInput.value.trim();
+            if (namaValue !== '') {
+              message += 'Nama Pengirim: ' + namaValue + '\n';
 
-          var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
-          for (var j = 0; j < imeiInputs.length; j++) {
-            var imeiInput = imeiInputs[j];
-            var imeiValue = imeiInput.value.trim();
-            if (imeiValue !== '') {
-              message += 'IMEI ' + (j + 1) + ': ' + imeiValue + '\n';
+              var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
+              for (var j = 0; j < imeiInputs.length; j++) {
+                var imeiInput = imeiInputs[j];
+                var imeiValue = imeiInput.value.trim();
+                if (imeiValue !== '') {
+                  message += 'IMEI ' + (j + 1) + ': ' + imeiValue + '\n';
+                }
+              }
             }
           }
+
+          if (message === '') {
+            alert('Mohon masukkan data pengirim.');
+            return;
+          }
+
+          var encodedMessage = encodeURIComponent(message);
+          var phoneNumber = '+6283129564658'; // Ganti dengan nomor WhatsApp yang dituju
+          var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
+          window.open(url);
         }
-      }
 
-      if (message === '') {
-        alert('Mohon masukkan data pengirim.');
-        return;
-      }
-
-      var encodedMessage = encodeURIComponent(message);
-      var phoneNumber = '+6283129564658'; // Ganti dengan nomor WhatsApp yang dituju
-      var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
-      window.open(url);
-    }
-     function sendWhatsAppMessage(number, message) {
-         var encodedMessage = encodeURIComponent(message);
-         var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
-         window.open(url);
-       }
-  </script>
+        function sendWhatsAppMessage(number, message) {
+          var encodedMessage = encodeURIComponent(message);
+          var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
+          window.open(url);
+        }
+      </script>
 
 
 
-      
-      
-      
-      
-      
-      
-      
-     
+
+
+
+
+
+
+
+
       <div class="box" onclick="showPopup()">
         <h3>Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
         <p>Silakan pilih metode pembayaran yang tersedia.</p>
       </div>
 
-      
-      <div class="box" onclick="sendWhatsAppMessage('+6283129564658', 'Assalamualaikum, saya telah melakukan pembayaran dan ini adalah bukti pembayaran saya.')">
+
+      <div class="box"
+        onclick="sendWhatsAppMessage('+6283129564658', 'Assalamualaikum, saya telah melakukan pembayaran dan ini adalah bukti pembayaran saya.')">
         <h3>Hubungi Kami lewat WhatsApp</h3>
         <p>Kirimkan bukti pembayaran dan hubungi kami untuk informasi lebih lanjut.</p>
       </div>
-      
+
       <div class="overlay" onclick="hidePopup()">
         <div class="popup">
           <h3>Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
@@ -681,65 +774,8 @@ margin: 20px;
           </div>
         </div>
       </div>
-      
-
-     
-      
-      
-      
-      
-<!-- 
-      <div class="box" onclick="showChoosePhotoContainer()">
-        <h3>Masukkan bukti transfer</h3>
-        <p>Setelah pembayaran selesai, silakan kirimkan bukti transfer.</p>
-        <input type="file" id="upload-photo" style="display: none">
-        <div id="choose-photo-container" class="choose-photo-container">
-          <p>Pilih foto:</p>
-          <button id="choose-photo-btn" onclick="selectPhoto()">Pilih Foto</button>
-        </div>
-        <div id="preview-photo" class="preview-photo" style="display: none"></div>
-        <button onclick="sendPhotoViaWhatsApp('+6283129564658')" id="send-whatsapp-btn" style="display: none">Kirim Foto lewat WhatsApp</button>
-      </div>
-      
-      <script>
-        function showChoosePhotoContainer() {
-          var choosePhotoContainer = document.getElementById('choose-photo-container');
-          choosePhotoContainer.style.display = 'block';
-        }
-      
-        function selectPhoto() {
-          var uploadInput = document.getElementById('upload-photo');
-          uploadInput.click();
-          uploadInput.addEventListener('change', function() {
-            var preview = document.getElementById('preview-photo');
-            var photo = uploadInput.files[0];
-            var reader = new FileReader();
-            reader.onload = function(e) {
-              preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview Foto">';
-              document.getElementById('send-whatsapp-btn').style.display = 'block';
-              preview.style.display = 'block';
-            }
-            reader.readAsDataURL(photo);
-          });
-        }
-      
-        function sendPhotoViaWhatsApp(number) {
-          var uploadInput = document.getElementById('upload-photo');
-          var photo = uploadInput.files[0];
-          var reader = new FileReader();
-          reader.onload = function(e) {
-            var encodedPhoto = encodeURIComponent(e.target.result);
-            var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=Kirim foto' + '&attachment=' + encodedPhoto;
-            window.open(url);
-          }
-          reader.readAsDataURL(photo);
-        }
-      </script>
-      -->
-      
     </div>
   </div>
-
 
 
   <div class="custom-box">
@@ -748,148 +784,177 @@ margin: 20px;
     <i class="fas fa-arrow-right custom-box-icon"></i>
   </div>
   <script>
-    document.querySelector('.custom-box-icon').addEventListener('click', function() {
-      window.location.href = 'https://dezibypass.com/check-imei-kemenperin/?fbclid=IwAR18hj3aPIDQGm1dMwn-yElvq_-FKh-kohwx-3nDfoOkIjDOAqfABw7O9aA';
+    document.querySelector('.custom-box-icon').addEventListener('click', function () {
+      window.location.href =
+        'https://dezibypass.com/check-imei-kemenperin/?fbclid=IwAR18hj3aPIDQGm1dMwn-yElvq_-FKh-kohwx-3nDfoOkIjDOAqfABw7O9aA';
     });
   </script>
-    
-    <div class="card">
-      <h3>Bahan Download Remote via PC/Laptop</h3>
-      <div class="card-container">
-        <div class="sub-card">
-          <h4>Ultraviewer</h4>
-          <a href="https://www.ultraviewer.net/en/download.html" target="_blank">Download</a>
-        </div>
-        <div class="sub-card">
-          <h4>USB Redirector</h4>
-          <a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file" target="_blank">Download</a>
-        </div>
-        <div class="sub-card">
-          <h4>Radmin VPN</h4>
-          <a href="https://www.radmin-vpn.com/" target="_blank">Download</a>
-        </div>
+
+  <div class="card">
+    <h3>Bahan Download Remote via PC/Laptop</h3>
+    <div class="card-container">
+      <div class="sub-card">
+        <h4>Ultraviewer</h4>
+        <a href="https://www.ultraviewer.net/en/download.html" target="_blank">Download</a>
+      </div>
+      <div class="sub-card">
+        <h4>USB Redirector</h4>
+        <a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file" target="_blank">Download</a>
+      </div>
+      <div class="sub-card">
+        <h4>Radmin VPN</h4>
+        <a href="https://www.radmin-vpn.com/" target="_blank">Download</a>
       </div>
     </div>
-    
+  </div>
+ 
 
-    <div class="testimonial-section">
-      <h2 style="color: #e6e6e6; margin: 30px;">Testimoni</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial-slide">
-          <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
+
+  <div class="testimonial-section">
+    <h2 style="color: #e6e6e6; margin: 30px;">Testimoni</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-slide">
+        <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
       </div>
     </div>
-    
-
-<!-- Modal untuk memperbesar gambar -->
-<div id="imageModal" class="modal">
-  <span class="close" onclick="closeImageModal()">&times;</span>
-  <img id="modalImage" src="" alt="Gambar Testimoni">
-</div>
+  </div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('.testimonial-slider').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 1000,
-      arrows: true,
-      dots: true,
-      prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-      nextArrow: '<button type="button" class="slick-next">Next</button>',
+  <!-- Modal untuk memperbesar gambar -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeImageModal()">&times;</span>
+    <img id="modalImage" src="" alt="Gambar Testimoni">
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.testimonial-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        arrows: true,
+        dots: true,
+        prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+        nextArrow: '<button type="button" class="slick-next">Next</button>',
+      });
     });
-  });
-</script>
-<script>
-  // Fungsi untuk membuka modal gambar
-function openImageModal(image) {
-  document.getElementById("modalImage").src = image.src;
-  document.getElementById("imageModal").style.display = "block";
-}
+  </script>
+  <script>
+    // Fungsi untuk membuka modal gambar
+    function openImageModal(image) {
+      document.getElementById("modalImage").src = image.src;
+      document.getElementById("imageModal").style.display = "block";
+    }
 
-// Fungsi untuk menutup modal gambar
-function closeImageModal() {
-  document.getElementById("imageModal").style.display = "none";
-}
+    // Fungsi untuk menutup modal gambar
+    function closeImageModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+  </script>
 
-</script>
 
-  <footer class="footer">
-    <p>Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
 
-    <div class="footer-info">
-      <a href="#">Tentang Kami</a>
-      <a href="#">Kebijakan Privasi</a>
-      <a href="#">Hubungi Kami</a>
-    </div>
-  </footer>
+
+
+
+  <script>
+    function showPopup() {
+      var overlay = document.querySelector('.overlay');
+      overlay.classList.add('active');
+    }
+
+    function hidePopup() {
+      var overlay = document.querySelector('.overlay');
+      overlay.classList.remove('active');
+    }
+
+    function copyToClipboard(text) {
+      var tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('Nomor berhasil disalin: ' + text);
+    }
+  </script>
+
+
+
+  </div>
+
+  <div id="content-produk" class="page-content" style="display: none;">
+    <!-- Konten produk -->
+
+  </div>
+
+  <div id="content-pemesanan" class="page-content" style="display: none;">
+    
+    <!-- Konten pemesanan -->
+  </div>
+
+  <div id="content-kontak" class="page-content" style="display: none;">
+    
+    <!-- Konten kontak -->
+  </div>
+
  
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br><br><br>
+<footer class="footer">
+  <p>Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
 
- 
- 
- <script>
-  function showPopup() {
-    var overlay = document.querySelector('.overlay');
-    overlay.classList.add('active');
-  }
-  
-  function hidePopup() {
-    var overlay = document.querySelector('.overlay');
-    overlay.classList.remove('active');
-  }
-  
-  function copyToClipboard(text) {
-    var tempInput = document.createElement('input');
-    tempInput.value = text;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-    alert('Nomor berhasil disalin: ' + text);
-  }
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <div class="footer-info">
+    <a href="#">Tentang Kami</a>
+    <a href="#">Kebijakan Privasi</a>
+    <a href="#">Hubungi Kami</a>
+  </div>
+</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
