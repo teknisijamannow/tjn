@@ -70,7 +70,7 @@ body::after {
     }
 
     .navbar {
-      background: linear-gradient(to bottom, #000000, #ffffff00);
+      background: linear-gradient(to bottom, #000000, #00000000);
     }
 
 
@@ -540,6 +540,18 @@ box-shadow: #ffffff;
       padding: 2px 3px;
     }
 
+    .navbar {
+  transition: background-color 0.3s ease;
+}
+
+.navbar.opened {
+  background-color: #000;
+}
+.navbar-toggler {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1;
+}
 
 
   </style>
@@ -551,7 +563,7 @@ box-shadow: #ffffff;
     <div class="container">
       <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNavbar()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -571,8 +583,15 @@ box-shadow: #ffffff;
         </ul>
       </div>
     </div>
-  </nav><br><br><br>
+  </nav>
+  <br><br><br>
+<script>
+  function toggleNavbar() {
+  var navbar = document.getElementById('navbar');
+  navbar.classList.toggle('opened');
+}
 
+</script>
 
   <script>
     function showContent(page) {
