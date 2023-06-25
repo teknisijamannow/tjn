@@ -686,7 +686,7 @@
             <a class="nav-link" href="#" onclick="showContent('pemesanan')">Pemesanan</a>
           </li> -->
           <li class="nav-item" id="nav-kontak">
-            <a class="nav-link" href="#" onclick="showContent('kontak')">Kontak</a>
+            <a class="nav-link" href="#" onclick="showContent('kontak')">Tentang Kami</a>
           </li>
         </ul>
       </div>
@@ -787,11 +787,64 @@
             <button onclick="addInputs()">
               <i class="fas fa-plus"></i>
             </button>
-            <button onclick="sendWhatsAppMessageFromInputs()">
+            <button onclick="sendEmailFromInputs()">
               <i class="fas fa-paper-plane"></i> Kirim
             </button>
           </div>
         </div>
+        
+
+        <script>
+          function addInputs() {
+            var inputSection = document.getElementById('input-section');
+            var imeiCount = document.getElementsByClassName('imei-input').length;
+            var newInputsHTML = '';
+        
+            newInputsHTML += '<div class="input-group">';
+            newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
+            newInputsHTML += '</div>';
+            newInputsHTML += '<div class="imei-group">';
+            newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1">';
+            newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2">';
+            newInputsHTML += '</div>';
+        
+            inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
+          }
+        
+          function sendEmailFromInputs() {
+            var namaInputs = document.getElementsByClassName('nama-input');
+            var imeiGroups = document.getElementsByClassName('imei-group');
+            var message = '';
+        
+            for (var i = 0; i < namaInputs.length; i++) {
+              var namaInput = namaInputs[i];
+              var namaValue = namaInput.value.trim();
+              if (namaValue !== '') {
+                message += 'Nama Pengirim: ' + namaValue + '\n';
+        
+                var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
+                for (var j = 0; j < imeiInputs.length; j++) {
+                  var imeiInput = imeiInputs[j];
+                  var imeiValue = imeiInput.value.trim();
+                  if (imeiValue !== '') {
+                    message += 'IMEI ' + (j + 1) + ': ' + imeiValue + '\n';
+                  }
+                }
+              }
+            }
+        
+            if (message === '') {
+              alert('Mohon masukkan data pengirim.');
+              return;
+            }
+        
+            var encodedMessage = encodeURIComponent(message);
+            var email = 'karomahpemalang0@gmail.com'; // Ganti dengan alamat email yang dituju
+            var subject = 'Pesan dari Form';
+            var url = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodedMessage;
+            window.open(url);
+          }
+        </script>
         
         <script>
           function showInputs(event) {
@@ -808,9 +861,7 @@
             }
           }
         </script>
-        
-        
-        
+        <!-- 
         <script>
         
           function addInputs() {
@@ -861,16 +912,16 @@
             var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
             window.open(url);
           }
+        </script>-->
 
-          function sendWhatsAppMessage(number, message) {
+
+<script>
+   function sendWhatsAppMessage(number, message) {
             var encodedMessage = encodeURIComponent(message);
             var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
             window.open(url);
           }
-        </script>
-
-
-
+</script>
 
 
 
@@ -1339,13 +1390,7 @@
  
   <br><br><br><br><br>
   <footer class="footer">
-    <p>Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
-
-    <div class="footer-info">
-      <a href="#">Tentang Kami</a>
-      <a href="#">Kebijakan Privasi</a>
-      <a href="#">Hubungi Kami</a>
-    </div>
+    <p style="font-size: 12px; color: #ffffffa1;">Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
   </footer>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
