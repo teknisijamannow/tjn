@@ -15,38 +15,40 @@
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
   <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  z-index: 0;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      z-index: 0;
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* Update this line */
-  background-color: rgba(0, 0, 0, 0.418);
-  z-index: -1;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      /* Update this line */
+      background-color: rgba(0, 0, 0, 0.418);
+      z-index: -1;
+    }
 
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* Update this line */
-  background-image: url('img/00.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -2;
-}
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      /* Update this line */
+      background-image: url('img/00.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+    }
 
 
 
@@ -78,12 +80,12 @@ body::after {
 
     .navbar .nav-link {
       transition: all 0.3s;
-  font-weight: bold;
-margin-right: 5px;
-margin-left: 5px;
+      font-weight: bold;
+      margin-right: 5px;
+      margin-left: 5px;
     }
 
-   
+
 
     /* Content */
     .content {
@@ -104,8 +106,8 @@ margin-left: 5px;
       font-weight: bold;
       margin-bottom: 20px;
       color: #e6e6e6;
-      
-     
+
+
     }
 
     .content-left p {
@@ -475,7 +477,7 @@ margin-left: 5px;
       padding: 10px;
       border-radius: 8px;
       text-align: center;
-box-shadow: #ffffff;
+      box-shadow: #ffffff;
       transition: transform 0.3s ease;
     }
 
@@ -497,11 +499,12 @@ box-shadow: #ffffff;
       color: #1eff00;
       font-weight: bold;
     }
+
     .sub-card a:hover {
-  color: #fff;
-  background-color: #1eff00;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
+      color: #fff;
+      background-color: #1eff00;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
 
     @media (max-width: 768px) {
       .card {
@@ -522,9 +525,9 @@ box-shadow: #ffffff;
         font-size: 11px;
       }
     }
- 
-  /* Styling untuk menu navigasi */
-  .navbar .nav-item.active {
+
+    /* Styling untuk menu navigasi */
+    .navbar .nav-item.active {
       font-weight: bold;
       background: linear-gradient(to bottom, #00b7ff, #ffffff00);
       color: #ffffff !important;
@@ -533,19 +536,20 @@ box-shadow: #ffffff;
     }
 
     .navbar {
-  transition: background-color 0.3s ease;
-}
+      transition: background-color 0.3s ease;
+    }
 
-.navbar.opened {
-  background-color: #000;
-}
-.navbar-toggler {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1;
-}
+    .navbar.opened {
+      background-color: #000;
+    }
 
-.card {
+    .navbar-toggler {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1;
+    }
+
+    .card {
       max-width: 100%;
       background-color: #ffffff;
       border-radius: 8px;
@@ -554,51 +558,55 @@ box-shadow: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     }
-.card-img-top {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 5px; /* Tambahkan overflow: hidden untuk menghindari pemotongan foto */
-}
+
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 5px;
+      /* Tambahkan overflow: hidden untuk menghindari pemotongan foto */
+    }
 
 
-.card-title {
-  font-size: 18px; /* Atur ukuran teks judul */
-  margin-top: 10px; /* Atur margin atas judul */
-  color: #000000;
-  font-weight: bold;
-}
+    .card-title {
+      font-size: 18px;
+      /* Atur ukuran teks judul */
+      margin-top: 10px;
+      /* Atur margin atas judul */
+      color: #000000;
+      font-weight: bold;
+    }
 
-.btn-primary {
-  font-size: 14px; /* Atur ukuran teks tombol */
-  margin-top: 10px; /* Atur margin atas tombol */
-  padding: 8px 16px; /* Atur padding tombol */
-}
+    .btn-primary {
+      font-size: 14px;
+      /* Atur ukuran teks tombol */
+      margin-top: 10px;
+      /* Atur margin atas tombol */
+      padding: 8px 16px;
+      /* Atur padding tombol */
+    }
 
-/* Media query untuk layar perangkat seluler */
-/* Media query untuk layar perangkat seluler */
-@media (max-width: 767px) {
-  .card {
-    max-width: 100%;
-  }
+    /* Media query untuk layar perangkat seluler */
+    /* Media query untuk layar perangkat seluler */
+    @media (max-width: 767px) {
+      .card {
+        max-width: 100%;
+      }
 
-  .card-img-top {
-    height: 150px;
-  }
+      .card-img-top {
+        height: 150px;
+      }
 
-  .card-title {
-    font-size: 16px;
-  }
+      .card-title {
+        font-size: 16px;
+      }
 
-  .btn-primary {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
-
-
-
+      .btn-primary {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+    }
   </style>
 </head>
 
@@ -630,13 +638,12 @@ box-shadow: #ffffff;
     </div>
   </nav>
   <br><br><br>
-<script>
-  function toggleNavbar() {
-  var navbar = document.getElementById('navbar');
-  navbar.classList.toggle('opened');
-}
-
-</script>
+  <script>
+    function toggleNavbar() {
+      var navbar = document.getElementById('navbar');
+      navbar.classList.toggle('opened');
+    }
+  </script>
 
   <script>
     function showContent(page) {
@@ -646,7 +653,7 @@ box-shadow: #ffffff;
         content[i].style.display = 'none';
       }
       document.getElementById('content-' + page).style.display = 'block';
-  
+
       // Menandai menu navigasi yang aktif
       var navItems = document.getElementsByClassName('nav-item');
       for (var j = 0; j < navItems.length; j++) {
@@ -654,13 +661,13 @@ box-shadow: #ffffff;
       }
       document.getElementById('nav-' + page).classList.add('active');
     }
-  
+
     // Menandai dashboard sebagai halaman aktif saat halaman dibuka
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       showContent('dashboard');
     });
   </script>
-  
+
   <!-- 
   <script>
     function showContent(page) {
@@ -681,116 +688,131 @@ box-shadow: #ffffff;
   </script>
 -->
   <div id="content-dashboard" class="page-content">
-    
+
     <!-- Konten dashboard -->
-    
 
 
-  <div class="content">
-    <div class="content-left">
-      <h2>TERIMA JASA REMOTE</h2>
-      <p id="pr">TOOL/AKTIVASI TOOL</p>
-      <p id="pr">
-        UNLOCK PATTERN - FRP - BYPASS ICLOUD - <br>
-        UNLOCK ICLOUD - UNLOCK MICLOUD - UNLOCK<br>
-        BYPASS MICLOUD - CHANGE IMEI - REPAIR <br>
-        BESIBAND - AUTH MI SERVER - AUTH OPPO<br>
-        SERVER. DLL
-      </p>
-      
-      
-      
-      
-    </div><br>
+
+    <div class="content">
+      <div class="content-left">
+        <h2>TERIMA JASA REMOTE</h2>
+        <p id="pr">TOOL/AKTIVASI TOOL</p>
+        <p id="pr">
+          UNLOCK PATTERN - FRP - BYPASS ICLOUD - <br>
+          UNLOCK ICLOUD - UNLOCK MICLOUD - UNLOCK<br>
+          BYPASS MICLOUD - CHANGE IMEI - REPAIR <br>
+          BESIBAND - AUTH MI SERVER - AUTH OPPO<br>
+          SERVER. DLL
+        </p>
 
 
-    <br><br>
-    <!--1 -->
-    <div class="content-right">
-      <div class="box" onclick="showInputs()">
-        <h3>Masukkan No IMEI via Server</h3>
-        <p>Contoh: 123456789012345</p>
-        <div id="input-container" style="display: none">
-          <div id="input-section">
-            <div class="input-group">
-              <input type="text" class="nama-input" placeholder="Nama Pengirim">
+
+
+      </div><br>
+
+
+      <br><br>
+      <!--1 -->
+      <div class="content-right">
+        <div class="box" onclick="showInputs(event)">
+          <h3>Masukkan No IMEI via Server</h3>
+          <p>Contoh: 123456789012345</p>
+        
+          <div id="input-container" style="display: none">
+            <div id="input-section">
+              <div class="input-group">
+                <input type="text" class="nama-input" placeholder="Nama Pengirim">
+              </div>
+              <div class="imei-group">
+                <input type="text" class="imei-input" placeholder="IMEI 1">
+                <input type="text" class="imei-input" placeholder="IMEI 2">
+              </div>
             </div>
-            <div class="imei-group">
-              <input type="text" class="imei-input" placeholder="IMEI 1">
-              <input type="text" class="imei-input" placeholder="IMEI 2">
-            </div>
+            <br>
+            <button onclick="addInputs()">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button onclick="sendWhatsAppMessageFromInputs()">
+              <i class="fas fa-paper-plane"></i> Kirim
+            </button>
           </div>
-          <br>
-          <button onclick="addInputs()">
-            <i class="fas fa-plus"></i> Tambah
-          </button>
-          <button onclick="sendWhatsAppMessageFromInputs()">
-            <i class="fas fa-paper-plane"></i> Kirim
-          </button>
         </div>
-      </div>
-
-      <script>
-        function showInputs() {
-          var inputContainer = document.getElementById('input-container');
-          inputContainer.style.display = 'block';
-        }
-
-        function addInputs() {
-          var inputSection = document.getElementById('input-section');
-          var imeiCount = document.getElementsByClassName('imei-input').length;
-          var newInputsHTML = '';
-
-          newInputsHTML += '<div class="input-group">';
-          newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
-          newInputsHTML += '</div>';
-          newInputsHTML += '<div class="imei-group">';
-          newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1">';
-          newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2">';
-          newInputsHTML += '</div>';
-
-          inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
-        }
-
-        function sendWhatsAppMessageFromInputs() {
-          var namaInputs = document.getElementsByClassName('nama-input');
-          var imeiGroups = document.getElementsByClassName('imei-group');
-          var message = '';
-
-          for (var i = 0; i < namaInputs.length; i++) {
-            var namaInput = namaInputs[i];
-            var namaValue = namaInput.value.trim();
-            if (namaValue !== '') {
-              message += 'Nama Pengirim: ' + namaValue + '\n';
-
-              var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
-              for (var j = 0; j < imeiInputs.length; j++) {
-                var imeiInput = imeiInputs[j];
-                var imeiValue = imeiInput.value.trim();
-                if (imeiValue !== '') {
-                  message += 'IMEI ' + (j + 1) + ': ' + imeiValue + '\n';
-                }
+        
+        <script>
+          function showInputs(event) {
+            var inputContainer = document.getElementById('input-container');
+            if (inputContainer.style.display === 'none') {
+              inputContainer.style.display = 'block';
+              event.stopPropagation();
+            } else {
+              var targetElement = event.target;
+              var isInsideContainer = inputContainer.contains(targetElement);
+              if (!isInsideContainer) {
+                inputContainer.style.display = 'none';
               }
             }
           }
+        </script>
+        
+        
+        
+        <script>
+        
+          function addInputs() {
+            var inputSection = document.getElementById('input-section');
+            var imeiCount = document.getElementsByClassName('imei-input').length;
+            var newInputsHTML = '';
 
-          if (message === '') {
-            alert('Mohon masukkan data pengirim.');
-            return;
+            newInputsHTML += '<div class="input-group">';
+            newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
+            newInputsHTML += '</div>';
+            newInputsHTML += '<div class="imei-group">';
+            newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1">';
+            newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2">';
+            newInputsHTML += '</div>';
+
+            inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
           }
 
-          var encodedMessage = encodeURIComponent(message);
-          var phoneNumber = '+6283129564658'; // Ganti dengan nomor WhatsApp yang dituju
-          var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
-          window.open(url);
-        }
+          function sendWhatsAppMessageFromInputs() {
+            var namaInputs = document.getElementsByClassName('nama-input');
+            var imeiGroups = document.getElementsByClassName('imei-group');
+            var message = '';
 
-        function sendWhatsAppMessage(number, message) {
-          var encodedMessage = encodeURIComponent(message);
-          var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
-          window.open(url);
-        }
-      </script>
+            for (var i = 0; i < namaInputs.length; i++) {
+              var namaInput = namaInputs[i];
+              var namaValue = namaInput.value.trim();
+              if (namaValue !== '') {
+                message += 'Nama Pengirim: ' + namaValue + '\n';
+
+                var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
+                for (var j = 0; j < imeiInputs.length; j++) {
+                  var imeiInput = imeiInputs[j];
+                  var imeiValue = imeiInput.value.trim();
+                  if (imeiValue !== '') {
+                    message += 'IMEI ' + (j + 1) + ': ' + imeiValue + '\n';
+                  }
+                }
+              }
+            }
+
+            if (message === '') {
+              alert('Mohon masukkan data pengirim.');
+              return;
+            }
+
+            var encodedMessage = encodeURIComponent(message);
+            var phoneNumber = '+6283129564658'; // Ganti dengan nomor WhatsApp yang dituju
+            var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
+            window.open(url);
+          }
+
+          function sendWhatsAppMessage(number, message) {
+            var encodedMessage = encodeURIComponent(message);
+            var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
+            window.open(url);
+          }
+        </script>
 
 
 
@@ -802,189 +824,189 @@ box-shadow: #ffffff;
 
 
 
-      <div class="box" onclick="showPopup()">
-        <h3>Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
-        <p>Silakan pilih metode pembayaran yang tersedia.</p>
-      </div>
-
-
-      <div class="box"
-        onclick="sendWhatsAppMessage('+6283129564658', 'Assalamualaikum, saya telah melakukan pembayaran dan ini adalah bukti pembayaran saya.')">
-        <h3>Hubungi Kami lewat WhatsApp</h3>
-        <p>Kirimkan bukti pembayaran dan hubungi kami untuk informasi lebih lanjut.</p>
-      </div>
-
-      <div class="overlay" onclick="hidePopup()">
-        <div class="popup">
+        <div class="box" onclick="showPopup()">
           <h3>Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
-          <p>Silakan pilih metode pembayaran yang tersedia:</p>
-          <div class="number">
-            <span>Mandiri:</span>
-            <span class="account-number">1400018086604
-            </span>
-            <button class="btn" onclick="copyToClipboard('1400018086604')">Salin</button>
-          </div>
-          <div class="number">
-            <span>Dana:</span>
-            <span class="account-number">083108497963</span>
-            <button class="btn" onclick="copyToClipboard('083108497963')">Salin</button>
-          </div>
-          <div class="number">
-            <span>Ovo:</span>
-            <span class="account-number">083108497963</span>
-            <button class="btn" onclick="copyToClipboard('083108497963')">Salin</button>
-          </div>
-          <div class="number">
-            <span>Paypal:</span>
-            <span class="account-number">karomahpemalang0@gmail.com</span>
-            <button class="btn" onclick="copyToClipboard('karomahpemalang0@gmail.com')">Salin</button>
+          <p>Silakan pilih metode pembayaran yang tersedia.</p>
+        </div>
+
+
+        <div class="box"
+          onclick="sendWhatsAppMessage('+6283129564658', 'Assalamualaikum, saya telah melakukan pembayaran dan ini adalah bukti pembayaran saya.')">
+          <h3>Hubungi Kami lewat WhatsApp</h3>
+          <p>Kirimkan bukti pembayaran dan hubungi kami untuk informasi lebih lanjut.</p>
+        </div>
+
+        <div class="overlay" onclick="hidePopup()">
+          <div class="popup">
+            <h3>Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
+            <p>Silakan pilih metode pembayaran yang tersedia:</p>
+            <div class="number">
+              <span>Mandiri:</span>
+              <span class="account-number">1400018086604
+              </span>
+              <button class="btn" onclick="copyToClipboard('1400018086604')">Salin</button>
+            </div>
+            <div class="number">
+              <span>Dana:</span>
+              <span class="account-number">083108497963</span>
+              <button class="btn" onclick="copyToClipboard('083108497963')">Salin</button>
+            </div>
+            <div class="number">
+              <span>Ovo:</span>
+              <span class="account-number">083108497963</span>
+              <button class="btn" onclick="copyToClipboard('083108497963')">Salin</button>
+            </div>
+            <div class="number">
+              <span>Paypal:</span>
+              <span class="account-number">karomahpemalang0@gmail.com</span>
+              <button class="btn" onclick="copyToClipboard('karomahpemalang0@gmail.com')">Salin</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
 
-  <div class="custom-box">
-    <img src="img/po.png" alt="Logo" class="custom-box-logo">
-    <h3 class="custom-box-title">Cek IMEI</h3>
-    <i class="fas fa-arrow-right custom-box-icon"></i>
-  </div>
-  <script>
-    document.querySelector('.custom-box-icon').addEventListener('click', function () {
-      window.location.href =
-        'https://bit.ly/3CAjX9f';
-    });
-  </script>
-
-  <div class="card" style="background-color: #00000000;">
-    <h3>Bahan Download Remote via PC/Laptop</h3>
-    <div class="card-container">
-      <div class="sub-card">
-        <h4>Ultraviewer</h4>
-        <a href="https://www.ultraviewer.net/en/download.html" target="_blank">Download</a>
-      </div>
-      <div class="sub-card">
-        <h4>USB Redirector</h4>
-        <a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file" target="_blank">Download</a>
-      </div>
-      <div class="sub-card">
-        <h4>Radmin VPN</h4>
-        <a href="https://www.radmin-vpn.com/" target="_blank">Download</a>
-      </div>
+    <div class="custom-box">
+      <img src="img/po.png" alt="Logo" class="custom-box-logo">
+      <h3 class="custom-box-title">Cek IMEI</h3>
+      <i class="fas fa-arrow-right custom-box-icon"></i>
     </div>
-  </div>
- 
-
-
-  <div class="testimonial-section">
-    <h2 style="color: #e6e6e6; margin: 30px;">Testimoni</h2>
-    <div class="testimonial-slider">
-      <div class="testimonial-slide">
-        <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Modal untuk memperbesar gambar -->
-  <div id="imageModal" class="modal">
-    <span class="close" onclick="closeImageModal()">&times;</span>
-    <img id="modalImage" src="" alt="Gambar Testimoni">
-  </div>
-
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.testimonial-slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1000,
-        arrows: true,
-        dots: true,
-        prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-        nextArrow: '<button type="button" class="slick-next">Next</button>',
+    <script>
+      document.querySelector('.custom-box-icon').addEventListener('click', function () {
+        window.location.href =
+          'https://bit.ly/3CAjX9f';
       });
-    });
-  </script>
-  <script>
-    // Fungsi untuk membuka modal gambar
-    function openImageModal(image) {
-      document.getElementById("modalImage").src = image.src;
-      document.getElementById("imageModal").style.display = "block";
-    }
+    </script>
 
-    // Fungsi untuk menutup modal gambar
-    function closeImageModal() {
-      document.getElementById("imageModal").style.display = "none";
-    }
-  </script>
+    <div class="card" style="background-color: #00000000;">
+      <h3>Bahan Download Remote via PC/Laptop</h3>
+      <div class="card-container">
+        <div class="sub-card">
+          <h4>Ultraviewer</h4>
+          <a href="https://www.ultraviewer.net/en/download.html" target="_blank">Download</a>
+        </div>
+        <div class="sub-card">
+          <h4>USB Redirector</h4>
+          <a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file" target="_blank">Download</a>
+        </div>
+        <div class="sub-card">
+          <h4>Radmin VPN</h4>
+          <a href="https://www.radmin-vpn.com/" target="_blank">Download</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="testimonial-section">
+      <h2 style="color: #e6e6e6; margin: 30px;">Testimoni</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial-slide">
+          <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal untuk memperbesar gambar -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeImageModal()">&times;</span>
+      <img id="modalImage" src="" alt="Gambar Testimoni">
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.testimonial-slider').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          arrows: true,
+          dots: true,
+          prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+          nextArrow: '<button type="button" class="slick-next">Next</button>',
+        });
+      });
+    </script>
+    <script>
+      // Fungsi untuk membuka modal gambar
+      function openImageModal(image) {
+        document.getElementById("modalImage").src = image.src;
+        document.getElementById("imageModal").style.display = "block";
+      }
+
+      // Fungsi untuk menutup modal gambar
+      function closeImageModal() {
+        document.getElementById("imageModal").style.display = "none";
+      }
+    </script>
 
 
 
 
 
 
-  <script>
-    function showPopup() {
-      var overlay = document.querySelector('.overlay');
-      overlay.classList.add('active');
-    }
+    <script>
+      function showPopup() {
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.add('active');
+      }
 
-    function hidePopup() {
-      var overlay = document.querySelector('.overlay');
-      overlay.classList.remove('active');
-    }
+      function hidePopup() {
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.remove('active');
+      }
 
-    function copyToClipboard(text) {
-      var tempInput = document.createElement('input');
-      tempInput.value = text;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      alert('Nomor berhasil disalin: ' + text);
-    }
-  </script>
+      function copyToClipboard(text) {
+        var tempInput = document.createElement('input');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Nomor berhasil disalin: ' + text);
+      }
+    </script>
 
 
 
@@ -995,101 +1017,137 @@ box-shadow: #ffffff;
     <br><br><br>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-1">
-            <img src="img/tool1.png" class="card-img-top" alt="Foto 1">
-            <div class="card-body">
-              <h5 class="card-title">Unlocktool</h5>
-              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Unlocktool" class="btn btn-primary">Pesan via WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-2">
-            <img src="img/tool2.jpeg" class="card-img-top" alt="Foto 2">
-            <div class="card-body">
-              <h5 class="card-title">Cf tool</h5>
-              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Cf%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-3">
-            <img src="img/tool3.png" class="card-img-top" alt="Foto 3">
-            <div class="card-body">
-              <h5 class="card-title">Dft tool</h5>
-              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Dft%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-4">
-            <img src="img/tool4.png" class="card-img-top" alt="Foto 4">
-            <div class="card-body">
-              <h5 class="card-title">Chimera tool pro</h5>
-              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Chimera%20tool%20pro" class="btn btn-primary">Pesan via WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-5">
-            <img src="foto5.jpg" class="card-img-top" alt="Foto 5">
-            <div class="card-body">
-              <h5 class="card-title">Garuda tool</h5>
-              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Garuda%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-6">
-            <img src="img/tool5.jpeg" class="card-img-top" alt="Foto 6">
-            <div class="card-body">
-              <h5 class="card-title">Z3x tool pro</h5>
-              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Z3x%20tool%20pro" class="btn btn-primary">Pesan via WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-7">
-            <img src="img/tool6.png" class="card-img-top" alt="Foto 7">
-            <div class="card-body">
-              <h5 class="card-title">Pandora tool</h5>
-              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Pandora%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
-            </div>
-          </div>
+       <div class="col-lg-4 col-md-6">
+    <div class="card card-1">
+      <img src="img/tool1.png" class="card-img-top" alt="Foto 1">
+      <div class="card-body">
+        <h5 class="card-title">Unlocktool</h5>
+        <div class="button-group">
+          <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
+          <a href="https://unlocktool.net/download/" class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
+          <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Unlocktool" class="btn btn-primary">Rental via WhatsApp</a>
         </div>
       </div>
     </div>
-    
-    
+  </div>
+
+  <div class="col-lg-4 col-md-6">
+    <div class="card card-2">
+      <img src="img/tool2.jpeg" class="card-img-top" alt="Foto 2">
+      <div class="card-body">
+        <h5 class="card-title">Cf tool</h5>
+        <div class="button-group">
+          <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
+          <a href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8" class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
+          <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Cf%20tool" class="btn btn-primary">Rental via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6">
+    <div class="card card-3">
+      <img src="img/tool3.png" class="card-img-top" alt="Foto 3">
+      <div class="card-body">
+        <h5 class="card-title">Dft tool</h5>
+        <div class="button-group">
+          <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
+          <a href="https://www.dftpro.com/" class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
+          <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Dft%20tool" class="btn btn-primary">Rental via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+  <div class="col-lg-4 col-md-6">
+    <div class="card card-4">
+      <img src="img/tool4.png" class="card-img-top" alt="Foto 4">
+      <div class="card-body">
+        <h5 class="card-title">Chimera tool pro</h5>
+        <div class="button-group">
+          <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
+          <a href="https://chimeratool.com/en/download" class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
+          <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Chimera%20tool%20pro" class="btn btn-primary">Rental via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-4 col-md-6">
+    <div class="card card-5">
+      <img src="img/tool7.jpg" class="card-img-top" alt="Foto 5">
+      <div class="card-body">
+        <h5 class="card-title">Garuda tool</h5>
+        <div class="button-group">
+          <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
+          <a href="https://garuda-genpro.com/download/Garuda-GenPro.7z" class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
+          <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Garuda%20tool" class="btn btn-primary">Rental via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-4 col-md-6">
+    <div class="card card-6">
+      <img src="img/tool5.jpeg" class="card-img-top" alt="Foto 6">
+      <div class="card-body">
+        <h5 class="card-title">Z3x tool pro</h5>
+        <div class="button-group">
+          <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
+          <a href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip" class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
+          <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Z3x%20tool%20pro" class="btn btn-primary">Rental via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-4 col-md-6">
+    <div class="card card-7">
+      <img src="img/tool6.png" class="card-img-top" alt="Foto 7">
+      <div class="card-body">
+        <h5 class="card-title">Pandora tool</h5>
+        <div class="button-group">
+          <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
+          <a href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk" class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
+          <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Pandora%20tool" class="btn btn-primary">Rental via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+      </div>
+      
+    </div>
+
+
   </div>
 
   <div id="content-pemesanan" class="page-content" style="display: none;">
-    
+
     <!-- Konten pemesanan -->
   </div>
 
   <div id="content-kontak" class="page-content" style="display: none;">
-    
+
     <!-- Konten kontak -->
   </div>
 
- 
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-  <br><br><br><br><br>
-<br><br><br><br><br>
-<br><br><br><br><br>
-<br><br><br><br><br>
-<footer class="footer">
-  <p>Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
 
-  <div class="footer-info">
-    <a href="#">Tentang Kami</a>
-    <a href="#">Kebijakan Privasi</a>
-    <a href="#">Hubungi Kami</a>
-  </div>
-</footer>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <footer class="footer">
+    <p>Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
+
+    <div class="footer-info">
+      <a href="#">Tentang Kami</a>
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
+  </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 
