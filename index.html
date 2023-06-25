@@ -30,7 +30,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100vh; /* Update this line */
-  background-color: rgba(0, 0, 0, 0.685);
+  background-color: rgba(0, 0, 0, 0.418);
   z-index: -1;
 }
 
@@ -453,15 +453,6 @@ margin-left: 5px;
       }
     }
 
-    .card {
-      max-width: 100%;
-      background-color: #00000000;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    }
 
     .card h3 {
       font-size: 24px;
@@ -554,6 +545,57 @@ box-shadow: #ffffff;
   line-height: 1;
 }
 
+.card {
+      max-width: 100%;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    }
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px; /* Tambahkan overflow: hidden untuk menghindari pemotongan foto */
+}
+
+
+.card-title {
+  font-size: 18px; /* Atur ukuran teks judul */
+  margin-top: 10px; /* Atur margin atas judul */
+  color: #000000;
+  font-weight: bold;
+}
+
+.btn-primary {
+  font-size: 14px; /* Atur ukuran teks tombol */
+  margin-top: 10px; /* Atur margin atas tombol */
+  padding: 8px 16px; /* Atur padding tombol */
+}
+
+/* Media query untuk layar perangkat seluler */
+/* Media query untuk layar perangkat seluler */
+@media (max-width: 767px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .card-img-top {
+    height: 150px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
 
   </style>
 </head>
@@ -810,7 +852,7 @@ box-shadow: #ffffff;
     });
   </script>
 
-  <div class="card">
+  <div class="card" style="background-color: #00000000;">
     <h3>Bahan Download Remote via PC/Laptop</h3>
     <div class="card-container">
       <div class="sub-card">
@@ -945,7 +987,76 @@ box-shadow: #ffffff;
 
   <div id="content-produk" class="page-content" style="display: none;">
     <!-- Konten produk -->
-
+    <br><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-1">
+            <img src="img/tool1.png" class="card-img-top" alt="Foto 1">
+            <div class="card-body">
+              <h5 class="card-title">Unlocktool</h5>
+              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Unlocktool" class="btn btn-primary">Pesan via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-2">
+            <img src="img/tool2.jpeg" class="card-img-top" alt="Foto 2">
+            <div class="card-body">
+              <h5 class="card-title">Cf tool</h5>
+              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Cf%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-3">
+            <img src="img/tool3.png" class="card-img-top" alt="Foto 3">
+            <div class="card-body">
+              <h5 class="card-title">Dft tool</h5>
+              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Dft%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-4">
+            <img src="foto4.jpg" class="card-img-top" alt="Foto 4">
+            <div class="card-body">
+              <h5 class="card-title">Chimera tool pro</h5>
+              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Chimera%20tool%20pro" class="btn btn-primary">Pesan via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-5">
+            <img src="foto5.jpg" class="card-img-top" alt="Foto 5">
+            <div class="card-body">
+              <h5 class="card-title">Garuda tool</h5>
+              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Garuda%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-6">
+            <img src="foto6.jpg" class="card-img-top" alt="Foto 6">
+            <div class="card-body">
+              <h5 class="card-title">Z3x tool pro</h5>
+              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Z3x%20tool%20pro" class="btn btn-primary">Pesan via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-7">
+            <img src="foto7.jpg" class="card-img-top" alt="Foto 7">
+            <div class="card-body">
+              <h5 class="card-title">Pandora tool</h5>
+              <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Pandora%20tool" class="btn btn-primary">Pesan via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
   </div>
 
   <div id="content-pemesanan" class="page-content" style="display: none;">
