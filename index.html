@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -804,22 +805,18 @@ function handleGesture() {
   const swipeDistance = touchendX - touchstartX;
   const absoluteSwipeDistance = Math.abs(swipeDistance);
 
-  const menuWidth = document.getElementById('navbarNav').offsetWidth; // Lebar menu
-  const minSwipeDistance = menuWidth / 2; // Jarak minimal untuk dianggap sebagai gesture swipe, setengah dari lebar menu
-
-  if (swipeDistance > minSwipeDistance && absoluteSwipeDistance > sensitivityThreshold) {
+  if (swipeDistance > sensitivityThreshold && absoluteSwipeDistance > sensitivityThreshold) {
     // Geser ke kanan, pindah ke konten sebelumnya
     currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
     const prevContent = menuItems[currentIndex];
     showContentWithLoading(prevContent);
-  } else if (swipeDistance < -minSwipeDistance && absoluteSwipeDistance > sensitivityThreshold) {
+  } else if (swipeDistance < -sensitivityThreshold && absoluteSwipeDistance > sensitivityThreshold) {
     // Geser ke kiri, pindah ke konten berikutnya
     currentIndex = (currentIndex + 1) % menuItems.length;
     const nextContent = menuItems[currentIndex];
     showContentWithLoading(nextContent);
   }
 }
-
 
 // ...
 
@@ -1429,7 +1426,7 @@ function showContentWithLoading(content) {
             <a href="tel:+6283129564658">
               <i class="fas fa-phone" style="color: #008a05;"></i>
               <h4>Nomor Telepon</h4></a>
-              <p>Hubungi kami di nomor telepon +62 831-2956-4658</p>
+              <p>Hubungi kami di nomor telepon +62 831-2956-4658</p>
             
           </div>
         </div>
