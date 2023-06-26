@@ -714,7 +714,6 @@
   <script>
     let activeContent = 'dashboard';
     let currentIndex = 0;
-    let scrolling = false;
   
     function showContent(content) {
       if (content !== activeContent) {
@@ -732,20 +731,20 @@
     let touchendX = 0;
   
     function handleGesture() {
-      if (!scrolling) {
-        if (touchendX < touchstartX) {
-          // Geser ke kanan, pindah ke konten berikutnya
-          currentIndex = (currentIndex + 1) % menuItems.length;
-          const nextContent = menuItems[currentIndex];
-          showContent(nextContent);
-        }
+      const minSwipeDistance = 50; // Jarak minimal untuk dianggap sebagai gesture swipe
   
-        if (touchendX > touchstartX) {
-          // Geser ke kiri, pindah ke konten sebelumnya
-          currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
-          const prevContent = menuItems[currentIndex];
-          showContent(prevContent);
-        }
+      if (touchendX - touchstartX > minSwipeDistance) {
+        // Geser ke kanan, pindah ke konten sebelumnya
+        currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+        const prevContent = menuItems[currentIndex];
+        showContent(prevContent);
+      }
+  
+      if (touchstartX - touchendX > minSwipeDistance) {
+        // Geser ke kiri, pindah ke konten berikutnya
+        currentIndex = (currentIndex + 1) % menuItems.length;
+        const nextContent = menuItems[currentIndex];
+        showContent(nextContent);
       }
     }
   
@@ -761,15 +760,11 @@
     }, false);
   
     // Menangani event scroll
-    window.addEventListener('scroll', function() {
-      scrolling = true;
-  
-      // Hentikan perpindahan konten saat melakukan scroll
-      setTimeout(function() {
-        scrolling = false;
-      }, 250);
+    window.addEventListener('scroll', function(event) {
+      event.preventDefault(); // Mencegah scrolling saat perpindahan konten
     });
   </script>
+  
 
   
   
