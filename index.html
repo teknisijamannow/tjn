@@ -804,18 +804,22 @@ function handleGesture() {
   const swipeDistance = touchendX - touchstartX;
   const absoluteSwipeDistance = Math.abs(swipeDistance);
 
-  if (swipeDistance > sensitivityThreshold && absoluteSwipeDistance > sensitivityThreshold) {
+  const menuWidth = document.getElementById('navbarNav').offsetWidth; // Lebar menu
+  const minSwipeDistance = menuWidth / 2; // Jarak minimal untuk dianggap sebagai gesture swipe, setengah dari lebar menu
+
+  if (swipeDistance > minSwipeDistance && absoluteSwipeDistance > sensitivityThreshold) {
     // Geser ke kanan, pindah ke konten sebelumnya
     currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
     const prevContent = menuItems[currentIndex];
     showContentWithLoading(prevContent);
-  } else if (swipeDistance < -sensitivityThreshold && absoluteSwipeDistance > sensitivityThreshold) {
+  } else if (swipeDistance < -minSwipeDistance && absoluteSwipeDistance > sensitivityThreshold) {
     // Geser ke kiri, pindah ke konten berikutnya
     currentIndex = (currentIndex + 1) % menuItems.length;
     const nextContent = menuItems[currentIndex];
     showContentWithLoading(nextContent);
   }
 }
+
 
 // ...
 
