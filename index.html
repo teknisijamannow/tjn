@@ -797,23 +797,28 @@
     }
   
     let touchstartX = 0;
-    let touchendX = 0;
-  
-    function handleGesture() {
-  const minSwipeDistance = 50; // Jarak minimal untuk dianggap sebagai gesture swipe
+let touchendX = 0;
+const sensitivityThreshold = 50; // Ambang batas sensitivitas, sesuaikan dengan kebutuhan
 
-  if (touchendX - touchstartX > minSwipeDistance) {
+function handleGesture() {
+  const swipeDistance = touchendX - touchstartX;
+  const absoluteSwipeDistance = Math.abs(swipeDistance);
+
+  if (swipeDistance > sensitivityThreshold && absoluteSwipeDistance > sensitivityThreshold) {
     // Geser ke kanan, pindah ke konten sebelumnya
     currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
     const prevContent = menuItems[currentIndex];
     showContentWithLoading(prevContent);
-  } else if (touchstartX - touchendX > minSwipeDistance) {
+  } else if (swipeDistance < -sensitivityThreshold && absoluteSwipeDistance > sensitivityThreshold) {
     // Geser ke kiri, pindah ke konten berikutnya
     currentIndex = (currentIndex + 1) % menuItems.length;
     const nextContent = menuItems[currentIndex];
     showContentWithLoading(nextContent);
   }
 }
+
+// ...
+
 
 function showContentWithLoading(content) {
   const loadingOverlay = document.getElementById('loading-overlay');
