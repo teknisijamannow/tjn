@@ -114,8 +114,8 @@
     .navbar .nav-link {
       transition: all 0.3s;
       font-weight: bold;
-      margin-right: 5px;
-      margin-left: 5px;
+      margin-right: 10px;
+      margin-left: 10px;
     }
 
 
@@ -660,19 +660,19 @@
 }
 
 
-  /* Tampilan untuk layar HP */
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
     .navbar-toggler {
       display: none;
     }
 
     .navbar-collapse {
-      display: block !important;
+      display: flex !important;
+      justify-content: center;
     }
 
     .navbar-nav {
       flex-direction: row;
-      justify-content: center;
+      align-items: center;
     }
 
     .navbar-nav .nav-item {
@@ -690,26 +690,36 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNavbar()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
+        <ul class="navbar-nav ms-auto d-flex align-items-center">
           <li class="nav-item" id="nav-dashboard">
-            <a class="nav-link" href="#" onclick="showContent('dashboard')">Dashboard</a>
+            <a class="nav-link" href="#" onclick="showContent('dashboard')">
+              <i class="fas fa-home"></i> <!-- Ganti "fa-home" dengan kelas ikon yang sesuai -->
+            </a>
           </li>
+          
           <li class="nav-item" id="nav-produk">
-            <a class="nav-link" href="#" onclick="showContent('produk')">Produk</a>
+            <a class="nav-link" href="#" onclick="showContent('produk')">
+              <i class="fas fa-shopping-bag"></i> <!-- Ganti "fa-shopping-bag" dengan kelas ikon yang diinginkan -->
+            </a>
           </li>
           <li class="nav-item" id="nav-kontak">
-            <a class="nav-link" href="#" onclick="showContent('kontak')">Tentang Kami</a>
+            <a class="nav-link" href="#" onclick="showContent('kontak')">
+              <i class="fas fa-address-card"></i> <!-- Ganti "fa-address-card" dengan kelas ikon yang diinginkan -->
+            </a>
           </li>
+          
         </ul>
       </div>
     </div>
   </nav>
+  
   
   <script>
     let activeContent = 'dashboard';
