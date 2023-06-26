@@ -660,8 +660,8 @@
 }
 
 
-   /* Tampilan untuk layar HP */
-   @media (max-width: 767px) {
+ /* Tampilan untuk layar HP */
+ @media (max-width: 767px) {
     .navbar-toggler {
       display: none;
     }
@@ -677,6 +677,10 @@
 
     .navbar-nav .nav-item {
       margin: 0 10px;
+    }
+
+    .navbar-nav .nav-item.active {
+      font-weight: bold;
     }
   }
   </style>
@@ -706,6 +710,55 @@
       </div>
     </div>
   </nav>
+  
+  <script>
+    let activeContent = 'dashboard';
+    let currentIndex = 0;
+  
+    function showContent(content) {
+      if (content !== activeContent) {
+        const prevContent = document.getElementById(`nav-${activeContent}`);
+        prevContent.classList.remove('active');
+  
+        const currentContent = document.getElementById(`nav-${content}`);
+        currentContent.classList.add('active');
+  
+        activeContent = content;
+      }
+    }
+  
+    let touchstartX = 0;
+    let touchendX = 0;
+  
+    function handleGesture() {
+      if (touchendX < touchstartX) {
+        // Geser ke kanan, pindah ke konten berikutnya
+        currentIndex = (currentIndex + 1) % menuItems.length;
+        const nextContent = menuItems[currentIndex];
+        showContent(nextContent);
+      }
+  
+      if (touchendX > touchstartX) {
+        // Geser ke kiri, pindah ke konten sebelumnya
+        currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+        const prevContent = menuItems[currentIndex];
+        showContent(prevContent);
+      }
+    }
+  
+    const menuItems = ['dashboard', 'produk', 'kontak'];
+  
+    document.addEventListener('touchstart', function(event) {
+      touchstartX = event.changedTouches[0].screenX;
+    }, false);
+  
+    document.addEventListener('touchend', function(event) {
+      touchendX = event.changedTouches[0].screenX;
+      handleGesture();
+    }, false);
+  </script>
+  
+
 
   
   
