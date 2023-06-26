@@ -686,6 +686,46 @@
       font-weight: bold;
     }
   }
+
+  #loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#loading-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
   </style>
 </head>
 
@@ -722,6 +762,10 @@
       </div>
     </div>
   </nav>
+  <div id="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+  
   <script>
     let prevScrollPos = window.pageYOffset;
     window.onscroll = function() {
@@ -756,22 +800,31 @@
     let touchendX = 0;
   
     function handleGesture() {
-      const minSwipeDistance = 50; // Jarak minimal untuk dianggap sebagai gesture swipe
-  
-      if (touchendX - touchstartX > minSwipeDistance) {
-        // Geser ke kanan, pindah ke konten sebelumnya
-        currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
-        const prevContent = menuItems[currentIndex];
-        showContent(prevContent);
-      }
-  
-      if (touchstartX - touchendX > minSwipeDistance) {
-        // Geser ke kiri, pindah ke konten berikutnya
-        currentIndex = (currentIndex + 1) % menuItems.length;
-        const nextContent = menuItems[currentIndex];
-        showContent(nextContent);
-      }
-    }
+  const minSwipeDistance = 50; // Jarak minimal untuk dianggap sebagai gesture swipe
+
+  if (touchendX - touchstartX > minSwipeDistance) {
+    // Geser ke kanan, pindah ke konten sebelumnya
+    currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+    const prevContent = menuItems[currentIndex];
+    showContentWithLoading(prevContent);
+  } else if (touchstartX - touchendX > minSwipeDistance) {
+    // Geser ke kiri, pindah ke konten berikutnya
+    currentIndex = (currentIndex + 1) % menuItems.length;
+    const nextContent = menuItems[currentIndex];
+    showContentWithLoading(nextContent);
+  }
+}
+
+function showContentWithLoading(content) {
+  const loadingOverlay = document.getElementById('loading-overlay');
+  loadingOverlay.classList.add('active');
+
+  setTimeout(function() {
+    showContent(content);
+    loadingOverlay.classList.remove('active');
+  }, 500); // Waktu simulasi loading, sesuaikan dengan kebutuhan
+}
+
   
     const menuItems = ['dashboard', 'produk', 'kontak'];
   
