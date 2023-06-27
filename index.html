@@ -951,7 +951,10 @@
               <i class="fas fa-plus"></i>
             </button>
             <button onclick="sendEmailFromInputs()">
-              <i class="fas fa-paper-plane"></i> Kirim
+              <i class="fas fa-paper-plane"></i> via email
+            </button>
+            <button onclick="sendWhatsAppMessageFromInputs()">
+              <i class="fas fa-paper-plane"></i> via whatsapp
             </button>
           </div>
         </div>
@@ -1024,7 +1027,7 @@
             }
           }
         </script>
-        <!-- 
+        
         <script>
         
           function addInputs() {
@@ -1075,10 +1078,7 @@
             var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodedMessage;
             window.open(url);
           }
-        </script>-->
 
-
-        <script>
           function sendWhatsAppMessage(number, message) {
             var encodedMessage = encodeURIComponent(message);
             var url = 'https://api.whatsapp.com/send?phone=' + number + '&text=' + encodedMessage;
@@ -1086,6 +1086,8 @@
           }
         </script>
 
+
+       
 
 
 
@@ -1290,7 +1292,7 @@
     <div class="jumbotron jumbotron-bg">
       <div class="container">
         <h1 class="display-4" style="font-family: 'Viga';">Teknisi Jaman Now</h1>
-        <p class="lead">Nikmati pengalaman terbaik dalam perbaikan smartphone dengan kami.</p>
+        <p class="lead">Kami menyediakan rental berbagai macam tool software untuk perangkat mobile yang profesional.</p>
         <a href="#" class="btn btn-primary btn-lg">Selengkapnya</a>
       </div>
     </div>
