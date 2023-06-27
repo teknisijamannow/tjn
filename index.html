@@ -244,7 +244,7 @@
     }
 
     .popup {
-      background-color: #e6e6e6;
+      background-color: #ffffff;
       padding: 20px;
       max-width: 400px;
       text-align: center;
@@ -254,6 +254,7 @@
 
     .popup h3 {
       margin-top: 0;
+      font-family: 'Viga';
     }
 
     .popup p {
@@ -264,6 +265,7 @@
       margin-bottom: 10px;
       display: flex;
       align-items: center;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .popup .number span {
@@ -273,8 +275,8 @@
     .popup .number .btn {
       margin-left: auto;
       display: inline-block;
-      padding: 3px 7px;
-      background-color: #4CAF50;
+      padding: 2px 5px;
+      background-color: #0073df;
       color: white;
       text-decoration: none;
       border-radius: 4px;
@@ -293,9 +295,10 @@
     /* Media query untuk layar ponsel */
     @media only screen and (max-width: 480px) {
       .popup {
-        font-size: 12px;
+        font-size: 14px;
         padding: 8px;
         width: 300px;
+        
       }
 
       .popup h3 {
@@ -334,13 +337,20 @@
     }
 
     button {
-      padding: 5px 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+  padding: 5px 10px;
+  background-color: #0073df;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05); /* Membesarkan tombol sebesar 5% saat dihover */
+  background-color: #00aaff; /* Mengubah warna latar belakang saat dihover */
+}
+
+
 
     .content {
       display: flex;
@@ -510,7 +520,7 @@
 
     .sub-card {
       flex-basis: 30%;
-      background-color: #00b7ff91;
+      background-color: #0099ffda;
       padding: 10px;
       border-radius: 8px;
       text-align: center;
@@ -758,6 +768,44 @@
       }
     }
 
+    .input-group {
+  margin-bottom: 10px; /* Atur jarak antara grup input dengan grup input berikutnya */
+}
+
+.nama-input, .imei-input {
+  padding: 10px; /* Atur padding untuk memberikan ruang di sekitar input */
+  border: 1px solid #ccc; /* Atur border pada input */
+  border-radius: 15px; /* Atur radius sudut border */
+  width: 200px; /* Atur lebar input sesuai kebutuhan Anda */
+}
+
+.imei-group {
+  /* Menggunakan display flex untuk mengatur posisi input IMEI */
+  gap: 10px; /* Atur jarak antara input IMEI */
+}
+.input-group {
+  margin-top: 3em;
+}
+
+.imei-group {
+  margin-top: 1em;
+}
+
+.input-group input::placeholder {
+  color: #999; /* Atur warna teks placeholder */
+  font-style: italic; /* Atur gaya font placeholder menjadi italic */
+}
+
+.input-group input:focus::placeholder {
+  color: transparent; /* Hapus warna teks placeholder saat input dalam fokus */
+}
+
+.nama-input, .imei-input {
+  background-color: rgba(0, 0, 0, 0.658); /* Atur warna latar belakang semua input menjadi ungu */
+  color: rgb(0, 255, 13); /* Atur warna teks semua input menjadi putih */
+font-family: monospace;
+}
+
 
 
   </style>
@@ -941,15 +989,18 @@
           <p>Contoh: 123456789012345</p>
 
           <div id="input-container" style="display: none">
-            <div id="input-section">
-              <div class="input-group">
-                <input type="text" class="nama-input" placeholder="Nama Pengirim">
-              </div>
-              <div class="imei-group">
-                <input type="text" class="imei-input" placeholder="IMEI 1">
-                <input type="text" class="imei-input" placeholder="IMEI 2">
-              </div>
-            </div>
+<div id="input-section">
+  <div class="input-row">
+    <div class="input-group">
+      <input type="text" class="nama-input" placeholder="Nama Pengirim">
+    </div>
+    <div class="imei-group" >
+      <input type="text" class="imei-input" placeholder="IMEI 1">
+      <input type="text" class="imei-input" placeholder="IMEI 2">
+    </div>
+  </div>
+</div>
+
             <br>
             <button onclick="addInputs()">
               <i class="fas fa-plus"></i>
