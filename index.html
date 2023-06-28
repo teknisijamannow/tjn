@@ -265,7 +265,7 @@
       margin-bottom: 10px;
       display: flex;
       align-items: center;
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .popup .number span {
@@ -298,7 +298,7 @@
         font-size: 14px;
         padding: 8px;
         width: 300px;
-        
+
       }
 
       .popup h3 {
@@ -337,18 +337,20 @@
     }
 
     button {
-  padding: 5px 10px;
-  background-color: #0073df;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+      padding: 5px 10px;
+      background-color: #0073df;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-button:hover {
-  transform: scale(1.05); /* Membesarkan tombol sebesar 5% saat dihover */
-  background-color: #00aaff; /* Mengubah warna latar belakang saat dihover */
-}
+    button:hover {
+      transform: scale(1.05);
+      /* Membesarkan tombol sebesar 5% saat dihover */
+      background-color: #00aaff;
+      /* Mengubah warna latar belakang saat dihover */
+    }
 
 
 
@@ -769,45 +771,56 @@ button:hover {
     }
 
     .input-group {
-  margin-bottom: 10px; /* Atur jarak antara grup input dengan grup input berikutnya */
-}
+      margin-bottom: 10px;
+      /* Atur jarak antara grup input dengan grup input berikutnya */
+    }
 
-.nama-input, .imei-input {
-  padding: 10px; /* Atur padding untuk memberikan ruang di sekitar input */
-  border: 1px solid #ccc; /* Atur border pada input */
-  border-radius: 15px; /* Atur radius sudut border */
-  width: 200px; /* Atur lebar input sesuai kebutuhan Anda */
-}
+    .nama-input,
+    .imei-input {
+      padding: 10px;
+      /* Atur padding untuk memberikan ruang di sekitar input */
+      border: 1px solid #ccc;
+      /* Atur border pada input */
+      border-radius: 15px;
+      /* Atur radius sudut border */
+      width: 200px;
+      /* Atur lebar input sesuai kebutuhan Anda */
+    }
 
-.imei-group {
-  /* Menggunakan display flex untuk mengatur posisi input IMEI */
-  gap: 10px; /* Atur jarak antara input IMEI */
-}
-.input-group {
-  margin-top: 3em;
-}
+    .imei-group {
+      /* Menggunakan display flex untuk mengatur posisi input IMEI */
+      gap: 10px;
+      /* Atur jarak antara input IMEI */
+    }
 
-.imei-group {
-  margin-top: 1em;
-}
+    .input-group {
+      margin-top: 3em;
+    }
 
-.input-group input::placeholder {
-  color: #999; /* Atur warna teks placeholder */
-  font-style: italic; /* Atur gaya font placeholder menjadi italic */
-}
+    .imei-group {
+      margin-top: 1em;
+    }
 
-.input-group input:focus::placeholder {
-  color: transparent; /* Hapus warna teks placeholder saat input dalam fokus */
-}
+    .input-group input::placeholder {
+      color: #999;
+      /* Atur warna teks placeholder */
+      font-style: italic;
+      /* Atur gaya font placeholder menjadi italic */
+    }
 
-.nama-input, .imei-input {
-  background-color: rgba(0, 0, 0, 0.658); /* Atur warna latar belakang semua input menjadi ungu */
-  color: rgb(0, 255, 13); /* Atur warna teks semua input menjadi putih */
-font-family: monospace;
-}
+    .input-group input:focus::placeholder {
+      color: transparent;
+      /* Hapus warna teks placeholder saat input dalam fokus */
+    }
 
-
-
+    .nama-input,
+    .imei-input {
+      background-color: rgba(0, 0, 0, 0.658);
+      /* Atur warna latar belakang semua input menjadi ungu */
+      color: rgb(0, 255, 13);
+      /* Atur warna teks semua input menjadi putih */
+      font-family: monospace;
+    }
   </style>
 </head>
 
@@ -989,17 +1002,30 @@ font-family: monospace;
           <p>Contoh: 123456789012345</p>
 
           <div id="input-container" style="display: none">
-<div id="input-section">
-  <div class="input-row">
-    <div class="input-group">
-      <input type="text" class="nama-input" placeholder="Nama Pengirim">
-    </div>
-    <div class="imei-group" >
-      <input type="text" class="imei-input" placeholder="IMEI 1">
-      <input type="text" class="imei-input" placeholder="IMEI 2">
-    </div>
-  </div>
-</div>
+            <div id="input-section">
+              
+              <div class="input-row">
+                <p>Kirim foto imei</p>
+                <input type="hidden" role="uploadcare-uploader" name="gambar" />
+    <script>
+      UPLOADCARE_PUBLIC_KEY = 'bf56327483557940b6f6';
+      var widget = uploadcare.Widget('[role=uploadcare-uploader]');
+      widget.onUploadComplete(function(info) {
+        console.log('Gambar berhasil diunggah:', info);
+      });
+    </script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+                <div class="input-group">
+                  
+                  <input type="text" class="nama-input" placeholder="Nama Pengirim">
+                </div>
+                <div class="imei-group">
+                  <input type="text" class="imei-input" placeholder="IMEI 1">
+                  <input type="text" class="imei-input" placeholder="IMEI 2">
+                  
+                </div>
+              </div>
+            </div>
 
             <br>
             <button onclick="addInputs()">
@@ -1082,9 +1108,8 @@ font-family: monospace;
             }
           }
         </script>
-        
+
         <script>
-        
           function addInputs() {
             var inputSection = document.getElementById('input-section');
             var imeiCount = document.getElementsByClassName('imei-input').length;
@@ -1142,7 +1167,7 @@ font-family: monospace;
         </script>
 
 
-       
+
 
 
 
@@ -1275,21 +1300,22 @@ font-family: monospace;
     <div id="disqus_thread" style="background: linear-gradient(to bottom, #00000000, #ffffff);"></div>
     <script>
       /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
       /*
       var disqus_config = function () {
       this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
       this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       */
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://https-teknisijamannow-github-io-tjn.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
+      (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement('script');
+        s.src = 'https://https-teknisijamannow-github-io-tjn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
       })();
-  </script>
+    </script>
 
     <!-- Modal untuk memperbesar gambar -->
     <div id="imageModal" class="modal">
@@ -1491,8 +1517,8 @@ font-family: monospace;
       </div>
 
     </div>
-   
-    
+
+
 
   </div>
 
@@ -1510,19 +1536,40 @@ font-family: monospace;
             <div class="col-lg-12">
               <div class="about-section">
                 <p class="text-start small-text">
-                  TEKNISI JAMAN NOW adalah penyedia layanan perbaikan smartphone profesional yang telah terbukti dan dapat diandalkan. Kami memiliki reputasi yang baik dalam memberikan solusi perbaikan untuk berbagai merek dan model smartphone dengan standar kualitas yang tinggi. Kami memahami betapa pentingnya perangkat Anda, dan itulah mengapa kami menawarkan layanan unlock pattern, FRP, bypass iCloud, unlock iCloud, unlock MiCloud, bypass MiCloud, change IMEI, repair baseband, serta menyediakan berbagai tool profesional seperti Unlocktool, CF Tool, DFT Tool, Chimera Tool Pro, Garuda Tool, Z3x Tool Pro, dan Pandora Tool.
+                  TEKNISI JAMAN NOW adalah penyedia layanan perbaikan smartphone profesional yang telah terbukti dan
+                  dapat diandalkan. Kami memiliki reputasi yang baik dalam memberikan solusi perbaikan untuk berbagai
+                  merek dan model smartphone dengan standar kualitas yang tinggi. Kami memahami betapa pentingnya
+                  perangkat Anda, dan itulah mengapa kami menawarkan layanan unlock pattern, FRP, bypass iCloud, unlock
+                  iCloud, unlock MiCloud, bypass MiCloud, change IMEI, repair baseband, serta menyediakan berbagai tool
+                  profesional seperti Unlocktool, CF Tool, DFT Tool, Chimera Tool Pro, Garuda Tool, Z3x Tool Pro, dan
+                  Pandora Tool.
                 </p>
                 <p class="text-start small-text">
-                  Kami tidak hanya menyediakan layanan perbaikan, tetapi juga memberikan kemudahan bagi para teknisi handphone dengan layanan sewa tool. Dengan rental tool dari kami, Anda dapat mengakses perangkat dan perangkat lunak yang diperlukan untuk pekerjaan Anda dengan mudah dan cepat. Tidak perlu lagi mengeluarkan biaya besar untuk membeli tool yang mungkin hanya akan digunakan sesekali. Kami mengerti bahwa kebutuhan teknisi handphone terus berkembang, dan itulah mengapa kami hadir untuk memberikan solusi yang efisien dan terjangkau.
+                  Kami tidak hanya menyediakan layanan perbaikan, tetapi juga memberikan kemudahan bagi para teknisi
+                  handphone dengan layanan sewa tool. Dengan rental tool dari kami, Anda dapat mengakses perangkat dan
+                  perangkat lunak yang diperlukan untuk pekerjaan Anda dengan mudah dan cepat. Tidak perlu lagi
+                  mengeluarkan biaya besar untuk membeli tool yang mungkin hanya akan digunakan sesekali. Kami mengerti
+                  bahwa kebutuhan teknisi handphone terus berkembang, dan itulah mengapa kami hadir untuk memberikan
+                  solusi yang efisien dan terjangkau.
                 </p>
                 <p class="text-start small-text">
-                  Keunggulan sewa tool dari TEKNISI JAMAN NOW adalah fleksibilitasnya. Anda dapat memilih alat yang sesuai dengan kebutuhan Anda dan menyewanya hanya untuk jangka waktu tertentu. Dengan demikian, Anda dapat menghemat biaya dan mengoptimalkan efisiensi pekerjaan Anda. Selain itu, kami selalu menjaga alat-alat kami dalam kondisi terbaik dan selalu mengikuti perkembangan teknologi terbaru, sehingga Anda dapat memiliki akses ke alat-alat terbaik untuk perbaikan smartphone.
+                  Keunggulan sewa tool dari TEKNISI JAMAN NOW adalah fleksibilitasnya. Anda dapat memilih alat yang
+                  sesuai dengan kebutuhan Anda dan menyewanya hanya untuk jangka waktu tertentu. Dengan demikian, Anda
+                  dapat menghemat biaya dan mengoptimalkan efisiensi pekerjaan Anda. Selain itu, kami selalu menjaga
+                  alat-alat kami dalam kondisi terbaik dan selalu mengikuti perkembangan teknologi terbaru, sehingga
+                  Anda dapat memiliki akses ke alat-alat terbaik untuk perbaikan smartphone.
                 </p>
                 <p class="text-start small-text">
-                  Kami berkomitmen untuk memberikan pelayanan terbaik kepada para teknisi handphone. Tim kami terdiri dari tenaga ahli yang berpengalaman dalam perbaikan smartphone dan siap membantu Anda dalam setiap langkah perbaikan. Dengan layanan perbaikan dan sewa tool kami, Anda dapat memiliki keyakinan bahwa pekerjaan Anda akan dilakukan dengan profesionalisme dan keahlian yang tinggi.
+                  Kami berkomitmen untuk memberikan pelayanan terbaik kepada para teknisi handphone. Tim kami terdiri
+                  dari tenaga ahli yang berpengalaman dalam perbaikan smartphone dan siap membantu Anda dalam setiap
+                  langkah perbaikan. Dengan layanan perbaikan dan sewa tool kami, Anda dapat memiliki keyakinan bahwa
+                  pekerjaan Anda akan dilakukan dengan profesionalisme dan keahlian yang tinggi.
                 </p>
                 <p class="text-start small-text">
-                  Jadi, jika Anda adalah seorang teknisi handphone yang ingin meningkatkan efisiensi dan kualitas pekerjaan Anda, jangan ragu untuk memilih TEKNISI JAMAN NOW sebagai mitra Anda. Hubungi kami sekarang di nomor telepon +62 831-2956-4658 dan rasakan manfaatnya. Kami siap membantu Anda mencapai keberhasilan dalam industri perbaikan smartphone.
+                  Jadi, jika Anda adalah seorang teknisi handphone yang ingin meningkatkan efisiensi dan kualitas
+                  pekerjaan Anda, jangan ragu untuk memilih TEKNISI JAMAN NOW sebagai mitra Anda. Hubungi kami sekarang
+                  di nomor telepon +62 831-2956-4658 dan rasakan manfaatnya. Kami siap membantu Anda mencapai
+                  keberhasilan dalam industri perbaikan smartphone.
                 </p>
               </div>
             </div>
