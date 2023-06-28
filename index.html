@@ -829,6 +829,76 @@
       margin-top: 5px;
       margin-left: 5px;
     }
+    .small-blue-text {
+  font-size: 12px;
+  color: #0073df;
+}
+
+  /* Checkbox Styles */
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #02b7ff;
+    border-radius: 50%;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #0073b65e;
+  }
+
+  /* Label Styles */
+  label.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #0073df;
+    cursor: pointer;
+  }
+
+  label.checkbox-label .checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #0073df;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+
+
+label {
+   
+    font-size: 18px;
+    color: #000000e0;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+
+  label:hover {
+    background-color: #c5c5c5;
+   
+    border-radius: 2px;
+  }
+
+  label:focus {
+    outline: none;
+  }
+
+
+
+
+
   </style>
 
   <script type="text/javascript">
@@ -842,6 +912,7 @@
       d.getElementsByTagName("head")[0].appendChild(s);
     })();
   </script>
+  <link rel="stylesheet" href="rey.css">
 </head>
 
 <body>
@@ -1518,26 +1589,54 @@
                 <br>
                 <div>
                   <input type="checkbox" id="rental-6h" name="rental" value="6h" onchange="updatePrice(this)">
-                  <label for="rental-6h">6 jam</label>
+                  <label for="rental-6h" style="margin-right: 15px;">6 jam</label>
+                  <label for="hidden-options">
+                    <i id="pulse-icon" class="fas fa-chevron-down" style="color: #0073df;"></i>
+                    <span class="small-blue-text">Selengkapnya</span>
+                  </label>
+                  
+                  
+                  
+
+
                 </div>
                 <div>
-                  <input type="checkbox" id="rental-12h" name="rental" value="12h" onchange="updatePrice(this)">
-                  <label for="rental-12h">12 jam</label>
-                </div>
-                <div>
-                  <input type="checkbox" id="rental-24h" name="rental" value="24h" onchange="updatePrice(this)">
-                  <label for="rental-24h">24 jam</label>
+                  <div id="hidden-options" style="display: none;">
+                    <input type="checkbox" id="rental-12h" name="rental" value="12h" onchange="updatePrice(this)">
+                    <label for="rental-12h">12 jam</label>
+                    <br>
+                    <input type="checkbox" id="rental-24h" name="rental" value="24h" onchange="updatePrice(this)">
+                    <label for="rental-24h">24 jam</label>
+                  </div>
+
                   <p id="error-message" class="error-message"></p>
                 </div>
-                <p id="price-info"></p>
+
+                <p id="price-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
 
                 <button onclick="validateRental()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
               </div>
             </div>
           </div>
         </div>
+        <script>
+          function toggleHiddenOptions() {
+            const hiddenOptions = document.getElementById('hidden-options');
+            const errorMessage = document.getElementById('error-message');
+
+            if (hiddenOptions.style.display === 'none') {
+              hiddenOptions.style.display = 'block';
+              errorMessage.style.display = 'none';
+            } else {
+              hiddenOptions.style.display = 'none';
+            }
+          }
+
+          const labelSelengkapnya = document.querySelector('label[for="hidden-options"]');
+          labelSelengkapnya.addEventListener('click', toggleHiddenOptions);
+        </script>
 
         <script type="text/javascript">
           function updatePrice(checkbox) {
@@ -1626,7 +1725,7 @@
                   <input type="checkbox" id="rental-6h" name="rental-cf" value="6h" onchange="updatePriceCf(this)">
                   <label for="rental-6h">6 jam</label>
                 </div>
-                <p id="price-cf-info"></p>
+                <p id="price-cf-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-cf" class="error-message"></p>
                 <button onclick="validateRentalCf()" class="btn btn-primary">
                   <i class="fas fa-paper-plane"></i> Rental
@@ -1637,7 +1736,7 @@
         </div>
         <script type="text/javascript">
           let selectedValueCf = '';
-          
+
 
           function updatePriceCf(checkbox) {
             if (checkbox.checked) {
@@ -1662,7 +1761,7 @@
               priceInfo.textContent = '';
             }
           }
-        
+
 
           function validateRentalCf() {
             if (selectedValueCf === '') {
@@ -1705,7 +1804,7 @@
                 <br>
                 <input type="checkbox" id="rental-df" name="rental-df" value="6h" onchange="updatePriceDf(this)">
                 <label for="rental-df">6 jam</label>
-                <p id="price-df-info"></p>
+                <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;" ></p>
                 <p id="error-message-df" class="error-message"></p>
                 <button onclick="validateRentalDf()" class="btn btn-primary">
                   <i class="fas fa-paper-plane"></i> Rental
@@ -1716,10 +1815,10 @@
         </div>
 
 
-       
+
         <script>
           let selectedValueDf = '';
-        
+
           function updatePriceDf(checkbox) {
             if (checkbox.checked) {
               const checkboxes = document.getElementsByName('rental-df');
@@ -1728,9 +1827,9 @@
                   cb.checked = false;
                 }
               });
-        
+
               selectedValueDf = checkbox.value;
-        
+
               let price;
               if (selectedValueDf === '6h') {
                 price = 'Rp 25,000';
@@ -1743,7 +1842,7 @@
               priceInfo.textContent = '';
             }
           }
-        
+
           function validateRentalDf() {
             const checkbox = document.getElementById('rental-df');
             if (checkbox.checked) {
@@ -1759,18 +1858,18 @@
               }, 2000);
             }
           }
-        
+
           function sendRentalMessageDf() {
             const price = 'Rp 75,000';
             const message = `Halo, saya ingin rental Dft tool (24 jam) dengan harga ${price}.`;
             window.$crisp.push(['do', 'message:send', ['text', message]]);
           }
-        
+
           function openCrispChat() {
             window.$crisp.push(['do', 'chat:open']);
           }
         </script>
-        
+
 
 
         <div class="col-lg-4 col-md-6">
@@ -1779,24 +1878,23 @@
             <div class="card-body">
               <h5 class="card-title">Chimera tool pro</h5>
               <div class="button-group">
-                <p style="font-size: 12px;"><a
-                  href="https://chimeratool.com/en/download"
-                  class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
-               <br>
-               <input type="checkbox" id="rental-ch" name="rental-ch" value="48h" onchange="updatePriceCh(this)">
-               <label for="rental-ch">48 jam</label>
-               <p id="price-ch-info"></p>
-               <p id="error-message-ch" class="error-message"></p>
-               <button onclick="validateRentalCh()" class="btn btn-primary">
-                 <i class="fas fa-paper-plane"></i> Rental
-               </button>
+                <p style="font-size: 12px;"><a href="https://chimeratool.com/en/download" class="download-link"><i
+                      class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-ch" name="rental-ch" value="48h" onchange="updatePriceCh(this)">
+                <label for="rental-ch">48 jam</label>
+                <p id="price-ch-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-ch" class="error-message"></p>
+                <button onclick="validateRentalCh()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
         </div>
         <script>
           let selectedValueCh = '';
-        
+
           function updatePriceCh(checkbox) {
             if (checkbox.checked) {
               const checkboxes = document.getElementsByName('rental-ch');
@@ -1805,9 +1903,9 @@
                   cb.checked = false;
                 }
               });
-        
+
               selectedValueCh = checkbox.value;
-        
+
               let price;
               if (selectedValueCh === '48h') {
                 price = 'Rp 150,000';
@@ -1820,7 +1918,7 @@
               priceInfo.textContent = '';
             }
           }
-        
+
           function validateRentalCh() {
             const checkbox = document.getElementById('rental-ch');
             if (checkbox.checked) {
@@ -1836,18 +1934,18 @@
               }, 2000);
             }
           }
-        
+
           function sendRentalMessageCh() {
             const price = 'Rp 150,000';
             const message = `Halo, saya ingin rental Chimera tool pro (48 jam) dengan harga ${price}.`;
             window.$crisp.push(['do', 'message:send', ['text', message]]);
           }
-        
+
           function openCrispChat() {
             window.$crisp.push(['do', 'chat:open']);
           }
         </script>
-        
+
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-5">
@@ -1855,11 +1953,12 @@
             <div class="card-body">
               <h5 class="card-title">Garuda tool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;"><a href="https://garuda-genpro.com/download/Garuda-GenPro.7z" class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <p style="font-size: 12px;"><a href="https://garuda-genpro.com/download/Garuda-GenPro.7z"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
                 <br>
                 <input type="checkbox" id="rental-gd" name="rental-gd" value="24h" onchange="updatePriceGd(this)">
                 <label for="rental-gd">24 jam</label>
-                <p id="price-gd-info"></p>
+                <p id="price-gd-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-gd" class="error-message"></p>
                 <button onclick="validateRentalGd()" class="btn btn-primary">
                   <i class="fas fa-paper-plane"></i> Rental
@@ -1871,56 +1970,55 @@
         <script>
           let selectedValueGd = '';
 
-function updatePriceGd(checkbox) {
-  if (checkbox.checked) {
-    const checkboxes = document.getElementsByName('rental-gd');
-    checkboxes.forEach((cb) => {
-      if (cb !== checkbox) {
-        cb.checked = false;
-      }
-    });
+          function updatePriceGd(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-gd');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
 
-    selectedValueGd = checkbox.value;
+              selectedValueGd = checkbox.value;
 
-    let price;
-    if (selectedValueGd === '24h') {
-      price = 'Rp 25,000';
-    }
-    const priceInfo = document.getElementById('price-gd-info');
-    priceInfo.textContent = `Harga: ${price}`;
-  } else {
-    selectedValueGd = '';
-    const priceInfo = document.getElementById('price-gd-info');
-    priceInfo.textContent = '';
-  }
-}
+              let price;
+              if (selectedValueGd === '24h') {
+                price = 'Rp 25,000';
+              }
+              const priceInfo = document.getElementById('price-gd-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueGd = '';
+              const priceInfo = document.getElementById('price-gd-info');
+              priceInfo.textContent = '';
+            }
+          }
 
-function validateRentalGd() {
-  const checkbox = document.getElementById('rental-gd');
-  if (checkbox.checked) {
-    sendRentalMessageGd();
-    openCrispChat();
-  } else {
-    const errorMessage = document.getElementById('error-message-gd');
-    errorMessage.style.display = 'block';
-    errorMessage.textContent = 'Pilih waktu rental.';
-    setTimeout(() => {
-      errorMessage.style.display = 'none';
-      errorMessage.textContent = '';
-    }, 2000);
-  }
-}
+          function validateRentalGd() {
+            const checkbox = document.getElementById('rental-gd');
+            if (checkbox.checked) {
+              sendRentalMessageGd();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-gd');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
 
-function sendRentalMessageGd() {
-  const price = 'Rp 25,000';
-  const message = `Halo, saya ingin rental Garuda tool (24 jam) dengan harga ${price}.`;
-  window.$crisp.push(['do', 'message:send', ['text', message]]);
-}
+          function sendRentalMessageGd() {
+            const price = 'Rp 25,000';
+            const message = `Halo, saya ingin rental Garuda tool (24 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
 
-function openCrispChat() {
-  window.$crisp.push(['do', 'chat:open']);
-}
-
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
         </script>
 
 
@@ -1931,16 +2029,16 @@ function openCrispChat() {
               <h5 class="card-title">Z3x tool pro</h5>
               <div class="button-group">
                 <p style="font-size: 12px;"><a
-                  href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip"
-                  class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
-               <br>
-               <input type="checkbox" id="rental-zx" name="rental-zx" value="6h" onchange="updatePriceZx(this)">
-               <label for="rental-zx">6 jam</label>
-               <p id="price-zx-info"></p>
-               <p id="error-message-zx" class="error-message"></p>
-               <button onclick="validateRentalZx()" class="btn btn-primary">
-                 <i class="fas fa-paper-plane"></i> Rental
-               </button>
+                    href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-zx" name="rental-zx" value="6h" onchange="updatePriceZx(this)">
+                <label for="rental-zx">6 jam</label>
+                <p id="price-zx-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-zx" class="error-message"></p>
+                <button onclick="validateRentalZx()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
@@ -1948,56 +2046,55 @@ function openCrispChat() {
         <script>
           let selectedValueZx = '';
 
-function updatePriceZx(checkbox) {
-  if (checkbox.checked) {
-    const checkboxes = document.getElementsByName('rental-zx');
-    checkboxes.forEach((cb) => {
-      if (cb !== checkbox) {
-        cb.checked = false;
-      }
-    });
+          function updatePriceZx(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-zx');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
 
-    selectedValueZx = checkbox.value;
+              selectedValueZx = checkbox.value;
 
-    let price;
-    if (selectedValueZx === '6h') {
-      price = 'Rp 50,000';
-    }
-    const priceInfo = document.getElementById('price-zx-info');
-    priceInfo.textContent = `Harga: ${price}`;
-  } else {
-    selectedValueZx = '';
-    const priceInfo = document.getElementById('price-zx-info');
-    priceInfo.textContent = '';
-  }
-}
+              let price;
+              if (selectedValueZx === '6h') {
+                price = 'Rp 50,000';
+              }
+              const priceInfo = document.getElementById('price-zx-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueZx = '';
+              const priceInfo = document.getElementById('price-zx-info');
+              priceInfo.textContent = '';
+            }
+          }
 
-function validateRentalZx() {
-  const checkbox = document.getElementById('rental-zx');
-  if (checkbox.checked) {
-    sendRentalMessageZx();
-    openCrispChat();
-  } else {
-    const errorMessage = document.getElementById('error-message-zx');
-    errorMessage.style.display = 'block';
-    errorMessage.textContent = 'Pilih waktu rental.';
-    setTimeout(() => {
-      errorMessage.style.display = 'none';
-      errorMessage.textContent = '';
-    }, 2000);
-  }
-}
+          function validateRentalZx() {
+            const checkbox = document.getElementById('rental-zx');
+            if (checkbox.checked) {
+              sendRentalMessageZx();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-zx');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
 
-function sendRentalMessageZx() {
-  const price = 'Rp 50,000';
-  const message = `Halo, saya ingin rental Z3x tool pro (6 jam) dengan harga ${price}.`;
-  window.$crisp.push(['do', 'message:send', ['text', message]]);
-}
+          function sendRentalMessageZx() {
+            const price = 'Rp 50,000';
+            const message = `Halo, saya ingin rental Z3x tool pro (6 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
 
-function openCrispChat() {
-  window.$crisp.push(['do', 'chat:open']);
-}
-
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
         </script>
 
 
@@ -2007,11 +2104,13 @@ function openCrispChat() {
             <div class="card-body">
               <h5 class="card-title">Pandora tool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;"><a href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk" class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <p style="font-size: 12px;"><a
+                    href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
                 <br>
                 <input type="checkbox" id="rental-pt" name="rental-pt" value="48h" onchange="updatePricePt(this)">
                 <label for="rental-pt">48 jam</label>
-                <p id="price-pt-info"></p>
+                <p id="price-pt-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-pt" class="error-message"></p>
                 <button onclick="validateRentalPt()" class="btn btn-primary">
                   <i class="fas fa-paper-plane"></i> Rental
@@ -2022,7 +2121,7 @@ function openCrispChat() {
         </div>
         <script>
           let selectedValuePt = '';
-        
+
           function updatePricePt(checkbox) {
             if (checkbox.checked) {
               const checkboxes = document.getElementsByName('rental-pt');
@@ -2031,9 +2130,9 @@ function openCrispChat() {
                   cb.checked = false;
                 }
               });
-        
+
               selectedValuePt = checkbox.value;
-        
+
               let price;
               if (selectedValuePt === '48h') {
                 price = 'Rp 120,000';
@@ -2046,7 +2145,7 @@ function openCrispChat() {
               priceInfo.textContent = '';
             }
           }
-        
+
           function validateRentalPt() {
             const checkbox = document.getElementById('rental-pt');
             if (checkbox.checked) {
@@ -2062,18 +2161,92 @@ function openCrispChat() {
               }, 2000);
             }
           }
-        
+
           function sendRentalMessagePt() {
             const price = 'Rp 120,000';
             const message = `Halo, saya ingin rental Pandora tool (48 jam) dengan harga ${price}.`;
             window.$crisp.push(['do', 'message:send', ['text', message]]);
           }
-        
+
           function openCrispChat() {
             window.$crisp.push(['do', 'chat:open']);
           }
         </script>
-        
+
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-8">
+            <img src="img/tool9.jpg" class="card-img-top" alt="Foto 8">
+            <div class="card-body">
+              <h5 class="card-title">Miracle power tool</h5>
+              <div class="button-group">
+                <p style="font-size: 12px;"><a
+                    href="https://drive.google.com/drive/folders/1UhfoCCSMY-0qg_IEGaE6SvJPxP13aOsN"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-mp" name="rental-mp" value="6h" onchange="updatePriceMp(this)">
+                <label for="rental-mp">6 jam</label>
+                <p id="price-mp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-mp" class="error-message"></p>
+                <button onclick="validateRentalMp()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          let selectedValueMp = '';
+
+          function updatePriceMp(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-mp');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValueMp = checkbox.value;
+
+              let price;
+              if (selectedValueMp === '6h') {
+                price = 'Rp 25,000';
+              }
+              const priceInfo = document.getElementById('price-mp-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueMp = '';
+              const priceInfo = document.getElementById('price-mp-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRentalMp() {
+            const checkbox = document.getElementById('rental-mp');
+            if (checkbox.checked) {
+              sendRentalMessageMp();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-mp');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+
+          function sendRentalMessageMp() {
+            const price = 'Rp 25,000';
+            const message = `Halo, saya ingin rental Miracle power tool (6 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
 
       </div>
 
