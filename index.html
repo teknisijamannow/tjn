@@ -1102,8 +1102,18 @@ label {
                   <input type="text" class="nama-input" placeholder="Nama Pengirim">
                 </div>
                 <div class="imei-group">
-                  <input type="text" class="imei-input" placeholder="IMEI 1">
-                  <input type="text" class="imei-input" placeholder="IMEI 2">
+                  <input type="text" class="imei-input" placeholder="IMEI 1" oninput="validateInput(this, 15)">
+                  <input type="text" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">
+                  <script>
+                    function validateInput(input, maxLength) {
+  input.value = input.value.replace(/[^0-9]/g, '');
+  if (input.value.length > maxLength) {
+    input.value = input.value.slice(0, maxLength);
+  }
+}
+
+                  </script>
+                  
                 </div>
               </div>
             </div>
@@ -1126,21 +1136,29 @@ label {
         </div>
 
         <script>
-          function addInputs() {
-            var inputSection = document.getElementById('input-section');
-            var imeiCount = document.getElementsByClassName('imei-input').length;
-            var newInputsHTML = '';
+        function addInputs() {
+  var inputSection = document.getElementById('input-section');
+  var imeiCount = document.getElementsByClassName('imei-input').length;
+  var newInputsHTML = '';
 
-            newInputsHTML += '<div class="input-group">';
-            newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
-            newInputsHTML += '</div>';
-            newInputsHTML += '<div class="imei-group">';
-            newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1">';
-            newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2">';
-            newInputsHTML += '</div>';
+  newInputsHTML += '<div class="input-group">';
+  newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
+  newInputsHTML += '</div>';
+  newInputsHTML += '<div class="imei-group">';
+  newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1" oninput="validateInput(this, 15)">';
+  newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">';
+  newInputsHTML += '</div>';
 
-            inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
-          }
+  inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
+}
+
+function validateInput(input, maxLength) {
+  input.value = input.value.replace(/[^0-9]/g, '');
+  if (input.value.length > maxLength) {
+    input.value = input.value.slice(0, maxLength);
+  }
+}
+
 
           function openCrispChatAndSendMessage(event) {
             var namaInputs = document.getElementsByClassName('nama-input');
@@ -1185,13 +1203,9 @@ label {
             }
           }
 
-          document.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter') {
-              openCrispChatAndSendMessage();
-            }
-          });
+         
         </script>
-
+<!-- 
         <script>
           function addInputs() {
             var inputSection = document.getElementById('input-section');
@@ -1242,7 +1256,7 @@ label {
             var url = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodedMessage;
             window.open(url);
           }
-        </script>
+        </script>-->
 
         <script>
           function showInputs(event) {
@@ -1260,6 +1274,7 @@ label {
           }
         </script>
 
+        <!-- 
         <script>
           function addInputs() {
             var inputSection = document.getElementById('input-section');
@@ -1318,7 +1333,7 @@ label {
         </script>
 
 
-
+-->
 
 
 
