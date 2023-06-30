@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -524,7 +523,7 @@
 
     .sub-card {
       flex-basis: 30%;
-      background-color: #0099ffda;
+      background-color: #0099ff67;
       padding: 10px;
       border-radius: 8px;
       text-align: center;
@@ -823,9 +822,97 @@
       /* Atur warna teks semua input menjadi putih */
       font-family: monospace;
     }
-  </style>
-  
 
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+    .small-blue-text {
+  font-size: 12px;
+  color: #0073df;
+}
+
+  /* Checkbox Styles */
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #02b7ff;
+    border-radius: 50%;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #13fa1f;
+  }
+
+  /* Label Styles */
+  label.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #0073df;
+    cursor: pointer;
+  }
+
+  label.checkbox-label .checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #0073df;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+
+
+label {
+   
+    font-size: 18px;
+    color: #000000e0;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+
+  label:hover {
+    background-color: #c5c5c5;
+   
+    border-radius: 2px;
+  }
+
+  label:focus {
+    outline: none;
+  }
+
+
+
+
+
+  </style>
+
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "e66349d5-67ac-4e26-b8c6-045c6ef0b242";
+    (function () {
+      d = document;
+      s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
+  <link rel="stylesheet" href="rey.css">
 </head>
 
 <body>
@@ -842,7 +929,7 @@
         <ul class="navbar-nav ms-auto d-flex align-items-center">
           <li class="nav-item" id="nav-dashboard">
             <a class="nav-link" href="#" onclick="showContent('dashboard')">
-              <i class="fas fa-home"></i> <!-- Ganti "fa-home" dengan kelas ikon yang sesuai -->
+              <i class="fas fa-home"></i><!-- Ganti "fa-home" dengan kelas ikon yang sesuai -->
             </a>
           </li>
 
@@ -853,9 +940,10 @@
           </li>
           <li class="nav-item" id="nav-kontak">
             <a class="nav-link" href="#" onclick="showContent('kontak')">
-              <i class="fas fa-address-card"></i> <!-- Ganti "fa-address-card" dengan kelas ikon yang diinginkan -->
+              <i class="fas fa-user"></i> <!-- Ganti "fa-user" dengan kelas ikon yang diinginkan -->
             </a>
           </li>
+          
 
         </ul>
       </div>
@@ -999,6 +1087,7 @@
         </p>
       </div>
       <br><br><br>
+
       <!--1 -->
       <div class="content-right">
         <div class="box" onclick="showInputs(event)">
@@ -1007,25 +1096,24 @@
 
           <div id="input-container" style="display: none">
             <div id="input-section">
-              
+
               <div class="input-row">
-                <p>Kirim foto imei</p>
-                <input type="hidden" role="uploadcare-uploader" name="gambar" />
-    <script>
-      UPLOADCARE_PUBLIC_KEY = 'bf56327483557940b6f6';
-      var widget = uploadcare.Widget('[role=uploadcare-uploader]');
-      widget.onUploadComplete(function(info) {
-        console.log('Gambar berhasil diunggah:', info);
-      });
-    </script>
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+
                 <div class="input-group">
-                  
                   <input type="text" class="nama-input" placeholder="Nama Pengirim">
                 </div>
                 <div class="imei-group">
-                  <input type="text" class="imei-input" placeholder="IMEI 1">
-                  <input type="text" class="imei-input" placeholder="IMEI 2">
+                  <input type="text" class="imei-input" placeholder="IMEI 1" oninput="validateInput(this, 15)">
+                  <input type="text" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">
+                  <script>
+                    function validateInput(input, maxLength) {
+  input.value = input.value.replace(/[^0-9]/g, '');
+  if (input.value.length > maxLength) {
+    input.value = input.value.slice(0, maxLength);
+  }
+}
+
+                  </script>
                   
                 </div>
               </div>
@@ -1033,18 +1121,92 @@
 
             <br>
             <button onclick="addInputs()">
-              <i class="fas fa-plus"></i>
+              <i class="fas fa-plus"></i> Tambah imei
             </button>
+            <!-- 
             <button onclick="sendEmailFromInputs()">
               <i class="fas fa-paper-plane"></i> via email
             </button>
             <button onclick="sendWhatsAppMessageFromInputs()">
               <i class="fas fa-paper-plane"></i> via whatsapp
+            </button>-->
+            <button onclick="openCrispChatAndSendMessage()">
+              <i class="fas fa-paper-plane"></i> kirim
             </button>
           </div>
         </div>
 
+        <script>
+        function addInputs() {
+  var inputSection = document.getElementById('input-section');
+  var imeiCount = document.getElementsByClassName('imei-input').length;
+  var newInputsHTML = '';
 
+  newInputsHTML += '<div class="input-group">';
+  newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
+  newInputsHTML += '</div>';
+  newInputsHTML += '<div class="imei-group">';
+  newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1" oninput="validateInput(this, 15)">';
+  newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">';
+  newInputsHTML += '</div>';
+
+  inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
+}
+
+function validateInput(input, maxLength) {
+  input.value = input.value.replace(/[^0-9]/g, '');
+  if (input.value.length > maxLength) {
+    input.value = input.value.slice(0, maxLength);
+  }
+}
+
+
+          function openCrispChatAndSendMessage(event) {
+            var namaInputs = document.getElementsByClassName('nama-input');
+            var imeiGroups = document.getElementsByClassName('imei-group');
+            var message = '';
+
+            for (var i = 0; i < namaInputs.length; i++) {
+              var namaInput = namaInputs[i];
+              var namaValue = namaInput.value.trim();
+              if (namaValue !== '') {
+                message += 'Nama Pengirim: ' + namaValue + '\n';
+
+                var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
+                for (var j = 0; j < imeiInputs.length; j++) {
+                  var imeiInput = imeiInputs[j];
+                  var imeiValue = imeiInput.value.trim();
+                  if (imeiValue !== '') {
+                    message += 'IMEI ' + (j + 1) + ': ' + imeiValue + '\n';
+                  }
+                }
+              }
+            }
+
+            if (message === '') {
+              alert('Mohon masukkan data pengirim.');
+              return;
+            }
+
+            // Mengirim pesan ke chat Crisp
+            $crisp.push(['do', 'message:send', ['text', message]]);
+
+            // Membuka chat Crisp
+            $crisp.push(['do', 'chat:open']);
+
+            // Mengosongkan input nama dan IMEI
+            for (var i = 0; i < namaInputs.length; i++) {
+              namaInputs[i].value = '';
+              var imeiInputs = imeiGroups[i].getElementsByClassName('imei-input');
+              for (var j = 0; j < imeiInputs.length; j++) {
+                imeiInputs[j].value = '';
+              }
+            }
+          }
+
+         
+        </script>
+<!-- 
         <script>
           function addInputs() {
             var inputSection = document.getElementById('input-section');
@@ -1095,7 +1257,7 @@
             var url = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodedMessage;
             window.open(url);
           }
-        </script>
+        </script>-->
 
         <script>
           function showInputs(event) {
@@ -1113,6 +1275,7 @@
           }
         </script>
 
+        <!-- 
         <script>
           function addInputs() {
             var inputSection = document.getElementById('input-section');
@@ -1171,7 +1334,7 @@
         </script>
 
 
-
+-->
 
 
 
@@ -1189,6 +1352,7 @@
           onclick="sendWhatsAppMessage('+6283129564658', 'Assalamualaikum, saya telah melakukan pembayaran dan ini adalah bukti pembayaran saya.')">
           <h3>Hubungi Kami lewat WhatsApp</h3>
           <p>Kirimkan bukti pembayaran dan hubungi kami untuk informasi lebih lanjut.</p>
+
         </div>
 
         <div class="overlay" onclick="hidePopup()">
@@ -1236,6 +1400,29 @@
         window.location.href = 'https://bit.ly/3CAjX9f';
       });
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="card" style="background-color: #00000057;">
       <h3>Bahan Download Remote via PC/Laptop</h3>
@@ -1406,21 +1593,139 @@
 
     <div class="container">
       <div class="row">
+
         <div class="col-lg-4 col-md-6">
           <div class="card card-1">
             <img src="img/tool1.jpg" class="card-img-top" alt="Foto 1">
             <div class="card-body">
               <h5 class="card-title">Unlocktool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
-                <a href="https://unlocktool.net/download/" class="btn btn-success"
-                  style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
-                <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Unlocktool"
-                  class="btn btn-primary">Rental via WhatsApp</a>
+                <p style="font-size: 12px;"><a href="https://unlocktool.net/download/" class="download-link"><i
+                      class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <div>
+                  <input type="checkbox" id="rental-6h" name="rental" value="6h" onchange="updatePrice(this)">
+                  <label for="rental-6h" style="margin-right: 15px;">6 jam</label>
+                  <label for="hidden-options">
+                    <i id="pulse-icon" class="fas fa-chevron-down" style="color: #0073df;"></i>
+                    <span class="small-blue-text">Selengkapnya</span>
+                  </label>
+                  
+                  
+                  
+
+
+                </div>
+                <div>
+                  <div id="hidden-options" style="display: none;">
+                    <input type="checkbox" id="rental-12h" name="rental" value="12h" onchange="updatePrice(this)">
+                    <label for="rental-12h">12 jam</label>
+                    <br>
+                    <input type="checkbox" id="rental-24h" name="rental" value="24h" onchange="updatePrice(this)">
+                    <label for="rental-24h">24 jam</label>
+                  </div>
+
+                  <p id="error-message" class="error-message"></p>
+                </div>
+
+                <p id="price-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+
+                <button onclick="validateRental()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <script>
+          function toggleHiddenOptions() {
+            const hiddenOptions = document.getElementById('hidden-options');
+            const errorMessage = document.getElementById('error-message');
+
+            if (hiddenOptions.style.display === 'none') {
+              hiddenOptions.style.display = 'block';
+              errorMessage.style.display = 'none';
+            } else {
+              hiddenOptions.style.display = 'none';
+            }
+          }
+
+          const labelSelengkapnya = document.querySelector('label[for="hidden-options"]');
+          labelSelengkapnya.addEventListener('click', toggleHiddenOptions);
+        </script>
+
+        <script type="text/javascript">
+          function updatePrice(checkbox) {
+            const checkboxes = document.getElementsByName('rental');
+            checkboxes.forEach((cb) => {
+              if (cb !== checkbox) {
+                cb.checked = false;
+              }
+            });
+
+            const priceInfo = document.getElementById('price-info');
+            if (checkbox.checked) {
+              let price;
+              if (checkbox.value === '6h') {
+                price = 'Rp 25,000';
+              } else if (checkbox.value === '12h') {
+                price = 'Rp 35,000';
+              } else if (checkbox.value === '24h') {
+                price = 'Rp 50,000';
+              }
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRental() {
+            const checkboxes = document.getElementsByName('rental');
+            let isChecked = false;
+            let selectedValue = '';
+            checkboxes.forEach((checkbox) => {
+              if (checkbox.checked) {
+                isChecked = true;
+                selectedValue = checkbox.value;
+              }
+            });
+
+            if (!isChecked) {
+              const errorMessage = document.createElement('error-message');
+              errorMessage.classList.add('error-message');
+              errorMessage.textContent = 'Pilih waktu rental.';
+              const buttonGroup = document.querySelector('.button-group');
+              buttonGroup.appendChild(errorMessage);
+              setTimeout(() => {
+                errorMessage.remove();
+              }, 2000);
+            } else {
+              sendRentalMessage(selectedValue);
+              openCrispChat();
+            }
+          }
+
+          function sendRentalMessage(selectedValue) {
+            let price;
+            if (selectedValue === '6h') {
+              price = 'Rp 25,000';
+            } else if (selectedValue === '12h') {
+              price = 'Rp 35,000';
+            } else if (selectedValue === '24h') {
+              price = 'Rp 50,000';
+            }
+
+            const message = `Halo, saya ingin rental Unlocktool (${selectedValue}) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
+
+
+
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-2">
@@ -1428,15 +1733,81 @@
             <div class="card-body">
               <h5 class="card-title">Cf tool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
-                <a href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8"
-                  class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
-                <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Cf%20tool"
-                  class="btn btn-primary">Rental via WhatsApp</a>
+                <p style="font-size: 12px;"><a
+                    href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <div>
+                  <input type="checkbox" id="rental-6h" name="rental-cf" value="6h" onchange="updatePriceCf(this)">
+                  <label for="rental-6h">6 jam</label>
+                </div>
+                <p id="price-cf-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-cf" class="error-message"></p>
+                <button onclick="validateRentalCf()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <script type="text/javascript">
+          let selectedValueCf = '';
+
+
+          function updatePriceCf(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-cf');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValueCf = checkbox.value;
+
+              let price;
+              if (selectedValueCf === '6h') {
+                price = 'Rp 25,000';
+              }
+              const priceInfo = document.getElementById('price-cf-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueCf = '';
+              const priceInfo = document.getElementById('price-cf-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+
+          function validateRentalCf() {
+            if (selectedValueCf === '') {
+              const errorMessageCf = document.getElementById('error-message-cf');
+              errorMessageCf.style.display = 'block';
+              errorMessageCf.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessageCf.style.display = 'none';
+                errorMessageCf.textContent = '';
+              }, 2000);
+            } else {
+              sendRentalMessageCf(selectedValueCf);
+              openCrispChat();
+            }
+          }
+
+          function sendRentalMessageCf(selectedValue) {
+            let price;
+            if (selectedValue === '6h') {
+              price = 'Rp 25,000';
+            }
+
+            const message = `Halo, saya ingin rental Cfktool (${selectedValue}) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-3">
@@ -1444,15 +1815,78 @@
             <div class="card-body">
               <h5 class="card-title">Dft tool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
-                <a href="https://www.dftpro.com/" class="btn btn-success"
-                  style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
-                <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Dft%20tool"
-                  class="btn btn-primary">Rental via WhatsApp</a>
+                <p style="font-size: 12px;"><a href="https://unlocktool.net/download/" class="download-link"><i
+                      class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-df" name="rental-df" value="6h" onchange="updatePriceDf(this)">
+                <label for="rental-df">6 jam</label>
+                <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;" ></p>
+                <p id="error-message-df" class="error-message"></p>
+                <button onclick="validateRentalDf()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
         </div>
+
+
+
+        <script>
+          let selectedValueDf = '';
+
+          function updatePriceDf(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-df');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValueDf = checkbox.value;
+
+              let price;
+              if (selectedValueDf === '6h') {
+                price = 'Rp 25,000';
+              }
+              const priceInfo = document.getElementById('price-df-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueDf = '';
+              const priceInfo = document.getElementById('price-df-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRentalDf() {
+            const checkbox = document.getElementById('rental-df');
+            if (checkbox.checked) {
+              sendRentalMessageDf();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-df');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+
+          function sendRentalMessageDf() {
+            const price = 'Rp 75,000';
+            const message = `Halo, saya ingin rental Dft tool (24 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
+
+
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-4">
@@ -1460,15 +1894,74 @@
             <div class="card-body">
               <h5 class="card-title">Chimera tool pro</h5>
               <div class="button-group">
-                <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
-                <a href="https://chimeratool.com/en/download" class="btn btn-success"
-                  style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
-                <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Chimera%20tool%20pro"
-                  class="btn btn-primary">Rental via WhatsApp</a>
+                <p style="font-size: 12px;"><a href="https://chimeratool.com/en/download" class="download-link"><i
+                      class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-ch" name="rental-ch" value="48h" onchange="updatePriceCh(this)">
+                <label for="rental-ch">48 jam</label>
+                <p id="price-ch-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-ch" class="error-message"></p>
+                <button onclick="validateRentalCh()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <script>
+          let selectedValueCh = '';
+
+          function updatePriceCh(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-ch');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValueCh = checkbox.value;
+
+              let price;
+              if (selectedValueCh === '48h') {
+                price = 'Rp 150,000';
+              }
+              const priceInfo = document.getElementById('price-ch-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueCh = '';
+              const priceInfo = document.getElementById('price-ch-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRentalCh() {
+            const checkbox = document.getElementById('rental-ch');
+            if (checkbox.checked) {
+              sendRentalMessageCh();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-ch');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+
+          function sendRentalMessageCh() {
+            const price = 'Rp 150,000';
+            const message = `Halo, saya ingin rental Chimera tool pro (48 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
+
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-5">
@@ -1476,15 +1969,74 @@
             <div class="card-body">
               <h5 class="card-title">Garuda tool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
-                <a href="https://garuda-genpro.com/download/Garuda-GenPro.7z" class="btn btn-success"
-                  style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
-                <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Garuda%20tool"
-                  class="btn btn-primary">Rental via WhatsApp</a>
+                <p style="font-size: 12px;"><a href="https://garuda-genpro.com/download/Garuda-GenPro.7z"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-gd" name="rental-gd" value="24h" onchange="updatePriceGd(this)">
+                <label for="rental-gd">24 jam</label>
+                <p id="price-gd-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-gd" class="error-message"></p>
+                <button onclick="validateRentalGd()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <script>
+          let selectedValueGd = '';
+
+          function updatePriceGd(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-gd');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValueGd = checkbox.value;
+
+              let price;
+              if (selectedValueGd === '24h') {
+                price = 'Rp 25,000';
+              }
+              const priceInfo = document.getElementById('price-gd-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueGd = '';
+              const priceInfo = document.getElementById('price-gd-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRentalGd() {
+            const checkbox = document.getElementById('rental-gd');
+            if (checkbox.checked) {
+              sendRentalMessageGd();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-gd');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+
+          function sendRentalMessageGd() {
+            const price = 'Rp 25,000';
+            const message = `Halo, saya ingin rental Garuda tool (24 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
+
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-6">
@@ -1492,15 +2044,75 @@
             <div class="card-body">
               <h5 class="card-title">Z3x tool pro</h5>
               <div class="button-group">
-                <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
-                <a href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip"
-                  class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
-                <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Z3x%20tool%20pro"
-                  class="btn btn-primary">Rental via WhatsApp</a>
+                <p style="font-size: 12px;"><a
+                    href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-zx" name="rental-zx" value="6h" onchange="updatePriceZx(this)">
+                <label for="rental-zx">6 jam</label>
+                <p id="price-zx-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-zx" class="error-message"></p>
+                <button onclick="validateRentalZx()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <script>
+          let selectedValueZx = '';
+
+          function updatePriceZx(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-zx');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValueZx = checkbox.value;
+
+              let price;
+              if (selectedValueZx === '6h') {
+                price = 'Rp 50,000';
+              }
+              const priceInfo = document.getElementById('price-zx-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueZx = '';
+              const priceInfo = document.getElementById('price-zx-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRentalZx() {
+            const checkbox = document.getElementById('rental-zx');
+            if (checkbox.checked) {
+              sendRentalMessageZx();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-zx');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+
+          function sendRentalMessageZx() {
+            const price = 'Rp 50,000';
+            const message = `Halo, saya ingin rental Z3x tool pro (6 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
+
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-7">
@@ -1508,15 +2120,149 @@
             <div class="card-body">
               <h5 class="card-title">Pandora tool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;">Silakan download dulu aplikasinya</p>
-                <a href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
-                  class="btn btn-success" style="font-size: 12px; padding: 4px 8px;">Download App</a><br>
-                <a href="https://wa.me/6283129564658?text=Hallo%20saya%20ingin%20rental%20Pandora%20tool"
-                  class="btn btn-primary">Rental via WhatsApp</a>
+                <p style="font-size: 12px;"><a
+                    href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-pt" name="rental-pt" value="48h" onchange="updatePricePt(this)">
+                <label for="rental-pt">48 jam</label>
+                <p id="price-pt-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-pt" class="error-message"></p>
+                <button onclick="validateRentalPt()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <script>
+          let selectedValuePt = '';
+
+          function updatePricePt(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-pt');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValuePt = checkbox.value;
+
+              let price;
+              if (selectedValuePt === '48h') {
+                price = 'Rp 120,000';
+              }
+              const priceInfo = document.getElementById('price-pt-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValuePt = '';
+              const priceInfo = document.getElementById('price-pt-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRentalPt() {
+            const checkbox = document.getElementById('rental-pt');
+            if (checkbox.checked) {
+              sendRentalMessagePt();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-pt');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+
+          function sendRentalMessagePt() {
+            const price = 'Rp 120,000';
+            const message = `Halo, saya ingin rental Pandora tool (48 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-8">
+            <img src="img/tool9.jpg" class="card-img-top" alt="Foto 8">
+            <div class="card-body">
+              <h5 class="card-title">Miracle power tool</h5>
+              <div class="button-group">
+                <p style="font-size: 12px;"><a
+                    href="https://drive.google.com/drive/folders/1UhfoCCSMY-0qg_IEGaE6SvJPxP13aOsN"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;"></i> Download app</a></p>
+                <br>
+                <input type="checkbox" id="rental-mp" name="rental-mp" value="6h" onchange="updatePriceMp(this)">
+                <label for="rental-mp">6 jam</label>
+                <p id="price-mp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-mp" class="error-message"></p>
+                <button onclick="validateRentalMp()" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Rental
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          let selectedValueMp = '';
+
+          function updatePriceMp(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-mp');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+
+              selectedValueMp = checkbox.value;
+
+              let price;
+              if (selectedValueMp === '6h') {
+                price = 'Rp 25,000';
+              }
+              const priceInfo = document.getElementById('price-mp-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueMp = '';
+              const priceInfo = document.getElementById('price-mp-info');
+              priceInfo.textContent = '';
+            }
+          }
+
+          function validateRentalMp() {
+            const checkbox = document.getElementById('rental-mp');
+            if (checkbox.checked) {
+              sendRentalMessageMp();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-mp');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+
+          function sendRentalMessageMp() {
+            const price = 'Rp 25,000';
+            const message = `Halo, saya ingin rental Miracle power tool (6 jam) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
+
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
 
       </div>
 
@@ -1691,18 +2437,22 @@
 
 
 
+
+
   </div>
 
 
 
+  
+  
 
   <footer class="footer">
     <p style="font-size: 12px; color: #ffffffa1;">Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
   </footer>
+  <script type="text/javascript" src="https://client.crisp.chat/l.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script id="dsq-count-scr" src="//https-teknisijamannow-github-io-tjn.disqus.com/count.js" async></script>
 </body>
 
 </html>
-
