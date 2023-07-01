@@ -186,7 +186,7 @@
     /* Footer */
     .footer {
       background: linear-gradient(to bottom, #11394900, #000000);
-      color: #fff;
+      color: #ffffffcc;
       padding: 50px 20px;
       text-align: center;
     }
@@ -1542,90 +1542,9 @@ function validateInput(input, maxLength) {
 
 
 
-    <div class="testimonial-section">
-      <h2 style="color: #e6e6e6; margin: 30px;">Testimoni</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial-slide">
-          <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
-        <div class="testimonial-slide">
-          <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-        </div>
-      </div>
-    </div>
-    
 
 
-    <div id="imageModal" class="modal">
-      <span class="close" onclick="closeImageModal()">&times;</span>
-      <img id="modalImage" src="" alt="Gambar Testimoni">
-    </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('.testimonial-slider').slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 1000,
-          arrows: true,
-          dots: true,
-          prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-          nextArrow: '<button type="button" class="slick-next">Next</button>',
-        });
-      });
-    </script>
-    <script>
-      // Fungsi untuk membuka modal gambar
-      function openImageModal(image) {
-        document.getElementById("modalImage").src = image.src;
-        document.getElementById("imageModal").style.display = "block";
-      }
-
-      // Fungsi untuk menutup modal gambar
-      function closeImageModal() {
-        document.getElementById("imageModal").style.display = "none";
-      }
-    </script>
-
-
-
+<!-- 
 <div id="disqus_thread" style="background: linear-gradient(to bottom, #00000000, #ffffff);"></div>
     <script>
       /**
@@ -1644,7 +1563,7 @@ function validateInput(input, maxLength) {
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
       })();
-    </script> 
+    </script> -->
 
     <script>
       function showPopup() {
@@ -2540,10 +2459,99 @@ function validateInput(input, maxLength) {
   </div>
 
 
+<br><br><br><br>
+  
+  
+  <div class="testimonial-section">
+    <h2 style="color: #e6e6e6; margin: 30px; background: linear-gradient(to bottom, #000000a1, #ffffff00); padding: 20px; border-radius: 10px;">Testimoni</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-slide">
+        <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi13.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi14.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+      <div class="testimonial-slide">
+        <img src="img/testi15.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+      </div>
+    </div>
+  </div>
+  
 
-  
-  
- 
+
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeImageModal()">&times;</span>
+    <img id="modalImage" src="" alt="Gambar Testimoni">
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.testimonial-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        arrows: true,
+        dots: true,
+        prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+        nextArrow: '<button type="button" class="slick-next">Next</button>',
+      });
+    });
+  </script>
+  <script>
+    // Fungsi untuk membuka modal gambar
+    function openImageModal(image) {
+      document.getElementById("modalImage").src = image.src;
+      document.getElementById("imageModal").style.display = "block";
+    }
+
+    // Fungsi untuk menutup modal gambar
+    function closeImageModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+  </script>
       
       
   <footer class="footer">
