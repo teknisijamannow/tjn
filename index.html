@@ -1419,12 +1419,19 @@ function validateInput(input, maxLength) {
         </div>
 
 
-        <div class="box"
-          onclick="sendWhatsAppMessage('+6283129564658', 'Assalamualaikum, saya telah melakukan pembayaran dan ini adalah bukti pembayaran saya.')">
-          <h3>Hubungi Kami lewat WhatsApp</h3>
-          <p>Kirimkan bukti pembayaran dan hubungi kami untuk informasi lebih lanjut.</p>
+ <!-- Kotak untuk mengarahkan pengguna ke grup WhatsApp -->
+ <div class="box" onclick="joinWhatsAppGroup('https://chat.whatsapp.com/FtqKGZUOfib162qJFmp1d5')">
+  <h3>Gabung Grup WhatsApp</h3>
+  <p>Silakan bergabung di grup WhatsApp kami untuk informasi lebih lanjut.</p>
+</div>
 
-        </div>
+<!-- Sisipkan skrip untuk bergabung di grup WhatsApp -->
+<script type="text/javascript">
+  function joinWhatsAppGroup(groupLink) {
+      // Ganti 'groupLink' dengan tautan grup WhatsApp yang sesuai
+      window.open(groupLink);
+  }
+</script>
 
         <div class="overlay" onclick="hidePopup()">
           <div class="popup">
