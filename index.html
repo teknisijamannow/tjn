@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <!-- Tautkan Font Awesome jika ingin menggunakan ikon sosial media -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     
   <style>
     .promo-box {
@@ -945,29 +947,48 @@ label {
     white-space: normal;
   }
 
-  .online-text {
-    
 
-            font-size: 12px;
-            color: rgba(0, 255, 0, 0.74);
-            overflow: hidden;
-           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            border-right: .15em solid green;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
-            animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
-        }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: rgba(248, 248, 248, 0.336) }
-        }
+  .privacy-policy-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00b7ff;
+  }
+
+  .privacy-policy-box p {
+    margin-bottom: 1rem;
+  }
+
+  .privacy-policy-box ul {
+    margin-left: 1.5rem;
+  }
+
+
+
+
+
+
+
+  .terms-conditions-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00b7ff;
+  }
+
+  .terms-conditions-box p {
+    margin-bottom: 1rem;
+  }
+
+  .terms-conditions-box ul {
+    margin-left: 1.5rem;
+  }
+
+
+
+
+
+
   </style>
  
   <script type="text/javascript">
@@ -994,7 +1015,7 @@ label {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"><span class="online-text">online</span></a>
+        <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
        
   
         <ul class="navbar-nav ms-auto d-flex align-items-center">
@@ -1594,7 +1615,97 @@ function validateInput(input, maxLength) {
       }
     </script>
 
+  
+<div class="testimonial-section">
+  <h2 style="color: #e6e6e6; margin: 30px; background: linear-gradient(to bottom, #000000a1, #ffffff00); padding: 20px; border-radius: 10px;">Testimoni</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial-slide">
+      <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi13.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi14.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+    </div>
+    <div class="testimonial-slide">
+      <img src="img/testi15.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+    </div>
+  </div>
+</div>
 
+
+
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeImageModal()">&times;</span>
+  <img id="modalImage" src="" alt="Gambar Testimoni">
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.testimonial-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 1000,
+      arrows: true,
+      dots: true,
+      prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+      nextArrow: '<button type="button" class="slick-next">Next</button>',
+    });
+  });
+</script>
+<script>
+  // Fungsi untuk membuka modal gambar
+  function openImageModal(image) {
+    document.getElementById("modalImage").src = image.src;
+    document.getElementById("imageModal").style.display = "block";
+  }
+
+  // Fungsi untuk menutup modal gambar
+  function closeImageModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+</script>
 
 
   </div>
@@ -2466,104 +2577,120 @@ function validateInput(input, maxLength) {
   </div>
 
 
-<br><br><br><br>
+
   
-  
-  <div class="testimonial-section">
-    <h2 style="color: #e6e6e6; margin: 30px; background: linear-gradient(to bottom, #000000a1, #ffffff00); padding: 20px; border-radius: 10px;">Testimoni</h2>
-    <div class="testimonial-slider">
-      <div class="testimonial-slide">
-        <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi13.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi14.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-      <div class="testimonial-slide">
-        <img src="img/testi15.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-      </div>
-    </div>
+
+      <br><br><br><br><br><br><br><br><br>
+      <footer class="bg-black bg-opacity-50 text-white">
+        <div class="container mx-auto py-8 px-4">
+          <div class="flex flex-wrap">
+            <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
+              <h4 class="text-2xl font-bold mb-2">Tentang Kami</h4>
+              <ul class="list-none">
+                <li><a href="#" class="hover:text-white">Tim Kami</a></li>
+                <li><a href="#" class="hover:text-white">Karir</a></li>
+                <li><a href="#" id="privacyPolicyLink" class="hover:text-white">Kebijakan Privasi</a></li>
+
+                <div id="privacyPolicyContent" class="hidden">
+                  <div class="privacy-policy-box unique-class">
+                    <h2 class="text-2xl font-bold">Kebijakan Privasi</h2>
+                    <p>Kami adalah perusahaan yang bergerak di bidang perbaikan handphone. Kami menghargai privasi Anda dan berkomitmen untuk melindungi informasi pribadi Anda.</p>
+                    <p>Berikut adalah beberapa layanan yang kami sediakan:</p>
+                    <ul class="list-disc pl-4">
+                      <li>Unlock Pattern</li>
+                      <li>FRP Bypass</li>
+                      <li>Unlock iCloud</li>
+                      <li>Unlock MiCloud</li>
+                      <li>Unlock Bypass MiCloud</li>
+                      <li>Change IMEI</li>
+                      <li>Repair Besiband</li>
+                      <li>Auth Mi Server</li>
+                      <li>Auth OPPO Server</li>
+                      <li>dan lainnya</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <script>
+                  const privacyPolicyLink = document.getElementById('privacyPolicyLink');
+                  const privacyPolicyContent = document.getElementById('privacyPolicyContent');
+                
+                  privacyPolicyLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    privacyPolicyContent.classList.toggle('hidden');
+                  });
+                </script>
+                
+
+
+                <li><a href="#" id="termsConditionsLink" class="hover:text-white">Syarat dan Ketentuan</a></li>
+
+<div id="termsConditionsContent" class="hidden">
+  <div class="terms-conditions-box unique-class">
+    <h2 class="text-2xl font-bold">Syarat dan Ketentuan</h2>
+    <p>Kami, Teknisi Jaman Now, adalah penyedia layanan perbaikan handphone yang berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan kami. Dalam menggunakan layanan kami, berlaku syarat dan ketentuan sebagai berikut:</p>
+    <ul class="list-disc pl-4">
+      <li>Pelanggan bertanggung jawab atas data pribadi yang diberikan kepada kami.</li>
+      <li>Kami akan melakukan perbaikan sesuai dengan permintaan dan persetujuan pelanggan.</li>
+      <li>Kami tidak bertanggung jawab atas kerusakan tambahan yang mungkin terjadi selama atau setelah perbaikan.</li>
+      <li>Pelanggan harus membayar biaya perbaikan sesuai dengan tarif yang berlaku.</li>
+      <li>Dalam hal klaim garansi, pelanggan harus menyertakan bukti pembelian.</li>
+    </ul>
+    <p>Dengan menggunakan layanan kami, pelanggan dianggap telah membaca, memahami, dan setuju dengan syarat dan ketentuan ini.</p>
   </div>
-  
+</div>
+<script>
+  const termsConditionsLink = document.getElementById('termsConditionsLink');
+  const termsConditionsContent = document.getElementById('termsConditionsContent');
+
+  termsConditionsLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    termsConditionsContent.classList.toggle('hidden');
+  });
+</script>
 
 
-  <div id="imageModal" class="modal">
-    <span class="close" onclick="closeImageModal()">&times;</span>
-    <img id="modalImage" src="" alt="Gambar Testimoni">
-  </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.testimonial-slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1000,
-        arrows: true,
-        dots: true,
-        prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-        nextArrow: '<button type="button" class="slick-next">Next</button>',
-      });
-    });
-  </script>
-  <script>
-    // Fungsi untuk membuka modal gambar
-    function openImageModal(image) {
-      document.getElementById("modalImage").src = image.src;
-      document.getElementById("imageModal").style.display = "block";
-    }
-
-    // Fungsi untuk menutup modal gambar
-    function closeImageModal() {
-      document.getElementById("imageModal").style.display = "none";
-    }
-  </script>
+              </ul>
+            </div>
+            <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
+              <h4 class="text-2xl font-bold mb-2">Produk</h4>
+              <ul class="list-none">
+                <li><a href="#" class="hover:text-white">Fitur</a></li>
+                <li><a href="#" class="hover:text-white">Harga</a></li>
+                <li><a href="#" class="hover:text-white">Testimoni</a></li>
+                <li><a href="#" class="hover:text-white">Panduan Pengguna</a></li>
+              </ul>
+            </div>
+            <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
+              <h4 class="text-2xl font-bold mb-2">Bantuan</h4>
+              <ul class="list-none">
+                <li><a href="#" class="hover:text-white">FAQ</a></li>
+                <li><a href="#" class="hover:text-white">Kontak Kami</a></li>
+                <li><a href="#" class="hover:text-white">Dukungan Pelanggan</a></li>
+              </ul>
+            </div>
+            <div class="w-full md:w-1/4 lg:w-1/3 mb-4 md:mb-0">
+              
+            </div>
+          </div>
+          <div class="border-t border-gray-600 mt-8 pt-8">
+            <div class="flex justify-between items-center">
+              <p class="text-sm">&copy; 2023 Teknisi Jaman Now. Hak Cipta Dilindungi.</p>
+              <div>
+                <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
       
       
-  <footer class="footer">
-    <p style="font-size: 12px; color: #ffffffa1;">Hak Cipta &copy; 2023 Teknisi Jaman Now</p>
-  </footer>
+      
 
   <script type="text/javascript" src="https://client.crisp.chat/l.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
