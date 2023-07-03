@@ -1027,7 +1027,7 @@ label {
 
           <li class="nav-item" id="nav-produk">
             <a class="nav-link" href="#" onclick="showContent('produk')">
-              <i class="fas fa-shopping-bag"></i> <!-- Ganti "fa-shopping-bag" dengan kelas ikon yang diinginkan -->
+              <i class="fas fa-shopping-bag"></i>
             </a>
           </li>
           <li class="nav-item" id="nav-kontak">
@@ -1727,7 +1727,7 @@ function validateInput(input, maxLength) {
 
 
     <div class="container">
-      <div class="row">
+      <div class="row" id="content-produk">
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-1">
@@ -2409,9 +2409,9 @@ function validateInput(input, maxLength) {
 
 
 
-  <div id="content-kontak" class="page-content" style="display: none;">
+  <div id="content-kontak"   class="page-content" style="display: none;">
     <br><br><br>
-    <div class="container">
+    <div   class="container">
       <div class="row">
         <div class="col-lg-2 text-center">
           <img src="img/po.png" alt="Logo" class="img-fluid logo">
@@ -2420,7 +2420,7 @@ function validateInput(input, maxLength) {
           <div class="row">
             <div class="col-lg-12">
               <div class="about-section">
-                <p class="text-start small-text">
+                <p  class="text-start small-text">
                   TEKNISI JAMAN NOW adalah penyedia layanan perbaikan smartphone profesional yang telah terbukti dan
                   dapat diandalkan. Kami memiliki reputasi yang baik dalam memberikan solusi perbaikan untuk berbagai
                   merek dan model smartphone dengan standar kualitas yang tinggi. Kami memahami betapa pentingnya
@@ -2587,7 +2587,7 @@ function validateInput(input, maxLength) {
             <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
               <h4 class="text-2xl font-bold mb-2">Tentang Kami</h4>
               <ul class="list-none">
-                <li><a href="#" class="hover:text-white">Tim Kami</a></li>
+                <li><a href="#content-produk" class="hover:text-white">Tim Kami</a></li>
                 <li><a href="#" class="hover:text-white">Karir</a></li>
                 <li><a href="#" id="privacyPolicyLink" class="hover:text-white">Kebijakan Privasi</a></li>
 
@@ -2657,7 +2657,20 @@ function validateInput(input, maxLength) {
             <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
               <h4 class="text-2xl font-bold mb-2">Produk</h4>
               <ul class="list-none">
-                <li><a href="#" class="hover:text-white">Fitur</a></li>
+                <li><a href="#" class="hover:text-white" onclick="navigateToProduk()">Tool</a></li>
+                <script>
+                  function navigateToProduk() {
+                    // Simulasikan klik pada tautan "nav-produk"
+                    var navProdukLink = document.getElementById('nav-produk').querySelector('a');
+                    navProdukLink.click();
+                
+                    // Mengarahkan halaman ke div dengan id "content-produk"
+                    var contentProduk = document.getElementById('content-produk');
+                    contentProduk.scrollIntoView({ behavior: 'smooth' });
+                  }
+                
+                  
+                </script>
                 <li><a href="#" class="hover:text-white">Harga</a></li>
                 <li><a href="#" class="hover:text-white">Testimoni</a></li>
                 <li><a href="#" class="hover:text-white">Panduan Pengguna</a></li>
