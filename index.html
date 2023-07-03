@@ -19,13 +19,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-*******" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-      <!-- Tautkan Font Awesome jika ingin menggunakan ikon sosial media -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Tautkan Font Awesome jika ingin menggunakan ikon sosial media -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
   <style>
     .promo-box {
       background-color: #f8f9fa;
@@ -611,11 +611,18 @@
     .card {
       max-width: 100%;
       background-color: #ffffff;
-      border-radius: 8px;
+      border-radius: 20px;
       padding: 20px;
       margin: 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     
 
+    }
+    .button-group{
+      display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
     }
 
     .card-img-top {
@@ -623,28 +630,35 @@
       height: 200px;
       object-fit: cover;
       object-position: center;
-      border-radius: 5px;
-      border: solid rgba(0, 0, 0, 0.212) 1px;
+      border-radius: 15px;
+      border: solid rgba(138, 138, 138, 0.726) 1px;
+
       /* Tambahkan overflow: hidden untuk menghindari pemotongan foto */
     }
 
 
+
+
     .card-title {
-      font-size: 18px;
+      font-size: 20px;
+      text-align: center;
       /* Atur ukuran teks judul */
       margin-top: 10px;
+      margin-bottom: 15px;
       /* Atur margin atas judul */
-      color: #000000;
+      color: #686868;
       font-weight: bold;
     }
 
     .btn-primary {
+
       font-size: 14px;
       /* Atur ukuran teks tombol */
       margin-top: 10px;
       /* Atur margin atas tombol */
       padding: 8px 16px;
       /* Atur padding tombol */
+
     }
 
     /* Media query untuk layar perangkat seluler */
@@ -835,162 +849,173 @@
       margin-top: 5px;
       margin-left: 5px;
     }
+
     .small-blue-text {
-  font-size: 12px;
-  color: #0073df;
+      font-size: 12px;
+      color: #0073df;
+    }
+
+    /* Checkbox Styles */
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #02b7ff;
+      border-radius: 50%;
+      margin-right: 10px;
+      outline: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: #13fa1f;
+    }
+
+    /* Label Styles */
+    label.checkbox-label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #07daff;
+      cursor: pointer;
+    }
+
+    label.checkbox-label .checkmark {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #0073df;
+      border-radius: 50%;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+
+
+    label {
+
+      font-size: 18px;
+      color: #000000e0;
+
+      cursor: pointer;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    label:hover {
+      background-color: #c5c5c5;
+
+      border-radius: 2px;
+    }
+
+    label:focus {
+      outline: none;
+    }
+
+
+    .image-gallery {
+      overflow-x: scroll;
+      white-space: nowrap;
+      background-color: #000000be;
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    .image-gallery .col-4 {
+      display: inline-block;
+      width: 33.33%;
+      white-space: normal;
+      vertical-align: top;
+
+
+    }
+
+    .image-gallery {
+      display: inline-block;
+      overflow-x: auto;
+      white-space: nowrap;
+      gap: 10px;
+      padding: 10px;
+      background-color: #000000be;
+      scroll-behavior: smooth;
+    }
+
+    .image-gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .image-gallery::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
+
+    .image-gallery::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    .image-gallery .col-4 {
+      flex: 0 0 33.33%;
+      max-width: 33.33%;
+      white-space: normal;
+    }
+
+
+
+
+    .privacy-policy-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #00b7ff;
+    }
+
+    .privacy-policy-box p {
+      margin-bottom: 1rem;
+    }
+
+    .privacy-policy-box ul {
+      margin-left: 1.5rem;
+    }
+
+
+
+
+
+
+
+    .terms-conditions-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #00b7ff;
+    }
+
+    .terms-conditions-box p {
+      margin-bottom: 1rem;
+    }
+
+    .terms-conditions-box ul {
+      margin-left: 1.5rem;
+    }
+
+
+
+
+    .gradient-btn {
+      border: none;
+  background: linear-gradient(to right, #0077ff, #01ccff);
+  /* Ubah warna sesuai keinginan Anda */
+  color: rgb(255, 255, 255);
+  /* Warna teks tombol */
+  /* Gaya lainnya yang Anda inginkan */
 }
-
-  /* Checkbox Styles */
-  input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #02b7ff;
-    border-radius: 50%;
-    margin-right: 10px;
-    outline: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  input[type="checkbox"]:checked {
-    background-color: #13fa1f;
-  }
-
-  /* Label Styles */
-  label.checkbox-label {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #0073df;
-    cursor: pointer;
-  }
-
-  label.checkbox-label .checkmark {
-    width: 16px;
-    height: 16px;
-    border: 2px solid #0073df;
-    border-radius: 50%;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-  }
-
-
-
-label {
-   
-    font-size: 18px;
-    color: #000000e0;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    transition: background-color 0.3s ease;
-  }
-
-  label:hover {
-    background-color: #c5c5c5;
-   
-    border-radius: 2px;
-  }
-
-  label:focus {
-    outline: none;
-  }
-
-
-  .image-gallery {
-        overflow-x: scroll;
-        white-space: nowrap;
-        background-color: #000000be;
-        margin: 20px;
-        border-radius: 10px;
-      }
-    
-      .image-gallery .col-4 {
-        display: inline-block;
-        width: 33.33%;
-        white-space: normal;
-        vertical-align: top;
-       
-       
-      }
-      .image-gallery {
-        display: inline-block;
-    overflow-x: auto;
-    white-space: nowrap;
-    gap: 10px;
-    padding: 10px;
-    background-color: #000000be;
-    scroll-behavior: smooth;
-  }
-
-  .image-gallery::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .image-gallery::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
-
-  .image-gallery::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  .image-gallery .col-4 {
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
-    white-space: normal;
-  }
-
-
-
-
-  .privacy-policy-box h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #00b7ff;
-  }
-
-  .privacy-policy-box p {
-    margin-bottom: 1rem;
-  }
-
-  .privacy-policy-box ul {
-    margin-left: 1.5rem;
-  }
-
-
-
-
-
-
-
-  .terms-conditions-box h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #00b7ff;
-  }
-
-  .terms-conditions-box p {
-    margin-bottom: 1rem;
-  }
-
-  .terms-conditions-box ul {
-    margin-left: 1.5rem;
-  }
-
-
-
-
 
 
   </style>
- 
+
   <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "e66349d5-67ac-4e26-b8c6-045c6ef0b242";
@@ -1002,7 +1027,7 @@ label {
       d.getElementsByTagName("head")[0].appendChild(s);
     })();
   </script>
- 
+
 </head>
 
 <body>
@@ -1016,8 +1041,8 @@ label {
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
-       
-  
+
+
         <ul class="navbar-nav ms-auto d-flex align-items-center">
           <li class="nav-item" id="nav-dashboard">
             <a class="nav-link" href="#" onclick="showContent('dashboard')">
@@ -1035,7 +1060,7 @@ label {
               <i class="fas fa-user"></i> <!-- Ganti "fa-user" dengan kelas ikon yang diinginkan -->
             </a>
           </li>
-          
+
 
         </ul>
       </div>
@@ -1199,14 +1224,13 @@ label {
                   <input type="text" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">
                   <script>
                     function validateInput(input, maxLength) {
-  input.value = input.value.replace(/[^0-9]/g, '');
-  if (input.value.length > maxLength) {
-    input.value = input.value.slice(0, maxLength);
-  }
-}
-
+                      input.value = input.value.replace(/[^0-9]/g, '');
+                      if (input.value.length > maxLength) {
+                        input.value = input.value.slice(0, maxLength);
+                      }
+                    }
                   </script>
-                  
+
                 </div>
               </div>
             </div>
@@ -1229,28 +1253,30 @@ label {
         </div>
 
         <script>
-        function addInputs() {
-  var inputSection = document.getElementById('input-section');
-  var imeiCount = document.getElementsByClassName('imei-input').length;
-  var newInputsHTML = '';
+          function addInputs() {
+            var inputSection = document.getElementById('input-section');
+            var imeiCount = document.getElementsByClassName('imei-input').length;
+            var newInputsHTML = '';
 
-  newInputsHTML += '<div class="input-group">';
-  newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
-  newInputsHTML += '</div>';
-  newInputsHTML += '<div class="imei-group">';
-  newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 1" oninput="validateInput(this, 15)">';
-  newInputsHTML += '<input type="text" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">';
-  newInputsHTML += '</div>';
+            newInputsHTML += '<div class="input-group">';
+            newInputsHTML += '<input type="text" class="nama-input" placeholder="Nama Pengirim">';
+            newInputsHTML += '</div>';
+            newInputsHTML += '<div class="imei-group">';
+            newInputsHTML +=
+              '<input type="text" class="imei-input" placeholder="IMEI 1" oninput="validateInput(this, 15)">';
+            newInputsHTML +=
+              '<input type="text" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">';
+            newInputsHTML += '</div>';
 
-  inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
-}
+            inputSection.insertAdjacentHTML('beforeend', newInputsHTML);
+          }
 
-function validateInput(input, maxLength) {
-  input.value = input.value.replace(/[^0-9]/g, '');
-  if (input.value.length > maxLength) {
-    input.value = input.value.slice(0, maxLength);
-  }
-}
+          function validateInput(input, maxLength) {
+            input.value = input.value.replace(/[^0-9]/g, '');
+            if (input.value.length > maxLength) {
+              input.value = input.value.slice(0, maxLength);
+            }
+          }
 
 
           function openCrispChatAndSendMessage(event) {
@@ -1295,10 +1321,8 @@ function validateInput(input, maxLength) {
               }
             }
           }
-
-         
         </script>
-<!-- 
+        <!-- 
         <script>
           function addInputs() {
             var inputSection = document.getElementById('input-section');
@@ -1440,19 +1464,19 @@ function validateInput(input, maxLength) {
         </div>
 
 
- <!-- Kotak untuk mengarahkan pengguna ke grup WhatsApp -->
- <div class="box" onclick="joinWhatsAppGroup('https://chat.whatsapp.com/FtqKGZUOfib162qJFmp1d5')">
-  <h3>Gabung Grup WhatsApp</h3>
-  <p>Silakan bergabung di grup WhatsApp kami untuk informasi lebih lanjut.</p>
-</div>
+        <!-- Kotak untuk mengarahkan pengguna ke grup WhatsApp -->
+        <div class="box" onclick="joinWhatsAppGroup('https://chat.whatsapp.com/FtqKGZUOfib162qJFmp1d5')">
+          <h3>Gabung Grup WhatsApp</h3>
+          <p>Silakan bergabung di grup WhatsApp kami untuk informasi lebih lanjut.</p>
+        </div>
 
-<!-- Sisipkan skrip untuk bergabung di grup WhatsApp -->
-<script type="text/javascript">
-  function joinWhatsAppGroup(groupLink) {
-      // Ganti 'groupLink' dengan tautan grup WhatsApp yang sesuai
-      window.open(groupLink);
-  }
-</script>
+        <!-- Sisipkan skrip untuk bergabung di grup WhatsApp -->
+        <script type="text/javascript">
+          function joinWhatsAppGroup(groupLink) {
+            // Ganti 'groupLink' dengan tautan grup WhatsApp yang sesuai
+            window.open(groupLink);
+          }
+        </script>
 
         <div class="overlay" onclick="hidePopup()">
           <div class="popup">
@@ -1521,7 +1545,7 @@ function validateInput(input, maxLength) {
 
 
 
-<!-- 
+    <!-- 
 
     <div class="card" style="background-color: #00000057;">
       <h3>Bahan Download Remote via PC/Laptop</h3>
@@ -1545,20 +1569,6 @@ function validateInput(input, maxLength) {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    
-
-   
-    
-    
-
-    
-    
-    
-    
-    
-      
-    
-    
 
 
 
@@ -1572,7 +1582,21 @@ function validateInput(input, maxLength) {
 
 
 
-<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 
 <div id="disqus_thread" style="background: linear-gradient(to bottom, #00000000, #ffffff);"></div>
     <script>
       /**
@@ -1615,97 +1639,99 @@ function validateInput(input, maxLength) {
       }
     </script>
 
-  
-<div class="testimonial-section">
-  <h2 style="color: #e6e6e6; margin: 30px; background: linear-gradient(to bottom, #000000a1, #ffffff00); padding: 20px; border-radius: 10px;">Testimoni</h2>
-  <div class="testimonial-slider">
-    <div class="testimonial-slide">
-      <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
+
+    <div class="testimonial-section">
+      <h2
+        style="color: #e6e6e6; margin: 30px; background: linear-gradient(to bottom, #000000a1, #ffffff00); padding: 20px; border-radius: 10px;">
+        Testimoni</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial-slide">
+          <img src="img/testi.jpg" alt="Gambar 1" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi13.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi14.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+        <div class="testimonial-slide">
+          <img src="img/testi15.jpg" alt="Gambar 10" onclick="openImageModal(this)">
+        </div>
+      </div>
     </div>
-    <div class="testimonial-slide">
-      <img src="img/testi1.jpg" alt="Gambar 2" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi2.jpg" alt="Gambar 3" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi3.jpg" alt="Gambar 4" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi4.jpg" alt="Gambar 5" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi5.jpg" alt="Gambar 6" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi6.jpg" alt="Gambar 7" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi7.jpg" alt="Gambar 8" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi8.jpg" alt="Gambar 9" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi9.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi10.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi11.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi12.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi13.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi14.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-    </div>
-    <div class="testimonial-slide">
-      <img src="img/testi15.jpg" alt="Gambar 10" onclick="openImageModal(this)">
-    </div>
-  </div>
-</div>
 
 
 
-<div id="imageModal" class="modal">
-  <span class="close" onclick="closeImageModal()">&times;</span>
-  <img id="modalImage" src="" alt="Gambar Testimoni">
-</div>
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeImageModal()">&times;</span>
+      <img id="modalImage" src="" alt="Gambar Testimoni">
+    </div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('.testimonial-slider').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 1000,
-      arrows: true,
-      dots: true,
-      prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-      nextArrow: '<button type="button" class="slick-next">Next</button>',
-    });
-  });
-</script>
-<script>
-  // Fungsi untuk membuka modal gambar
-  function openImageModal(image) {
-    document.getElementById("modalImage").src = image.src;
-    document.getElementById("imageModal").style.display = "block";
-  }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.testimonial-slider').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          arrows: true,
+          dots: true,
+          prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+          nextArrow: '<button type="button" class="slick-next">Next</button>',
+        });
+      });
+    </script>
+    <script>
+      // Fungsi untuk membuka modal gambar
+      function openImageModal(image) {
+        document.getElementById("modalImage").src = image.src;
+        document.getElementById("imageModal").style.display = "block";
+      }
 
-  // Fungsi untuk menutup modal gambar
-  function closeImageModal() {
-    document.getElementById("imageModal").style.display = "none";
-  }
-</script>
+      // Fungsi untuk menutup modal gambar
+      function closeImageModal() {
+        document.getElementById("imageModal").style.display = "none";
+      }
+    </script>
 
 
   </div>
@@ -1735,22 +1761,24 @@ function validateInput(input, maxLength) {
             <div class="card-body">
               <h5 class="card-title">Unlocktool</h5>
               <div class="button-group">
-                <p style="font-size: 12px;"><a href="https://unlocktool.net/download/" class="download-link"><i
+                <p style="font-size: 12px; "><a href="https://unlocktool.net/download/" class="download-link"><i
                       class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                      <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                        class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
-                      
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
+
                 <br>
+                
                 <div>
                   <input type="checkbox" id="rental-6h" name="rental" value="6h" onchange="updatePrice(this)">
                   <label for="rental-6h" style="margin-right: 15px;">6 jam</label>
                   <label for="hidden-options">
-                    <i id="pulse-icon" class="fas fa-chevron-down" style="color: #0073df;"></i>
+                    <i id="pulse-icon" class="fas fa-chevron-down" style="color: #0073df; font-size: 12px;"></i>
                     <span class="small-blue-text">Selengkapnya</span>
                   </label>
-                  
-                  
-                  
+
+
+
 
 
                 </div>
@@ -1768,10 +1796,12 @@ function validateInput(input, maxLength) {
 
                 <p id="price-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
 
-                <button onclick="validateRental()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental sekarang
-                </button>
-              </div>
+                
+              
+              <button onclick="validateRental()" class="btn btn-primary gradient-btn">
+                <i class="fas fa-paper-plane"></i> Rental sekarang
+              </button>
+            </div>
             </div>
           </div>
         </div>
@@ -1873,9 +1903,11 @@ function validateInput(input, maxLength) {
               <div class="button-group">
                 <p style="font-size: 12px;"><a
                     href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px;color: #13fa1f;"></i> Tool Download</a></p>
-                    <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px;color: #13fa1f;"></i> Tool
+                    Download</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
                 <br>
                 <div>
                   <input type="checkbox" id="rental-6h" name="rental-cf" value="6h" onchange="updatePriceCf(this)">
@@ -1883,8 +1915,8 @@ function validateInput(input, maxLength) {
                 </div>
                 <p id="price-cf-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-cf" class="error-message"></p>
-                <button onclick="validateRentalCf()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                <button onclick="validateRentalCf()" class="btn btn-primary gradient-btn">
+                  <i class="fas fa-paper-plane"></i> Rental Sekarang
                 </button>
               </div>
             </div>
@@ -1957,16 +1989,21 @@ function validateInput(input, maxLength) {
               <div class="button-group">
                 <p style="font-size: 12px;"><a href="https://unlocktool.net/download/" class="download-link"><i
                       class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                      <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                        class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
                 <br>
+                <div>
                 <input type="checkbox" id="rental-df" name="rental-df" value="6h" onchange="updatePriceDf(this)">
                 <label for="rental-df">6 jam</label>
-                <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;" ></p>
+              </div>
+                <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-df" class="error-message"></p>
-                <button onclick="validateRentalDf()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                <button onclick="validateRentalDf()" class="btn btn-primary gradient-btn">
+                  <i class="fas fa-paper-plane"></i> Rental Sekarang
                 </button>
+                
+                
               </div>
             </div>
           </div>
@@ -2038,15 +2075,18 @@ function validateInput(input, maxLength) {
               <div class="button-group">
                 <p style="font-size: 12px;"><a href="https://chimeratool.com/en/download" class="download-link"><i
                       class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                      <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                        class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
                 <br>
+                <div>
                 <input type="checkbox" id="rental-ch" name="rental-ch" value="48h" onchange="updatePriceCh(this)">
                 <label for="rental-ch">48 jam</label>
+              </div>
                 <p id="price-ch-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-ch" class="error-message"></p>
-                <button onclick="validateRentalCh()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                <button onclick="validateRentalCh()" class="btn btn-primary gradient-btn">
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
               </div>
             </div>
@@ -2114,16 +2154,20 @@ function validateInput(input, maxLength) {
               <h5 class="card-title">Garuda tool</h5>
               <div class="button-group">
                 <p style="font-size: 12px;"><a href="https://garuda-genpro.com/download/Garuda-GenPro.7z"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                    <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+                    Download</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
                 <br>
+                <div>
                 <input type="checkbox" id="rental-gd" name="rental-gd" value="24h" onchange="updatePriceGd(this)">
                 <label for="rental-gd">24 jam</label>
+              </div>
                 <p id="price-gd-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-gd" class="error-message"></p>
-                <button onclick="validateRentalGd()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                <button onclick="validateRentalGd()" class="btn btn-primary gradient-btn">
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
               </div>
             </div>
@@ -2192,20 +2236,25 @@ function validateInput(input, maxLength) {
               <div class="button-group">
                 <p style="font-size: 12px;"><a
                     href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                    <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
-                      <p style="font-size: 12px;"><a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file" class="download-link"><i
-                        class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download USB Redirector</a></p>
-                        <p style="font-size: 12px;"><a href="https://www.radmin-vpn.com/" class="download-link"><i
-                          class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Radmin VPN</a></p>
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+                    Download</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
+                <p style="font-size: 12px;"><a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download USB Redirector</a></p>
+                <p style="font-size: 12px;"><a href="https://www.radmin-vpn.com/" class="download-link"><i
+                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Radmin VPN</a></p>
                 <br>
+                <div>
                 <input type="checkbox" id="rental-zx" name="rental-zx" value="6h" onchange="updatePriceZx(this)">
                 <label for="rental-zx">6 jam</label>
+              </div>
                 <p id="price-zx-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-zx" class="error-message"></p>
-                <button onclick="validateRentalZx()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                <button onclick="validateRentalZx()" class="btn btn-primary gradient-btn">
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
               </div>
             </div>
@@ -2274,16 +2323,20 @@ function validateInput(input, maxLength) {
               <div class="button-group">
                 <p style="font-size: 12px;"><a
                     href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                    <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+                    Download</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
                 <br>
+                <div>
                 <input type="checkbox" id="rental-pt" name="rental-pt" value="48h" onchange="updatePricePt(this)">
                 <label for="rental-pt">48 jam</label>
+              </div>
                 <p id="price-pt-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-pt" class="error-message"></p>
-                <button onclick="validateRentalPt()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                <button onclick="validateRentalPt()" class="btn btn-primary gradient-btn">
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
               </div>
             </div>
@@ -2351,16 +2404,20 @@ function validateInput(input, maxLength) {
               <div class="button-group">
                 <p style="font-size: 12px;"><a
                     href="https://drive.google.com/drive/folders/1UhfoCCSMY-0qg_IEGaE6SvJPxP13aOsN"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                    <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+                    Download</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
                 <br>
+                <div>
                 <input type="checkbox" id="rental-mp" name="rental-mp" value="6h" onchange="updatePriceMp(this)">
                 <label for="rental-mp">6 jam</label>
+              </div>
                 <p id="price-mp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-mp" class="error-message"></p>
-                <button onclick="validateRentalMp()" class="btn btn-primary">
-                  <i class="fas fa-paper-plane"></i> Rental
+                <button onclick="validateRentalMp()" class="btn btn-primary gradient-btn" >
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
               </div>
             </div>
@@ -2430,9 +2487,9 @@ function validateInput(input, maxLength) {
 
 
 
-  <div id="content-kontak"   class="page-content" style="display: none;">
+  <div id="content-kontak" class="page-content" style="display: none;">
     <br><br><br>
-    <div   class="container">
+    <div class="container">
       <div class="row">
         <div class="col-lg-2 text-center">
           <img src="img/po.png" alt="Logo" class="img-fluid logo">
@@ -2441,7 +2498,7 @@ function validateInput(input, maxLength) {
           <div class="row">
             <div class="col-lg-12">
               <div class="about-section">
-                <p  class="text-start small-text">
+                <p class="text-start small-text">
                   TEKNISI JAMAN NOW adalah penyedia layanan perbaikan smartphone profesional yang telah terbukti dan
                   dapat diandalkan. Kami memiliki reputasi yang baik dalam memberikan solusi perbaikan untuk berbagai
                   merek dan model smartphone dengan standar kualitas yang tinggi. Kami memahami betapa pentingnya
@@ -2599,132 +2656,137 @@ function validateInput(input, maxLength) {
 
 
 
-  
-
-      <br><br><br><br><br><br><br><br><br>
-      <footer class="bg-black bg-opacity-50 text-white">
-        <div class="container mx-auto py-8 px-4">
-          <div class="flex flex-wrap">
-            <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
-              <h4 class="text-2xl font-bold mb-2">Tentang Kami</h4>
-              <ul class="list-none">
-                <li><a href="#content-produk" class="hover:text-white">Tim Kami</a></li>
-                <li><a href="#" class="hover:text-white">Karir</a></li>
-                <li><a href="#" id="privacyPolicyLink" class="hover:text-white">Kebijakan Privasi</a></li>
-
-                <div id="privacyPolicyContent" class="hidden">
-                  <div class="privacy-policy-box unique-class">
-                    <h2 class="text-2xl font-bold">Kebijakan Privasi</h2>
-                    <p>Kami adalah perusahaan yang bergerak di bidang perbaikan handphone. Kami menghargai privasi Anda dan berkomitmen untuk melindungi informasi pribadi Anda.</p>
-                    <p>Berikut adalah beberapa layanan yang kami sediakan:</p>
-                    <ul class="list-disc pl-4">
-                      <li>Unlock Pattern</li>
-                      <li>FRP Bypass</li>
-                      <li>Unlock iCloud</li>
-                      <li>Unlock MiCloud</li>
-                      <li>Unlock Bypass MiCloud</li>
-                      <li>Change IMEI</li>
-                      <li>Repair Besiband</li>
-                      <li>Auth Mi Server</li>
-                      <li>Auth OPPO Server</li>
-                      <li>dan lainnya</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <script>
-                  const privacyPolicyLink = document.getElementById('privacyPolicyLink');
-                  const privacyPolicyContent = document.getElementById('privacyPolicyContent');
-                
-                  privacyPolicyLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    privacyPolicyContent.classList.toggle('hidden');
-                  });
-                </script>
-                
 
 
-                <li><a href="#" id="termsConditionsLink" class="hover:text-white">Syarat dan Ketentuan</a></li>
+  <br><br><br><br><br><br><br><br><br>
+  <footer class="bg-black bg-opacity-50 text-white">
+    <div class="container mx-auto py-8 px-4">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
+          <h4 class="text-2xl font-bold mb-2">Tentang Kami</h4>
+          <ul class="list-none">
+            <li><a href="#content-produk" class="hover:text-white">Tim Kami</a></li>
+            <li><a href="#" class="hover:text-white">Karir</a></li>
+            <li><a href="#" id="privacyPolicyLink" class="hover:text-white">Kebijakan Privasi</a></li>
 
-<div id="termsConditionsContent" class="hidden">
-  <div class="terms-conditions-box unique-class">
-    <h2 class="text-2xl font-bold">Syarat dan Ketentuan</h2>
-    <p>Kami, Teknisi Jaman Now, adalah penyedia layanan perbaikan handphone yang berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan kami. Dalam menggunakan layanan kami, berlaku syarat dan ketentuan sebagai berikut:</p>
-    <ul class="list-disc pl-4">
-      <li>Pelanggan bertanggung jawab atas data pribadi yang diberikan kepada kami.</li>
-      <li>Kami akan melakukan perbaikan sesuai dengan permintaan dan persetujuan pelanggan.</li>
-      <li>Kami tidak bertanggung jawab atas kerusakan tambahan yang mungkin terjadi selama atau setelah perbaikan.</li>
-      <li>Pelanggan harus membayar biaya perbaikan sesuai dengan tarif yang berlaku.</li>
-      <li>Dalam hal klaim garansi, pelanggan harus menyertakan bukti pembelian.</li>
-    </ul>
-    <p>Dengan menggunakan layanan kami, pelanggan dianggap telah membaca, memahami, dan setuju dengan syarat dan ketentuan ini.</p>
-  </div>
-</div>
-<script>
-  const termsConditionsLink = document.getElementById('termsConditionsLink');
-  const termsConditionsContent = document.getElementById('termsConditionsContent');
-
-  termsConditionsLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    termsConditionsContent.classList.toggle('hidden');
-  });
-</script>
-
-
-
-
-              </ul>
-            </div>
-            <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
-              <h4 class="text-2xl font-bold mb-2">Produk</h4>
-              <ul class="list-none">
-                <li><a href="#" class="hover:text-white" onclick="navigateToProduk()">Tool</a></li>
-                <script>
-                  function navigateToProduk() {
-                    // Simulasikan klik pada tautan "nav-produk"
-                    var navProdukLink = document.getElementById('nav-produk').querySelector('a');
-                    navProdukLink.click();
-                
-                    // Mengarahkan halaman ke div dengan id "content-produk"
-                    var contentProduk = document.getElementById('content-produk');
-                    contentProduk.scrollIntoView({ behavior: 'smooth' });
-                  }
-                
-                  
-                </script>
-                <li><a href="#" class="hover:text-white">Harga</a></li>
-                <li><a href="#" class="hover:text-white">Testimoni</a></li>
-                <li><a href="#" class="hover:text-white">Panduan Pengguna</a></li>
-              </ul>
-            </div>
-            <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
-              <h4 class="text-2xl font-bold mb-2">Bantuan</h4>
-              <ul class="list-none">
-                <li><a href="#" class="hover:text-white">FAQ</a></li>
-                <li><a href="#" class="hover:text-white">Kontak Kami</a></li>
-                <li><a href="#" class="hover:text-white">Dukungan Pelanggan</a></li>
-              </ul>
-            </div>
-            <div class="w-full md:w-1/4 lg:w-1/3 mb-4 md:mb-0">
-              
-            </div>
-          </div>
-          <div class="border-t border-gray-600 mt-8 pt-8">
-            <div class="flex justify-between items-center">
-              <p class="text-sm">&copy; 2023 Teknisi Jaman Now. Hak Cipta Dilindungi.</p>
-              <div>
-                <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+            <div id="privacyPolicyContent" class="hidden">
+              <div class="privacy-policy-box unique-class">
+                <h2 class="text-2xl font-bold">Kebijakan Privasi</h2>
+                <p>Kami adalah perusahaan yang bergerak di bidang perbaikan handphone. Kami menghargai privasi Anda dan
+                  berkomitmen untuk melindungi informasi pribadi Anda.</p>
+                <p>Berikut adalah beberapa layanan yang kami sediakan:</p>
+                <ul class="list-disc pl-4">
+                  <li>Unlock Pattern</li>
+                  <li>FRP Bypass</li>
+                  <li>Unlock iCloud</li>
+                  <li>Unlock MiCloud</li>
+                  <li>Unlock Bypass MiCloud</li>
+                  <li>Change IMEI</li>
+                  <li>Repair Besiband</li>
+                  <li>Auth Mi Server</li>
+                  <li>Auth OPPO Server</li>
+                  <li>dan lainnya</li>
+                </ul>
               </div>
             </div>
+
+            <script>
+              const privacyPolicyLink = document.getElementById('privacyPolicyLink');
+              const privacyPolicyContent = document.getElementById('privacyPolicyContent');
+
+              privacyPolicyLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                privacyPolicyContent.classList.toggle('hidden');
+              });
+            </script>
+
+
+
+            <li><a href="#" id="termsConditionsLink" class="hover:text-white">Syarat dan Ketentuan</a></li>
+
+            <div id="termsConditionsContent" class="hidden">
+              <div class="terms-conditions-box unique-class">
+                <h2 class="text-2xl font-bold">Syarat dan Ketentuan</h2>
+                <p>Kami, Teknisi Jaman Now, adalah penyedia layanan perbaikan handphone yang berkomitmen untuk
+                  memberikan pelayanan terbaik kepada pelanggan kami. Dalam menggunakan layanan kami, berlaku syarat dan
+                  ketentuan sebagai berikut:</p>
+                <ul class="list-disc pl-4">
+                  <li>Pelanggan bertanggung jawab atas data pribadi yang diberikan kepada kami.</li>
+                  <li>Kami akan melakukan perbaikan sesuai dengan permintaan dan persetujuan pelanggan.</li>
+                  <li>Kami tidak bertanggung jawab atas kerusakan tambahan yang mungkin terjadi selama atau setelah
+                    perbaikan.</li>
+                  <li>Pelanggan harus membayar biaya perbaikan sesuai dengan tarif yang berlaku.</li>
+                  <li>Dalam hal klaim garansi, pelanggan harus menyertakan bukti pembelian.</li>
+                </ul>
+                <p>Dengan menggunakan layanan kami, pelanggan dianggap telah membaca, memahami, dan setuju dengan syarat
+                  dan ketentuan ini.</p>
+              </div>
+            </div>
+            <script>
+              const termsConditionsLink = document.getElementById('termsConditionsLink');
+              const termsConditionsContent = document.getElementById('termsConditionsContent');
+
+              termsConditionsLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                termsConditionsContent.classList.toggle('hidden');
+              });
+            </script>
+
+
+
+
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
+          <h4 class="text-2xl font-bold mb-2">Produk</h4>
+          <ul class="list-none">
+            <li><a href="#" class="hover:text-white" onclick="navigateToProduk()">Tool</a></li>
+            <script>
+              function navigateToProduk() {
+                // Simulasikan klik pada tautan "nav-produk"
+                var navProdukLink = document.getElementById('nav-produk').querySelector('a');
+                navProdukLink.click();
+
+                // Mengarahkan halaman ke div dengan id "content-produk"
+                var contentProduk = document.getElementById('content-produk');
+                contentProduk.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }
+            </script>
+            <li><a href="#" class="hover:text-white">Harga</a></li>
+            <li><a href="#" class="hover:text-white">Testimoni</a></li>
+            <li><a href="#" class="hover:text-white">Panduan Pengguna</a></li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 lg:w-1/6 mb-4 md:mb-0">
+          <h4 class="text-2xl font-bold mb-2">Bantuan</h4>
+          <ul class="list-none">
+            <li><a href="#" class="hover:text-white">FAQ</a></li>
+            <li><a href="#" class="hover:text-white">Kontak Kami</a></li>
+            <li><a href="#" class="hover:text-white">Dukungan Pelanggan</a></li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 lg:w-1/3 mb-4 md:mb-0">
+
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-8 pt-8">
+        <div class="flex justify-between items-center">
+          <p class="text-sm">&copy; 2023 Teknisi Jaman Now. Hak Cipta Dilindungi.</p>
+          <div>
+            <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-gray-300 mr-4"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
-      </footer>
-      
-      
-      
+      </div>
+    </div>
+  </footer>
+
+
+
 
   <script type="text/javascript" src="https://client.crisp.chat/l.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
