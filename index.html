@@ -622,9 +622,12 @@
       border-radius: 20px;
       padding: 20px;
       margin: 20px;
+      margin-bottom: 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
      
-
+     
+    
+  
     }
     .button-group{
       display: flex;
@@ -807,12 +810,14 @@
     .nama-input,
     .imei-input {
       padding: 10px;
+      margin-bottom: 5px;
       /* Atur padding untuk memberikan ruang di sekitar input */
       border: 1px solid #ccc;
       /* Atur border pada input */
-      border-radius: 15px;
+      border-radius: 10px;
       /* Atur radius sudut border */
       width: 200px;
+      height: 40px;
       /* Atur lebar input sesuai kebutuhan Anda */
     }
 
@@ -831,7 +836,7 @@
     }
 
     .input-group input::placeholder {
-      color: #999;
+      color: #999999c4;
       /* Atur warna teks placeholder */
       font-style: italic;
       /* Atur gaya font placeholder menjadi italic */
@@ -844,11 +849,11 @@
 
     .nama-input,
     .imei-input {
-      background-color: rgba(0, 0, 0, 0.658);
+      background-color: rgb(255, 255, 255);
       /* Atur warna latar belakang semua input menjadi ungu */
-      color: rgb(0, 255, 13);
+      color: rgb(34, 34, 34);
       /* Atur warna teks semua input menjadi putih */
-      font-family: monospace;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .error-message {
@@ -1270,7 +1275,7 @@
 
       <!--1 -->
       <div class="content-right" >
-        <!--
+      <!-- 
         <div class="box" onclick="showInputs(event)">
           <h3>Masukkan No IMEI via Server</h3>
           <p>Contoh: 123456789012345</p>
@@ -1587,8 +1592,6 @@
         window.location.href = 'https://bit.ly/3CAjX9f';
       });
     </script>
-
-
 
 
 
@@ -2788,108 +2791,8 @@
 
 
 
-
-
-
 <div class="col-lg-4 col-md-6">
-  <div class="card card-10">
-    <img src="img/tool3.jpg" class="card-img-top" alt="Foto 3">
-    <div class="card-body">
-      <h5 class="card-title">Dft tool</h5>
-      <div class="button-group">
-        <br>
-        <div>
-          <input type="checkbox" id="unlockC-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockC(this)">
-          <label for="unlockC-12bln">12 Bulan</label>
-        </div>
-        <p id="price-unlockC-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-        <p id="error-message-unlockC" class="error-message"></p>
-        <button onclick="validateRentalUnlockC()" class="btn btn-primary gradient-btn-2">
-          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  let selectedValueUnlockC = '';
-
-  function updatePriceUnlockC(checkbox) {
-    if (checkbox.checked) {
-      const checkboxes = document.getElementsByName('rental-mp');
-      checkboxes.forEach((cb) => {
-        if (cb !== checkbox) {
-          cb.checked = false;
-        }
-      });
-
-      selectedValueUnlockC = checkbox.value;
-
-      const prices = {
-        '12bln': 'Rp 900.000'
-      };
-      const price = prices[selectedValueUnlockC];
-
-      const priceInfo = document.getElementById('price-unlockC-info');
-      priceInfo.textContent = `Harga: ${price}`;
-    } else {
-      selectedValueUnlockC = '';
-      const priceInfo = document.getElementById('price-unlockC-info');
-      priceInfo.textContent = '';
-    }
-  }
-
-  function validateRentalUnlockC() {
-    const checkboxes = document.getElementsByName('rental-mp');
-    let checkedCheckbox = null;
-
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        checkedCheckbox = checkbox;
-      }
-    });
-
-    if (checkedCheckbox !== null) {
-      selectedValueUnlockC = checkedCheckbox.value;
-      sendRentalMessageUnlockC();
-      openCrispChat();
-    } else {
-      const errorMessage = document.getElementById('error-message-unlockC');
-      errorMessage.style.display = 'block';
-      errorMessage.textContent = 'Pilih waktu rental.';
-      setTimeout(() => {
-        errorMessage.style.display = 'none';
-        errorMessage.textContent = '';
-      }, 2000);
-    }
-  }
-
-  function sendRentalMessageUnlockC() {
-    const durations = {
-      '12bln': '12 bulan'
-    };
-    const prices = {
-      '12bln': 'Rp 900.000'
-    };
-    const duration = durations[selectedValueUnlockC];
-    const price = prices[selectedValueUnlockC];
-    const message = `Halo, saya ingin aktivasi Dft tool, selama (${duration}) dengan harga ${price}.`;
-    window.$crisp.push(['do', 'message:send', ['text', message]]);
-  }
-
-  function openCrispChat() {
-    window.$crisp.push(['do', 'chat:open']);
-  }
-</script>
-
-       
-
-
-
-
-
-<div class="col-lg-4 col-md-6">
-  <div class="card card-8">
+  <div class="card card-11">
     <img src="img/tool20.jpg" class="card-img-top" alt="Foto 1">
     <div class="card-body">
       <h5 class="card-title">Garuda java</h5>
@@ -2999,6 +2902,479 @@
     window.$crisp.push(['do', 'chat:open']);
   }
 </script>
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-10">
+    <img src="img/tool3.jpg" class="card-img-top" alt="Foto 3">
+    <div class="card-body">
+      <h5 class="card-title">Dft tool</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="checkbox" id="unlockC-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockC(this)">
+          <label for="unlockC-12bln">12 Bulan</label>
+        </div>
+        <p id="price-unlockC-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-unlockC" class="error-message"></p>
+        <button onclick="validateRentalUnlockC()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueUnlockC = '';
+
+  function updatePriceUnlockC(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueUnlockC = checkbox.value;
+
+      const prices = {
+        '12bln': 'Rp 900.000'
+      };
+      const price = prices[selectedValueUnlockC];
+
+      const priceInfo = document.getElementById('price-unlockC-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueUnlockC = '';
+      const priceInfo = document.getElementById('price-unlockC-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalUnlockC() {
+    const checkboxes = document.getElementsByName('rental-mp');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueUnlockC = checkedCheckbox.value;
+      sendRentalMessageUnlockC();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-unlockC');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageUnlockC() {
+    const durations = {
+      '12bln': '12 bulan'
+    };
+    const prices = {
+      '12bln': 'Rp 900.000'
+    };
+    const duration = durations[selectedValueUnlockC];
+    const price = prices[selectedValueUnlockC];
+    const message = `Halo, saya ingin aktivasi Dft tool, selama (${duration}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+       
+
+
+
+
+
+
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-12">
+    <img src="img/toolandroid.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Android multi tool</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="number" id="unlockandroid-credit" class="nama-input" min="10" placeholder="Jumlah Kredit" oninput="updatePriceUnlockAndroid(this)">
+        </div>
+        <p id="price-unlockandroid-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-unlockandroid" class="error-message"></p>
+        <button onclick="validateCreditUnlockAndroid()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueUnlockAndroid = '';
+
+  function updatePriceUnlockAndroid(input) {
+    const creditValue = input.value;
+    const creditPrice = 17000;
+    const totalPrice = creditValue * creditPrice;
+    const priceInfo = document.getElementById('price-unlockandroid-info');
+
+    if (creditValue >= 10) {
+      priceInfo.textContent = `Harga: Rp ${totalPrice.toLocaleString()}`;
+      selectedValueUnlockAndroid = creditValue;
+    } else {
+      priceInfo.textContent = '';
+      selectedValueUnlockAndroid = '';
+    }
+  }
+
+  function validateCreditUnlockAndroid() {
+    const input = document.getElementById('unlockandroid-credit');
+    const creditValue = input.value;
+
+    if (creditValue >= 10) {
+      sendCreditMessageUnlockAndroid();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-unlockandroid');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Minimal 10 kredit.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendCreditMessageUnlockAndroid() {
+    const creditValue = selectedValueUnlockAndroid;
+    const creditPrice = 17000;
+    const totalPrice = creditValue * creditPrice;
+    const message = `Halo, saya ingin aktivasi Android Multi Tool dengan ${creditValue} kredit, harga : Rp ${totalPrice.toLocaleString()}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-13">
+    <img src="img/toolshark.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Shark tool</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="number" id="shark-credit" class="nama-input" min="5" placeholder="Jumlah Kredit" oninput="updatePriceShark(this)">
+        </div>
+        <p id="price-shark-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-shark" class="error-message"></p>
+        <button onclick="validateCreditShark()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueShark = '';
+
+  function updatePriceShark(input) {
+    const creditValue = input.value;
+    const creditPrice = 18000;
+    const totalPrice = creditValue * creditPrice;
+    const priceInfo = document.getElementById('price-shark-info');
+
+    if (creditValue >= 5) {
+      priceInfo.textContent = `Harga: Rp ${totalPrice.toLocaleString()}`;
+      selectedValueShark = creditValue;
+    } else {
+      priceInfo.textContent = '';
+      selectedValueShark = '';
+    }
+  }
+
+  function validateCreditShark() {
+    const input = document.getElementById('shark-credit');
+    const creditValue = input.value;
+
+    if (creditValue >= 5) {
+      sendCreditMessageShark();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-shark');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Minimal 5 kredit.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendCreditMessageShark() {
+    const creditValue = selectedValueShark;
+    const creditPrice = 18000;
+    const totalPrice = creditValue * creditPrice;
+    const message = `Halo, saya ingin aktivasi Shark Tool dengan ${creditValue} kredit, harga: Rp ${totalPrice.toLocaleString()}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+
+
+
+
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-14">
+    <img src="img/toolcf.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Credit cf tools</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="number" id="cftool-credit" class="nama-input" min="6" placeholder="Jumlah Kredit" oninput="updatePriceCFTool(this)">
+        </div>
+        <p id="price-cftool-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-cftool" class="error-message"></p>
+        <button onclick="validateCreditCFTool()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueCFTool = '';
+
+  function updatePriceCFTool(input) {
+    const creditValue = input.value;
+    const creditPrice = 15000;
+    const totalPrice = creditValue * creditPrice;
+    const priceInfo = document.getElementById('price-cftool-info');
+
+    if (creditValue >= 6) {
+      priceInfo.textContent = `Harga: Rp ${totalPrice.toLocaleString()}`;
+      selectedValueCFTool = creditValue;
+    } else {
+      priceInfo.textContent = '';
+      selectedValueCFTool = '';
+    }
+  }
+
+  function validateCreditCFTool() {
+    const input = document.getElementById('cftool-credit');
+    const creditValue = input.value;
+
+    if (creditValue >= 6) {
+      sendCreditMessageCFTool();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-cftool');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Minimal 6 kredit.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendCreditMessageCFTool() {
+    const creditValue = selectedValueCFTool;
+    const creditPrice = 15000;
+    const totalPrice = creditValue * creditPrice;
+    const message = `Halo, saya ingin aktivasi Credit Cf Tool dengan ${creditValue} kredit, harga: Rp ${totalPrice.toLocaleString()}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-15">
+    <img src="img/toolimei.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Unblock IMEI</h5>
+      <div class="button-group">
+        <br>
+      <!--
+        <input type="checkbox" id="unblock-6bln" name="rental-imei" value="6bln" onchange="updatePriceUnblock(this)">
+        <label for="unblock-6bln">6 Bulan</label>
+        <input type="checkbox" id="unblock-12bln" name="rental-imei" value="12bln" onchange="updatePriceUnblock(this)">
+        <label for="unblock-12bln">12 Bulan</label>
+         -->
+        <input type="text" id="nama-input" class="nama-input" placeholder="Nama Pengirim">
+        
+        <div class="imei-group">
+          <input type="text" id="imei-input-1" class="imei-input" placeholder="IMEI 1" oninput="validateInput(this, 15)">
+          <input type="text" id="imei-input-2" class="imei-input" placeholder="IMEI 2" oninput="validateInput(this, 15)">
+        </div>
+        <div style="margin-top: 10px;">
+          <input type="checkbox" id="unblock-3bln" name="rental-imei" value="3bln" onchange="updatePriceUnblock(this)">
+          <label for="unblock-3bln">3 Bulan</label>
+        </div>
+        <p id="price-unblock-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-unblock" class="error-message"></p>
+     
+      <button onclick="validateRentalUnblock()" class="btn btn-primary gradient-btn-2">
+        <i class="fas fa-paper-plane"></i> Pesan sekarang
+      </button> 
+    </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let selectedValueUnblock = '';
+
+  function updatePriceUnblock(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-imei');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueUnblock = checkbox.value;
+
+      const prices = {
+        '3bln': 'Rp 200.000',
+        '6bln': 'Rp 300.000',
+        '12bln': 'Rp 500.000'
+      };
+      const price = prices[selectedValueUnblock];
+
+      const priceInfo = document.getElementById('price-unblock-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueUnblock = '';
+      const priceInfo = document.getElementById('price-unblock-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalUnblock() {
+    const checkboxes = document.getElementsByName('rental-imei');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueUnblock = checkedCheckbox.value;
+      sendRentalMessageUnblock();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-unblock');
+      errorMessage.textContent = 'Mohon pilih durasi rental IMEI.';
+      setTimeout(() => {
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageUnblock() {
+    const namaInput = document.getElementById('nama-input');
+    const imeiInput1 = document.getElementById('imei-input-1');
+    const imeiInput2 = document.getElementById('imei-input-2');
+
+    const namaValue = namaInput.value.trim();
+    if (namaValue === '') {
+      alert('Mohon masukkan data pengirim.');
+      return;
+    }
+
+    let message = 'Nama Pengirim: ' + namaValue + '\n';
+
+    const imeiValue1 = imeiInput1.value.trim();
+    if (imeiValue1 !== '') {
+      message += 'IMEI 1: ' + imeiValue1 + '\n';
+    }
+
+    const imeiValue2 = imeiInput2.value.trim();
+    if (imeiValue2 !== '') {
+      message += 'IMEI 2: ' + imeiValue2 + '\n';
+    }
+
+    const prices = {
+      '3bln': 'Rp 200.000',
+      '6bln': 'Rp 300.000',
+      '12bln': 'Rp 500.000'
+    };
+    const price = prices[selectedValueUnblock];
+
+    message += 'Durasi Rental: ' + selectedValueUnblock + '\n';
+    message += 'Harga: ' + price;
+
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+
+  function validateInput(input, maxLength) {
+    input.value = input.value.replace(/[^0-9]/g, '');
+    if (input.value.length > maxLength) {
+      input.value = input.value.slice(0, maxLength);
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
 
     
       </div>
