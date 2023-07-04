@@ -1073,7 +1073,20 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
+        <a class="navbar-brand" href="#" onclick="toggleFullscreen()">
+          <img src="img/po.png" alt="Logo">
+        </a>
+        <script>
+          function toggleFullscreen() {
+            if (document.fullscreenElement) {
+              document.exitFullscreen();
+            } else {
+              document.documentElement.requestFullscreen().catch((error) => {
+                console.log(`Error attempting to enable full-screen mode: ${error.message}`);
+              });
+            }
+          }
+        </script>
         <ul class="navbar-nav ms-auto d-flex align-items-center">
           <li class="nav-item" id="nav-dashboard">
             <a class="nav-link" href="#" onclick="showContent('dashboard')">
