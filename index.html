@@ -126,8 +126,8 @@
     .navbar .nav-link {
       transition: all 0.3s;
       font-weight: bold;
-      margin-right: 10px;
-      margin-left: 10px;
+      margin-right: 20px;
+      margin-left: 20px;
     }
 
 
@@ -1735,7 +1735,118 @@
         document.getElementById("imageModal").style.display = "none";
       }
     </script>
+<div class="container">
+  <div class="row" >
 
+    <div class="col-lg-4 col-md-6">
+      <div class="card card-8">
+        <img src="img/tool1.jpg" class="card-img-top" alt="Foto 1">
+        <div class="card-body">
+          <h5 class="card-title">Unlocktool</h5>
+          <div class="button-group">
+            <br>
+            <div>
+              <input type="checkbox" id="unlockA-3bln" name="rental-mp" value="3bln" onchange="updatePriceUnlockA(this)">
+              <label for="unlockA-3bln">3 Bulan</label>
+            </div>
+            <div>
+              <input type="checkbox" id="unlockA-6bln" name="rental-mp" value="6bln" onchange="updatePriceUnlockA(this)">
+              <label for="unlockA-6bln">6 Bulan</label>
+            </div>
+            <div>
+              <input type="checkbox" id="unlockA-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockA(this)">
+              <label for="unlockA-12bln">12 Bulan</label>
+            </div>
+            <p id="price-unlockA-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+            <p id="error-message-unlockA" class="error-message"></p>
+            <button onclick="validateRentalUnlockA()" class="btn btn-primary gradient-btn">
+              <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let selectedValueUnlockA = '';
+    
+      function updatePriceUnlockA(checkbox) {
+        if (checkbox.checked) {
+          const checkboxes = document.getElementsByName('rental-mp');
+          checkboxes.forEach((cb) => {
+            if (cb !== checkbox) {
+              cb.checked = false;
+            }
+          });
+    
+          selectedValueUnlockA = checkbox.value;
+    
+          const prices = {
+            '3bln': 'Rp 300.000',
+            '6bln': 'Rp 400.000',
+            '12bln': 'Rp 670.000'
+          };
+          const price = prices[selectedValueUnlockA];
+    
+          const priceInfo = document.getElementById('price-unlockA-info');
+          priceInfo.textContent = `Harga: ${price}`;
+        } else {
+          selectedValueUnlockA = '';
+          const priceInfo = document.getElementById('price-unlockA-info');
+          priceInfo.textContent = '';
+        }
+      }
+    
+      function validateRentalUnlockA() {
+        const checkboxes = document.getElementsByName('rental-mp');
+        let checkedCheckbox = null;
+    
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            checkedCheckbox = checkbox;
+          }
+        });
+    
+        if (checkedCheckbox !== null) {
+          selectedValueUnlockA = checkedCheckbox.value;
+          sendRentalMessageUnlockA();
+          openCrispChat();
+        } else {
+          const errorMessage = document.getElementById('error-message-unlockA');
+          errorMessage.style.display = 'block';
+          errorMessage.textContent = 'Pilih waktu rental.';
+          setTimeout(() => {
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
+          }, 2000);
+        }
+      }
+    
+      function sendRentalMessageUnlockA() {
+  const durations = {
+    '3bln': '3 bulan',
+    '6bln': '6 bulan',
+    '12bln': '12 bulan'
+  };
+  const prices = {
+    '3bln': 'Rp 300,000',
+    '6bln': 'Rp 400,000',
+    '12bln': 'Rp 670,000'
+  };
+  const duration = durations[selectedValueUnlockA];
+  const price = prices[selectedValueUnlockA];
+  const message = `Halo, saya ingin aktivasi Unlocktool, selama (${duration}) dengan harga ${price}.`;
+  window.$crisp.push(['do', 'message:send', ['text', message]]);
+}
+
+    
+      function openCrispChat() {
+        window.$crisp.push(['do', 'chat:open']);
+      }
+    </script>
+    
+
+  </div>
+</div>
 
   </div>
 
