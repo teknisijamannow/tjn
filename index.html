@@ -1742,118 +1742,7 @@
         document.getElementById("imageModal").style.display = "none";
       }
     </script>
-<div class="container">
-  <div class="row" >
 
-    <div class="col-lg-4 col-md-6">
-      <div class="card card-8">
-        <img src="img/tool1.jpg" class="card-img-top" alt="Foto 1">
-        <div class="card-body">
-          <h5 class="card-title">Unlocktool</h5>
-          <div class="button-group">
-            <br>
-            <div>
-              <input type="checkbox" id="unlockA-3bln" name="rental-mp" value="3bln" onchange="updatePriceUnlockA(this)">
-              <label for="unlockA-3bln">3 Bulan</label>
-            </div>
-            <div>
-              <input type="checkbox" id="unlockA-6bln" name="rental-mp" value="6bln" onchange="updatePriceUnlockA(this)">
-              <label for="unlockA-6bln">6 Bulan</label>
-            </div>
-            <div>
-              <input type="checkbox" id="unlockA-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockA(this)">
-              <label for="unlockA-12bln">12 Bulan</label>
-            </div>
-            <p id="price-unlockA-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-            <p id="error-message-unlockA" class="error-message"></p>
-            <button onclick="validateRentalUnlockA()" class="btn btn-primary gradient-btn-2">
-              <i class="fas fa-paper-plane"></i> Aktivasi sekarang
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      let selectedValueUnlockA = '';
-    
-      function updatePriceUnlockA(checkbox) {
-        if (checkbox.checked) {
-          const checkboxes = document.getElementsByName('rental-mp');
-          checkboxes.forEach((cb) => {
-            if (cb !== checkbox) {
-              cb.checked = false;
-            }
-          });
-    
-          selectedValueUnlockA = checkbox.value;
-    
-          const prices = {
-            '3bln': 'Rp 300.000',
-            '6bln': 'Rp 400.000',
-            '12bln': 'Rp 670.000'
-          };
-          const price = prices[selectedValueUnlockA];
-    
-          const priceInfo = document.getElementById('price-unlockA-info');
-          priceInfo.textContent = `Harga: ${price}`;
-        } else {
-          selectedValueUnlockA = '';
-          const priceInfo = document.getElementById('price-unlockA-info');
-          priceInfo.textContent = '';
-        }
-      }
-    
-      function validateRentalUnlockA() {
-        const checkboxes = document.getElementsByName('rental-mp');
-        let checkedCheckbox = null;
-    
-        checkboxes.forEach((checkbox) => {
-          if (checkbox.checked) {
-            checkedCheckbox = checkbox;
-          }
-        });
-    
-        if (checkedCheckbox !== null) {
-          selectedValueUnlockA = checkedCheckbox.value;
-          sendRentalMessageUnlockA();
-          openCrispChat();
-        } else {
-          const errorMessage = document.getElementById('error-message-unlockA');
-          errorMessage.style.display = 'block';
-          errorMessage.textContent = 'Pilih waktu rental.';
-          setTimeout(() => {
-            errorMessage.style.display = 'none';
-            errorMessage.textContent = '';
-          }, 2000);
-        }
-      }
-    
-      function sendRentalMessageUnlockA() {
-  const durations = {
-    '3bln': '3 bulan',
-    '6bln': '6 bulan',
-    '12bln': '12 bulan'
-  };
-  const prices = {
-    '3bln': 'Rp 300,000',
-    '6bln': 'Rp 400,000',
-    '12bln': 'Rp 670,000'
-  };
-  const duration = durations[selectedValueUnlockA];
-  const price = prices[selectedValueUnlockA];
-  const message = `Halo, saya ingin aktivasi Unlocktool, selama (${duration}) dengan harga ${price}.`;
-  window.$crisp.push(['do', 'message:send', ['text', message]]);
-}
-
-    
-      function openCrispChat() {
-        window.$crisp.push(['do', 'chat:open']);
-      }
-    </script>
-    
-
-  </div>
-</div>
 
   </div>
 
@@ -1867,7 +1756,7 @@
             <img src="img/logo.jpg" alt="Foto" class="w-full h-full object-cover">
           </div>
         </div>
-        <h1 class="text-4xl font-bold text-center text-white mt-8">Rental Tool</h1>
+        <h1 class="text-4xl font-bold text-center text-white mt-8" >RENTAL TOOL</h1>
       </div>
     </div>
     <br><br><br>
@@ -2608,8 +2497,451 @@
       </div>
 
     </div>
+<br><br><br><br>
+    <div class="bg-gradient-to-r from-red-500 to-orange-500 py-16">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-center items-center">
+          <div class="w-64 h-64 bg-white rounded-full overflow-hidden shadow-lg">
+            <img src="img/logo.jpg" alt="Foto" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <h1 class="text-4xl font-bold text-center text-white mt-8" style="font-weight: bold;">TOOL AKTIVASI\CREDIT-NEW\RENEW</h1>
+      </div>
+    </div><br><br><br>
+
+    <div class="container">
+      <div class="row" >
+    
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-8">
+            <img src="img/tool1.jpg" class="card-img-top" alt="Foto 1">
+            <div class="card-body">
+              <h5 class="card-title">Unlocktool</h5>
+              <div class="button-group">
+                <br>
+                <div>
+                  <input type="checkbox" id="unlockA-3bln" name="rental-mp" value="3bln" onchange="updatePriceUnlockA(this)">
+                  <label for="unlockA-3bln">3 Bulan</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="unlockA-6bln" name="rental-mp" value="6bln" onchange="updatePriceUnlockA(this)">
+                  <label for="unlockA-6bln">6 Bulan</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="unlockA-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockA(this)">
+                  <label for="unlockA-12bln">12 Bulan</label>
+                </div>
+                <p id="price-unlockA-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-unlockA" class="error-message"></p>
+                <button onclick="validateRentalUnlockA()" class="btn btn-primary gradient-btn-2">
+                  <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          let selectedValueUnlockA = '';
+        
+          function updatePriceUnlockA(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-mp');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
+        
+              selectedValueUnlockA = checkbox.value;
+        
+              const prices = {
+                '3bln': 'Rp 300.000',
+                '6bln': 'Rp 400.000',
+                '12bln': 'Rp 670.000'
+              };
+              const price = prices[selectedValueUnlockA];
+        
+              const priceInfo = document.getElementById('price-unlockA-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueUnlockA = '';
+              const priceInfo = document.getElementById('price-unlockA-info');
+              priceInfo.textContent = '';
+            }
+          }
+        
+          function validateRentalUnlockA() {
+            const checkboxes = document.getElementsByName('rental-mp');
+            let checkedCheckbox = null;
+        
+            checkboxes.forEach((checkbox) => {
+              if (checkbox.checked) {
+                checkedCheckbox = checkbox;
+              }
+            });
+        
+            if (checkedCheckbox !== null) {
+              selectedValueUnlockA = checkedCheckbox.value;
+              sendRentalMessageUnlockA();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-unlockA');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
+        
+          function sendRentalMessageUnlockA() {
+      const durations = {
+        '3bln': '3 bulan',
+        '6bln': '6 bulan',
+        '12bln': '12 bulan'
+      };
+      const prices = {
+        '3bln': 'Rp 300,000',
+        '6bln': 'Rp 400,000',
+        '12bln': 'Rp 670,000'
+      };
+      const duration = durations[selectedValueUnlockA];
+      const price = prices[selectedValueUnlockA];
+      const message = `Halo, saya ingin aktivasi Unlocktool, selama (${duration}) dengan harga ${price}.`;
+      window.$crisp.push(['do', 'message:send', ['text', message]]);
+    }
+    
+        
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
 
 
+<div class="col-lg-4 col-md-6">
+  <div class="card card-9">
+    <img src="img/tool2.jpg" class="card-img-top" alt="Foto 2">
+    <div class="card-body">
+      <h5 class="card-title">Cftool</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="checkbox" id="unlockB-1bln" name="rental-mp" value="1bln" onchange="updatePriceUnlockB(this)">
+          <label for="unlockB-1bln">1 Bulan</label>
+        </div>
+        <div>
+          <input type="checkbox" id="unlockB-3bln" name="rental-mp" value="3bln" onchange="updatePriceUnlockB(this)">
+          <label for="unlockB-3bln">3 Bulan</label>
+        </div>
+        <div>
+          <input type="checkbox" id="unlockB-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockB(this)">
+          <label for="unlockB-12bln">12 Bulan</label>
+        </div>
+        <p id="price-unlockB-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-unlockB" class="error-message"></p>
+        <button onclick="validateRentalUnlockB()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueUnlockB = '';
+
+  function updatePriceUnlockB(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueUnlockB = checkbox.value;
+
+      const prices = {
+        '1bln': 'Rp 100.000',
+        '3bln': 'Rp 200.000',
+        '12bln': 'Rp 425.000'
+      };
+      const price = prices[selectedValueUnlockB];
+
+      const priceInfo = document.getElementById('price-unlockB-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueUnlockB = '';
+      const priceInfo = document.getElementById('price-unlockB-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalUnlockB() {
+    const checkboxes = document.getElementsByName('rental-mp');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueUnlockB = checkedCheckbox.value;
+      sendRentalMessageUnlockB();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-unlockB');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageUnlockB() {
+    const durations = {
+      '1bln': '1 bulan',
+      '3bln': '3 bulan',
+      '12bln': '12 bulan'
+    };
+    const prices = {
+      '1bln': 'Rp 100.000',
+      '3bln': 'Rp 200.000',
+      '12bln': 'Rp 425.000'
+    };
+    const duration = durations[selectedValueUnlockB];
+    const price = prices[selectedValueUnlockB];
+    const message = `Halo, saya ingin aktivasi CFtool, selama (${duration}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+
+
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-10">
+    <img src="img/tool3.jpg" class="card-img-top" alt="Foto 3">
+    <div class="card-body">
+      <h5 class="card-title">Dft tool</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="checkbox" id="unlockC-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockC(this)">
+          <label for="unlockC-12bln">12 Bulan</label>
+        </div>
+        <p id="price-unlockC-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-unlockC" class="error-message"></p>
+        <button onclick="validateRentalUnlockC()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueUnlockC = '';
+
+  function updatePriceUnlockC(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueUnlockC = checkbox.value;
+
+      const prices = {
+        '12bln': 'Rp 900.000'
+      };
+      const price = prices[selectedValueUnlockC];
+
+      const priceInfo = document.getElementById('price-unlockC-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueUnlockC = '';
+      const priceInfo = document.getElementById('price-unlockC-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalUnlockC() {
+    const checkboxes = document.getElementsByName('rental-mp');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueUnlockC = checkedCheckbox.value;
+      sendRentalMessageUnlockC();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-unlockC');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageUnlockC() {
+    const durations = {
+      '12bln': '12 bulan'
+    };
+    const prices = {
+      '12bln': 'Rp 900.000'
+    };
+    const duration = durations[selectedValueUnlockC];
+    const price = prices[selectedValueUnlockC];
+    const message = `Halo, saya ingin aktivasi Dft tool, selama (${duration}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+       
+
+
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-8">
+    <img src="img/tool20.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Garuda java</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="checkbox" id="unlockD-1bln" name="rental-mp" value="1bln" onchange="updatePriceUnlockD(this)">
+          <label for="unlockD-1bln">1 Bulan</label>
+        </div>
+        <div>
+          <input type="checkbox" id="unlockD-3bln" name="rental-mp" value="3bln" onchange="updatePriceUnlockD(this)">
+          <label for="unlockD-3bln">3 Bulan</label>
+        </div>
+        <div>
+          <input type="checkbox" id="unlockD-6bln" name="rental-mp" value="6bln" onchange="updatePriceUnlockD(this)">
+          <label for="unlockD-6bln">6 Bulan</label>
+        </div>
+        <div>
+          <input type="checkbox" id="unlockD-12bln" name="rental-mp" value="12bln" onchange="updatePriceUnlockD(this)">
+          <label for="unlockD-12bln">12 Bulan</label>
+        </div>
+        <p id="price-unlockD-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-unlockD" class="error-message"></p>
+        <button onclick="validateRentalUnlockD()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueUnlockD = '';
+
+  function updatePriceUnlockD(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueUnlockD = checkbox.value;
+
+      const prices = {
+        '1bln': 'Rp 75.000',
+        '3bln': 'Rp 150.000',
+        '6bln': 'Rp 250.000',
+        '12bln': 'Rp 325.000'
+      };
+      const price = prices[selectedValueUnlockD];
+
+      const priceInfo = document.getElementById('price-unlockD-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueUnlockD = '';
+      const priceInfo = document.getElementById('price-unlockD-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalUnlockD() {
+    const checkboxes = document.getElementsByName('rental-mp');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueUnlockD = checkedCheckbox.value;
+      sendRentalMessageUnlockD();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-unlockD');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageUnlockD() {
+    const durations = {
+      '1bln': '1 bulan',
+      '3bln': '3 bulan',
+      '6bln': '6 bulan',
+      '12bln': '12 bulan'
+    };
+    const prices = {
+      '1bln': 'Rp 75.000',
+      '3bln': 'Rp 150.000',
+      '6bln': 'Rp 250.000',
+      '12bln': 'Rp 325.000'
+    };
+    const duration = durations[selectedValueUnlockD];
+    const price = prices[selectedValueUnlockD];
+    const message = `Halo, saya ingin aktivasi Garuda java, selama (${duration}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+    
+      </div>
+    </div>
+    
 
   </div>
 
