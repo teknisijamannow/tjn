@@ -126,8 +126,13 @@
     .navbar .nav-link {
       transition: all 0.3s;
       font-weight: bold;
-      margin-right: 20px;
-      margin-left: 20px;
+      margin-right: 10px;
+      margin-left: 10px;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     }
 
 
@@ -139,6 +144,7 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 70px;
+      
     }
 
     .content-left {
@@ -590,13 +596,12 @@
 
     /* Styling untuk menu navigasi */
     .navbar .nav-item.active {
-      font-weight: bold;
-      background: linear-gradient(to right, #0077ff, #01ccff);
-      color: #ffffff !important;
-      border-radius: 20px;
-    
-    }
-
+    font-weight: bold;
+    background: linear-gradient(to right, #0077ff, #00000000);
+    color: #ffffff !important;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
     .navbar {
       transition: background-color 0.3s ease;
     }
@@ -1024,6 +1029,20 @@
   /* Gaya lainnya yang Anda inginkan */
 }
 
+
+
+
+@media (max-width: 640px) {
+    .w-64 {
+      width: 100px;
+    }
+    .h-64 {
+      height: 100px;
+    }
+    .text-4xl {
+      font-size: 30px;
+    }
+  }
   </style>
 
   <script type="text/javascript">
@@ -1044,38 +1063,42 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
     <div class="container">
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNavbar()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <a class="navbar-brand" href="#"><img src="img/po.png" alt="Logo"></a>
-
-
         <ul class="navbar-nav ms-auto d-flex align-items-center">
           <li class="nav-item" id="nav-dashboard">
             <a class="nav-link" href="#" onclick="showContent('dashboard')">
               <i class="fas fa-home"></i><!-- Ganti "fa-home" dengan kelas ikon yang sesuai -->
+              <span style="font-size: 10px;">Home</span>
             </a>
           </li>
-
           <li class="nav-item" id="nav-produk">
             <a class="nav-link" href="#" onclick="showContent('produk')">
-              <i class="fas fa-shopping-bag"></i>
+              <i class="fas fa-shopping-cart"></i><!-- Ganti "fa-shopping-cart" dengan kelas ikon yang sesuai -->
+              <span style="font-size: 10px;">Rental</span>
+            </a>
+          </li>
+          <li class="nav-item" id="nav-menu-baru">
+            <a class="nav-link" href="#" onclick="showContent('menu-baru')">
+              <i class="fas fa-cogs"></i><!-- Ganti "fa-cogs" dengan kelas ikon yang sesuai -->
+              <span style="font-size: 10px;">Aktivasi</span>
             </a>
           </li>
           <li class="nav-item" id="nav-kontak">
             <a class="nav-link" href="#" onclick="showContent('kontak')">
               <i class="fas fa-user"></i> <!-- Ganti "fa-user" dengan kelas ikon yang diinginkan -->
+              <span style="font-size: 10px;">Profil</span>
             </a>
           </li>
-
-
         </ul>
       </div>
     </div>
   </nav>
+  
   <div id="loading-overlay">
     <div class="loading-spinner"></div>
   </div>
@@ -1145,7 +1168,7 @@
     }
 
 
-    const menuItems = ['dashboard', 'produk', 'kontak'];
+    const menuItems = ['dashboard', 'produk', 'kontak', 'menu-baru'];
 
     document.addEventListener('touchstart', function (event) {
       touchstartX = event.changedTouches[0].screenX;
@@ -1197,26 +1220,59 @@
   </script>
 
   <br><br><br>
-
+  
   <!-- Konten dashboard -->
   <div id="content-dashboard" class="page-content">
 
     <div class="content">
       <div class="content-left">
-        <h2>TERIMA JASA REMOTE</h2>
-        <p id="pr">TOOL/AKTIVASI TOOL</p>
-        <p id="pr">
-          UNLOCK PATTERN - FRP - BYPASS ICLOUD - <br>
-          UNLOCK ICLOUD - UNLOCK MICLOUD - UNLOCK<br>
-          BYPASS MICLOUD - CHANGE IMEI - REPAIR <br>
-          BESIBAND - AUTH MI SERVER - AUTH OPPO<br>
-          SERVER. DLL
-        </p>
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-1xl font-bold mb-4">TERIMA JASA REMOTE KERUSAKAN SOFTWARE</h2>
+          <ul class="grid grid-cols-2 gap-4">
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Flash
+            </li>
+            
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Repair IMEI
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Unblock/Tembak
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              IMEI
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Unlock FRP UDB Only
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Unlock MiCloud
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Unlock Pola
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">              Unlock iCloud
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Bypass iPhone 5s-x - cell/wifi only
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ccc; font-weight: 900;">
+              Bypass Passcode
+            </li>
+            <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500" style="color: #ffffff; font-weight: 900;">
+              Brick/Matot akibat Flash
+            </li>
+          </ul>
+        </div>
+        
+        
+        
       </div>
       <br><br><br>
 
       <!--1 -->
-      <div class="content-right">
+      <div class="content-right" >
+        <!--
         <div class="box" onclick="showInputs(event)">
           <h3>Masukkan No IMEI via Server</h3>
           <p>Contoh: 123456789012345</p>
@@ -1249,13 +1305,13 @@
             <button onclick="addInputs()">
               <i class="fas fa-plus"></i> Tambah imei
             </button>
-            <!-- 
+           
             <button onclick="sendEmailFromInputs()">
               <i class="fas fa-paper-plane"></i> via email
             </button>
             <button onclick="sendWhatsAppMessageFromInputs()">
               <i class="fas fa-paper-plane"></i> via whatsapp
-            </button>-->
+            </button>
             <button onclick="openCrispChatAndSendMessage()">
               <i class="fas fa-paper-plane"></i> kirim
             </button>
@@ -1332,7 +1388,7 @@
             }
           }
         </script>
-        <!-- 
+         
         <script>
           function addInputs() {
             var inputSection = document.getElementById('input-section');
@@ -1383,7 +1439,7 @@
             var url = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodedMessage;
             window.open(url);
           }
-        </script>-->
+        </script>
 
         <script>
           function showInputs(event) {
@@ -1400,7 +1456,7 @@
             }
           }
         </script>
-
+-->
         <!-- 
         <script>
           function addInputs() {
@@ -1468,7 +1524,7 @@
 
 
 
-        <div class="box" onclick="showPopup()">
+        <div class="box" onclick="showPopup()" style="margin-bottom: 20px;">
           <h3>Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
           <p>Silakan pilih metode pembayaran yang tersedia.</p>
         </div>
@@ -1756,9 +1812,10 @@
             <img src="img/logo.jpg" alt="Foto" class="w-full h-full object-cover">
           </div>
         </div>
-        <h1 class="text-4xl font-bold text-center text-white mt-8" >RENTAL TOOL</h1>
+        <h1 class="text-4xl font-bold text-center text-white mt-8">RENTAL TOOL</h1>
       </div>
     </div>
+    
     <br><br><br>
     
     
@@ -2166,7 +2223,7 @@
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-5">
-            <img src="img/tool7.jpg" class="card-img-top" alt="Foto 5">
+            <img src="img/tool20.jpg" class="card-img-top" alt="Foto 5">
             <div class="card-body">
               <h5 class="card-title">Garuda tool</h5>
               <div class="button-group">
@@ -2497,7 +2554,14 @@
       </div>
 
     </div>
-<br><br><br><br>
+
+    
+    
+
+  </div>
+
+  <div id="content-menu-baru" class="page-content" style="display: none;">
+    <br>
     <div class="bg-gradient-to-r from-red-500 to-orange-500 py-16">
       <div class="container mx-auto px-4">
         <div class="flex justify-center items-center">
@@ -2941,11 +3005,7 @@
     
       </div>
     </div>
-    
-
   </div>
-
-
 
   <div id="content-kontak" class="page-content" style="display: none;">
     <br><br><br>
