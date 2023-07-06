@@ -2579,7 +2579,6 @@
 
 
 
-
 <div class="col-lg-4 col-md-6">
   <div class="card card-17">
     <img src="img/tooltfm.jpg" class="card-img-top" alt="Foto 7">
@@ -2640,9 +2639,18 @@
     }
   }
 
-  function validateRentalTfm() {
-    const checkbox = document.getElementById('tfm-3h');
-    if (checkbox.checked) {
+ function validateRentalTfm() {
+    const checkboxes = document.getElementsByName('rental-pt');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueTfm = checkedCheckbox.value;
       sendRentalMessageTfm();
       openCrispChat();
     } else {
