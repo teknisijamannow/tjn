@@ -996,12 +996,6 @@
       margin-left: 1.5rem;
     }
 
-
-
-
-
-
-
     .terms-conditions-box h2 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
@@ -1618,7 +1612,6 @@
       </div>
     </div>
 
-
     <div class="custom-box">
       <img src="img/po.png" alt="Logo" class="custom-box-logo">
       <h3 class="custom-box-title">Cek IMEI</h3>
@@ -1748,7 +1741,7 @@
     </script>
 
 
-    <div class="testimonial-section">
+    <div id="testimonial-section"  class="testimonial-section">
       <h2
         style="color: #e6e6e6; margin: 15px; background: linear-gradient(to bottom, #008cff, #ffffff00); padding: 20px; border-radius: 10px;">
         Testimoni</h2>
@@ -3207,75 +3200,93 @@
 
 
 
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-14">
-            <img src="img/TOOLCF.jpg" class="card-img-top" alt="Foto 1">
-            <div class="card-body">
-              <h5 class="card-title">Credit cf tools</h5>
-              <div class="button-group">
-                <br>
-                <div>
-                  <input type="number" id="cftool-credit" class="nama-input" min="6" placeholder="Jumlah Kredit"
-                    oninput="updatePriceCFTool(this)">
-                </div>
-                <p id="price-cftool-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-cftool" class="error-message"></p>
-                <button onclick="validateCreditCFTool()" class="btn btn-primary gradient-btn-2">
-                  <i class="fas fa-paper-plane"></i> Aktivasi sekarang
-                </button>
-              </div>
-            </div>
-          </div>
+<div class="col-lg-4 col-md-6">
+  <div class="card card-14">
+    <img src="img/TOOLCF.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Credit cf tools</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="number" id="cftool-credit" class="nama-input" min="6" placeholder="Jumlah Kredit"
+            oninput="updatePriceCFTool(this)">
         </div>
-        <script>
-          let selectedValueCFTool = '';
+        <p id="price-cftool-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-cftool" class="error-message"></p>
+        <button onclick="validateCreditCFTool()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueCFTool = '';
 
-          function updatePriceCFTool(input) {
-            const creditValue = input.value;
-            const creditPrice = 15000;
-            const totalPrice = creditValue * creditPrice;
-            const priceInfo = document.getElementById('price-cftool-info');
+  function updatePriceCFTool(input) {
+    const creditValue = input.value;
+    let priceInfo = document.getElementById('price-cftool-info');
+    let errorMessage = document.getElementById('error-message-cftool');
 
-            if (creditValue >= 6) {
-              priceInfo.textContent = `Harga: Rp ${totalPrice.toLocaleString()}`;
-              selectedValueCFTool = creditValue;
-            } else {
-              priceInfo.textContent = '';
-              selectedValueCFTool = '';
-            }
-          }
+    if (creditValue === '3') {
+      priceInfo.textContent = 'Harga: Rp 50.000';
+      selectedValueCFTool = creditValue;
+    } else if (creditValue >= 6) {
+      const creditPrice = 15000;
+      const totalPrice = creditValue * creditPrice;
+      priceInfo.textContent = `Harga: Rp ${totalPrice.toLocaleString()}`;
+      selectedValueCFTool = creditValue;
+    } else {
+      priceInfo.textContent = '';
+      selectedValueCFTool = '';
+    }
 
-          function validateCreditCFTool() {
-            const input = document.getElementById('cftool-credit');
-            const creditValue = input.value;
+    if (creditValue === '4' || creditValue === '5') {
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Maaf, tidak tersedia.';
+    } else {
+      errorMessage.style.display = 'none';
+      errorMessage.textContent = '';
+    }
+  }
 
-            if (creditValue >= 6) {
-              sendCreditMessageCFTool();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-cftool');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Minimal 6 kredit.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
+  function validateCreditCFTool() {
+    const input = document.getElementById('cftool-credit');
+    const creditValue = input.value;
 
-          function sendCreditMessageCFTool() {
-            const creditValue = selectedValueCFTool;
-            const creditPrice = 15000;
-            const totalPrice = creditValue * creditPrice;
-            const message =
-              `Halo, saya ingin aktivasi Credit Cf Tool dengan ${creditValue} kredit, harga: Rp ${totalPrice.toLocaleString()}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
+    if (creditValue === '3' || creditValue >= 6) {
+      sendCreditMessageCFTool();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-cftool');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Minimal 3 kredit.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 3000);
+    }
+  }
 
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
+  function sendCreditMessageCFTool() {
+    const creditValue = selectedValueCFTool;
+    let message = `Halo, saya ingin aktivasi Credit Cf Tool dengan ${creditValue} kredit.`;
+
+    if (creditValue === '3') {
+      message += ' Harga: Rp 50.000.';
+    } else {
+      const creditPrice = 15000;
+      const totalPrice = creditValue * creditPrice;
+      message += ` Harga: Rp ${totalPrice.toLocaleString()}.`;
+    }
+
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
 
 
 
@@ -3283,6 +3294,95 @@
 
 
 
+
+
+<div class="col-lg-4 col-md-6" id="unblock-imei-section">
+  <div class="card card-16">
+    <img src="img/logo.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Auth Token Decrypt</h5>
+      <div class="button-group">
+        
+        
+        <div class="imei-group">
+          <input type="text" id="nama-input-5" class="nama-input" placeholder="Type Hp">
+          <input type="text" id="imei-input-3" class="imei-input" placeholder="IMEI 1"
+            oninput="validateInput(this, 15)">
+          <input type="text" id="imei-input-4" class="imei-input" placeholder="STAMP">
+        </div>
+       
+        <p id="price-stamp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-stamp" class="error-message"></p>
+        <button onclick="validateRentalStamp()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Pesan sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  function validateRentalStamp() {
+    const namaInput5 = document.getElementById('nama-input-5');
+    const imeiInput3 = document.getElementById('imei-input-3');
+    const imeiInput4 = document.getElementById('imei-input-4');
+
+    const namaValue5 = namaInput5.value.trim();
+    const imeiValue3 = imeiInput3.value.trim();
+    const imeiValue4 = imeiInput4.value.trim();
+
+    if (namaValue5 === '' || imeiValue3 === '' || imeiValue4 === '') {
+      const errorMessage = document.getElementById('error-message-stamp');
+      errorMessage.textContent = 'Mohon lengkapi semua input.';
+      errorMessage.style.display = 'block';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 3000);
+      return;
+    }
+
+    
+
+    Swal.fire({
+      title: 'Konfirmasi',
+      text: 'Harga: Rp 35.000',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: 'Ya',
+      cancelButtonText: 'Batal',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let message = '';
+        message += 'Tipe HP: ' + namaValue5 + '\n';
+        message += 'IMEI 1: ' + imeiValue3 + '\n';
+        message += 'STAMP: ' + imeiValue4 + '\n';
+
+        const prices = {
+          'stamp': 'Rp 35.000',
+        };
+        const price = prices['stamp'];
+
+        message += 'Harga: ' + price;
+
+        window.$crisp.push(['do', 'message:send', ['text', message]]);
+        openCrispChat();
+      }
+    });
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+
+  function validateInput(input, maxLength) {
+    input.value = input.value.replace(/[^0-9]/g, '');
+    if (input.value.length > maxLength) {
+      input.value = input.value.slice(0, maxLength);
+    }
+  }
+</script>
 
 
 
@@ -3443,10 +3543,7 @@
 
 
 
-
-
-
-
+  
 
 
 
@@ -3504,7 +3601,6 @@
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -3623,7 +3719,8 @@
   </div>
 
 
-
+  
+  
 
 
   <br><br><br><br><br><br><br><br><br>
@@ -3723,7 +3820,7 @@
               }
             </script>
             <li><a href="#" class="hover:text-white">Harga</a></li>
-            <li><a href="#" class="hover:text-white">Testimoni</a></li>
+            <li><a href="#testimonial-section" class="hover:text-white">Testimoni</a></li>
             <li><a href="#" class="hover:text-white">Panduan Pengguna</a></li>
           </ul>
         </div>
