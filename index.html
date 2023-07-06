@@ -1875,9 +1875,7 @@
                 <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
                     class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
                     Download Ultraviewer</a></p>
-
                 <br>
-
                 <div>
                   <input type="checkbox" id="rental-6h" name="rental" value="6h" onchange="updatePrice(this)">
                   <label for="rental-6h" style="margin-right: 15px;">6 jam</label>
@@ -1885,11 +1883,6 @@
                     <i id="pulse-icon" class="fas fa-chevron-down" style="color: #0073df; font-size: 12px;"></i>
                     <span class="small-blue-text">Selengkapnya</span>
                   </label>
-
-
-
-
-
                 </div>
                 <div>
                   <div id="hidden-options" style="display: none;">
@@ -1899,14 +1892,9 @@
                     <input type="checkbox" id="rental-24h" name="rental" value="24h" onchange="updatePrice(this)">
                     <label for="rental-24h">24 jam</label>
                   </div>
-
                   <p id="error-message" class="error-message"></p>
                 </div>
-
                 <p id="price-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-
-
-
                 <button onclick="validateRental()" class="btn btn-primary gradient-btn">
                   <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
@@ -2585,6 +2573,111 @@
             window.$crisp.push(['do', 'chat:open']);
           }
         </script>
+
+
+
+
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-17">
+    <img src="img/tooltfm.jpg" class="card-img-top" alt="Foto 7">
+    <div class="card-body">
+      <h5 class="card-title">Tfm tool</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk" class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="tfm-3h" name="rental-pt" value="3h" onchange="updatePriceTfm(this)">
+          <label for="tfm-3h">3 jam</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tfm-6h" name="rental-pt" value="6h" onchange="updatePriceTfm(this)">
+          <label for="tfm-6h">6 jam</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tfm-12h" name="rental-pt" value="12h" onchange="updatePriceTfm(this)">
+          <label for="tfm-12h">12 jam</label>
+        </div>
+        <p id="price-tfm-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-tfm" class="error-message"></p>
+        <button onclick="validateRentalTfm()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental sekarang
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueTfm = '';
+
+  function updatePriceTfm(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-pt');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueTfm = checkbox.value;
+
+      const prices = {
+        '3h': 'Rp 25.000',
+        '6h': 'Rp 35.000',
+        '12h': 'Rp 45.000'
+      };
+      const price = prices[selectedValueTfm];
+
+      const priceInfo = document.getElementById('price-tfm-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueTfm = '';
+      const priceInfo = document.getElementById('price-tfm-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalTfm() {
+    const checkbox = document.getElementById('tfm-3h');
+    if (checkbox.checked) {
+      sendRentalMessageTfm();
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-tfm');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageTfm() {
+    const prices = {
+      '3h': 'Rp 25.000',
+      '6h': 'Rp 35.000',
+      '12h': 'Rp 45.000'
+    };
+    const price = prices[selectedValueTfm];
+    const message = `Halo, saya ingin rental Tfm tool (${selectedValueTfm}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
+
+
+
+
+
+
+
 
       </div>
 
@@ -3287,7 +3380,6 @@
     window.$crisp.push(['do', 'chat:open']);
   }
 </script>
-
 
 
 
