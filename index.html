@@ -1658,12 +1658,8 @@
             <div class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105" onclick="showPopup('Paypal')">
               <img src="img/paypal.jpg" alt="Logo Paypal" class="w-1/2 h-auto rounded-full">
             </div>
-          </div>
-          
-          
-          
+          </div> 
         </div>
-        
         <div class="overlay" onclick="hidePopup()">
           <div class="popup">
             <h3 id="popup-title">Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
@@ -2220,8 +2216,8 @@
                     Download Ultraviewer</a></p>
                 <br>
                 <div>
-                  <input type="checkbox" id="rental-df" name="rental-df" value="6h" onchange="updatePriceDf(this)">
-                  <label for="rental-df">6 jam</label>
+                  <input type="checkbox" id="rental-df" name="rental-df" value="24h" onchange="updatePriceDf(this)">
+                  <label for="rental-df">24 jam</label>
                 </div>
                 <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
                 <p id="error-message-df" class="error-message"></p>
@@ -2252,8 +2248,8 @@
               selectedValueDf = checkbox.value;
 
               let price;
-              if (selectedValueDf === '6h') {
-                price = 'Rp 25,000';
+              if (selectedValueDf === '24h') {
+                price = 'Rp 75,000';
               }
               const priceInfo = document.getElementById('price-df-info');
               priceInfo.textContent = `Harga: ${price}`;
@@ -3529,7 +3525,7 @@
   <div class="card card-16">
     <img src="img/tooolauth.jpg" class="card-img-top" alt="Foto 1">
     <div class="card-body">
-      <h5 class="card-title">Auth Token Decrypt</h5>
+      <h5 class="card-title"></h5>
       <div class="button-group">
         
         
@@ -3576,7 +3572,15 @@
 
     Swal.fire({
       title: 'Konfirmasi',
-      text: 'Harga: Rp 35.000',
+      html: `
+             <p>Harga: Rp 35.000</p><br>
+             <p>Pilih metode pembayaran:</p>
+             <ul>
+               <li><a href="javascript:void(0);" onclick="copyToClipboard('1400018086604')">Mandiri: 1400018086604</a></li>
+               <li><a href="javascript:void(0);" onclick="copyToClipboard('083108497963')">Dana: 083108497963</a></li>
+               <li><a href="javascript:void(0);" onclick="copyToClipboard('083108497963')">Ovo: 083108497963</a></li>
+               <li><a href="javascript:void(0);" onclick="copyToClipboard('karomahpemalang0@gmail.com')">Paypal: karomahpemalang0@gmail.com</a></li>
+             </ul>`,
       icon: 'info',
       showCancelButton: true,
       confirmButtonText: 'Ya',
@@ -3611,6 +3615,7 @@
       input.value = input.value.slice(0, maxLength);
     }
   }
+  
 </script>
 
 
