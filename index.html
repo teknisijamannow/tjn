@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Service Hp</title>
+  <title>Teknisi Jaman Now</title>
 
-  <link rel="icon" href="img/po.png" sizes="32x32">
+  <link rel="icon" href="img/po.png" >
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Viga&display=swap">
@@ -25,7 +25,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Tautkan Font Awesome jika ingin menggunakan ikon sosial media -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="style.css">
   <style>
     .promo-box {
       background-color: #f8f9fa;
@@ -1686,14 +1686,8 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
-
+    
+   
 
     <script>
       function showPopup(method) {
@@ -2154,20 +2148,23 @@
 
         <button onclick="validateRentalCf()" class="btn btn-primary gradient-btn">
           <i class="fas fa-paper-plane"></i> Rental Sekarang
-        </button><br>
-        <a class="mayar-button iframe-lightbox-link" style="background-color: #0013be;" href="https://reyfood.mayar.link/pl/cf-tool?iframe=true" data-padding-bottom="30%" data-scrolling="true"><span></span>Bayar</a>
-<script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
-        <button id="bayarButton" class="btn btn-primary gradient-btn-3" onclick="window.open('https://reyfood.mayar.link/pl/cf-tool', '_blank')">
-          <i class="fas fa-credit-card"></i> Bayar
         </button>
+
+
+        <a class="btn btn-primary gradient-btn-3 iframe-lightbox-link" href="https://teknisi-jaman-now.mayar.link/pl/auth-token-decrypt?iframe=true" data-padding-bottom="30%" data-scrolling="true"><span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+        
+
+       
       </div>
     </div>
   </div>
 </div>
+
 <script type="text/javascript">
   let selectedValueCf = '';
-  const bayarButton = document.getElementById("bayarButton");
-  bayarButton.style.display = 'none'; // Sembunyikan tombol "Bayar" secara default
+
 
   function updatePriceCf(checkbox) {
     if (checkbox.checked) {
@@ -2193,6 +2190,7 @@
     }
   }
 
+
   function validateRentalCf() {
     if (selectedValueCf === '') {
       const errorMessageCf = document.getElementById('error-message-cf');
@@ -2216,11 +2214,6 @@
 
     const message = `Halo, saya ingin rental Cfktool (${selectedValue}) dengan harga ${price}.`;
     window.$crisp.push(['do', 'message:send', ['text', message]]);
-    bayarButton.style.display = 'inline-block'; // Tampilkan tombol "Bayar" setelah pesan dikirim ke Crisp
-
-    setTimeout(() => {
-      bayarButton.click(); // Otomatis menekan tombol "Bayar" setelah 2 detik
-    }, 2000);
   }
 
   function openCrispChat() {
