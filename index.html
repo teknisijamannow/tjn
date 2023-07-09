@@ -181,7 +181,7 @@
       color: #e6e6e6;
       border-radius: 10px;
       transition: transform 0.3s ease;
-      
+
     }
 
     .content-right .box:hover {
@@ -406,7 +406,7 @@
       margin-bottom: 20px;
       background: linear-gradient(to bottom, #008cff, #ffffff00);
       padding: 20px;
-     
+
       width: 300px;
       border-radius: 10px;
     }
@@ -517,9 +517,11 @@
         width: 60%;
         grid-template-columns: 1fr;
       }
-      .slick-dots li button:before{
+
+      .slick-dots li button:before {
         margin-top: 10px;
       }
+
       .testimonial-slide img {
         width: 220px;
       }
@@ -1062,13 +1064,15 @@
 
 
 
- 
 
-  .slick-dots li button:before {
-    color: rgb(255, 255, 255); /* Mengubah warna titik-titik menjadi putih */
-    font-size: 14px; /* Mengubah ukuran titik-titik */
-    margin-top: 15px;
-  }
+
+    .slick-dots li button:before {
+      color: rgb(255, 255, 255);
+      /* Mengubah warna titik-titik menjadi putih */
+      font-size: 14px;
+      /* Mengubah ukuran titik-titik */
+      margin-top: 15px;
+    }
   </style>
 
   <script type="text/javascript">
@@ -1266,7 +1270,7 @@
     <div class="content">
       <div class="content-left">
         <div class="max-w-4xl mx-auto px-4">
-          <h2 class="text-1xl font-bold mb-4" >TERIMA JASA REMOTE KERUSAKAN SOFTWARE</h2><br><br><br><br>
+          <h2 class="text-1xl font-bold mb-4">TERIMA JASA REMOTE KERUSAKAN SOFTWARE</h2><br><br><br><br>
 
           <ul class="grid grid-cols-2 gap-4">
             <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500"
@@ -1279,19 +1283,18 @@
               Repair IMEI
             </li>
             <li class="bg-gradient-to-r from-blue-500 to-cyan-500 p-2 rounded-l-lg border-l-4 border-teal-500"
-    style="color: #ccc; font-weight: 900;"
-    onclick="redirectToUnblockIMEI()">
-    Unblock/Tembak IMEI
-</li>
-<script>
-  function redirectToUnblockIMEI() {
-    const contentMenuBaru = document.getElementById('content-menu-baru');
-    const unblockIMEISection = document.getElementById('unblock-imei-section');
+              style="color: #ccc; font-weight: 900;" onclick="redirectToUnblockIMEI()">
+              Unblock/Tembak IMEI
+            </li>
+            <script>
+              function redirectToUnblockIMEI() {
+                const contentMenuBaru = document.getElementById('content-menu-baru');
+                const unblockIMEISection = document.getElementById('unblock-imei-section');
 
-    contentMenuBaru.style.display = 'block';
-    unblockIMEISection.scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
+                contentMenuBaru.style.display = 'block';
+                unblockIMEISection.scrollIntoView({ behavior: 'smooth' });
+              }
+            </script>
 
 
 
@@ -1585,12 +1588,6 @@
 
 
 
-       
-
-
-
-        
-            
 
 
 
@@ -1600,9 +1597,15 @@
 
 
 
-       
 
-        
+
+
+
+
+
+
+
+
         <div class="container mx-auto p-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div class="bg-gray-200 p-4 rounded-lg hover:bg-gray-300">
@@ -1615,7 +1618,7 @@
                 <p class="text-xs text-gray-600 text-center">Temukan status IMEI kamu</p>
               </a>
             </div>
-        
+
             <div class="bg-gray-200 p-4 rounded-lg hover:bg-gray-300" onclick="openCrispChat()">
               <div class="flex items-center justify-center mb-2">
                 <i class="fas fa-headset text-red-500 text-2xl"></i>
@@ -1624,9 +1627,10 @@
               <hr class="border-red-500 my-2 mx-auto w-15">
               <p class="text-xs text-gray-600 text-center">Bantuan profesional 24/7</p>
             </div>
-        
+
             <div class="bg-gray-200 p-4 rounded-lg hover:bg-gray-300">
-              <a href="https://chat.whatsapp.com/FtqKGZUOfib162qJFmp1d5" target="_blank" class="focus:outline-none hover:no-underline">
+              <a href="https://chat.whatsapp.com/FtqKGZUOfib162qJFmp1d5" target="_blank"
+                class="focus:outline-none hover:no-underline">
                 <div class="flex items-center justify-center mb-2">
                   <i class="fab fa-whatsapp text-green-500 text-2xl"></i>
                 </div>
@@ -1638,27 +1642,37 @@
           </div>
         </div>
 
-            
-            
-        <div class="card" onclick="showPopup()" style="border-radius: 20px; text-align: center; background-color: #e6e6e6;">
+
+
+        <div class="card" onclick="showPopup()"
+          style="border-radius: 20px; text-align: center; background-color: #e6e6e6;">
           <h3 style="color: #4d4b4b;" class="flex items-center justify-center text-3xl font-bold ">
             <i class="fas fa-credit-card text-4xl text-blue-500 mr-2"></i>
             Pembayaran
           </h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-            <div class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105" onclick="showPopup('Mandiri')">
+
+            <div
+              class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105"
+              onclick="showPopup('Mandiri')">
               <img src="img/mandiri.jpg" alt="Logo Mandiri" class="w-1/2 h-auto rounded-full">
             </div>
-            <div class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105" onclick="showPopup('Dana')">
+            <div
+              class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105"
+              onclick="showPopup('Dana')">
               <img src="img/dana.jpg" alt="Logo Dana" class="w-1/2 h-auto rounded-full">
             </div>
-            <div class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105" onclick="showPopup('Ovo')">
+            <div
+              class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105"
+              onclick="showPopup('Ovo')">
               <img src="img/ovo.jpg" alt="Logo Ovo" class="w-1/2 h-auto rounded-full">
             </div>
-            <div class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105" onclick="showPopup('Paypal')">
+            <div
+              class="card flex items-center justify-center bg-white rounded-full p-4 cursor-pointer transform transition-all hover:scale-105"
+              onclick="showPopup('Paypal')">
               <img src="img/paypal.jpg" alt="Logo Paypal" class="w-1/2 h-auto rounded-full">
             </div>
-          </div> 
+          </div>
         </div>
         <div class="overlay" onclick="hidePopup()">
           <div class="popup">
@@ -1666,13 +1680,11 @@
             <p id="popup-text" style="font-size: 20px;">Silakan pilih metode pembayaran yang tersedia:</p>
           </div>
         </div>
-        
-       
-
-              </div>
-            </div>
 
 
+
+      </div>
+    </div>
 
 
 
@@ -1681,63 +1693,65 @@
 
 
 
-            <script>
-              function showPopup(method) {
-                var overlay = document.querySelector('.overlay');
-                overlay.classList.add('active');
-                var popupTitle = document.querySelector('#popup-title');
-                var popupText = document.querySelector('#popup-text');
-            
-                switch (method) {
-                  case 'Mandiri':
-                    popupTitle.textContent = 'Mandiri';
-                    popupText.innerHTML = '<br><span class="account-number">1400018086604</span><br><button class="btn" onclick="copyToClipboard(\'1400018086604\')">Salin</button>';
-                    break;
-                  case 'Dana':
-                    popupTitle.textContent = 'Dana';
-                    popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
-                    break;
-                  case 'Ovo':
-                    popupTitle.textContent = 'Ovo';
-                    popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
-                    break;
-                  case 'Paypal':
-                    popupTitle.textContent = 'Paypal';
-                    popupText.innerHTML = '<br><span class="account-number">karomahpemalang0@gmail.com</span><br><button class="btn" onclick="copyToClipboard(\'karomahpemalang0@gmail.com\')">Salin</button>';
-                    break;
-                  default:
-                    break;
-                }
-              }
-            
-              function hidePopup() {
-                var overlay = document.querySelector('.overlay');
-                overlay.classList.remove('active');
-              }
-            
-              function copyToClipboard(text) {
-                var tempInput = document.createElement('input');
-                tempInput.value = text;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-                alert('Nomor berhasil disalin: ' + text);
-              }
-            </script>
-            
+
+
+    <script>
+      function showPopup(method) {
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.add('active');
+        var popupTitle = document.querySelector('#popup-title');
+        var popupText = document.querySelector('#popup-text');
+
+        switch (method) {
+          case 'Mandiri':
+            popupTitle.textContent = 'Mandiri';
+            popupText.innerHTML = '<br><span class="account-number">1400018086604</span><br><button class="btn" onclick="copyToClipboard(\'1400018086604\')">Salin</button>';
+            break;
+          case 'Dana':
+            popupTitle.textContent = 'Dana';
+            popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
+            break;
+          case 'Ovo':
+            popupTitle.textContent = 'Ovo';
+            popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
+            break;
+          case 'Paypal':
+            popupTitle.textContent = 'Paypal';
+            popupText.innerHTML = '<br><span class="account-number">karomahpemalang0@gmail.com</span><br><button class="btn" onclick="copyToClipboard(\'karomahpemalang0@gmail.com\')">Salin</button>';
+            break;
+          default:
+            break;
+        }
+      }
+
+      function hidePopup() {
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.remove('active');
+      }
+
+      function copyToClipboard(text) {
+        var tempInput = document.createElement('input');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Nomor berhasil disalin: ' + text);
+      }
+    </script>
 
 
 
 
 
-        <!-- Sisipkan skrip untuk bergabung di grup WhatsApp -->
-        <script type="text/javascript">
-          function joinWhatsAppGroup(groupLink) {
-            // Ganti 'groupLink' dengan tautan grup WhatsApp yang sesuai
-            window.open(groupLink);
-          }
-        </script>
+
+    <!-- Sisipkan skrip untuk bergabung di grup WhatsApp -->
+    <script type="text/javascript">
+      function joinWhatsAppGroup(groupLink) {
+        // Ganti 'groupLink' dengan tautan grup WhatsApp yang sesuai
+        window.open(groupLink);
+      }
+    </script>
 
 
 
@@ -1859,13 +1873,13 @@
       })();
     </script> -->
 
-   
+
     <br><br>
 
 
 
-  
-    <div id="testimonial-section"  class="testimonial-section">
+
+    <div id="testimonial-section" class="testimonial-section">
 
       <div class="testimonial-slider">
         <div class="testimonial-slide">
@@ -2117,91 +2131,100 @@
 
 
 
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-2">
-            <img src="img/tool2.jpg" class="card-img-top" alt="Foto 2">
-            <div class="card-body">
-              <h5 class="card-title">Cf tool</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a
-                    href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px;color: #13fa1f;"></i> Tool
-                    Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="rental-6h" name="rental-cf" value="6h" onchange="updatePriceCf(this)">
-                  <label for="rental-6h">6 jam</label>
-                </div>
-                <p id="price-cf-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-cf" class="error-message"></p>
-                <button onclick="validateRentalCf()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental Sekarang
-                </button>
-              </div>
-            </div>
-          </div>
+<div class="col-lg-4 col-md-6">
+  <div class="card card-2">
+    <img src="img/tool2.jpg" class="card-img-top" alt="Foto 2">
+    <div class="card-body">
+      <h5 class="card-title">Cf tool</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a
+            href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px;color: #13fa1f;"></i> Tool
+            Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+            Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="rental-6h" name="rental-cf" value="6h" onchange="updatePriceCf(this)">
+          <label for="rental-6h">6 jam</label>
         </div>
-        <script type="text/javascript">
-          let selectedValueCf = '';
+        <p id="price-cf-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-cf" class="error-message"></p>
+        <button onclick="validateRentalCf()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental Sekarang
+        </button>
+        <button id="bayarButton" class="btn btn-primary gradient-btn-3" onclick="window.open('https://mang-omay-58838.mayar.link/pl/cf-tool', '_blank')">
+          <i class="fas fa-credit-card"></i> Bayar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  let selectedValueCf = '';
+  const bayarButton = document.getElementById("bayarButton");
+  bayarButton.style.display = 'none'; // Sembunyikan tombol "Bayar" secara default
 
+  function updatePriceCf(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-cf');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
 
-          function updatePriceCf(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-cf');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
+      selectedValueCf = checkbox.value;
 
-              selectedValueCf = checkbox.value;
+      let price;
+      if (selectedValueCf === '6h') {
+        price = 'Rp 25,000';
+      }
+      const priceInfo = document.getElementById('price-cf-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueCf = '';
+      const priceInfo = document.getElementById('price-cf-info');
+      priceInfo.textContent = '';
+    }
+  }
 
-              let price;
-              if (selectedValueCf === '6h') {
-                price = 'Rp 25,000';
-              }
-              const priceInfo = document.getElementById('price-cf-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueCf = '';
-              const priceInfo = document.getElementById('price-cf-info');
-              priceInfo.textContent = '';
-            }
-          }
+  function validateRentalCf() {
+    if (selectedValueCf === '') {
+      const errorMessageCf = document.getElementById('error-message-cf');
+      errorMessageCf.style.display = 'block';
+      errorMessageCf.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessageCf.style.display = 'none';
+        errorMessageCf.textContent = '';
+      }, 2000);
+    } else {
+      sendRentalMessageCf(selectedValueCf);
+      openCrispChat();
+    }
+  }
 
+  function sendRentalMessageCf(selectedValue) {
+    let price;
+    if (selectedValue === '6h') {
+      price = 'Rp 25,000';
+    }
 
-          function validateRentalCf() {
-            if (selectedValueCf === '') {
-              const errorMessageCf = document.getElementById('error-message-cf');
-              errorMessageCf.style.display = 'block';
-              errorMessageCf.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessageCf.style.display = 'none';
-                errorMessageCf.textContent = '';
-              }, 2000);
-            } else {
-              sendRentalMessageCf(selectedValueCf);
-              openCrispChat();
-            }
-          }
+    const message = `Halo, saya ingin rental Cfktool (${selectedValue}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+    bayarButton.style.display = 'inline-block'; // Tampilkan tombol "Bayar" setelah pesan dikirim ke Crisp
 
-          function sendRentalMessageCf(selectedValue) {
-            let price;
-            if (selectedValue === '6h') {
-              price = 'Rp 25,000';
-            }
+    setTimeout(() => {
+      bayarButton.click(); // Otomatis menekan tombol "Bayar" setelah 2 detik
+    }, 2000);
+  }
 
-            const message = `Halo, saya ingin rental Cfktool (${selectedValue}) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
 
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-3">
@@ -2704,106 +2727,111 @@
 
 
 
-<div class="col-lg-4 col-md-6">
-  <div class="card card-17">
-    <img src="img/tooltfm.jpg" class="card-img-top" alt="Foto 7">
-    <div class="card-body">
-      <h5 class="card-title">Tfm tool</h5>
-      <div class="button-group">
-        <p style="font-size: 12px;"><a href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk" class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
-        <br>
-        <div>
-          <input type="checkbox" id="tfm-3h" name="rental-pt" value="3h" onchange="updatePriceTfm(this)">
-          <label for="tfm-3h">3 jam</label>
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-17">
+            <img src="img/tooltfm.jpg" class="card-img-top" alt="Foto 7">
+            <div class="card-body">
+              <h5 class="card-title">Tfm tool</h5>
+              <div class="button-group">
+                <p style="font-size: 12px;"><a
+                    href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+                    Download</a></p>
+                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+                    Download Ultraviewer</a></p>
+                <br>
+                <div>
+                  <input type="checkbox" id="tfm-3h" name="rental-pt" value="3h" onchange="updatePriceTfm(this)">
+                  <label for="tfm-3h">3 jam</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="tfm-6h" name="rental-pt" value="6h" onchange="updatePriceTfm(this)">
+                  <label for="tfm-6h">6 jam</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="tfm-12h" name="rental-pt" value="12h" onchange="updatePriceTfm(this)">
+                  <label for="tfm-12h">12 jam</label>
+                </div>
+                <p id="price-tfm-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-tfm" class="error-message"></p>
+                <button onclick="validateRentalTfm()" class="btn btn-primary gradient-btn">
+                  <i class="fas fa-paper-plane"></i> Rental sekarang
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <input type="checkbox" id="tfm-6h" name="rental-pt" value="6h" onchange="updatePriceTfm(this)">
-          <label for="tfm-6h">6 jam</label>
-        </div>
-        <div>
-          <input type="checkbox" id="tfm-12h" name="rental-pt" value="12h" onchange="updatePriceTfm(this)">
-          <label for="tfm-12h">12 jam</label>
-        </div>
-        <p id="price-tfm-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-        <p id="error-message-tfm" class="error-message"></p>
-        <button onclick="validateRentalTfm()" class="btn btn-primary gradient-btn">
-          <i class="fas fa-paper-plane"></i> Rental sekarang
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  let selectedValueTfm = '';
+        <script>
+          let selectedValueTfm = '';
 
-  function updatePriceTfm(checkbox) {
-    if (checkbox.checked) {
-      const checkboxes = document.getElementsByName('rental-pt');
-      checkboxes.forEach((cb) => {
-        if (cb !== checkbox) {
-          cb.checked = false;
-        }
-      });
+          function updatePriceTfm(checkbox) {
+            if (checkbox.checked) {
+              const checkboxes = document.getElementsByName('rental-pt');
+              checkboxes.forEach((cb) => {
+                if (cb !== checkbox) {
+                  cb.checked = false;
+                }
+              });
 
-      selectedValueTfm = checkbox.value;
+              selectedValueTfm = checkbox.value;
 
-      const prices = {
-        '3h': 'Rp 25.000',
-        '6h': 'Rp 35.000',
-        '12h': 'Rp 45.000'
-      };
-      const price = prices[selectedValueTfm];
+              const prices = {
+                '3h': 'Rp 25.000',
+                '6h': 'Rp 35.000',
+                '12h': 'Rp 45.000'
+              };
+              const price = prices[selectedValueTfm];
 
-      const priceInfo = document.getElementById('price-tfm-info');
-      priceInfo.textContent = `Harga: ${price}`;
-    } else {
-      selectedValueTfm = '';
-      const priceInfo = document.getElementById('price-tfm-info');
-      priceInfo.textContent = '';
-    }
-  }
+              const priceInfo = document.getElementById('price-tfm-info');
+              priceInfo.textContent = `Harga: ${price}`;
+            } else {
+              selectedValueTfm = '';
+              const priceInfo = document.getElementById('price-tfm-info');
+              priceInfo.textContent = '';
+            }
+          }
 
- function validateRentalTfm() {
-    const checkboxes = document.getElementsByName('rental-pt');
-    let checkedCheckbox = null;
+          function validateRentalTfm() {
+            const checkboxes = document.getElementsByName('rental-pt');
+            let checkedCheckbox = null;
 
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        checkedCheckbox = checkbox;
-      }
-    });
+            checkboxes.forEach((checkbox) => {
+              if (checkbox.checked) {
+                checkedCheckbox = checkbox;
+              }
+            });
 
-    if (checkedCheckbox !== null) {
-      selectedValueTfm = checkedCheckbox.value;
-      sendRentalMessageTfm();
-      openCrispChat();
-    } else {
-      const errorMessage = document.getElementById('error-message-tfm');
-      errorMessage.style.display = 'block';
-      errorMessage.textContent = 'Pilih waktu rental.';
-      setTimeout(() => {
-        errorMessage.style.display = 'none';
-        errorMessage.textContent = '';
-      }, 2000);
-    }
-  }
+            if (checkedCheckbox !== null) {
+              selectedValueTfm = checkedCheckbox.value;
+              sendRentalMessageTfm();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-tfm');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Pilih waktu rental.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 2000);
+            }
+          }
 
-  function sendRentalMessageTfm() {
-    const prices = {
-      '3h': 'Rp 25.000',
-      '6h': 'Rp 35.000',
-      '12h': 'Rp 45.000'
-    };
-    const price = prices[selectedValueTfm];
-    const message = `Halo, saya ingin rental Tfm tool (${selectedValueTfm}) dengan harga ${price}.`;
-    window.$crisp.push(['do', 'message:send', ['text', message]]);
-  }
+          function sendRentalMessageTfm() {
+            const prices = {
+              '3h': 'Rp 25.000',
+              '6h': 'Rp 35.000',
+              '12h': 'Rp 45.000'
+            };
+            const price = prices[selectedValueTfm];
+            const message = `Halo, saya ingin rental Tfm tool (${selectedValueTfm}) dengan harga ${price}.`;
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
 
-  function openCrispChat() {
-    window.$crisp.push(['do', 'chat:open']);
-  }
-</script>
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
 
 
 
@@ -3426,93 +3454,93 @@
 
 
 
-<div class="col-lg-4 col-md-6">
-  <div class="card card-14">
-    <img src="img/TOOLCF.jpg" class="card-img-top" alt="Foto 1">
-    <div class="card-body">
-      <h5 class="card-title">Credit cf tools</h5>
-      <div class="button-group">
-        <br>
-        <div>
-          <input type="number" id="cftool-credit" class="nama-input" min="6" placeholder="Jumlah Kredit"
-            oninput="updatePriceCFTool(this)">
+        <div class="col-lg-4 col-md-6">
+          <div class="card card-14">
+            <img src="img/TOOLCF.jpg" class="card-img-top" alt="Foto 1">
+            <div class="card-body">
+              <h5 class="card-title">Credit cf tools</h5>
+              <div class="button-group">
+                <br>
+                <div>
+                  <input type="number" id="cftool-credit" class="nama-input" min="6" placeholder="Jumlah Kredit"
+                    oninput="updatePriceCFTool(this)">
+                </div>
+                <p id="price-cftool-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-cftool" class="error-message"></p>
+                <button onclick="validateCreditCFTool()" class="btn btn-primary gradient-btn-2">
+                  <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <p id="price-cftool-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-        <p id="error-message-cftool" class="error-message"></p>
-        <button onclick="validateCreditCFTool()" class="btn btn-primary gradient-btn-2">
-          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  let selectedValueCFTool = '';
+        <script>
+          let selectedValueCFTool = '';
 
-  function updatePriceCFTool(input) {
-    const creditValue = input.value;
-    let priceInfo = document.getElementById('price-cftool-info');
-    let errorMessage = document.getElementById('error-message-cftool');
+          function updatePriceCFTool(input) {
+            const creditValue = input.value;
+            let priceInfo = document.getElementById('price-cftool-info');
+            let errorMessage = document.getElementById('error-message-cftool');
 
-    if (creditValue === '3') {
-      priceInfo.textContent = 'Harga: Rp 50.000';
-      selectedValueCFTool = creditValue;
-    } else if (creditValue >= 6) {
-      const creditPrice = 15000;
-      const totalPrice = creditValue * creditPrice;
-      priceInfo.textContent = `Harga: Rp ${totalPrice.toLocaleString()}`;
-      selectedValueCFTool = creditValue;
-    } else {
-      priceInfo.textContent = '';
-      selectedValueCFTool = '';
-    }
+            if (creditValue === '3') {
+              priceInfo.textContent = 'Harga: Rp 50.000';
+              selectedValueCFTool = creditValue;
+            } else if (creditValue >= 6) {
+              const creditPrice = 15000;
+              const totalPrice = creditValue * creditPrice;
+              priceInfo.textContent = `Harga: Rp ${totalPrice.toLocaleString()}`;
+              selectedValueCFTool = creditValue;
+            } else {
+              priceInfo.textContent = '';
+              selectedValueCFTool = '';
+            }
 
-    if (creditValue === '4' || creditValue === '5') {
-      errorMessage.style.display = 'block';
-      errorMessage.textContent = 'Maaf, tidak tersedia.';
-    } else {
-      errorMessage.style.display = 'none';
-      errorMessage.textContent = '';
-    }
-  }
+            if (creditValue === '4' || creditValue === '5') {
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Maaf, tidak tersedia.';
+            } else {
+              errorMessage.style.display = 'none';
+              errorMessage.textContent = '';
+            }
+          }
 
-  function validateCreditCFTool() {
-    const input = document.getElementById('cftool-credit');
-    const creditValue = input.value;
+          function validateCreditCFTool() {
+            const input = document.getElementById('cftool-credit');
+            const creditValue = input.value;
 
-    if (creditValue === '3' || creditValue >= 6) {
-      sendCreditMessageCFTool();
-      openCrispChat();
-    } else {
-      const errorMessage = document.getElementById('error-message-cftool');
-      errorMessage.style.display = 'block';
-      errorMessage.textContent = 'Minimal 3 kredit.';
-      setTimeout(() => {
-        errorMessage.style.display = 'none';
-        errorMessage.textContent = '';
-      }, 3000);
-    }
-  }
+            if (creditValue === '3' || creditValue >= 6) {
+              sendCreditMessageCFTool();
+              openCrispChat();
+            } else {
+              const errorMessage = document.getElementById('error-message-cftool');
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Minimal 3 kredit.';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 3000);
+            }
+          }
 
-  function sendCreditMessageCFTool() {
-    const creditValue = selectedValueCFTool;
-    let message = `Halo, saya ingin aktivasi Credit Cf Tool dengan ${creditValue} kredit.`;
+          function sendCreditMessageCFTool() {
+            const creditValue = selectedValueCFTool;
+            let message = `Halo, saya ingin aktivasi Credit Cf Tool dengan ${creditValue} kredit.`;
 
-    if (creditValue === '3') {
-      message += ' Harga: Rp 50.000.';
-    } else {
-      const creditPrice = 15000;
-      const totalPrice = creditValue * creditPrice;
-      message += ` Harga: Rp ${totalPrice.toLocaleString()}.`;
-    }
+            if (creditValue === '3') {
+              message += ' Harga: Rp 50.000.';
+            } else {
+              const creditPrice = 15000;
+              const totalPrice = creditValue * creditPrice;
+              message += ` Harga: Rp ${totalPrice.toLocaleString()}.`;
+            }
 
-    window.$crisp.push(['do', 'message:send', ['text', message]]);
-  }
+            window.$crisp.push(['do', 'message:send', ['text', message]]);
+          }
 
-  function openCrispChat() {
-    window.$crisp.push(['do', 'chat:open']);
-  }
-</script>
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
+        </script>
 
 
 
@@ -3521,58 +3549,58 @@
 
 
 
-<div class="col-lg-4 col-md-6" id="unblock-imei-section">
-  <div class="card card-16">
-    <img src="img/tooolauth.jpg" class="card-img-top" alt="Foto 1">
-    <div class="card-body">
-      <h5 class="card-title"></h5>
-      <div class="button-group">
-        
-        
-        <div class="imei-group">
-          <input type="text" id="nama-input-5" class="nama-input" placeholder="TYPE HP">
-          <input type="text" id="imei-input-3" class="imei-input" placeholder="IMEI "
-            oninput="validateInput(this, 15)">
-          <input type="text" id="imei-input-4" class="imei-input" placeholder="STAMP">
+        <div class="col-lg-4 col-md-6" id="unblock-imei-section">
+          <div class="card card-16">
+            <img src="img/tooolauth.jpg" class="card-img-top" alt="Foto 1">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <div class="button-group">
+
+
+                <div class="imei-group">
+                  <input type="text" id="nama-input-5" class="nama-input" placeholder="TYPE HP">
+                  <input type="text" id="imei-input-3" class="imei-input" placeholder="IMEI "
+                    oninput="validateInput(this, 15)">
+                  <input type="text" id="imei-input-4" class="imei-input" placeholder="STAMP">
+                </div>
+
+                <p id="price-stamp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+                <p id="error-message-stamp" class="error-message"></p>
+                <button onclick="validateRentalStamp()" class="btn btn-primary gradient-btn-2">
+                  <i class="fas fa-paper-plane"></i> Pesan sekarang
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-       
-        <p id="price-stamp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-        <p id="error-message-stamp" class="error-message"></p>
-        <button onclick="validateRentalStamp()" class="btn btn-primary gradient-btn-2">
-          <i class="fas fa-paper-plane"></i> Pesan sekarang
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  function validateRentalStamp() {
-    const namaInput5 = document.getElementById('nama-input-5');
-    const imeiInput3 = document.getElementById('imei-input-3');
-    const imeiInput4 = document.getElementById('imei-input-4');
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+          function validateRentalStamp() {
+            const namaInput5 = document.getElementById('nama-input-5');
+            const imeiInput3 = document.getElementById('imei-input-3');
+            const imeiInput4 = document.getElementById('imei-input-4');
 
-    const namaValue5 = namaInput5.value.trim();
-    const imeiValue3 = imeiInput3.value.trim();
-    const imeiValue4 = imeiInput4.value.trim();
+            const namaValue5 = namaInput5.value.trim();
+            const imeiValue3 = imeiInput3.value.trim();
+            const imeiValue4 = imeiInput4.value.trim();
 
-    if (namaValue5 === '' || imeiValue3 === '' || imeiValue4 === '') {
-      const errorMessage = document.getElementById('error-message-stamp');
-      errorMessage.textContent = 'Mohon lengkapi semua input.';
-      errorMessage.style.display = 'block';
-      setTimeout(() => {
-        errorMessage.style.display = 'none';
-        errorMessage.textContent = '';
-      }, 3000);
-      return;
-    }
+            if (namaValue5 === '' || imeiValue3 === '' || imeiValue4 === '') {
+              const errorMessage = document.getElementById('error-message-stamp');
+              errorMessage.textContent = 'Mohon lengkapi semua input.';
+              errorMessage.style.display = 'block';
+              setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+              }, 3000);
+              return;
+            }
 
-    
 
-    Swal.fire({
-      title: 'Konfirmasi',
-      html: `
+
+            Swal.fire({
+              title: 'Konfirmasi',
+              html: `
              <p>Harga: Rp 35.000</p><br>
              <p>Pilih metode pembayaran:</p>
              <ul>
@@ -3581,42 +3609,42 @@
                <li><a href="javascript:void(0);" onclick="copyToClipboard('083108497963')">Ovo: 083108497963</a></li>
                <li><a href="javascript:void(0);" onclick="copyToClipboard('karomahpemalang0@gmail.com')">Paypal: karomahpemalang0@gmail.com</a></li>
              </ul>`,
-      icon: 'info',
-      showCancelButton: true,
-      confirmButtonText: 'Ya',
-      cancelButtonText: 'Batal',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        let message = '';
-        message += 'Tipe HP: ' + namaValue5 + '\n';
-        message += 'IMEI 1: ' + imeiValue3 + '\n';
-        message += 'STAMP: ' + imeiValue4 + '\n';
+              icon: 'info',
+              showCancelButton: true,
+              confirmButtonText: 'Ya',
+              cancelButtonText: 'Batal',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                let message = '';
+                message += 'Tipe HP: ' + namaValue5 + '\n';
+                message += 'IMEI 1: ' + imeiValue3 + '\n';
+                message += 'STAMP: ' + imeiValue4 + '\n';
 
-        const prices = {
-          'stamp': 'Rp 35.000',
-        };
-        const price = prices['stamp'];
+                const prices = {
+                  'stamp': 'Rp 35.000',
+                };
+                const price = prices['stamp'];
 
-        message += 'Harga: ' + price;
+                message += 'Harga: ' + price;
 
-        window.$crisp.push(['do', 'message:send', ['text', message]]);
-        openCrispChat();
-      }
-    });
-  }
+                window.$crisp.push(['do', 'message:send', ['text', message]]);
+                openCrispChat();
+              }
+            });
+          }
 
-  function openCrispChat() {
-    window.$crisp.push(['do', 'chat:open']);
-  }
+          function openCrispChat() {
+            window.$crisp.push(['do', 'chat:open']);
+          }
 
-  function validateInput(input, maxLength) {
-    input.value = input.value.replace(/[^0-9]/g, '');
-    if (input.value.length > maxLength) {
-      input.value = input.value.slice(0, maxLength);
-    }
-  }
-  
-</script>
+          function validateInput(input, maxLength) {
+            input.value = input.value.replace(/[^0-9]/g, '');
+            if (input.value.length > maxLength) {
+              input.value = input.value.slice(0, maxLength);
+            }
+          }
+
+        </script>
 
 
 
@@ -3777,7 +3805,7 @@
 
 
 
-  
+
 
 
 
@@ -3933,28 +3961,16 @@
 
     <br><br><br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
 
+<br><br><br>
 
-  
-  
+
+
+
+
+
+
 
 
   <br><br><br><br><br><br><br><br><br>
