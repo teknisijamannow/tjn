@@ -1,0 +1,30 @@
+.success-popup-container {
+  background-color: transparent;
+  padding: 0;
+}
+
+.success-popup {
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.success-popup-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.success-popup-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.success-popup-confirm-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
