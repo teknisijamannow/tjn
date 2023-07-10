@@ -2031,6 +2031,18 @@
                 <button onclick="validateRental()" class="btn btn-primary gradient-btn">
                   <i class="fas fa-paper-plane"></i> Rental sekarang
                 </button>
+                <a id="bayarButton6h" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://reyfood.mayar.link/pl/unclock-tool-6jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                  <span></span><i class="fas fa-credit-card"></i> Bayar
+                </a>
+               
+                <a id="bayarButton12h" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://reyfood.mayar.link/pl/unclock-tool-12jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                  <span></span><i class="fas fa-credit-card"></i> Bayar
+                </a>
+               
+                <a id="bayarButton24h" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://reyfood.mayar.link/pl/unclock-tool-24jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                  <span></span><i class="fas fa-credit-card"></i> Bayar
+                </a>
+                <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>  
               </div>
             </div>
           </div>
@@ -2052,76 +2064,140 @@
           labelSelengkapnya.addEventListener('click', toggleHiddenOptions);
         </script>
 
-        <script type="text/javascript">
-          function updatePrice(checkbox) {
-            const checkboxes = document.getElementsByName('rental');
-            checkboxes.forEach((cb) => {
-              if (cb !== checkbox) {
-                cb.checked = false;
-              }
-            });
+<script type="text/javascript">
+  function updatePrice(checkbox) {
+    const checkboxes = document.getElementsByName('rental');
+    checkboxes.forEach((cb) => {
+      if (cb !== checkbox) {
+        cb.checked = false;
+      }
+    });
 
-            const priceInfo = document.getElementById('price-info');
-            if (checkbox.checked) {
-              let price;
-              if (checkbox.value === '6h') {
-                price = 'Rp 25,000';
-              } else if (checkbox.value === '12h') {
-                price = 'Rp 35,000';
-              } else if (checkbox.value === '24h') {
-                price = 'Rp 50,000';
-              }
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              priceInfo.textContent = '';
+    const priceInfo = document.getElementById('price-info');
+    if (checkbox.checked) {
+      let price;
+      if (checkbox.value === '6h') {
+        price = 'Rp 25,000';
+      } else if (checkbox.value === '12h') {
+        price = 'Rp 35,000';
+      } else if (checkbox.value === '24h') {
+        price = 'Rp 50,000';
+      }
+      priceInfo.textContent = `Harga: ${price}`;
+      updateBayarButtonDisplay(checkbox.value);
+    } else {
+      priceInfo.textContent = '';
+      hideAllBayarButtons();
+    }
+  }
+
+  function validateRental() {
+    const checkboxes = document.getElementsByName('rental');
+    let isChecked = false;
+    let selectedValue = '';
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        isChecked = true;
+        selectedValue = checkbox.value;
+      }
+    });
+
+    if (!isChecked) {
+      const errorMessage = document.createElement('error-message');
+      errorMessage.classList.add('error-message');
+      errorMessage.textContent = 'Pilih waktu rental.';
+      const buttonGroup = document.querySelector('.button-group');
+      buttonGroup.appendChild(errorMessage);
+      setTimeout(() => {
+        errorMessage.remove();
+      }, 2000);
+    } else {
+      sendRentalMessage(selectedValue);
+      showSuccessPopupCl();
+      updateBayarButtonDisplay(selectedValue);
+    }
+  }
+
+  function sendRentalMessage(selectedValue) {
+    let price;
+    if (selectedValue === '6h') {
+      price = 'Rp 25,000';
+    } else if (selectedValue === '12h') {
+      price = 'Rp 35,000';
+    } else if (selectedValue === '24h') {
+      price = 'Rp 50,000';
+    }
+
+    const message = `Halo, saya ingin rental Unlocktool (${selectedValue}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupCl() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const checkboxes = document.getElementsByName('rental');
+        let selectedButtonId;
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            const value = checkbox.value;
+            if (value === '6h') {
+              selectedButtonId = 'bayarButton6h';
+            } else if (value === '12h') {
+              selectedButtonId = 'bayarButton12h';
+            } else if (value === '24h') {
+              selectedButtonId = 'bayarButton24h';
             }
           }
-
-          function validateRental() {
-            const checkboxes = document.getElementsByName('rental');
-            let isChecked = false;
-            let selectedValue = '';
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.checked) {
-                isChecked = true;
-                selectedValue = checkbox.value;
-              }
-            });
-
-            if (!isChecked) {
-              const errorMessage = document.createElement('error-message');
-              errorMessage.classList.add('error-message');
-              errorMessage.textContent = 'Pilih waktu rental.';
-              const buttonGroup = document.querySelector('.button-group');
-              buttonGroup.appendChild(errorMessage);
-              setTimeout(() => {
-                errorMessage.remove();
-              }, 2000);
-            } else {
-              sendRentalMessage(selectedValue);
-              openCrispChat();
-            }
-          }
-
-          function sendRentalMessage(selectedValue) {
-            let price;
-            if (selectedValue === '6h') {
-              price = 'Rp 25,000';
-            } else if (selectedValue === '12h') {
-              price = 'Rp 35,000';
-            } else if (selectedValue === '24h') {
-              price = 'Rp 50,000';
-            }
-
-            const message = `Halo, saya ingin rental Unlocktool (${selectedValue}) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
-
+        });
+        document.getElementById(selectedButtonId).click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
+  
+  function updateBayarButtonDisplay(selectedValue) {
+    const bayarButton6h = document.getElementById('bayarButton6h');
+    const bayarButton12h = document.getElementById('bayarButton12h');
+    const bayarButton24h = document.getElementById('bayarButton24h');
+    
+    if (selectedValue === '6h') {
+      bayarButton6h.style.display = 'inline-block';
+      bayarButton12h.style.display = 'none';
+      bayarButton24h.style.display = 'none';
+    } else if (selectedValue === '12h') {
+      bayarButton6h.style.display = 'none';
+      bayarButton12h.style.display = 'inline-block';
+      bayarButton24h.style.display = 'none';
+    } else if (selectedValue === '24h') {
+      bayarButton6h.style.display = 'none';
+      bayarButton12h.style.display = 'none';
+      bayarButton24h.style.display = 'inline-block';
+    } else {
+      hideAllBayarButtons();
+    }
+  }
+  
+  function hideAllBayarButtons() {
+    const bayarButton6h = document.getElementById('bayarButton6h');
+    const bayarButton12h = document.getElementById('bayarButton12h');
+    const bayarButton24h = document.getElementById('bayarButton24h');
+    
+    bayarButton6h.style.display = 'none';
+    bayarButton12h.style.display = 'none';
+    bayarButton24h.style.display = 'none';
+  }
+</script>
 
 
 
