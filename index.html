@@ -2149,7 +2149,7 @@
         <button onclick="validateRentalCf()" class="btn btn-primary gradient-btn">
           <i class="fas fa-paper-plane"></i> Rental Sekarang
         </button>
-        <a id="bayarButton" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/auth-token-decrypt?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+        <a id="bayarButton" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://reyfood.mayar.link/pl/cf-tool-6jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
           <span></span><i class="fas fa-credit-card"></i> Bayar
         </a>
         <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>        
@@ -2236,87 +2236,106 @@
 
 </script>
 
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-3">
-            <img src="img/tool3.jpg" class="card-img-top" alt="Foto 3">
-            <div class="card-body">
-              <h5 class="card-title">Dft tool</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a href="https://unlocktool.net/download/" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="rental-df" name="rental-df" value="24h" onchange="updatePriceDf(this)">
-                  <label for="rental-df">24 jam</label>
-                </div>
-                <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-df" class="error-message"></p>
-                <button onclick="validateRentalDf()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental Sekarang
-                </button>
-
-
-              </div>
-            </div>
-          </div>
+<div class="col-lg-4 col-md-6">
+  <div class="card card-3">
+    <img src="img/tool3.jpg" class="card-img-top" alt="Foto 3">
+    <div class="card-body">
+      <h5 class="card-title">Dft tool</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a href="https://unlocktool.net/download/" class="download-link"><i
+              class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+            Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="rental-df" name="rental-df" value="24h" onchange="updatePriceDf(this)">
+          <label for="rental-df">24 jam</label>
         </div>
+        <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-df" class="error-message"></p>
+        <button onclick="validateRentalDf()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental Sekarang
+        </button>
+        <a id="bayarButton1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://reyfood.mayar.link/pl/dft-tool-24jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueDf = '';
+
+  function updatePriceDf(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-df');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueDf = checkbox.value;
+
+      let price;
+      if (selectedValueDf === '24h') {
+        price = 'Rp 75,000';
+      }
+      const priceInfo = document.getElementById('price-df-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueDf = '';
+      const priceInfo = document.getElementById('price-df-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalDf() {
+    const checkbox = document.getElementById('rental-df');
+    if (checkbox.checked) {
+      sendRentalMessageDf();
+      showSuccessPopupDf();
+      document.getElementById('bayarButton1').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+    } else {
+      const errorMessage = document.getElementById('error-message-df');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageDf() {
+    const price = 'Rp 75,000';
+    const message = `Halo, saya ingin rental Dft tool (24 jam) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+  function showSuccessPopupDf() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButton1').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
+</script>
 
 
-
-        <script>
-          let selectedValueDf = '';
-
-          function updatePriceDf(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-df');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
-
-              selectedValueDf = checkbox.value;
-
-              let price;
-              if (selectedValueDf === '24h') {
-                price = 'Rp 75,000';
-              }
-              const priceInfo = document.getElementById('price-df-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueDf = '';
-              const priceInfo = document.getElementById('price-df-info');
-              priceInfo.textContent = '';
-            }
-          }
-
-          function validateRentalDf() {
-            const checkbox = document.getElementById('rental-df');
-            if (checkbox.checked) {
-              sendRentalMessageDf();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-df');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageDf() {
-            const price = 'Rp 75,000';
-            const message = `Halo, saya ingin rental Dft tool (24 jam) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          
-        </script>
 
 
 
