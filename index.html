@@ -2140,8 +2140,8 @@
             Download Ultraviewer</a></p>
         <br>
         <div>
-          <input type="checkbox" id="rental-6h" name="rental-cf" value="6h" onchange="updatePriceCf(this)">
-          <label for="rental-6h">6 jam</label>
+          <input type="checkbox" id="rentall-6h" name="rentall-cf" value="6h" onchange="updatePriceCf(this)">
+          <label for="rentall-6h">6 jam</label>
         </div>
         <p id="price-cf-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
         <p id="error-message-cf" class="error-message"></p>
@@ -2149,19 +2149,16 @@
         <button onclick="validateRentalCf()" class="btn btn-primary gradient-btn">
           <i class="fas fa-paper-plane"></i> Rental Sekarang
         </button>
-
-
-        <a class="btn btn-primary gradient-btn-3 iframe-lightbox-link" href="https://teknisi-jaman-now.mayar.link/pl/auth-token-decrypt?iframe=true" data-padding-bottom="30%" data-scrolling="true"><span></span><i class="fas fa-credit-card"></i> Bayar
+        <a id="bayarButton" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/auth-token-decrypt?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
         </a>
-        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
-        
-
-       
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>        
       </div>
     </div>
   </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <script type="text/javascript">
   let selectedValueCf = '';
 
@@ -2202,7 +2199,8 @@
       }, 2000);
     } else {
       sendRentalMessageCf(selectedValueCf);
-      openCrispChat();
+      showSuccessPopup();
+      document.getElementById('bayarButton').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
     }
   }
 
@@ -2216,11 +2214,27 @@
     window.$crisp.push(['do', 'message:send', ['text', message]]);
   }
 
-  function openCrispChat() {
-    window.$crisp.push(['do', 'chat:open']);
+  function showSuccessPopup() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButton').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
   }
-</script>
 
+</script>
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-3">
@@ -2301,9 +2315,7 @@
             window.$crisp.push(['do', 'message:send', ['text', message]]);
           }
 
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
+          
         </script>
 
 
