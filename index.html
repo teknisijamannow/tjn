@@ -1619,14 +1619,48 @@
               </a>
             </div>
 
-            <div class="bg-gray-200 p-4 rounded-lg hover:bg-gray-300" onclick="openCrispChat()">
+            <div class="bg-gray-200 p-4 rounded-lg hover:bg-gray-300">
               <div class="flex items-center justify-center mb-2">
                 <i class="fas fa-headset text-red-500 text-2xl"></i>
               </div>
               <h2 class="text-sm font-semibold text-center">Layanan Pelanggan</h2>
               <hr class="border-red-500 my-2 mx-auto w-15">
-              <p class="text-xs text-gray-600 text-center">Bantuan profesional 24/7</p>
+              
+              <div class="mt-2 relative">
+                <input id="chatInput" type="text" placeholder="Pertanyaan" class="w-full py-1 pl-1 pr-5 rounded-sm text-xs focus:outline-none focus:border-blue-500">
+                <button onclick="sendMessageToCrisp()" class="absolute top-0 right-0 bottom-0 bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded-sm text-xs">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
             </div>
+            
+            
+            <script>
+              function sendMessageToCrisp() {
+                var inputElement = document.getElementById("chatInput");
+                var message = inputElement.value;
+                
+                // Kirim pesan ke Crisp menggunakan API Crisp
+                $crisp.push(["do", "message:send", ["text", message]]);
+                
+                // Reset input setelah mengirim pesan
+                inputElement.value = "";
+                
+                // Buka widget Crisp setelah mengirim pesan
+                $crisp.push(["do", "chat:open"]);
+              }
+              
+              // Event listener untuk mendeteksi saat tombol "Enter" ditekan pada input
+              document.getElementById("chatInput").addEventListener("keydown", function(event) {
+                if (event.keyCode === 13) {
+                  event.preventDefault();
+                  sendMessageToCrisp();
+                }
+              });
+            </script>
+            
+            
+            
 
             <div class="bg-gray-200 p-4 rounded-lg hover:bg-gray-300">
               <a href="https://chat.whatsapp.com/FtqKGZUOfib162qJFmp1d5" target="_blank"
@@ -1867,7 +1901,129 @@
       })();
     </script> -->
 
+    <div id="hiddenContainer" class="container mx-auto p-4" style="display: none;">
+      <!-- Konten kotak yang ingin disembunyikan -->
+      <div class="bg-gray-100 border border-black p-4 space-y-4" style="border-radius: 10px;">
+        <div class="flex items-center justify-center bg-yellow-300 py-6" style="border-radius: 10px; margin-bottom: 20px;">
+          <h2 class="text-4xl font-bold text-center">SPAM CALL & SMS</h2>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">pkg update && pkg upgrade</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">pkg install python</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">pkg install python-pip</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">pkg install python2</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">pkg install git</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">rm -rf Prank-SSC</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">git clone https://github.com/Dra-ID/Prank-SSC</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">cd Prank-SSC</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">pip install inquirer</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">pip3 install -r requirements.txt</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">ls</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">git pull</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <hr class="border-gray-500">
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold">python run.py</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
+        </div>
+        <div class="flex items-center justify-center bg-yellow-300 py-6" style="border-radius: 10px;margin-top: 50px; margin-bottom: 20px;">
+          <h2 class="text-4xl font-bold text-center">SPAM CALL & SMS</h2>
+        </div>
+      </div>
+    </div>
+    
 
+    <script>
+      // Mengambil referensi ke container yang ingin disembunyikan
+      var hiddenContainer = document.getElementById("hiddenContainer");
+    
+      // Event listener untuk mendeteksi saat pengguna mengetikkan pada input
+      document.getElementById("chatInput").addEventListener("input", function(event) {
+        var inputValue = event.target.value;
+    
+        // Memeriksa apakah input mengandung kata "hack"
+        if (inputValue.toLowerCase().includes("hack")) {
+          hiddenContainer.style.display = "block";
+    
+          // Menggunakan setTimeout untuk mengarahkan scroll ke bawah dan fokus setelah rendering konten
+          setTimeout(function() {
+            hiddenContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            hiddenContainer.focus();
+          }, 0);
+        } else {
+          hiddenContainer.style.display = "none";
+        }
+      });
+    </script>
+    <script>
+      // Mengambil semua elemen tombol salin
+      var copyButtons = document.getElementsByClassName("copy-button");
+    
+      // Menambahkan event listener ke setiap tombol salin
+      for (var i = 0; i < copyButtons.length; i++) {
+        copyButtons[i].addEventListener("click", function() {
+          // Menghapus kelas "highlight" dari semua elemen teks
+          var textElements = document.getElementsByTagName("p");
+          for (var j = 0; j < textElements.length; j++) {
+            textElements[j].classList.remove("text-green-500");
+          }
+    
+          // Menandai elemen teks yang berada sejajar dengan tombol yang diklik
+          var textElement = this.previousElementSibling;
+          textElement.classList.add("text-green-500");
+    
+          // Menyalin teks ke clipboard
+          var textToCopy = textElement.innerText;
+          navigator.clipboard.writeText(textToCopy);
+        });
+      }
+    </script>
+    
     <br><br>
 
 
@@ -1965,6 +2121,18 @@
         document.getElementById("imageModal").style.display = "none";
       }
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   </div>
@@ -4078,68 +4246,6 @@
 <br><br><br>
 
 
-<div class="container mx-auto p-4">
-  <div id="box" class="hidden bg-gray-100 border border-black p-4 space-y-4" style="border-radius: 10px;">
-    <div class="flex items-center justify-center bg-yellow-300 py-6" style="border-radius: 10px; margin-bottom: 20px;">
-      <h2 class="text-5xl font-bold text-center">Judul Kotak</h2>
-    </div>
-    <div class="flex items-center justify-between">
-      <p class="text-lg font-bold">Teks Pertama</p>
-      <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
-    </div>
-    <hr class="border-gray-500">
-    <div class="flex items-center justify-between">
-      <p class="text-lg font-bold">Teks Kedua</p>
-      <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded copy-button">Salin</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  var longPressTimer;
-  var logo = document.querySelector(".navbar-brand img");
-  var box = document.getElementById("box");
-
-  logo.addEventListener("mousedown", function(event) {
-    longPressTimer = setTimeout(function() {
-      box.style.display = "block"; // Menampilkan kotak saat logo ditekan selama 3 detik
-    }, 3000);
-  });
-
-  logo.addEventListener("mouseup", function(event) {
-    clearTimeout(longPressTimer);
-  });
-
-  logo.addEventListener("mouseout", function(event) {
-    clearTimeout(longPressTimer);
-  });
-</script>
-
-
-
-<script>
-  // Mengambil semua elemen tombol salin
-  var copyButtons = document.getElementsByClassName("copy-button");
-
-  // Menambahkan event listener ke setiap tombol salin
-  for (var i = 0; i < copyButtons.length; i++) {
-    copyButtons[i].addEventListener("click", function() {
-      // Menghapus kelas "highlight" dari semua elemen teks
-      var textElements = document.getElementsByTagName("p");
-      for (var j = 0; j < textElements.length; j++) {
-        textElements[j].classList.remove("text-green-500");
-      }
-
-      // Menandai elemen teks yang berada sejajar dengan tombol yang diklik
-      var textElement = this.previousElementSibling;
-      textElement.classList.add("text-green-500");
-
-      // Menyalin teks ke clipboard
-      var textToCopy = textElement.innerText;
-      navigator.clipboard.writeText(textToCopy);
-    });
-  }
-</script>
 
 
 
