@@ -25,6 +25,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Tautkan Font Awesome jika ingin menggunakan ikon sosial media -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
   <style>
     .promo-box {
@@ -1677,7 +1678,7 @@
         </div>
 
 
-
+<!--
         <div class="card" onclick="showPopup()"
           style="border-radius: 20px; text-align: center; background-color: #e6e6e6;">
           <h3 style="color: #4d4b4b;" class="flex items-center justify-center text-3xl font-bold ">
@@ -1710,12 +1711,72 @@
         </div>
         <div class="overlay" onclick="hidePopup()">
           <div class="popup">
-            <h3 id="popup-title">Pembayaran via OVO, Dana, PayPal, dan Mandiri</h3>
-            <p id="popup-text" style="font-size: 20px;">Silakan pilih metode pembayaran yang tersedia:</p>
+          <div class="card"></div>
           </div>
         </div>
-
-
+        <script>
+          function showPopup(method) {
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.add('active');
+            var popupTitle = document.querySelector('#popup-title');
+            var popupText = document.querySelector('#popup-text');
+    
+            switch (method) {
+              case 'Mandiri':
+                popupTitle.textContent = 'Mandiri';
+                popupText.innerHTML = '<br><span class="account-number">1400018086604</span><br><button class="btn" onclick="copyToClipboard(\'1400018086604\')">Salin</button>';
+                break;
+              case 'Dana':
+                popupTitle.textContent = 'Dana';
+                popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
+                break;
+              case 'Ovo':
+                popupTitle.textContent = 'Ovo';
+                popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
+                break;
+              case 'Paypal':
+                popupTitle.textContent = 'Paypal';
+                popupText.innerHTML = '<br><span class="account-number">karomahpemalang0@gmail.com</span><br><button class="btn" onclick="copyToClipboard(\'karomahpemalang0@gmail.com\')">Salin</button>';
+                break;
+              default:
+                break;
+            }
+          }
+    
+          function hidePopup() {
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.remove('active');
+          }
+    
+         
+        </script> -->
+        <div class="bg-gray-600 p-4" style="border-radius: 10px;">
+          <div class="flex">
+            <div class="w-2/3">
+              <div class="flex">
+                <div class="w-1/2" >
+                  <div class="bg-gray-200 p-4 m-2"  style="border-radius: 5px;">Kotak 1</div>
+                </div>
+                <div class="w-1/2">
+                  <div class="bg-gray-200 p-4 m-2"  style="border-radius: 5px;">Kotak 2</div>
+                </div>
+              </div>
+              <div class="bg-gray-200 p-4 m-2"  style="border-radius: 5px;">Kotak 3</div>
+            </div>
+            <div class="w-1/3 ">
+              <div class="flex flex-col h-full ">
+                <div class="flex-grow ">
+                  <div class="bg-gray-200 p-4 m-1 h-full" style="border-radius: 10px;">Kotak 4 dan 5</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+     
 
       </div>
     </div>
@@ -1723,63 +1784,12 @@
     
    
 
-    <script>
-      function showPopup(method) {
-        var overlay = document.querySelector('.overlay');
-        overlay.classList.add('active');
-        var popupTitle = document.querySelector('#popup-title');
-        var popupText = document.querySelector('#popup-text');
-
-        switch (method) {
-          case 'Mandiri':
-            popupTitle.textContent = 'Mandiri';
-            popupText.innerHTML = '<br><span class="account-number">1400018086604</span><br><button class="btn" onclick="copyToClipboard(\'1400018086604\')">Salin</button>';
-            break;
-          case 'Dana':
-            popupTitle.textContent = 'Dana';
-            popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
-            break;
-          case 'Ovo':
-            popupTitle.textContent = 'Ovo';
-            popupText.innerHTML = '<br><span class="account-number">083108497963</span><br><button class="btn" onclick="copyToClipboard(\'083108497963\')">Salin</button>';
-            break;
-          case 'Paypal':
-            popupTitle.textContent = 'Paypal';
-            popupText.innerHTML = '<br><span class="account-number">karomahpemalang0@gmail.com</span><br><button class="btn" onclick="copyToClipboard(\'karomahpemalang0@gmail.com\')">Salin</button>';
-            break;
-          default:
-            break;
-        }
-      }
-
-      function hidePopup() {
-        var overlay = document.querySelector('.overlay');
-        overlay.classList.remove('active');
-      }
-
-      function copyToClipboard(text) {
-        var tempInput = document.createElement('input');
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('Nomor berhasil disalin: ' + text);
-      }
-    </script>
 
 
 
 
 
 
-    <!-- Sisipkan skrip untuk bergabung di grup WhatsApp -->
-    <script type="text/javascript">
-      function joinWhatsAppGroup(groupLink) {
-        // Ganti 'groupLink' dengan tautan grup WhatsApp yang sesuai
-        window.open(groupLink);
-      }
-    </script>
 
 
 
