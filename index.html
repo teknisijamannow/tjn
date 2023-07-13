@@ -2100,8 +2100,8 @@ navigator.clipboard.writeText(textToCopy);
           autoplaySpeed: 1000,
           arrows: true,
           dots: true,
-          prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-          nextArrow: '<button type="button" class="slick-next">Next</button>',
+          prevArrow: 'false',
+          nextArrow: 'false',
         });
       });
     </script>
@@ -2295,41 +2295,41 @@ navigator.clipboard.writeText(textToCopy);
     const message = `Halo, saya ingin rental Unlocktool (${selectedValue}) dengan harga ${price}.`;
     window.$crisp.push(['do', 'message:send', ['text', message]]);
   }
-
   function showSuccessPopupCl() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Pesanan Terkirim!',
-      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
-      showConfirmButton: true,
-      customClass: {
-        container: 'success-popup-container',
-        popup: 'success-popup',
-        title: 'success-popup-title',
-        text: 'success-popup-text',
-        confirmButton: 'success-popup-confirm-button',
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const checkboxes = document.getElementsByName('rental');
-        let selectedButtonId;
-        checkboxes.forEach((checkbox) => {
-          if (checkbox.checked) {
-            const value = checkbox.value;
-            if (value === '6h') {
-              selectedButtonId = 'bayarButton6h';
-            } else if (value === '12h') {
-              selectedButtonId = 'bayarButton12h';
-            } else if (value === '24h') {
-              selectedButtonId = 'bayarButton24h';
-            }
+  Swal.fire({
+    icon: 'success',
+    title: 'Pesanan Terkirim!',
+    text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+    showConfirmButton: true,
+    customClass: {
+      container: 'success-popup-container',
+      popup: 'success-popup',
+      title: 'success-popup-title',
+      text: 'success-popup-text',
+      confirmButton: 'success-popup-confirm-button',
+    },
+    confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const checkboxes = document.getElementsByName('rental');
+      let selectedButtonId;
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          const value = checkbox.value;
+          if (value === '6h') {
+            selectedButtonId = 'bayarButton6h';
+          } else if (value === '12h') {
+            selectedButtonId = 'bayarButton12h';
+          } else if (value === '24h') {
+            selectedButtonId = 'bayarButton24h';
           }
-        });
-        document.getElementById(selectedButtonId).click(); // Men-trigger klik pada tombol "Bayar"
-      }
-    });
-  }
-  
+        }
+      });
+      document.getElementById(selectedButtonId).click(); // Men-trigger klik pada tombol "Bayar"
+    }
+  });
+}
+
   function updateBayarButtonDisplay(selectedValue) {
     const bayarButton6h = document.getElementById('bayarButton6h');
     const bayarButton12h = document.getElementById('bayarButton12h');
@@ -2476,6 +2476,7 @@ navigator.clipboard.writeText(textToCopy);
         text: 'success-popup-text',
         confirmButton: 'success-popup-confirm-button',
       },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
     }).then((result) => {
       if (result.isConfirmed) {
         document.getElementById('bayarButton').click(); // Men-trigger klik pada tombol "Bayar"
@@ -2484,6 +2485,7 @@ navigator.clipboard.writeText(textToCopy);
   }
 
 </script>
+
 
 <div class="col-lg-4 col-md-6">
   <div class="card card-3">
@@ -2498,8 +2500,12 @@ navigator.clipboard.writeText(textToCopy);
             Download Ultraviewer</a></p>
         <br>
         <div>
-          <input type="checkbox" id="rental-df" name="rental-df" value="24h" onchange="updatePriceDf(this)">
-          <label for="rental-df">24 jam</label>
+          <input type="checkbox" id="rental-df-24h" name="rental-df" value="24h" onchange="updatePriceDf(this)">
+          <label for="rental-df-24h">24 jam</label>
+        </div>
+        <div>
+          <input type="checkbox" id="rental-df-48h" name="rental-df" value="48h" onchange="updatePriceDf(this)">
+          <label for="rental-df-48h">48 jam</label>
         </div>
         <p id="price-df-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
         <p id="error-message-df" class="error-message"></p>
@@ -2509,11 +2515,15 @@ navigator.clipboard.writeText(textToCopy);
         <a id="bayarButton1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/dft-tool-24jam-96753-yjig?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
           <span></span><i class="fas fa-credit-card"></i> Bayar
         </a>
+        <a id="bayarButton1,1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/dft-tool-48jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
         <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
       </div>
     </div>
   </div>
 </div>
+
 <script>
   let selectedValueDf = '';
 
@@ -2531,6 +2541,8 @@ navigator.clipboard.writeText(textToCopy);
       let price;
       if (selectedValueDf === '24h') {
         price = 'Rp 75,000';
+      } else if (selectedValueDf === '48h') {
+        price = 'Rp 100,000';
       }
       const priceInfo = document.getElementById('price-df-info');
       priceInfo.textContent = `Harga: ${price}`;
@@ -2542,11 +2554,14 @@ navigator.clipboard.writeText(textToCopy);
   }
 
   function validateRentalDf() {
-    const checkbox = document.getElementById('rental-df');
-    if (checkbox.checked) {
+    const checkbox24h = document.getElementById('rental-df-24h');
+    const checkbox48h = document.getElementById('rental-df-48h');
+    
+    if (checkbox24h.checked || checkbox48h.checked) {
       sendRentalMessageDf();
       showSuccessPopupDf();
-      document.getElementById('bayarButton1').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+      document.getElementById('bayarButton1').style.display = checkbox24h.checked ? 'inline-block' : 'none';
+      document.getElementById('bayarButton1,1').style.display = checkbox48h.checked ? 'inline-block' : 'none'; // Tampilkan tombol "Bayar"
     } else {
       const errorMessage = document.getElementById('error-message-df');
       errorMessage.style.display = 'block';
@@ -2559,11 +2574,128 @@ navigator.clipboard.writeText(textToCopy);
   }
 
   function sendRentalMessageDf() {
-    const price = 'Rp 75,000';
-    const message = `Halo, saya ingin rental Dft tool (24 jam) dengan harga ${price}.`;
+    let price;
+    if (selectedValueDf === '24h') {
+      price = 'Rp 75,000';
+    } else if (selectedValueDf === '48h') {
+      price = 'Rp 100,000';
+    }
+    const message = `Halo, saya ingin rental Dft tool (${selectedValueDf}) dengan harga ${price}.`;
     window.$crisp.push(['do', 'message:send', ['text', message]]);
   }
   function showSuccessPopupDf() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Pesanan Terkirim!',
+    text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+    showConfirmButton: true,
+    customClass: {
+      container: 'success-popup-container',
+      popup: 'success-popup',
+      title: 'success-popup-title',
+      text: 'success-popup-text',
+      confirmButton: 'success-popup-confirm-button',
+    },
+    confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      if (selectedValueDf === '24h') {
+        document.getElementById('bayarButton1').click(); // Men-trigger klik pada tombol "Bayar" untuk 24 jam
+      } else if (selectedValueDf === '48h') {
+        document.getElementById('bayarButton1,1').click(); // Men-trigger klik pada tombol "Bayar" untuk 48 jam
+      }
+    }
+  });
+}
+
+</script>
+
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-4">
+    <img src="img/tool4.png" class="card-img-top" alt="Foto 4">
+    <div class="card-body">
+      <h5 class="card-title">Chimera tool pro</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a href="https://chimeratool.com/en/download" class="download-link"><i
+              class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+            Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="rental-ch" name="rental-ch" value="48h" onchange="updatePriceCh(this)">
+          <label for="rental-ch">48 jam</label>
+        </div>
+        <p id="price-ch-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-ch" class="error-message"></p>
+        <button onclick="validateRentalCh()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental sekarang
+        </button>
+        <a id="bayarButton2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/Chimera-tool-pro-48jam-ck9k?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueCh = '';
+
+  function updatePriceCh(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-ch');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueCh = checkbox.value;
+
+      let price;
+      if (selectedValueCh === '48h') {
+        price = 'Rp 150,000';
+      }
+      const priceInfo = document.getElementById('price-ch-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueCh = '';
+      const priceInfo = document.getElementById('price-ch-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalCh() {
+    const checkbox = document.getElementById('rental-ch');
+    if (checkbox.checked) {
+      sendRentalMessageCh();
+      showSuccessPopupCh();
+      document.getElementById('bayarButton2').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+    } else {
+      const errorMessage = document.getElementById('error-message-ch');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageCh() {
+    let price;
+    if (selectedValueCh === '48h') {
+      price = 'Rp 150,000';
+    }
+    const message = `Halo, saya ingin rental Chimera tool pro (${selectedValueCh}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupCh() {
     Swal.fire({
       icon: 'success',
       title: 'Pesanan Terkirim!',
@@ -2576,9 +2708,428 @@ navigator.clipboard.writeText(textToCopy);
         text: 'success-popup-text',
         confirmButton: 'success-popup-confirm-button',
       },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
     }).then((result) => {
       if (result.isConfirmed) {
-        document.getElementById('bayarButton1').click(); // Men-trigger klik pada tombol "Bayar"
+        document.getElementById('bayarButton2').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
+</script>
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-5">
+    <img src="img/tool20.jpg" class="card-img-top" alt="Foto 5">
+    <div class="card-body">
+      <h5 class="card-title">Garuda tool</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a href="https://garuda-genpro.com/download/Garuda-GenPro.7z"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+            Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+            Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="rental-gd" name="rental-gd" value="24h" onchange="updatePriceGd(this)">
+          <label for="rental-gd">24 jam</label>
+        </div>
+        <p id="price-gd-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-gd" class="error-message"></p>
+        <button onclick="validateRentalGd()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental sekarang
+        </button>
+        <a id="bayarButton3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-tool-24jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueGd = '';
+
+  function updatePriceGd(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-gd');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueGd = checkbox.value;
+
+      let price;
+      if (selectedValueGd === '24h') {
+        price = 'Rp 25,000';
+      }
+      const priceInfo = document.getElementById('price-gd-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueGd = '';
+      const priceInfo = document.getElementById('price-gd-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalGd() {
+    const checkbox = document.getElementById('rental-gd');
+    if (checkbox.checked) {
+      sendRentalMessageGd();
+      showSuccessPopupGd();
+      document.getElementById('bayarButton3').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+    } else {
+      const errorMessage = document.getElementById('error-message-gd');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageGd() {
+    const price = 'Rp 25,000';
+    const message = `Halo, saya ingin rental Garuda tool (24 jam) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupGd() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButton3').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
+</script>
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-6">
+    <img src="img/tool5.jpg" class="card-img-top" alt="Foto 6">
+    <div class="card-body">
+      <h5 class="card-title">Z3x tool pro</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a
+          href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip"
+          class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+          Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
+          class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+          Download Ultraviewer</a></p>
+        <p style="font-size: 12px;"><a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file"
+          class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
+          Download USB Redirector</a></p>
+        <p style="font-size: 12px;"><a href="https://www.radmin-vpn.com/" class="download-link"><i
+            class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Radmin VPN</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="rental-zx" name="rental-zx" value="6h" onchange="updatePriceZx(this)">
+          <label for="rental-zx">6 jam</label>
+        </div>
+        <p id="price-zx-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-zx" class="error-message"></p>
+        <button onclick="validateRentalZx()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental sekarang
+        </button>
+        <a id="bayarButton4" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/z3x-tool-pro-6jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueZx = '';
+
+  function updatePriceZx(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-zx');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueZx = checkbox.value;
+
+      let price;
+      if (selectedValueZx === '6h') {
+        price = 'Rp 50,000';
+      }
+      const priceInfo = document.getElementById('price-zx-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueZx = '';
+      const priceInfo = document.getElementById('price-zx-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalZx() {
+    const checkbox = document.getElementById('rental-zx');
+    if (checkbox.checked) {
+      sendRentalMessageZx();
+      showSuccessPopupZx();
+      document.getElementById('bayarButton4').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+    } else {
+      const errorMessage = document.getElementById('error-message-zx');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageZx() {
+    const price = 'Rp 50,000';
+    const message = `Halo, saya ingin rental Z3x tool pro (6 jam) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupZx() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButton4').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
+</script>
+
+
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-7">
+    <img src="img/tool6.jpg" class="card-img-top" alt="Foto 7">
+    <div class="card-body">
+      <h5 class="card-title">Pandora tool</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+            Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
+              class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="rental-pt" name="rental-pt" value="48h" onchange="updatePricePt(this)">
+          <label for="rental-pt">48 jam</label>
+        </div>
+        <p id="price-pt-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-pt" class="error-message"></p>
+        <button onclick="validateRentalPt()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental sekarang
+        </button>
+        <a id="bayarButton5" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/pandora-tool-48jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValuePt = '';
+
+  function updatePricePt(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-pt');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValuePt = checkbox.value;
+
+      let price;
+      if (selectedValuePt === '48h') {
+        price = 'Rp 120,000';
+      }
+      const priceInfo = document.getElementById('price-pt-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValuePt = '';
+      const priceInfo = document.getElementById('price-pt-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalPt() {
+    const checkbox = document.getElementById('rental-pt');
+    if (checkbox.checked) {
+      sendRentalMessagePt();
+      showSuccessPopupPt();
+      document.getElementById('bayarButton5').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+    } else {
+      const errorMessage = document.getElementById('error-message-pt');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessagePt() {
+    const price = 'Rp 120,000';
+    const message = `Halo, saya ingin rental Pandora tool (48 jam) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupPt() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButton5').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
+</script>
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-8">
+    <img src="img/tool9.jpg" class="card-img-top" alt="Foto 8">
+    <div class="card-body">
+      <h5 class="card-title">Miracle power tool</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a href="https://drive.google.com/drive/folders/1UhfoCCSMY-0qg_IEGaE6SvJPxP13aOsN"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+            Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
+              class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="rental-mp" name="rental-mp" value="6h" onchange="updatePriceMp(this)">
+          <label for="rental-mp">6 jam</label>
+        </div>
+        <p id="price-mp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-mp" class="error-message"></p>
+        <button onclick="validateRentalMp()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental sekarang
+        </button>
+        <a id="bayarButton6" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/miracle-power-tool-6jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueMp = '';
+
+  function updatePriceMp(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueMp = checkbox.value;
+
+      let price;
+      if (selectedValueMp === '6h') {
+        price = 'Rp 25,000';
+      }
+      const priceInfo = document.getElementById('price-mp-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueMp = '';
+      const priceInfo = document.getElementById('price-mp-info');
+      priceInfo.textContent = '';
+    }
+  }
+
+  function validateRentalMp() {
+    const checkbox = document.getElementById('rental-mp');
+    if (checkbox.checked) {
+      sendRentalMessageMp();
+      showSuccessPopupMp();
+      document.getElementById('bayarButton6').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+    } else {
+      const errorMessage = document.getElementById('error-message-mp');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageMp() {
+    const price = 'Rp 25,000';
+    const message = `Halo, saya ingin rental Miracle power tool (6 jam) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupMp() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButton6').click(); // Men-trigger klik pada tombol "Bayar"
       }
     });
   }
@@ -2588,526 +3139,149 @@ navigator.clipboard.writeText(textToCopy);
 
 
 
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-4">
-            <img src="img/tool4.png" class="card-img-top" alt="Foto 4">
-            <div class="card-body">
-              <h5 class="card-title">Chimera tool pro</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a href="https://chimeratool.com/en/download" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="rental-ch" name="rental-ch" value="48h" onchange="updatePriceCh(this)">
-                  <label for="rental-ch">48 jam</label>
-                </div>
-                <p id="price-ch-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-ch" class="error-message"></p>
-                <button onclick="validateRentalCh()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental sekarang
-                </button>
-              </div>
-            </div>
-          </div>
+
+<div class="col-lg-4 col-md-6">
+  <div class="card card-17">
+    <img src="img/tooltfm.jpg" class="card-img-top" alt="Foto 7">
+    <div class="card-body">
+      <h5 class="card-title">Tfm tool</h5>
+      <div class="button-group">
+        <p style="font-size: 12px;"><a href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
+            class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
+            Download</a></p>
+        <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html" class="download-link"><i
+              class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Ultraviewer</a></p>
+        <br>
+        <div>
+          <input type="checkbox" id="tfm-3h" name="rental-pt" value="3h" onchange="updatePriceTfm(this)">
+          <label for="tfm-3h">3 jam</label>
         </div>
-        <script>
-          let selectedValueCh = '';
-
-          function updatePriceCh(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-ch');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
-
-              selectedValueCh = checkbox.value;
-
-              let price;
-              if (selectedValueCh === '48h') {
-                price = 'Rp 150,000';
-              }
-              const priceInfo = document.getElementById('price-ch-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueCh = '';
-              const priceInfo = document.getElementById('price-ch-info');
-              priceInfo.textContent = '';
-            }
-          }
-
-          function validateRentalCh() {
-            const checkbox = document.getElementById('rental-ch');
-            if (checkbox.checked) {
-              sendRentalMessageCh();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-ch');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageCh() {
-            const price = 'Rp 150,000';
-            const message = `Halo, saya ingin rental Chimera tool pro (48 jam) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
-
-
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-5">
-            <img src="img/tool20.jpg" class="card-img-top" alt="Foto 5">
-            <div class="card-body">
-              <h5 class="card-title">Garuda tool</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a href="https://garuda-genpro.com/download/Garuda-GenPro.7z"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
-                    Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="rental-gd" name="rental-gd" value="24h" onchange="updatePriceGd(this)">
-                  <label for="rental-gd">24 jam</label>
-                </div>
-                <p id="price-gd-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-gd" class="error-message"></p>
-                <button onclick="validateRentalGd()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental sekarang
-                </button>
-              </div>
-            </div>
-          </div>
+        <div>
+          <input type="checkbox" id="tfm-6h" name="rental-pt" value="6h" onchange="updatePriceTfm(this)">
+          <label for="tfm-6h">6 jam</label>
         </div>
-        <script>
-          let selectedValueGd = '';
-
-          function updatePriceGd(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-gd');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
-
-              selectedValueGd = checkbox.value;
-
-              let price;
-              if (selectedValueGd === '24h') {
-                price = 'Rp 25,000';
-              }
-              const priceInfo = document.getElementById('price-gd-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueGd = '';
-              const priceInfo = document.getElementById('price-gd-info');
-              priceInfo.textContent = '';
-            }
-          }
-
-          function validateRentalGd() {
-            const checkbox = document.getElementById('rental-gd');
-            if (checkbox.checked) {
-              sendRentalMessageGd();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-gd');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageGd() {
-            const price = 'Rp 25,000';
-            const message = `Halo, saya ingin rental Garuda tool (24 jam) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
-
-
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-6">
-            <img src="img/tool5.jpg" class="card-img-top" alt="Foto 6">
-            <div class="card-body">
-              <h5 class="card-title">Z3x tool pro</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a
-                    href="https://devdrive.cloud/27b4fe758bdfe614/SamsungToolPRO_v45.11_MobileRdx.com.zip"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
-                    Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <p style="font-size: 12px;"><a href="https://www.mediafire.com/file/8oh3x4t2lo3p4r3/usb_re.zip/file"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download USB Redirector</a></p>
-                <p style="font-size: 12px;"><a href="https://www.radmin-vpn.com/" class="download-link"><i
-                      class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Download Radmin VPN</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="rental-zx" name="rental-zx" value="6h" onchange="updatePriceZx(this)">
-                  <label for="rental-zx">6 jam</label>
-                </div>
-                <p id="price-zx-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-zx" class="error-message"></p>
-                <button onclick="validateRentalZx()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental sekarang
-                </button>
-              </div>
-            </div>
-          </div>
+        <div>
+          <input type="checkbox" id="tfm-12h" name="rental-pt" value="12h" onchange="updatePriceTfm(this)">
+          <label for="tfm-12h">12 jam</label>
         </div>
-        <script>
-          let selectedValueZx = '';
+        <p id="price-tfm-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-tfm" class="error-message"></p>
+        <button onclick="validateRentalTfm()" class="btn btn-primary gradient-btn">
+          <i class="fas fa-paper-plane"></i> Rental sekarang
+        </button>
+        <a id="bayarButton7,1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/tfm-tool-3jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton7,2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/tfm-tool-6jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton7,3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/tfm-tool-12jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let selectedValueTfm = '';
 
-          function updatePriceZx(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-zx');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
+  function updatePriceTfm(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-pt');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
 
-              selectedValueZx = checkbox.value;
+      selectedValueTfm = checkbox.value;
 
-              let price;
-              if (selectedValueZx === '6h') {
-                price = 'Rp 50,000';
-              }
-              const priceInfo = document.getElementById('price-zx-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueZx = '';
-              const priceInfo = document.getElementById('price-zx-info');
-              priceInfo.textContent = '';
-            }
-          }
+      const prices = {
+        '3h': 'Rp 25.000',
+        '6h': 'Rp 35.000',
+        '12h': 'Rp 45.000'
+      };
+      const price = prices[selectedValueTfm];
 
-          function validateRentalZx() {
-            const checkbox = document.getElementById('rental-zx');
-            if (checkbox.checked) {
-              sendRentalMessageZx();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-zx');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
+      const priceInfo = document.getElementById('price-tfm-info');
+      priceInfo.textContent = `Harga: ${price}`;
+    } else {
+      selectedValueTfm = '';
+      const priceInfo = document.getElementById('price-tfm-info');
+      priceInfo.textContent = '';
+    }
+  }
 
-          function sendRentalMessageZx() {
-            const price = 'Rp 50,000';
-            const message = `Halo, saya ingin rental Z3x tool pro (6 jam) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
+  function validateRentalTfm() {
+    const checkboxes = document.getElementsByName('rental-pt');
+    let checkedCheckbox = null;
 
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
 
+    if (checkedCheckbox !== null) {
+      selectedValueTfm = checkedCheckbox.value;
+      sendRentalMessageTfm();
+      openCrispChat();
+      showSuccessPopupTfm();
+    } else {
+      const errorMessage = document.getElementById('error-message-tfm');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
 
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-7">
-            <img src="img/tool6.jpg" class="card-img-top" alt="Foto 7">
-            <div class="card-body">
-              <h5 class="card-title">Pandora tool</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a
-                    href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
-                    Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="rental-pt" name="rental-pt" value="48h" onchange="updatePricePt(this)">
-                  <label for="rental-pt">48 jam</label>
-                </div>
-                <p id="price-pt-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-pt" class="error-message"></p>
-                <button onclick="validateRentalPt()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental sekarang
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script>
-          let selectedValuePt = '';
+  function sendRentalMessageTfm() {
+    const prices = {
+      '3h': 'Rp 25.000',
+      '6h': 'Rp 35.000',
+      '12h': 'Rp 45.000'
+    };
+    const price = prices[selectedValueTfm];
+    const message = `Halo, saya ingin rental Tfm tool (${selectedValueTfm}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
 
-          function updatePricePt(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-pt');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
 
-              selectedValuePt = checkbox.value;
+  function showSuccessPopupTfm() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (selectedValueTfm === '3h') {
+          document.getElementById('bayarButton7,1').click();
+        } else if (selectedValueTfm === '6h') {
+          document.getElementById('bayarButton7,2').click();
+        } else if (selectedValueTfm === '12h') {
+          document.getElementById('bayarButton7,3').click();
+        }
+      }
+    });
+  }
+</script>
 
-              let price;
-              if (selectedValuePt === '48h') {
-                price = 'Rp 120,000';
-              }
-              const priceInfo = document.getElementById('price-pt-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValuePt = '';
-              const priceInfo = document.getElementById('price-pt-info');
-              priceInfo.textContent = '';
-            }
-          }
-
-          function validateRentalPt() {
-            const checkbox = document.getElementById('rental-pt');
-            if (checkbox.checked) {
-              sendRentalMessagePt();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-pt');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessagePt() {
-            const price = 'Rp 120,000';
-            const message = `Halo, saya ingin rental Pandora tool (48 jam) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-8">
-            <img src="img/tool9.jpg" class="card-img-top" alt="Foto 8">
-            <div class="card-body">
-              <h5 class="card-title">Miracle power tool</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a
-                    href="https://drive.google.com/drive/folders/1UhfoCCSMY-0qg_IEGaE6SvJPxP13aOsN"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
-                    Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="rental-mp" name="rental-mp" value="6h" onchange="updatePriceMp(this)">
-                  <label for="rental-mp">6 jam</label>
-                </div>
-                <p id="price-mp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-mp" class="error-message"></p>
-                <button onclick="validateRentalMp()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental sekarang
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script>
-          let selectedValueMp = '';
-
-          function updatePriceMp(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-mp');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
-
-              selectedValueMp = checkbox.value;
-
-              let price;
-              if (selectedValueMp === '6h') {
-                price = 'Rp 25,000';
-              }
-              const priceInfo = document.getElementById('price-mp-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueMp = '';
-              const priceInfo = document.getElementById('price-mp-info');
-              priceInfo.textContent = '';
-            }
-          }
-
-          function validateRentalMp() {
-            const checkbox = document.getElementById('rental-mp');
-            if (checkbox.checked) {
-              sendRentalMessageMp();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-mp');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageMp() {
-            const price = 'Rp 25,000';
-            const message = `Halo, saya ingin rental Miracle power tool (6 jam) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
-
-
-
-
-
-
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-17">
-            <img src="img/tooltfm.jpg" class="card-img-top" alt="Foto 7">
-            <div class="card-body">
-              <h5 class="card-title">Tfm tool</h5>
-              <div class="button-group">
-                <p style="font-size: 12px;"><a
-                    href="https://drive.google.com/file/d/1-9tFyvZ9R3YClhQfdO3bAy6rAQBl93aK/view?usp=drivesdk"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i> Tool
-                    Download</a></p>
-                <p style="font-size: 12px;"><a href="https://www.ultraviewer.net/en/download.html"
-                    class="download-link"><i class="fas fa-download" style="font-size: 15px; color: #13fa1f;"></i>
-                    Download Ultraviewer</a></p>
-                <br>
-                <div>
-                  <input type="checkbox" id="tfm-3h" name="rental-pt" value="3h" onchange="updatePriceTfm(this)">
-                  <label for="tfm-3h">3 jam</label>
-                </div>
-                <div>
-                  <input type="checkbox" id="tfm-6h" name="rental-pt" value="6h" onchange="updatePriceTfm(this)">
-                  <label for="tfm-6h">6 jam</label>
-                </div>
-                <div>
-                  <input type="checkbox" id="tfm-12h" name="rental-pt" value="12h" onchange="updatePriceTfm(this)">
-                  <label for="tfm-12h">12 jam</label>
-                </div>
-                <p id="price-tfm-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-tfm" class="error-message"></p>
-                <button onclick="validateRentalTfm()" class="btn btn-primary gradient-btn">
-                  <i class="fas fa-paper-plane"></i> Rental sekarang
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script>
-          let selectedValueTfm = '';
-
-          function updatePriceTfm(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-pt');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
-
-              selectedValueTfm = checkbox.value;
-
-              const prices = {
-                '3h': 'Rp 25.000',
-                '6h': 'Rp 35.000',
-                '12h': 'Rp 45.000'
-              };
-              const price = prices[selectedValueTfm];
-
-              const priceInfo = document.getElementById('price-tfm-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueTfm = '';
-              const priceInfo = document.getElementById('price-tfm-info');
-              priceInfo.textContent = '';
-            }
-          }
-
-          function validateRentalTfm() {
-            const checkboxes = document.getElementsByName('rental-pt');
-            let checkedCheckbox = null;
-
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.checked) {
-                checkedCheckbox = checkbox;
-              }
-            });
-
-            if (checkedCheckbox !== null) {
-              selectedValueTfm = checkedCheckbox.value;
-              sendRentalMessageTfm();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-tfm');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageTfm() {
-            const prices = {
-              '3h': 'Rp 25.000',
-              '6h': 'Rp 35.000',
-              '12h': 'Rp 45.000'
-            };
-            const price = prices[selectedValueTfm];
-            const message = `Halo, saya ingin rental Tfm tool (${selectedValueTfm}) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
 
 
 
