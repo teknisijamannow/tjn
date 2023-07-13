@@ -3313,9 +3313,11 @@ navigator.clipboard.writeText(textToCopy);
           AKTIVASI\CREDIT-NEW\RENEW</h1>
       </div>
     </div><br><br><br>
+    
 
     <div class="container">
-      <div class="row">
+      <input type="text" id="searchInput" class="px-4 py-2 border border-gray-300 rounded-md mb-4" placeholder="Cari judul card">
+      <div class="row" id="cardContainer">
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-8">
@@ -3801,6 +3803,9 @@ navigator.clipboard.writeText(textToCopy);
       <div class="button-group">
         <br>
         <div>
+          <input type="text" id="unlockandroid-name" class="nama-input" placeholder="Nama">
+        </div>
+        <div>
           <input type="number" id="unlockandroid-credit" class="nama-input" min="10" placeholder="Jumlah Kredit" oninput="updatePriceUnlockAndroid(this)">
         </div>
         <p id="price-unlockandroid-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
@@ -3808,10 +3813,6 @@ navigator.clipboard.writeText(textToCopy);
         <button onclick="validateCreditUnlockAndroid()" class="btn btn-primary gradient-btn-2">
           <i class="fas fa-paper-plane"></i> Aktivasi sekarang
         </button>
-        
-<a id="bayarButtonUnlockAndroid" class="mayar-button iframe-lightbox-link" href="https://teknisi-jaman-now.mayar.link/pl/rental-unclock-tool-6-jam?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;"><span></span>Beli Sekarang</a>
-<script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-new-min.js"></script>
-
       </div>
     </div>
   </div>
@@ -3832,30 +3833,28 @@ navigator.clipboard.writeText(textToCopy);
       priceInfo.textContent = '';
       selectedValueUnlockAndroid = '';
     }
-
-    // Update link pembayaran dengan harga yang terbaru
-    const bayarButton = document.getElementById('bayarButtonUnlockAndroid');
-    const href = `https://teknisi-jaman-now.mayar.link/pl/rental-unclock-tool-6-jam?harga=${totalPrice}`;
-    bayarButton.href = href;
-
-    // Update nilai input jumlah pada popup pembayaran
-    const popupInputs = document.querySelectorAll('.success-popup-container input[name="amount"]');
-    popupInputs.forEach((input) => {
-      input.value = totalPrice;
-    });
   }
 
   function validateCreditUnlockAndroid() {
-    const input = document.getElementById('unlockandroid-credit');
-    const creditValue = input.value;
+    const nameInput = document.getElementById('unlockandroid-name');
+    const creditInput = document.getElementById('unlockandroid-credit');
+    const nameValue = nameInput.value.trim();
+    const creditValue = creditInput.value;
 
-    if (creditValue >= 10) {
-      sendCreditMessageUnlockAndroid();
+    if (creditValue >= 10 && nameValue !== '') {
+      sendCreditMessageUnlockAndroid(nameValue);
       openCrispChat();
+      setTimeout(() => {
+        window.location.href = 'https://teknisi-jaman-now.mayar.link/pl/android-multi-tool';
+      }, 3000);
     } else {
       const errorMessage = document.getElementById('error-message-unlockandroid');
       errorMessage.style.display = 'block';
-      errorMessage.textContent = 'Minimal 10 kredit.';
+      if (creditValue < 10) {
+        errorMessage.textContent = 'Minimal 10 kredit.';
+      } else {
+        errorMessage.textContent = 'Mohon lengkapi semua input.';
+      }
       setTimeout(() => {
         errorMessage.style.display = 'none';
         errorMessage.textContent = '';
@@ -3863,22 +3862,18 @@ navigator.clipboard.writeText(textToCopy);
     }
   }
 
-  function sendCreditMessageUnlockAndroid() {
+  function sendCreditMessageUnlockAndroid(name) {
     const creditValue = selectedValueUnlockAndroid;
     const creditPrice = 17000;
     const totalPrice = creditValue * creditPrice;
-    const message = `Halo, saya ingin aktivasi Android Multi Tool dengan ${creditValue} kredit, harga : Rp ${totalPrice.toLocaleString()}.`;
+    const message = `Halo, saya ${name} ingin aktivasi Android Multi Tool dengan ${creditValue} kredit, harga : Rp ${totalPrice.toLocaleString()}.`;
     window.$crisp.push(['do', 'message:send', ['text', message]]);
-    setTimeout(() => {
-      document.getElementById('bayarButtonUnlockAndroid').click();
-    }, 1000);
   }
 
   function openCrispChat() {
     window.$crisp.push(['do', 'chat:open']);
   }
 </script>
-
 
 
 
@@ -4339,6 +4334,7 @@ navigator.clipboard.writeText(textToCopy);
 
 
 
+
 <div  id="disqus_thread" style="background-color: #e6e6e6; padding: 50px; border-radius: 10px; margin-bottom: 100px; " ></div>
     <script>
       /**
@@ -4364,6 +4360,26 @@ navigator.clipboard.writeText(textToCopy);
 
       </div>
     </div>
+    <script>
+      const searchInput = document.getElementById('searchInput');
+      const cardContainer = document.getElementById('cardContainer');
+      const cards = cardContainer.getElementsByClassName('card');
+    
+      searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.toLowerCase();
+    
+        for (let i = 0; i < cards.length; i++) {
+          const cardTitle = cards[i].querySelector('.card-title').textContent.toLowerCase();
+    
+          if (cardTitle.includes(searchTerm)) {
+            cards[i].style.display = 'block';
+          } else {
+            cards[i].style.display = 'none';
+          }
+        }
+      });
+    </script>
+    
   </div>
 
   <div id="content-kontak" class="page-content" style="display: none;">
@@ -4516,6 +4532,7 @@ navigator.clipboard.writeText(textToCopy);
   </div>
 
 <br><br><br>
+
 
 
 
