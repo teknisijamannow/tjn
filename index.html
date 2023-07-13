@@ -2159,7 +2159,15 @@ navigator.clipboard.writeText(textToCopy);
 
 
     <div class="container">
-      <div class="row" id="content-produk">
+      <div class="relative">
+        <input type="search" id="searchInput2" class="px-4 py-2 border border-gray-300 rounded-md mb-4" placeholder="Search Tool" autocomplete="off">
+        <div id="suggestionContainer" class="absolute top-10 left-0 bg-white border border-gray-300 rounded-md shadow-md z-10 hidden">
+          <ul id="suggestionList" class="py-2 px-3"></ul>
+        </div>
+      </div>
+      
+  
+      <div class="row" id="cardContainer2">
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-1">
@@ -2381,7 +2389,7 @@ navigator.clipboard.writeText(textToCopy);
   <div class="card card-2">
     <img src="img/tool2.jpg" class="card-img-top" alt="Foto 2">
     <div class="card-body">
-      <h5 class="card-title">Cf tool</h5>
+      <h5 class="card-title">Cft Tool</h5>
       <div class="button-group">
         <p style="font-size: 12px;"><a
             href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8"
@@ -3295,8 +3303,73 @@ navigator.clipboard.writeText(textToCopy);
 
     </div>
 
-
-
+    <script>
+      const searchInput2 = document.getElementById('searchInput2');
+      const cardContainer2 = document.getElementById('cardContainer2');
+      const cards2 = cardContainer2.getElementsByClassName('card');
+      const suggestionContainer = document.getElementById('suggestionContainer');
+      const suggestionList = document.getElementById('suggestionList');
+    
+      const keywords = [
+        'Unlocktool',
+        'Cft Tool',
+        'Dft tool',
+        'Chimera tool pro',
+        'Garuda tool',
+        'Z3x tool pro',
+        'Pandora tool',
+        'Miracle power tool',
+        'Tfm tool'
+      ];
+    
+      searchInput2.addEventListener('input', function () {
+        const searchTerm = searchInput2.value.toLowerCase();
+    
+        for (let i = 0; i < cards2.length; i++) {
+          const cardTitle = cards2[i].querySelector('.card-title').textContent.toLowerCase();
+    
+          if (cardTitle.includes(searchTerm)) {
+            cards2[i].style.display = 'block';
+          } else {
+            cards2[i].style.display = 'none';
+          }
+        }
+      });
+    
+      searchInput2.addEventListener('click', function () {
+        const suggestions = keywords.map(keyword => keyword.toLowerCase());
+        renderSuggestions(suggestions);
+      });
+    
+      function renderSuggestions(suggestions) {
+        suggestionList.innerHTML = '';
+    
+        suggestions.forEach(function (suggestion) {
+          const suggestionItem = document.createElement('li');
+          suggestionItem.classList.add('cursor-pointer', 'py-1', 'px-2', 'hover:bg-gray-200');
+          suggestionItem.textContent = suggestion;
+          suggestionItem.addEventListener('click', function () {
+            searchInput2.value = suggestion;
+            suggestionContainer.classList.add('hidden');
+            searchInput2.dispatchEvent(new Event('input')); // Trigger input event to update card display
+          });
+          suggestionList.appendChild(suggestionItem);
+        });
+    
+        if (suggestions.length > 0) {
+          suggestionContainer.classList.remove('hidden');
+        } else {
+          suggestionContainer.classList.add('hidden');
+        }
+      }
+    
+      document.addEventListener('click', function (event) {
+        if (!event.target.matches('#searchInput2')) {
+          suggestionContainer.classList.add('hidden');
+        }
+      });
+    </script>
+    
 
   </div>
 
@@ -3445,7 +3518,7 @@ navigator.clipboard.writeText(textToCopy);
           <div class="card card-9">
             <img src="img/tool2.jpg" class="card-img-top" alt="Foto 2">
             <div class="card-body">
-              <h5 class="card-title">Cftool</h5>
+              <h5 class="card-title">Cft Tool</h5>
               <div class="button-group">
                 <br>
                 <div>
@@ -3958,7 +4031,7 @@ navigator.clipboard.writeText(textToCopy);
           <div class="card card-14">
             <img src="img/TOOLCF.jpg" class="card-img-top" alt="Foto 1">
             <div class="card-body">
-              <h5 class="card-title">Credit cf tools</h5>
+              <h5 class="card-title">Credit Cft Tool</h5>
               <div class="button-group">
                 <br>
                 <div>
@@ -4053,7 +4126,7 @@ navigator.clipboard.writeText(textToCopy);
           <div class="card card-16">
             <img src="img/tooolauth.jpg" class="card-img-top" alt="Foto 1">
             <div class="card-body">
-              <h5 class="card-title"></h5>
+              <h5 class="card-title">Auth Token Decrypt</h5>
               <div class="button-group">
 
 
@@ -4360,28 +4433,26 @@ navigator.clipboard.writeText(textToCopy);
 
       </div>
     </div>
-    <script>
-      const searchInput = document.getElementById('searchInput');
-      const cardContainer = document.getElementById('cardContainer');
-      const cards = cardContainer.getElementsByClassName('card');
-    
-      searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.toLowerCase();
-    
-        for (let i = 0; i < cards.length; i++) {
-          const cardTitle = cards[i].querySelector('.card-title').textContent.toLowerCase();
-    
-          if (cardTitle.includes(searchTerm)) {
-            cards[i].style.display = 'block';
-          } else {
-            cards[i].style.display = 'none';
-          }
-        }
-      });
-    </script>
-    
   </div>
-
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const cardContainer = document.getElementById('cardContainer');
+    const cards = cardContainer.getElementsByClassName('card');
+  
+    searchInput.addEventListener('input', function () {
+      const searchTerm = searchInput.value.toLowerCase();
+  
+      for (let i = 0; i < cards.length; i++) {
+        const cardTitle = cards[i].querySelector('.card-title').textContent.toLowerCase();
+  
+        if (cardTitle.includes(searchTerm)) {
+          cards[i].style.display = 'block';
+        } else {
+          cards[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
   <div id="content-kontak" class="page-content" style="display: none;">
     <br><br><br>
     <div class="container">
@@ -4678,3 +4749,4 @@ navigator.clipboard.writeText(textToCopy);
 </body>
 
 </html>
+
