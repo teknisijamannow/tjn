@@ -2160,8 +2160,8 @@ navigator.clipboard.writeText(textToCopy);
 
     <div class="container">
       <div class="relative">
-        <input type="search" id="searchInput2" class="px-4 py-2 border border-gray-300 rounded-md mb-4" placeholder="Search Tool" autocomplete="off">
-        <div id="suggestionContainer" class="absolute top-10 left-0 bg-white border border-gray-300 rounded-md shadow-md z-10 hidden">
+        <input type="search" id="searchInput2" class="px-4 py-2 border border-gray-300 rounded-md mb-4"  style="border-radius: 20px;" placeholder="Search Tool" autocomplete="off">
+        <div id="suggestionContainer" class="absolute top-10 left-0 bg-white border border-gray-300 rounded-md shadow-md z-10 hidden" style="border-radius: 10px;">
           <ul id="suggestionList" class="py-2 px-3"></ul>
         </div>
       </div>
@@ -3304,6 +3304,7 @@ navigator.clipboard.writeText(textToCopy);
     </div>
 
     <script>
+      // First script
       const searchInput2 = document.getElementById('searchInput2');
       const cardContainer2 = document.getElementById('cardContainer2');
       const cards2 = cardContainer2.getElementsByClassName('card');
@@ -3389,8 +3390,13 @@ navigator.clipboard.writeText(textToCopy);
     
 
     <div class="container">
-      <input type="text" id="searchInput" class="px-4 py-2 border border-gray-300 rounded-md mb-4" placeholder="Cari judul card">
-      <div class="row" id="cardContainer">
+      <div class="relative">
+        <input type="search" id="searchInput3" class="px-4 py-2 border border-gray-300 rounded-md mb-4" style="border-radius: 20px;" placeholder="Search Tool" autocomplete="off">
+        <div id="suggestionContainer3" class="absolute top-10 left-0 bg-white border border-gray-300 rounded-md shadow-md z-10 hidden" style="border-radius: 10px;">
+          <ul id="suggestionList3" class="py-2 px-3"></ul>
+        </div>
+      </div>
+      <div class="row" id="cardContainer3">
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-8">
@@ -4434,22 +4440,71 @@ navigator.clipboard.writeText(textToCopy);
       </div>
     </div>
   </div>
+
   <script>
-    const searchInput = document.getElementById('searchInput');
-    const cardContainer = document.getElementById('cardContainer');
-    const cards = cardContainer.getElementsByClassName('card');
+    // Second script
+    const searchInput3 = document.getElementById('searchInput3');
+    const cardContainer3 = document.getElementById('cardContainer3');
+    const cards3 = cardContainer3.getElementsByClassName('card');
+    const suggestionContainer3 = document.getElementById('suggestionContainer3');
+    const suggestionList3 = document.getElementById('suggestionList3');
   
-    searchInput.addEventListener('input', function () {
-      const searchTerm = searchInput.value.toLowerCase();
+    const keywords3 = [
+      'Unlocktool',
+      'Cft Tool',
+      'Garuda java',
+      'Dft tool',
+      'Android multi tool',
+      'Shark tool',
+      'Credit Cft Tool',
+      'Auth Token Decrypt',
+      'Unblock IMEI'
+    ];
   
-      for (let i = 0; i < cards.length; i++) {
-        const cardTitle = cards[i].querySelector('.card-title').textContent.toLowerCase();
+    searchInput3.addEventListener('input', function () {
+      const searchTerm = searchInput3.value.toLowerCase();
+  
+      for (let i = 0; i < cards3.length; i++) {
+        const cardTitle = cards3[i].querySelector('.card-title').textContent.toLowerCase();
   
         if (cardTitle.includes(searchTerm)) {
-          cards[i].style.display = 'block';
+          cards3[i].style.display = 'block';
         } else {
-          cards[i].style.display = 'none';
+          cards3[i].style.display = 'none';
         }
+      }
+    });
+  
+    searchInput3.addEventListener('click', function () {
+      const suggestions = keywords3.map(keyword => keyword.toLowerCase());
+      renderSuggestions3(suggestions);
+    });
+  
+    function renderSuggestions3(suggestions) {
+      suggestionList3.innerHTML = '';
+  
+      suggestions.forEach(function (suggestion) {
+        const suggestionItem = document.createElement('li');
+        suggestionItem.classList.add('cursor-pointer', 'py-1', 'px-2', 'hover:bg-gray-200');
+        suggestionItem.textContent = suggestion;
+        suggestionItem.addEventListener('click', function () {
+          searchInput3.value = suggestion;
+          suggestionContainer3.classList.add('hidden');
+          searchInput3.dispatchEvent(new Event('input')); // Trigger input event to update card display
+        });
+        suggestionList3.appendChild(suggestionItem);
+      });
+  
+      if (suggestions.length > 0) {
+        suggestionContainer3.classList.remove('hidden');
+      } else {
+        suggestionContainer3.classList.add('hidden');
+      }
+    }
+  
+    document.addEventListener('click', function (event) {
+      if (!event.target.matches('#searchInput3')) {
+        suggestionContainer3.classList.add('hidden');
       }
     });
   </script>
