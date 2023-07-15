@@ -2415,7 +2415,7 @@ navigator.clipboard.writeText(textToCopy);
   <div class="card card-2">
     <img src="img/tool2.jpg" class="card-img-top" alt="Foto 2">
     <div class="card-body">
-      <h5 class="card-title">Cft Tool</h5>
+      <h5 class="card-title">Cf Tools</h5>
       <div class="button-group">
         <p style="font-size: 12px;"><a
             href="https://mega.nz/file/CK5UlAJZ#gX-DMt3YpDeAlSkjt_ZClGQT0noSF5UdReLylcwzqN8"
@@ -2485,7 +2485,7 @@ navigator.clipboard.writeText(textToCopy);
       }, 2000);
     } else {
       sendRentalMessageCf(selectedValueCf);
-      showSuccessPopup();
+      showSuccessPopupCftool();
       document.getElementById('bayarButton').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
     }
   }
@@ -2496,11 +2496,11 @@ navigator.clipboard.writeText(textToCopy);
       price = 'Rp 25,000';
     }
 
-    const message = `Halo, saya ingin rental Cfktool (${selectedValue}) dengan harga ${price}.`;
+    const message = `Halo, saya ingin rental Cf tools (${selectedValue}) dengan harga ${price}.`;
     window.$crisp.push(['do', 'message:send', ['text', message]]);
   }
 
-  function showSuccessPopup() {
+  function showSuccessPopupCftool() {
     Swal.fire({
       icon: 'success',
       title: 'Pesanan Terkirim!',
@@ -3339,7 +3339,7 @@ navigator.clipboard.writeText(textToCopy);
     
       const keywords = [
         'Unlocktool',
-        'Cft Tool',
+        'Cf Tool',
         'Dft tool',
         'Chimera tool pro',
         'Garuda tool',
@@ -3451,100 +3451,161 @@ navigator.clipboard.writeText(textToCopy);
                 <button onclick="validateRentalUnlockA()" class="btn btn-primary gradient-btn-2">
                   <i class="fas fa-paper-plane"></i> Aktivasi sekarang
                 </button>
-                <a id="bayarButton8,1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/unclock-tool-3bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton3bln1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/unclock-tool-3bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
                
-                <a id="bayarButton8,2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/unclock-tool-6bulan-7die?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton6bln1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/unclock-tool-6bulan-7die?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
                
-                <a id="bayarButton8,3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/unclock-tool-12bulan-7die-1whb?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton12bln1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/unclock-tool-12bulan-7die-1whb?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
-                <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>  
+                <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-new-min.js"></script>
               </div>
             </div>
           </div>
         </div>
-        <script>
-          let selectedValueUnlockA = '';
+  <script>
+// Untuk fungsi updatePriceUnlockA
+let selectedValueUnlockA = '';
 
-          function updatePriceUnlockA(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-mp');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
+function updatePriceUnlockA(checkbox) {
+  if (checkbox.checked) {
+    const checkboxes = document.getElementsByName('rental-mp');
+    checkboxes.forEach((cb) => {
+      if (cb !== checkbox) {
+        cb.checked = false;
+      }
+    });
 
-              selectedValueUnlockA = checkbox.value;
+    selectedValueUnlockA = checkbox.value;
 
-              const prices = {
-                '3bln': 'Rp 300.000',
-                '6bln': 'Rp 400.000',
-                '12bln': 'Rp 670.000'
-              };
-              const price = prices[selectedValueUnlockA];
+    const prices = {
+      '3bln': 'Rp 300.000',
+      '6bln': 'Rp 400.000',
+      '12bln': 'Rp 670.000'
+    };
+    const price = prices[selectedValueUnlockA];
 
-              const priceInfo = document.getElementById('price-unlockA-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueUnlockA = '';
-              const priceInfo = document.getElementById('price-unlockA-info');
-              priceInfo.textContent = '';
-            }
+    const priceInfo = document.getElementById('price-unlockA-info');
+    priceInfo.textContent = `Harga: ${price}`;
+
+    // Tampilkan tombol bayar yang sesuai dengan durasi rental yang dipilih
+    const bayarButtonUnlockA = document.getElementById(`bayarButton${selectedValueUnlockA}1`);
+    const allBayarButtonsUnlockA = document.querySelectorAll('[id^="bayarButton"]');
+    allBayarButtonsUnlockA.forEach(button => {
+      button.style.display = 'none';
+    });
+    if (bayarButtonUnlockA) {
+      bayarButtonUnlockA.style.display = 'inline-block';
+    }
+  } else {
+    selectedValueUnlockA = '';
+    const priceInfoUnlockA = document.getElementById('price-unlockA-info');
+    priceInfoUnlockA.textContent = '';
+
+    // Sembunyikan semua tombol bayar
+    const allBayarButtonsUnlockA = document.querySelectorAll('[id^="bayarButton"]');
+    allBayarButtonsUnlockA.forEach(button => {
+      button.style.display = 'none';
+    });
+  }
+}
+
+
+
+
+function validateRentalUnlockA() {
+  const checkboxes = document.getElementsByName('rental-mp');
+  let checkedCheckbox = null;
+
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      checkedCheckbox = checkbox;
+    }
+  });
+
+  if (checkedCheckbox !== null) {
+    selectedValueUnlockA = checkedCheckbox.value;
+    sendRentalMessageUnlockA();
+    showSuccessPopup();
+    openCrispChat();
+  } else {
+    const errorMessage = document.getElementById('error-message-unlockA');
+    errorMessage.style.display = 'block';
+    errorMessage.textContent = 'Pilih waktu rental.';
+    setTimeout(() => {
+      errorMessage.style.display = 'none';
+      errorMessage.textContent = '';
+    }, 2000);
+  }
+}
+
+function sendRentalMessageUnlockA() {
+  const durations = {
+    '3bln': '3 bulan',
+    '6bln': '6 bulan',
+    '12bln': '12 bulan'
+  };
+  const prices = {
+    '3bln': 'Rp 300,000',
+    '6bln': 'Rp 400,000',
+    '12bln': 'Rp 670,000'
+  };
+  const duration = durations[selectedValueUnlockA];
+  const price = prices[selectedValueUnlockA];
+  const message = `Halo, saya ingin aktivasi Unlocktool, selama (${duration}) dengan harga ${price}.`;
+  window.$crisp.push(['do', 'message:send', ['text', message]]);
+}
+
+function openCrispChat() {
+  window.$crisp.push(['do', 'chat:open']);
+}
+
+function showSuccessPopup() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Pesanan Terkirim!',
+    text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Bayar',
+    cancelButtonText: 'Batal',
+    customClass: {
+      container: 'success-popup-container',
+      popup: 'success-popup',
+      title: 'success-popup-title',
+      text: 'success-popup-text',
+      confirmButton: 'success-popup-confirm-button',
+      cancelButton: 'success-popup-cancel-button',
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      let selectedButtonId;
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          const value = checkbox.value;
+          if (value === '3bln') {
+            selectedButtonId = 'bayarButton3bln1';
+          } else if (value === '6bln') {
+            selectedButtonId = 'bayarButton6bln1';
+          } else if (value === '12bln') {
+            selectedButtonId = 'bayarButton12bln1';
           }
+        }
+      });
+      if (selectedButtonId) {
+        document.getElementById(selectedButtonId).click();
+      }
+    }
+  });
+}
 
-          function validateRentalUnlockA() {
-            const checkboxes = document.getElementsByName('rental-mp');
-            let checkedCheckbox = null;
-
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.checked) {
-                checkedCheckbox = checkbox;
-              }
-            });
-
-            if (checkedCheckbox !== null) {
-              selectedValueUnlockA = checkedCheckbox.value;
-              sendRentalMessageUnlockA();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-unlockA');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageUnlockA() {
-            const durations = {
-              '3bln': '3 bulan',
-              '6bln': '6 bulan',
-              '12bln': '12 bulan'
-            };
-            const prices = {
-              '3bln': 'Rp 300,000',
-              '6bln': 'Rp 400,000',
-              '12bln': 'Rp 670,000'
-            };
-            const duration = durations[selectedValueUnlockA];
-            const price = prices[selectedValueUnlockA];
-            const message = `Halo, saya ingin aktivasi Unlocktool, selama (${duration}) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-        </script>
-
+  </script>
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-9">
@@ -3573,15 +3634,15 @@ navigator.clipboard.writeText(textToCopy);
                 <button onclick="validateRentalUnlockB()" class="btn btn-primary gradient-btn-2">
                   <i class="fas fa-paper-plane"></i> Aktivasi sekarang
                 </button>
-                <a id="bayarButton9,1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/cf-tool-1bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton1bln2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/cf-tool-1bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
                
-                <a id="bayarButton9,2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/cf-tool-3bulan-nvou?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton3bln2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/cf-tool-3bulan-nvou?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
                
-                <a id="bayarButton9,3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/cf-tool-12bulan-nvou-qdca?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton12bln2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/cf-tool-12bulan-nvou-qdca?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
                 <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>  
@@ -3589,84 +3650,143 @@ navigator.clipboard.writeText(textToCopy);
             </div>
           </div>
         </div>
+      
         <script>
-          let selectedValueUnlockB = '';
+// Untuk fungsi updatePriceUnlockB
+let selectedValueUnlockB = '';
 
-          function updatePriceUnlockB(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-mp');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
+function updatePriceUnlockB(checkbox) {
+  if (checkbox.checked) {
+    const checkboxes = document.getElementsByName('rental-mp');
+    checkboxes.forEach((cb) => {
+      if (cb !== checkbox) {
+        cb.checked = false;
+      }
+    });
 
-              selectedValueUnlockB = checkbox.value;
+    selectedValueUnlockB = checkbox.value;
 
-              const prices = {
-                '1bln': 'Rp 100.000',
-                '3bln': 'Rp 200.000',
-                '12bln': 'Rp 425.000'
-              };
-              const price = prices[selectedValueUnlockB];
+    const prices = {
+      '1bln': 'Rp 100.000',
+      '3bln': 'Rp 200.000',
+      '12bln': 'Rp 425.000'
+    };
+    const price = prices[selectedValueUnlockB];
 
-              const priceInfo = document.getElementById('price-unlockB-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueUnlockB = '';
-              const priceInfo = document.getElementById('price-unlockB-info');
-              priceInfo.textContent = '';
-            }
+    const priceInfo = document.getElementById('price-unlockB-info');
+    priceInfo.textContent = `Harga: ${price}`;
+
+    // Tampilkan tombol bayar yang sesuai dengan durasi rental yang dipilih
+    const bayarButtonUnlockB = document.getElementById(`bayarButton${selectedValueUnlockB}2`);
+    const allBayarButtonsUnlockB = document.querySelectorAll('[id^="bayarButton"]');
+    allBayarButtonsUnlockB.forEach(button => {
+      button.style.display = 'none';
+    });
+    if (bayarButtonUnlockB) {
+      bayarButtonUnlockB.style.display = 'inline-block';
+    }
+  } else {
+    selectedValueUnlockB = '';
+    const priceInfoUnlockB = document.getElementById('price-unlockB-info');
+    priceInfoUnlockB.textContent = '';
+
+    // Sembunyikan semua tombol bayar
+    const allBayarButtonsUnlockB = document.querySelectorAll('[id^="bayarButton"]');
+    allBayarButtonsUnlockB.forEach(button => {
+      button.style.display = 'none';
+    });
+  }
+}
+
+function validateRentalUnlockB() {
+  const checkboxes = document.getElementsByName('rental-mp');
+  let checkedCheckbox = null;
+
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      checkedCheckbox = checkbox;
+    }
+  });
+
+  if (checkedCheckbox !== null) {
+    selectedValueUnlockB = checkedCheckbox.value;
+    sendRentalMessageUnlockB();
+    showSuccessPopupCf1();
+    openCrispChat();
+  } else {
+    const errorMessage = document.getElementById('error-message-unlockB');
+    errorMessage.style.display = 'block';
+    errorMessage.textContent = 'Pilih waktu rental.';
+    setTimeout(() => {
+      errorMessage.style.display = 'none';
+      errorMessage.textContent = '';
+    }, 2000);
+  }
+}
+
+function sendRentalMessageUnlockB() {
+  const durations = {
+    '1bln': '1 bulan',
+    '3bln': '3 bulan',
+    '12bln': '12 bulan'
+  };
+  const prices = {
+    '1bln': 'Rp 100.000',
+    '3bln': 'Rp 200.000',
+    '12bln': 'Rp 425.000'
+  };
+  const duration = durations[selectedValueUnlockB];
+  const price = prices[selectedValueUnlockB];
+  const message = `Halo, saya ingin aktivasi CFtool, selama (${duration}) dengan harga ${price}.`;
+  window.$crisp.push(['do', 'message:send', ['text', message]]);
+}
+
+function openCrispChat() {
+  window.$crisp.push(['do', 'chat:open']);
+}
+
+function showSuccessPopupCf1() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Pesanan Terkirim!',
+    text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Bayar',
+    cancelButtonText: 'Batal',
+    customClass: {
+      container: 'success-popup-container',
+      popup: 'success-popup',
+      title: 'success-popup-title',
+      text: 'success-popup-text',
+      confirmButton: 'success-popup-confirm-button',
+      cancelButton: 'success-popup-cancel-button',
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      let selectedButtonId;
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          const value = checkbox.value;
+          if (value === '1bln') {
+            selectedButtonId = 'bayarButton1bln2';
+          } else if (value === '3bln') {
+            selectedButtonId = 'bayarButton3bln2';
+          } else if (value === '12bln') {
+            selectedButtonId = 'bayarButton12bln2';
           }
+        }
+      });
+      if (selectedButtonId) {
+        document.getElementById(selectedButtonId).click();
+      }
+    }
+  });
+}
 
-          function validateRentalUnlockB() {
-            const checkboxes = document.getElementsByName('rental-mp');
-            let checkedCheckbox = null;
-
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.checked) {
-                checkedCheckbox = checkbox;
-              }
-            });
-
-            if (checkedCheckbox !== null) {
-              selectedValueUnlockB = checkedCheckbox.value;
-              sendRentalMessageUnlockB();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-unlockB');
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'Pilih waktu rental.';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageUnlockB() {
-            const durations = {
-              '1bln': '1 bulan',
-              '3bln': '3 bulan',
-              '12bln': '12 bulan'
-            };
-            const prices = {
-              '1bln': 'Rp 100.000',
-              '3bln': 'Rp 200.000',
-              '12bln': 'Rp 425.000'
-            };
-            const duration = durations[selectedValueUnlockB];
-            const price = prices[selectedValueUnlockB];
-            const message = `Halo, saya ingin aktivasi CFtool, selama (${duration}) dengan harga ${price}.`;
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
         </script>
-
-
 
         <div class="col-lg-4 col-md-6">
           <div class="card card-11">
@@ -3700,18 +3820,18 @@ navigator.clipboard.writeText(textToCopy);
                 <button onclick="validateRentalUnlockD()" class="btn btn-primary gradient-btn-2">
                   <i class="fas fa-paper-plane"></i> Aktivasi sekarang
                 </button>
-                <a id="bayarButton10,1" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-1bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton1bln3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-1bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
-                <a id="bayarButton10,2" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-3bulan-wvxh?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
-                  <span></span><i class="fas fa-credit-card"></i> Bayar
-                </a>
-               
-                <a id="bayarButton10,3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-6bulan-wvxh-hk8o?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton3bln3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-3bulan-wvxh?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
                
-                <a id="bayarButton10,4" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-12bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                <a id="bayarButton6bln3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-6bulan-wvxh-hk8o?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                  <span></span><i class="fas fa-credit-card"></i> Bayar
+                </a>
+               
+                <a id="bayarButton12bln3" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/garuda-java-12bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
                   <span></span><i class="fas fa-credit-card"></i> Bayar
                 </a>
                 <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>  
@@ -3721,7 +3841,7 @@ navigator.clipboard.writeText(textToCopy);
         </div>
         <script>
           let selectedValueUnlockD = '';
-
+        
           function updatePriceUnlockD(checkbox) {
             if (checkbox.checked) {
               const checkboxes = document.getElementsByName('rental-mp');
@@ -3730,9 +3850,9 @@ navigator.clipboard.writeText(textToCopy);
                   cb.checked = false;
                 }
               });
-
+        
               selectedValueUnlockD = checkbox.value;
-
+        
               const prices = {
                 '1bln': 'Rp 75.000',
                 '3bln': 'Rp 150.000',
@@ -3740,29 +3860,47 @@ navigator.clipboard.writeText(textToCopy);
                 '12bln': 'Rp 325.000'
               };
               const price = prices[selectedValueUnlockD];
-
+        
               const priceInfo = document.getElementById('price-unlockD-info');
               priceInfo.textContent = `Harga: ${price}`;
+        
+              // Tampilkan tombol bayar yang sesuai dengan durasi rental yang dipilih
+              const allBayarButtonsUnlockD = document.querySelectorAll('[id^="bayarButton"]');
+              allBayarButtonsUnlockD.forEach(button => {
+                button.style.display = 'none';
+              });
+        
+              const bayarButtonUnlockD = document.getElementById(`bayarButton${selectedValueUnlockD}3`);
+              if (bayarButtonUnlockD) {
+                bayarButtonUnlockD.style.display = 'inline-block';
+              }
             } else {
               selectedValueUnlockD = '';
-              const priceInfo = document.getElementById('price-unlockD-info');
-              priceInfo.textContent = '';
+              const priceInfoUnlockD = document.getElementById('price-unlockD-info');
+              priceInfoUnlockD.textContent = '';
+        
+              // Sembunyikan semua tombol bayar
+              const allBayarButtonsUnlockD = document.querySelectorAll('[id^="bayarButton"]');
+              allBayarButtonsUnlockD.forEach(button => {
+                button.style.display = 'none';
+              });
             }
           }
-
+        
           function validateRentalUnlockD() {
             const checkboxes = document.getElementsByName('rental-mp');
             let checkedCheckbox = null;
-
+        
             checkboxes.forEach((checkbox) => {
               if (checkbox.checked) {
                 checkedCheckbox = checkbox;
               }
             });
-
+        
             if (checkedCheckbox !== null) {
               selectedValueUnlockD = checkedCheckbox.value;
               sendRentalMessageUnlockD();
+              showSuccessPopupGaruda();
               openCrispChat();
             } else {
               const errorMessage = document.getElementById('error-message-unlockD');
@@ -3774,7 +3912,7 @@ navigator.clipboard.writeText(textToCopy);
               }, 2000);
             }
           }
-
+        
           function sendRentalMessageUnlockD() {
             const durations = {
               '1bln': '1 bulan',
@@ -3790,14 +3928,54 @@ navigator.clipboard.writeText(textToCopy);
             };
             const duration = durations[selectedValueUnlockD];
             const price = prices[selectedValueUnlockD];
-            const message = `Halo, saya ingin aktivasi Garuda java, selama (${duration}) dengan harga ${price}.`;
+            const message = `Halo, saya ingin aktivasi Garuda Java, selama (${duration}) dengan harga ${price}.`;
             window.$crisp.push(['do', 'message:send', ['text', message]]);
           }
-
+        
           function openCrispChat() {
             window.$crisp.push(['do', 'chat:open']);
           }
+        
+          function showSuccessPopupGaruda() {
+            Swal.fire({
+              icon: 'success',
+              title: 'Pesanan Terkirim!',
+              text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Bayar',
+              cancelButtonText: 'Batal',
+              customClass: {
+                container: 'success-popup-container',
+                popup: 'success-popup',
+                title: 'success-popup-title',
+                text: 'success-popup-text',
+                confirmButton: 'success-popup-confirm-button',
+                cancelButton: 'success-popup-cancel-button',
+              },
+            }).then((result) => {
+              if (result.isConfirmed) {
+                const selectedButtonId = `bayarButton${selectedValueUnlockD}3`;
+                const selectedButton = document.getElementById(selectedButtonId);
+                if (selectedButton) {
+                  selectedButton.click();
+                }
+              }
+            });
+          }
         </script>
+
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
 
 
 
@@ -3868,6 +4046,8 @@ navigator.clipboard.writeText(textToCopy);
               selectedValueUnlockC = checkedCheckbox.value;
               sendRentalMessageUnlockC();
               openCrispChat();
+              showSuccessPopupDfttool();
+      document.getElementById('bayarButton11').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
             } else {
               const errorMessage = document.getElementById('error-message-unlockC');
               errorMessage.style.display = 'block';
@@ -3895,6 +4075,26 @@ navigator.clipboard.writeText(textToCopy);
           function openCrispChat() {
             window.$crisp.push(['do', 'chat:open']);
           }
+          function showSuccessPopupDfttool() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButton11').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
         </script>
 
 
@@ -3918,6 +4118,10 @@ navigator.clipboard.writeText(textToCopy);
         <button onclick="validateCreditUnlockAndroid()" class="btn btn-primary gradient-btn-2">
           <i class="fas fa-paper-plane"></i> Aktivasi sekarang
         </button>
+        <a id="bayarButtonUnlockAndroid" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/android-multi-tool?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>  
       </div>
     </div>
   </div>
@@ -3949,9 +4153,9 @@ navigator.clipboard.writeText(textToCopy);
     if (creditValue >= 10 && nameValue !== '') {
       sendCreditMessageUnlockAndroid(nameValue);
       openCrispChat();
-      setTimeout(() => {
-        window.location.href = 'https://teknisi-jaman-now.mayar.link/pl/android-multi-tool';
-      }, 3000);
+      showSuccessPopupUnlockAndroid();
+      document.getElementById('bayarButtonUnlockAndroid').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+    
     } else {
       const errorMessage = document.getElementById('error-message-unlockandroid');
       errorMessage.style.display = 'block';
@@ -3978,6 +4182,26 @@ navigator.clipboard.writeText(textToCopy);
   function openCrispChat() {
     window.$crisp.push(['do', 'chat:open']);
   }
+  function showSuccessPopupUnlockAndroid() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButtonUnlockAndroid').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
 </script>
 
 
@@ -3998,6 +4222,10 @@ navigator.clipboard.writeText(textToCopy);
                 <button onclick="validateCreditShark()" class="btn btn-primary gradient-btn-2">
                   <i class="fas fa-paper-plane"></i> Aktivasi sekarang
                 </button>
+                <a id="bayarButtonShark" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/credit-shark-tool?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                  <span></span><i class="fas fa-credit-card"></i> Bayar
+                </a>
+                <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>  
               </div>
             </div>
           </div>
@@ -4027,6 +4255,8 @@ navigator.clipboard.writeText(textToCopy);
             if (creditValue >= 5) {
               sendCreditMessageShark();
               openCrispChat();
+              showSuccessPopupShark();
+      document.getElementById('bayarButtonShark').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
             } else {
               const errorMessage = document.getElementById('error-message-shark');
               errorMessage.style.display = 'block';
@@ -4050,6 +4280,26 @@ navigator.clipboard.writeText(textToCopy);
           function openCrispChat() {
             window.$crisp.push(['do', 'chat:open']);
           }
+          function showSuccessPopupShark() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButtonShark').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
         </script>
 
 
@@ -4063,7 +4313,7 @@ navigator.clipboard.writeText(textToCopy);
           <div class="card card-14">
             <img src="img/TOOLCF.jpg" class="card-img-top" alt="Foto 1">
             <div class="card-body">
-              <h5 class="card-title">Credit Cft Tool</h5>
+              <h5 class="card-title">Credit Cf Tools</h5>
               <div class="button-group">
                 <br>
                 <div>
@@ -4075,6 +4325,10 @@ navigator.clipboard.writeText(textToCopy);
                 <button onclick="validateCreditCFTool()" class="btn btn-primary gradient-btn-2">
                   <i class="fas fa-paper-plane"></i> Aktivasi sekarang
                 </button>
+                <a id="bayarButtonCreditcf" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/credit-cf-tools?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+                  <span></span><i class="fas fa-credit-card"></i> Bayar
+                </a>
+                <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-min.js"></script>  
               </div>
             </div>
           </div>
@@ -4116,6 +4370,8 @@ navigator.clipboard.writeText(textToCopy);
             if (creditValue === '3' || creditValue >= 6) {
               sendCreditMessageCFTool();
               openCrispChat();
+              showSuccessPopupCreditcf();
+      document.getElementById('bayarButtonCreditcf').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
             } else {
               const errorMessage = document.getElementById('error-message-cftool');
               errorMessage.style.display = 'block';
@@ -4145,6 +4401,26 @@ navigator.clipboard.writeText(textToCopy);
           function openCrispChat() {
             window.$crisp.push(['do', 'chat:open']);
           }
+          function showSuccessPopupCreditcf() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showConfirmButton: true,
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+      },
+      confirmButtonText: 'Bayar', // Mengubah teks tombol konfirmasi menjadi "Bayar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('bayarButtonCreditcf').click(); // Men-trigger klik pada tombol "Bayar"
+      }
+    });
+  }
         </script>
 
 
@@ -4154,260 +4430,346 @@ navigator.clipboard.writeText(textToCopy);
 
 
 
-        <div class="col-lg-4 col-md-6" id="unblock-imei-section">
-          <div class="card card-16">
-            <img src="img/tooolauth.jpg" class="card-img-top" alt="Foto 1">
-            <div class="card-body">
-              <h5 class="card-title">Auth Token Decrypt</h5>
-              <div class="button-group">
-
-
-                <div class="imei-group">
-                  <input type="text" id="nama-input-5" class="nama-input" placeholder="TYPE HP">
-                  <input type="text" id="imei-input-3" class="imei-input" placeholder="IMEI "
-                    oninput="validateInput(this, 15)">
-                  <input type="text" id="imei-input-4" class="imei-input" placeholder="STAMP">
-                </div>
-
-                <p id="price-stamp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-stamp" class="error-message"></p>
-                <button onclick="validateRentalStamp()" class="btn btn-primary gradient-btn-2">
-                  <i class="fas fa-paper-plane"></i> Pesan sekarang
-                </button>
-              </div>
-            </div>
-          </div>
+<div class="col-lg-4 col-md-6" id="unblock-imei-section">
+  <div class="card card-16">
+    <img src="img/tooolauth.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Auth Token Decrypt</h5>
+      <div class="button-group">
+        <div class="imei-group">
+          <input type="text" id="nama-input-5" class="nama-input" placeholder="TYPE HP">
+          <input type="text" id="imei-input-3" class="imei-input" placeholder="IMEI" oninput="validateInput(this, 15)">
+          <input type="text" id="imei-input-4" class="imei-input" placeholder="STAMP">
         </div>
+        <p id="price-stamp-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-stamp" class="error-message"></p>
+        <button onclick="validateRentalStamp()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Pesan sekarang
+        </button>
+    
+        <a id="bayarButtonAuth" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button"  href="https://teknisi-jaman-now.mayar.link/pl/auth-token-decrypt?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;"><span></span>Beli Sekarang</a>
+<script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-new-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-          function validateRentalStamp() {
-            const namaInput5 = document.getElementById('nama-input-5');
-            const imeiInput3 = document.getElementById('imei-input-3');
-            const imeiInput4 = document.getElementById('imei-input-4');
+<script>
+  function validateInput(input, length) {
+    const value = input.value;
+    if (value.length === length) {
+      input.classList.remove('error');
+    } else {
+      input.classList.add('error');
+    }
+  }
 
-            const namaValue5 = namaInput5.value.trim();
-            const imeiValue3 = imeiInput3.value.trim();
-            const imeiValue4 = imeiInput4.value.trim();
+  function validateRentalStamp() {
+    const imeiInput = document.getElementById('imei-input-3');
+    const stampInput = document.getElementById('imei-input-4');
 
-            if (namaValue5 === '' || imeiValue3 === '' || imeiValue4 === '') {
-              const errorMessage = document.getElementById('error-message-stamp');
-              errorMessage.textContent = 'Mohon lengkapi semua input.';
-              errorMessage.style.display = 'block';
-              setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-              }, 3000);
-              return;
-            }
+    if (imeiInput.value.length !== 15) {
+      showError('Masukkan IMEI yang valid (15 digit).');
+      return;
+    }
+
+    if (stampInput.value === '') {
+      showError('Masukkan nilai STAMP.');
+      return;
+    }
+
+    sendRentalMessageStamp();
+    showSuccessPopupAuth();
+    openCrispChat();
+    document.getElementById('bayarButtonAuth').style.display = 'inline-block'; // Tampilkan tombol "Bayar"
+  }
+
+  function sendRentalMessageStamp() {
+    const imeiInput = document.getElementById('imei-input-3');
+    const stampInput = document.getElementById('imei-input-4');
+    const prices = {
+      'stamp': 'Rp 35.000',
+    };
+    const price = prices['stamp'];
+    const message = `Tipe HP: ${document.getElementById('nama-input-5').value}\nIMEI 1: ${imeiInput.value}\nSTAMP: ${stampInput.value}\nHarga: ${price}`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+
+  function showSuccessPopupAuth() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Bayar',
+      cancelButtonText: 'Batal',
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+        cancelButton: 'success-popup-cancel-button',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const bayarButtonAuth = document.getElementById('bayarButtonAuth');
+        if (bayarButtonAuth) {
+          bayarButtonAuth.click();
+        }
+      }
+    });
+  }
+
+  function showError(errorMessage) {
+    const errorMessageElement = document.getElementById('error-message-stamp');
+    errorMessageElement.style.display = 'block';
+    errorMessageElement.textContent = errorMessage;
+    setTimeout(() => {
+      errorMessageElement.style.display = 'none';
+      errorMessageElement.textContent = '';
+    }, 2000);
+  }
+</script>
 
 
 
-            Swal.fire({
-              title: 'Konfirmasi',
-              html: `
-             <p>Harga: Rp 35.000</p><br>
-             <p>Pilih metode pembayaran:</p>
-             <ul>
-               <li><a href="javascript:void(0);" onclick="copyToClipboard('1400018086604')">Mandiri: 1400018086604</a></li>
-               <li><a href="javascript:void(0);" onclick="copyToClipboard('083108497963')">Dana: 083108497963</a></li>
-               <li><a href="javascript:void(0);" onclick="copyToClipboard('083108497963')">Ovo: 083108497963</a></li>
-               <li><a href="javascript:void(0);" onclick="copyToClipboard('karomahpemalang0@gmail.com')">Paypal: karomahpemalang0@gmail.com</a></li>
-             </ul>`,
-              icon: 'info',
-              showCancelButton: true,
-              confirmButtonText: 'Ya',
-              cancelButtonText: 'Batal',
-            }).then((result) => {
-              if (result.isConfirmed) {
-                let message = '';
-                message += 'Tipe HP: ' + namaValue5 + '\n';
-                message += 'IMEI 1: ' + imeiValue3 + '\n';
-                message += 'STAMP: ' + imeiValue4 + '\n';
-
-                const prices = {
-                  'stamp': 'Rp 35.000',
-                };
-                const price = prices['stamp'];
-
-                message += 'Harga: ' + price;
-
-                window.$crisp.push(['do', 'message:send', ['text', message]]);
-                openCrispChat();
-              }
-            });
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-
-          function validateInput(input, maxLength) {
-            input.value = input.value.replace(/[^0-9]/g, '');
-            if (input.value.length > maxLength) {
-              input.value = input.value.slice(0, maxLength);
-            }
-          }
-
-        </script>
 
 
 
-
-
-
-
-        <div class="col-lg-4 col-md-6" id="unblock-imei-section">
-          <div class="card card-15">
-            <img src="img/toolimei.jpg" class="card-img-top" alt="Foto 1">
-            <div class="card-body">
-              <h5 class="card-title">Unblock IMEI</h5>
-              <div class="button-group">
-                <br>
-                <input type="text" id="nama-input" class="nama-input" placeholder="Nama Pengirim">
-                <div class="imei-group">
-                  <input type="text" id="imei-input-1" class="imei-input" placeholder="IMEI 1"
-                    oninput="validateInput(this, 15)">
-                  <input type="text" id="imei-input-2" class="imei-input" placeholder="IMEI 2"
-                    oninput="validateInput(this, 15)">
-                </div>
-                <div class="form-check" style="margin-top: 10px;">
-                  <input class="form-check-input" type="checkbox" id="unblock-3bln" name="rental-imei" value="3bln"
-                    onchange="updatePriceUnblock(this)">
-                  <label class="form-check-label" for="unblock-3bln">3 Bulan</label>
-                </div>
-                
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="unblock-6bln" name="rental-imei" value="6bln"
-                    onchange="updatePriceUnblock(this)">
-                  <label class="form-check-label" for="unblock-6bln">6 Bulan</label>
-                </div>
-                
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="unblock-12bln" name="rental-imei" value="12bln"
-                    onchange="updatePriceUnblock(this)">
-                  <label class="form-check-label" for="unblock-12bln">12 Bulan</label>
-                </div>
-                
-                <p id="price-unblock-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
-                <p id="error-message-unblock" class="error-message"></p>
-                <button onclick="validateRentalUnblock()" class="btn btn-primary gradient-btn-2">
-                  <i class="fas fa-paper-plane"></i> Pesan sekarang
-                </button>
-              </div>
-            </div>
-          </div>
+<div class="col-lg-4 col-md-6" id="unblock-imei-section">
+  <div class="card card-15">
+    <img src="img/toolimei.jpg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Unblock IMEI</h5>
+      <div class="button-group">
+        <br>
+        <input type="text" id="nama-input" class="nama-input" placeholder="Nama Pengirim">
+        <div class="imei-group">
+          <input type="text" id="imei-input-1" class="imei-input" placeholder="IMEI 1"
+            oninput="validateInput(this, 15)">
+          <input type="text" id="imei-input-2" class="imei-input" placeholder="IMEI 2"
+            oninput="validateInput(this, 15)">
         </div>
+        <div class="form-check" style="margin-top: 10px;">
+          <input class="form-check-input" type="checkbox" id="unblock-3bln" name="rental-imei" value="3bln"
+            onchange="updatePriceUnblock(this)">
+          <label class="form-check-label" for="unblock-3bln">3 Bulan</label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="unblock-6bln" name="rental-imei" value="6bln"
+            onchange="updatePriceUnblock(this)">
+          <label class="form-check-label" for="unblock-6bln">6 Bulan</label>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="unblock-12bln" name="rental-imei" value="12bln"
+            onchange="updatePriceUnblock(this)">
+          <label class="form-check-label" for="unblock-12bln">12 Bulan</label>
+        </div>
+        
+        <p id="price-unblock-info" style="color: #00b1f7;font-family: monospace;font-weight: bold;"></p>
+        <p id="error-message-unblock" class="error-message"></p>
+        <button onclick="validateRentalUnblock()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Pesan sekarang
+        </button>
+        <a id="bayarButton3bln" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button"
+          href="https://teknisi-jaman-now.mayar.link/pl/unblock-imei-3bulan?iframe=true"
+          data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton6bln" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button"
+          href="https://teknisi-jaman-now.mayar.link/pl/unblock-imei-6bulan?iframe=true"
+          data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton12bln" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button"
+          href="https://teknisi-jaman-now.mayar.link/pl/unblock-imei-12bulan?iframe=true"
+          data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript"
+          src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-new-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <script>
-          let selectedValueUnblock = '';
+<script>
+  let selectedValueUnblock = '';
 
-          function updatePriceUnblock(checkbox) {
-            if (checkbox.checked) {
-              const checkboxes = document.getElementsByName('rental-imei');
-              checkboxes.forEach((cb) => {
-                if (cb !== checkbox) {
-                  cb.checked = false;
-                }
-              });
+  function updatePriceUnblock(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-imei');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
 
-              selectedValueUnblock = checkbox.value;
+      selectedValueUnblock = checkbox.value;
 
-              const prices = {
-                '3bln': 'Rp 200.000',
-                '6bln': 'Rp 350.000',
-                '12bln': 'Rp 550.000'
-              };
-              const price = prices[selectedValueUnblock];
+      const prices = {
+        '3bln': 'Rp 200.000',
+        '6bln': 'Rp 350.000',
+        '12bln': 'Rp 550.000'
+      };
+      const price = prices[selectedValueUnblock];
 
-              const priceInfo = document.getElementById('price-unblock-info');
-              priceInfo.textContent = `Harga: ${price}`;
-            } else {
-              selectedValueUnblock = '';
-              const priceInfo = document.getElementById('price-unblock-info');
-              priceInfo.textContent = '';
-            }
+      const priceInfo = document.getElementById('price-unblock-info');
+      priceInfo.textContent = `Harga: ${price}`;
+
+      // Tampilkan tombol bayar yang sesuai dengan durasi rental yang dipilih
+      const bayarButton = document.getElementById(`bayarButton${selectedValueUnblock}`);
+      const allBayarButtons = document.querySelectorAll('[id^="bayarButton"]');
+      allBayarButtons.forEach(button => {
+        button.style.display = 'none';
+      });
+      if (bayarButton) {
+        bayarButton.style.display = 'inline-block';
+      }
+    } else {
+      selectedValueUnblock = '';
+      const priceInfo = document.getElementById('price-unblock-info');
+      priceInfo.textContent = '';
+
+      // Sembunyikan semua tombol bayar
+      const allBayarButtons = document.querySelectorAll('[id^="bayarButton"]');
+      allBayarButtons.forEach(button => {
+        button.style.display = 'none';
+      });
+    }
+  }
+
+  function validateRentalUnblock() {
+    const checkboxes = document.getElementsByName('rental-imei');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueUnblock = checkedCheckbox.value;
+      sendRentalMessageUnblock();
+      showSuccessPopupImei()
+      openCrispChat();
+    } else {
+      const errorMessage = document.getElementById('error-message-unblock');
+      errorMessage.textContent = 'Mohon pilih durasi rental IMEI.';
+      setTimeout(() => {
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageUnblock() {
+    const namaInput = document.getElementById('nama-input');
+    const imeiInput1 = document.getElementById('imei-input-1');
+    const imeiInput2 = document.getElementById('imei-input-2');
+
+    const namaValue = namaInput.value.trim();
+    if (namaValue === '') {
+      alert('Mohon masukkan data pengirim.');
+      return;
+    }
+
+    let message = '';
+
+    message += 'Nama Pengirim: ' + namaValue + '\n';
+
+    const imeiValue1 = imeiInput1.value.trim();
+    if (imeiValue1 !== '') {
+      message += 'IMEI 1: ' + imeiValue1 + '\n';
+    }
+
+    const imeiValue2 = imeiInput2.value.trim();
+    if (imeiValue2 !== '') {
+      message += 'IMEI 2: ' + imeiValue2 + '\n';
+    }
+
+    const prices = {
+      '3bln': 'Rp 200.000',
+      '6bln': 'Rp 350.000',
+      '12bln': 'Rp 550.000'
+    };
+    const price = prices[selectedValueUnblock];
+
+    message += 'Durasi Rental: ' + selectedValueUnblock + '\n';
+    message += 'Harga: ' + price;
+
+    const autoReply =
+      'Silahkan ikuti langkah berikut ini :\n1. Rubah bahasa device ke English\n2. Foto device posisi cek IMEI dengan mengetik *#06#\n3. Order: Tulis IMEI dan sertakan bukti transfer.';
+
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+    setTimeout(() => {
+      window.$crisp.push(['do', 'message:send', ['text', autoReply]]);
+    }, 2000);
+  }
+
+  function openCrispChat() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+
+  function validateInput(input, maxLength) {
+    input.value = input.value.replace(/[^0-9]/g, '');
+    if (input.value.length > maxLength) {
+      input.value = input.value.slice(0, maxLength);
+    }
+  }
+
+  function showSuccessPopupImei() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Pesanan Terkirim!',
+    text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+    showCancelButton: true, // Menambahkan tombol "Batal"
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Bayar',
+    cancelButtonText: 'Batal', // Menambahkan teks tombol "Batal"
+    customClass: {
+      container: 'success-popup-container',
+      popup: 'success-popup',
+      title: 'success-popup-title',
+      text: 'success-popup-text',
+      confirmButton: 'success-popup-confirm-button',
+      cancelButton: 'success-popup-cancel-button', // Menambahkan kelas untuk tombol "Batal"
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const checkboxes = document.getElementsByName('rental-imei');
+      let selectedButtonId;
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          const value = checkbox.value;
+          if (value === '3bln') {
+            selectedButtonId = 'bayarButton3bln';
+          } else if (value === '6bln') {
+            selectedButtonId = 'bayarButton6bln';
+          } else if (value === '12bln') {
+            selectedButtonId = 'bayarButton12bln';
           }
+        }
+      });
+      if (selectedButtonId) {
+        document.getElementById(selectedButtonId).click();
+      }
+    }
+  });
+}
 
-          function validateRentalUnblock() {
-            const checkboxes = document.getElementsByName('rental-imei');
-            let checkedCheckbox = null;
+</script>
 
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.checked) {
-                checkedCheckbox = checkbox;
-              }
-            });
-
-            if (checkedCheckbox !== null) {
-              selectedValueUnblock = checkedCheckbox.value;
-              sendRentalMessageUnblock();
-              openCrispChat();
-            } else {
-              const errorMessage = document.getElementById('error-message-unblock');
-              errorMessage.textContent = 'Mohon pilih durasi rental IMEI.';
-              setTimeout(() => {
-                errorMessage.textContent = '';
-              }, 2000);
-            }
-          }
-
-          function sendRentalMessageUnblock() {
-            const namaInput = document.getElementById('nama-input');
-            const imeiInput1 = document.getElementById('imei-input-1');
-            const imeiInput2 = document.getElementById('imei-input-2');
-
-            const namaValue = namaInput.value.trim();
-            if (namaValue === '') {
-              alert('Mohon masukkan data pengirim.');
-              return;
-            }
-
-            let message = '';
-
-
-            message += 'Nama Pengirim: ' + namaValue + '\n';
-
-            const imeiValue1 = imeiInput1.value.trim();
-            if (imeiValue1 !== '') {
-              message += 'IMEI 1: ' + imeiValue1 + '\n';
-            }
-
-            const imeiValue2 = imeiInput2.value.trim();
-            if (imeiValue2 !== '') {
-              message += 'IMEI 2: ' + imeiValue2 + '\n';
-            }
-
-            const prices = {
-              '3bln': 'Rp 200.000',
-              '6bln': 'Rp 350.000',
-              '12bln': 'Rp 550.000'
-            };
-            const price = prices[selectedValueUnblock];
-
-            message += 'Durasi Rental: ' + selectedValueUnblock + '\n';
-            message += 'Harga: ' + price;
-
-            const autoReply =
-              'Silahkan ikuti langkah berikut ini :\n1. Rubah bahasa device ke English\n2. Foto device posisi cek IMEI dengan mengetik *#06#\n3. Order: Tulis IMEI dan sertakan bukti transfer.';
-
-            window.$crisp.push(['do', 'message:send', ['text', message]]);
-            setTimeout(() => {
-              window.$crisp.push(['do', 'message:send', ['text', autoReply]]);
-            }, 2000);
-          }
-
-          function openCrispChat() {
-            window.$crisp.push(['do', 'chat:open']);
-          }
-
-          function validateInput(input, maxLength) {
-            input.value = input.value.replace(/[^0-9]/g, '');
-            if (input.value.length > maxLength) {
-              input.value = input.value.slice(0, maxLength);
-            }
-          }
-        </script>
 
 
 
@@ -4477,7 +4839,7 @@ navigator.clipboard.writeText(textToCopy);
   
     const keywords3 = [
       'Unlocktool',
-      'Cft Tool',
+      'Cf Tool',
       'Garuda java',
       'Dft tool',
       'Android multi tool',
@@ -4830,4 +5192,3 @@ navigator.clipboard.writeText(textToCopy);
 </body>
 
 </html>
-
