@@ -26,8 +26,10 @@
   <!-- Tautkan Font Awesome jika ingin menggunakan ikon sosial media -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
 <link rel="stylesheet" href="style.css">
   <style>
+    
       /* Gaya input untuk laptop atau layar yang lebih lebar */
   @media (min-width: 768px) {
     #searchInput3 {
@@ -1981,10 +1983,34 @@
         </div> 
         <div class="flex items-center justify-between">
           <p class="text-lg font-bold instruction-text"></p>
-          
         </div>
-      
       </div>
+      <nav class="flex items-center justify-center bg-gray-800 py-4" style="margin: 20px; border-radius: 10px;">
+        <div class="container mx-auto flex items-center">
+          <a class="text-white text-xl font-bold" href="#">BOT REY</a>
+          <form class="ml-4 flex-grow">
+            <div class="flex">
+              <input type="search" class="resize-none flex-grow h-10 px-4 py-2 bg-gray-100 text-gray-800" id="inputRiyad" placeholder="Ketik di sini" style="border-radius: 5px; margin-right: 5px;"></input>
+              <div class="relative">
+                <button class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center" id="libraryDropdownButton">
+                  <span>Library</span>
+                  <svg class="fill-current h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M6 8l4 4 4-4"></path>
+                  </svg>
+                </button>
+                <ul class="absolute hidden text-gray-700 pt-1" id="libraryDropdownMenu">
+                  <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap dropdown-item" href="#">.youtube</a></li>
+                  <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap dropdown-item" href="#">.google</a></li>
+                  <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap dropdown-item" href="#">.yandex</a></li>
+                  <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap dropdown-item" href="#">.bing</a></li>
+                  <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap dropdown-item" href="#">.wikipedia</a></li>
+                  <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap dropdown-item" href="#">.translate</a></li>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+      </nav>
     </div>
     
     <script>
@@ -4844,7 +4870,7 @@ function showSuccessPopupCf1() {
       'Dft tool',
       'Android multi tool',
       'Shark tool',
-      'Credit Cft Tool',
+      'Credit Cf Tool',
       'Auth Token Decrypt',
       'Unblock IMEI'
     ];
@@ -5046,6 +5072,131 @@ function showSuccessPopupCf1() {
   </div>
 
 <br><br><br>
+
+
+
+<script>
+  const inputElement = document.getElementById('inputRiyad');
+
+  inputElement.addEventListener('input', function() {
+    const searchText = inputElement.value.trim();
+    const words = searchText.split(' ');
+
+    if (words.length > 1) {
+      const searchCommand = words[words.length - 1];
+
+      if (searchCommand === '.youtube') {
+        const searchKeyword = words.slice(0, words.length - 1).join(' ').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.google') {
+        const searchKeyword = words.slice(0, words.length - 1).join(' ').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.google.com/search?q=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.yandex') {
+        const searchKeyword = words.slice(0, words.length - 1).join(' ').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.yandex.com/search/?text=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.bing') {
+        const searchKeyword = words.slice(0, words.length - 1).join(' ').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.bing.com/search?q=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.wikipedia') {
+        const searchKeyword = words.slice(0, words.length - 1).join(' ').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.translate') {
+        const searchKeyword = words.slice(0, words.length - 1).join(' ').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://translate.google.com/?sl=auto&tl=en&text=${encodeURIComponent(searchKeyword)}`;
+        }
+      }
+    }
+  });
+</script>
+
+
+<script>
+  const dropdownButton = document.getElementById('libraryDropdownButton');
+  const dropdownMenu = document.getElementById('libraryDropdownMenu');
+  const textarea = document.getElementById('inputRiyad');
+
+  dropdownButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    dropdownMenu.classList.toggle('hidden');
+  });
+
+  const dropdownItems = document.getElementsByClassName('dropdown-item');
+
+  Array.from(dropdownItems).forEach(function(item) {
+    item.addEventListener('click', function(event) {
+      event.preventDefault();
+      const text = item.textContent.trim();
+      textarea.value += text + ' ';
+      dropdownMenu.classList.add('hidden');
+
+      const searchCommand = text.trim();
+
+      if (searchCommand === '.youtube') {
+        const searchKeyword = textarea.value.trim().replace('.youtube', '').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.google') {
+        const searchKeyword = textarea.value.trim().replace('.google', '').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.google.com/search?q=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.yandex') {
+        const searchKeyword = textarea.value.trim().replace('.yandex', '').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.yandex.com/search/?text=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.bing') {
+        const searchKeyword = textarea.value.trim().replace('.bing', '').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://www.bing.com/search?q=${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.wikipedia') {
+        const searchKeyword = textarea.value.trim().replace('.wikipedia', '').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(searchKeyword)}`;
+        }
+      } else if (searchCommand === '.translate') {
+        const searchKeyword = textarea.value.trim().replace('.translate', '').trim();
+
+        if (searchKeyword !== '') {
+          window.location.href = `https://translate.google.com/?sl=auto&tl=en&text=${encodeURIComponent(searchKeyword)}`;
+        }
+      }
+    });
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!dropdownButton.contains(event.target)) {
+      dropdownMenu.classList.add('hidden');
+    }
+  });
+</script>
+
+
+
 
 
 
