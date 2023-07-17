@@ -38,6 +38,7 @@
 
   .marquee-text {
     white-space: nowrap;
+    margin: 5px;
   }
       /* Gaya input untuk laptop atau layar yang lebih lebar */
   @media (min-width: 768px) {
@@ -2080,33 +2081,27 @@ navigator.clipboard.writeText(textToCopy);
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script>
   function marquee() {
     const marqueeText = document.getElementById('marqueeText');
     const textWidth = marqueeText.offsetWidth;
     const containerWidth = marqueeText.parentNode.offsetWidth;
-    let position = containerWidth;
 
-    // Mengatur kecepatan berjalan teks (nilai yang lebih besar = lebih lambat)
-    const speed = 1;
-
-    const animation = () => {
-      position -= speed;
-      marqueeText.style.transform = `translateX(${position}px)`;
-
-      if (position <= -textWidth) {
-        position = containerWidth;
-        marqueeText.style.transform = `translateX(${position}px)`;
+    const animation = gsap.to(marqueeText, {
+      x: -textWidth,
+      duration: 20, // Durasi animasi teks berjalan
+      repeat: -1, // Mengulangi animasi secara terus-menerus
+      ease: "none", // Menggunakan easing linear
+      onComplete: function () {
+        this.restart(); // Mulai ulang animasi ketika selesai
       }
-
-      requestAnimationFrame(animation);
-    };
-
-    animation();
+    });
   }
 
   marquee();
 </script>
+
 
 
 
