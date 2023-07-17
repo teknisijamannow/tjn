@@ -2087,18 +2087,27 @@ navigator.clipboard.writeText(textToCopy);
     const containerWidth = marqueeText.parentNode.offsetWidth;
     let position = containerWidth;
 
-    setInterval(() => {
+    // Mengatur kecepatan berjalan teks (nilai yang lebih besar = lebih lambat)
+    const speed = 1;
+
+    const animation = () => {
+      position -= speed;
+      marqueeText.style.transform = `translateX(${position}px)`;
+
       if (position <= -textWidth) {
         position = containerWidth;
-      } else {
-        position--;
+        marqueeText.style.transform = `translateX(${position}px)`;
       }
-      marqueeText.style.transform = `translateX(${position}px)`;
-    }, 10);
+
+      requestAnimationFrame(animation);
+    };
+
+    animation();
   }
 
   marquee();
 </script>
+
 
 
 
