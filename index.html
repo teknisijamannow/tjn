@@ -2067,7 +2067,8 @@ navigator.clipboard.writeText(textToCopy);
       });
     </script>
 
-<div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mx-4 my-4" role="alert">
+
+<div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mx-8 my-4" role="alert">
   <div class="flex">
     <div class="py-1">
       <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -2076,7 +2077,7 @@ navigator.clipboard.writeText(textToCopy);
     </div>
     <div class="marquee-container">
       <p class="font-bold text-black">Teknisi Jaman Now</p>
-      <p class="text-sm marquee-text text-gray-600" id="marqueeText">Berikut adalah beberapa layanan yang kami sediakan: Unlock Pattern, FRP Bypass, Unlock iCloud, Unlock MiCloud, Unlock Bypass MiCloud, Change IMEI, Repair Besiband, Auth Mi Server, Auth OPPO Server, dan lainnya</p>
+      <p class="text-sm marquee-text text-gray-600" id="marqueeText"></p>
     </div>
   </div>
 </div>
@@ -2086,12 +2087,27 @@ navigator.clipboard.writeText(textToCopy);
   function marquee() {
     const marqueeText = document.getElementById('marqueeText');
 
+    const services = [
+      "Unlock Pattern",
+      "FRP Bypass",
+      "Unlock iCloud",
+      "Unlock MiCloud",
+      "Unlock Bypass MiCloud",
+      "Change IMEI",
+      "Repair Besiband",
+      "Auth Mi Server",
+      "Auth OPPO Server",
+      "dan lainnya"
+    ];
+
+    marqueeText.textContent = "Berikut adalah beberapa layanan yang kami sediakan: " + services.join(", ");
+
     const animation = gsap.fromTo(
       marqueeText,
       { x: marqueeText.parentNode.offsetWidth },
       {
         x: -marqueeText.offsetWidth,
-        duration: 20,
+        duration: 10,
         repeat: -1,
         ease: "linear"
       }
