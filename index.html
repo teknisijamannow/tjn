@@ -38,7 +38,7 @@
 
   .marquee-text {
     white-space: nowrap;
-    margin: 5px;
+ 
   }
       /* Gaya input untuk laptop atau layar yang lebih lebar */
   @media (min-width: 768px) {
@@ -2076,7 +2076,7 @@ navigator.clipboard.writeText(textToCopy);
     </div>
     <div class="marquee-container">
       <p class="font-bold text-black">Teknisi Jaman Now</p>
-      <p class="text-sm marquee-text text-black" id="marqueeText">Berikut adalah beberapa layanan yang kami sediakan: Unlock Pattern, FRP Bypass, Unlock iCloud, Unlock MiCloud, Unlock Bypass MiCloud, Change IMEI, Repair Besiband, Auth Mi Server, Auth OPPO Server, dan lainnya</p>
+      <p class="text-sm marquee-text text-gray-600" id="marqueeText">Berikut adalah beberapa layanan yang kami sediakan: Unlock Pattern, FRP Bypass, Unlock iCloud, Unlock MiCloud, Unlock Bypass MiCloud, Change IMEI, Repair Besiband, Auth Mi Server, Auth OPPO Server, dan lainnya</p>
     </div>
   </div>
 </div>
@@ -2085,18 +2085,17 @@ navigator.clipboard.writeText(textToCopy);
 <script>
   function marquee() {
     const marqueeText = document.getElementById('marqueeText');
-    const textWidth = marqueeText.offsetWidth;
-    const containerWidth = marqueeText.parentNode.offsetWidth;
 
-    const animation = gsap.to(marqueeText, {
-      x: -textWidth,
-      duration: 20, // Durasi animasi teks berjalan
-      repeat: -1, // Mengulangi animasi secara terus-menerus
-      ease: "none", // Menggunakan easing linear
-      onComplete: function () {
-        this.restart(); // Mulai ulang animasi ketika selesai
+    const animation = gsap.fromTo(
+      marqueeText,
+      { x: marqueeText.parentNode.offsetWidth },
+      {
+        x: -marqueeText.offsetWidth,
+        duration: 20,
+        repeat: -1,
+        ease: "linear"
       }
-    });
+    );
   }
 
   marquee();
