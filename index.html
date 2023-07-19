@@ -4870,6 +4870,179 @@ function showSuccessPopupCf1() {
 
 
 
+<div class="col-lg-4 col-md-6">
+  <div class="card card-8">
+    <img src="img/est-transformed.jpeg" class="card-img-top" alt="Foto 1">
+    <div class="card-body">
+      <h5 class="card-title">Estech Schematic</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="checkbox" id="estech-1bln" name="rental-mp" value="1bln" onchange="updatePriceEstech(this)">
+          <label for="estech-1bln">1 Bulan</label>
+        </div>
+        <div>
+          <input type="checkbox" id="estech-6bln" name="rental-mp" value="6bln" onchange="updatePriceEstech(this)">
+          <label for="estech-6bln">6 Bulan</label>
+        </div>
+        <div>
+          <input type="checkbox" id="estech-12bln" name="rental-mp" value="12bln" onchange="updatePriceEstech(this)">
+          <label for="estech-12bln">12 Bulan</label>
+        </div>
+        <p id="price-estech-info" style="color: #00b1f7; font-family: monospace; font-weight: bold;"></p>
+        <p id="error-message-estech" class="error-message"></p>
+        <button onclick="validateRentalEstech()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+        <a id="bayarButton1blnEstech" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/Estech-Echematic-1bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton6blnEstech" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/Estech-Echematic-6bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton12blnEstech" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/estech-echematic-6bulan-mt49?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-new-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let selectedValueEstech = '';
+
+  function updatePriceEstech(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueEstech = checkbox.value;
+
+      const prices = {
+        '1bln': 'Rp 50.000',
+        '6bln': 'Rp 175.000',
+        '12bln': 'Rp 300.000'
+      };
+      const price = prices[selectedValueEstech];
+
+      const priceInfo = document.getElementById('price-estech-info');
+      priceInfo.textContent = `Harga: ${price}`;
+
+      // Tampilkan tombol bayar yang sesuai dengan durasi rental yang dipilih
+      const bayarButtonEstech = document.getElementById(`bayarButton${selectedValueEstech}Estech`);
+      const allBayarButtonsEstech = document.querySelectorAll('[id^="bayarButton"]');
+      allBayarButtonsEstech.forEach(button => {
+        button.style.display = 'none';
+      });
+      if (bayarButtonEstech) {
+        bayarButtonEstech.style.display = 'inline-block';
+      }
+    } else {
+      selectedValueEstech = '';
+      const priceInfoEstech = document.getElementById('price-estech-info');
+      priceInfoEstech.textContent = '';
+
+      // Sembunyikan semua tombol bayar
+      const allBayarButtonsEstech = document.querySelectorAll('[id^="bayarButton"]');
+      allBayarButtonsEstech.forEach(button => {
+        button.style.display = 'none';
+      });
+    }
+  }
+
+  function validateRentalEstech() {
+    const checkboxes = document.getElementsByName('rental-mp');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueEstech = checkedCheckbox.value;
+      sendRentalMessageEstech();
+      showSuccessPopupEstech();
+      openCrispChatEstech();
+    } else {
+      const errorMessage = document.getElementById('error-message-estech');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageEstech() {
+    const durations = {
+      '1bln': '1 bulan',
+      '6bln': '6 bulan',
+      '12bln': '12 bulan'
+    };
+    const prices = {
+      '1bln': 'Rp 50.000',
+      '6bln': 'Rp 175.000',
+      '12bln': 'Rp 300.000'
+    };
+    const duration = durations[selectedValueEstech];
+    const price = prices[selectedValueEstech];
+    const message = `Halo, saya ingin aktivasi Estech Schematic, selama (${duration}) dengan harga ${price}.`;
+  window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupEstech() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Bayar',
+      cancelButtonText: 'Batal',
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+        cancelButton: 'success-popup-cancel-button',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const checkboxes = document.getElementsByName('rental-mp');
+        let selectedButtonId;
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            const value = checkbox.value;
+            if (value === '1bln') {
+              selectedButtonId = 'bayarButton1blnEstech';
+            } else if (value === '6bln') {
+              selectedButtonId = 'bayarButton6blnEstech';
+            } else if (value === '12bln') {
+              selectedButtonId = 'bayarButton12blnEstech';
+            }
+          }
+        });
+        if (selectedButtonId) {
+          document.getElementById(selectedButtonId).click();
+        }
+      }
+    });
+  }
+
+  function openCrispChatEstech() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
 
 
 
@@ -4879,12 +5052,328 @@ function showSuccessPopupCf1() {
 
 
 
+<div class="col-lg-4 col-md-6">
+  <div class="card card-7">
+    <img src="img/bor.jpg" class="card-img-top" alt="Foto 3">
+    <div class="card-body">
+      <h5 class="card-title">Borneo Schematics</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="checkbox" id="borneo-3bln" name="rental-mp" value="3bln" onchange="updatePriceBorneo(this)">
+          <label for="borneo-3bln">3 Bulan (1 user)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="borneo-1tahun" name="rental-mp" value="1tahun" onchange="updatePriceBorneo(this)">
+          <label for="borneo-1tahun">1 Tahun (Perpanjang)</label>
+        </div>
+        <p id="price-borneo-info" style="color: #00b1f7; font-family: monospace; font-weight: bold;"></p>
+        <p id="error-message-borneo" class="error-message"></p>
+        <button onclick="validateRentalBorneo()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+        <a id="bayarButton3blnBorneo" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/Borneo-Schematics-3bulan?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton1tahunBorneo" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/borneo-schematics-1tahun?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-new-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let selectedValueBorneo = '';
+
+  function updatePriceBorneo(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueBorneo = checkbox.value;
+
+      const prices = {
+        '3bln': 'Rp 225.000',
+        '1tahun': 'Rp 550.000'
+      };
+      const price = prices[selectedValueBorneo];
+
+      const priceInfo = document.getElementById('price-borneo-info');
+      priceInfo.textContent = `Harga: ${price}`;
+
+      // Tampilkan tombol bayar yang sesuai dengan durasi rental yang dipilih
+      const bayarButtonBorneo = document.getElementById(`bayarButton${selectedValueBorneo}Borneo`);
+      const allBayarButtonsBorneo = document.querySelectorAll('[id^="bayarButton"]');
+      allBayarButtonsBorneo.forEach(button => {
+        button.style.display = 'none';
+      });
+      if (bayarButtonBorneo) {
+        bayarButtonBorneo.style.display = 'inline-block';
+      }
+    } else {
+      selectedValueBorneo = '';
+      const priceInfoBorneo = document.getElementById('price-borneo-info');
+      priceInfoBorneo.textContent = '';
+
+      // Sembunyikan semua tombol bayar
+      const allBayarButtonsBorneo = document.querySelectorAll('[id^="bayarButton"]');
+      allBayarButtonsBorneo.forEach(button => {
+        button.style.display = 'none';
+      });
+    }
+  }
+
+  function validateRentalBorneo() {
+    const checkboxes = document.getElementsByName('rental-mp');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueBorneo = checkedCheckbox.value;
+      sendRentalMessageBorneo();
+      showSuccessPopupBorneo();
+      openCrispChatBorneo();
+    } else {
+      const errorMessage = document.getElementById('error-message-borneo');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageBorneo() {
+    const durations = {
+      '3bln': '3 bulan',
+      '1tahun': '1 tahun (Perpanjang)'
+    };
+    const prices = {
+      '3bln': 'Rp 225.000',
+      '1tahun': 'Rp 550.000'
+    };
+    const duration = durations[selectedValueBorneo];
+    const price = prices[selectedValueBorneo];
+    const message = `Halo, saya ingin aktivasi Borneo Schematics, selama (${duration}) dengan harga ${price}.`;
+  window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function showSuccessPopupBorneo() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Bayar',
+      cancelButtonText: 'Batal',
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+        cancelButton: 'success-popup-cancel-button',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const checkboxes = document.getElementsByName('rental-mp');
+        let selectedButtonId;
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            const value = checkbox.value;
+            if (value === '3bln') {
+              selectedButtonId = 'bayarButton3blnBorneo';
+            } else if (value === '1tahun') {
+              selectedButtonId = 'bayarButton1tahunBorneo';
+            }
+          }
+        });
+        if (selectedButtonId) {
+          document.getElementById(selectedButtonId).click();
+        }
+      }
+    });
+  }
+
+  function openCrispChatBorneo() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+</script>
 
 
 
 
 
+<div class="col-lg-4 col-md-6">
+  <div class="card card-6">
+    <img src="img/eft-transformed.jpeg" class="card-img-top" alt="Foto 4">
+    <div class="card-body">
+      <h5 class="card-title">EFT Pro Tool</h5>
+      <div class="button-group">
+        <br>
+        <div>
+          <input type="checkbox" id="eft-1tahun-activation" name="rental-mp" value="1tahun-activation" onchange="updatePriceEFT(this)">
+          <label for="eft-1tahun-activation">1 Tahun (Activation)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="eft-1tahun-renew" name="rental-mp" value="1tahun-renew" onchange="updatePriceEFT(this)">
+          <label for="eft-1tahun-renew">1 Tahun (Renew)</label>
+        </div>
+        <p id="price-eft-info" style="color: #00b1f7; font-family: monospace; font-weight: bold;"></p>
+        <p id="error-message-eft" class="error-message"></p>
+        <button onclick="validateRentalEFT()" class="btn btn-primary gradient-btn-2">
+          <i class="fas fa-paper-plane"></i> Aktivasi sekarang
+        </button>
+        <a id="bayarButton1tahunActivationEFT" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/EFT-Pro-Tool-1tahun?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <a id="bayarButton1tahunRenewEFT" class="btn btn-primary gradient-btn-3 iframe-lightbox-link success-popup-button" href="https://teknisi-jaman-now.mayar.link/pl/eft-pro-tool-1tahun-iufg?iframe=true" data-padding-bottom="30%" data-scrolling="true" style="display: none;">
+          <span></span><i class="fas fa-credit-card"></i> Bayar
+        </a>
+        <script type="text/javascript" src="https://pub-fa933e278fb7467aa20592e0a61f5082.r2.dev/mayar-new-min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
 
+<script>
+  let selectedValueEFT = '';
+
+  function updatePriceEFT(checkbox) {
+    if (checkbox.checked) {
+      const checkboxes = document.getElementsByName('rental-mp');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+
+      selectedValueEFT = checkbox.value;
+
+      const prices = {
+        '1tahun-activation': 'Rp 1.250.000',
+        '1tahun-renew': 'Rp 650.000'
+      };
+      const price = prices[selectedValueEFT];
+
+      const priceInfo = document.getElementById('price-eft-info');
+      priceInfo.textContent = `Harga: ${price}`;
+
+      // Tampilkan tombol bayar yang sesuai dengan durasi rental yang dipilih
+      const bayarButtonActivationEFT = document.getElementById('bayarButton1tahunActivationEFT');
+      const bayarButtonRenewEFT = document.getElementById('bayarButton1tahunRenewEFT');
+      bayarButtonActivationEFT.style.display = 'none';
+      bayarButtonRenewEFT.style.display = 'none';
+      if (selectedValueEFT === '1tahun-activation') {
+        bayarButtonActivationEFT.style.display = 'inline-block';
+      } else if (selectedValueEFT === '1tahun-renew') {
+        bayarButtonRenewEFT.style.display = 'inline-block';
+      }
+    } else {
+      selectedValueEFT = '';
+      const priceInfoEFT = document.getElementById('price-eft-info');
+      priceInfoEFT.textContent = '';
+    }
+  }
+
+  function validateRentalEFT() {
+    const checkboxes = document.getElementsByName('rental-mp');
+    let checkedCheckbox = null;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        checkedCheckbox = checkbox;
+      }
+    });
+
+    if (checkedCheckbox !== null) {
+      selectedValueEFT = checkedCheckbox.value;
+      sendRentalMessageEFT();
+      showSuccessPopupEFT();
+      openCrispChatEFT();
+    } else {
+      const errorMessage = document.getElementById('error-message-eft');
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = 'Pilih waktu rental.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function sendRentalMessageEFT() {
+    const durations = {
+      '1tahun-activation': '1 tahun (Activation)',
+      '1tahun-renew': '1 tahun (Renew)'
+    };
+    const prices = {
+      '1tahun-activation': 'Rp 1.250.000',
+      '1tahun-renew': 'Rp 650.000'
+    };
+    const duration = durations[selectedValueEFT];
+    const price = prices[selectedValueEFT];
+    const message = `Halo, saya ingin aktivasi EFT Pro Tool, selama (${duration}) dengan harga ${price}.`;
+    window.$crisp.push(['do', 'message:send', ['text', message]]);
+  }
+
+  function openCrispChatEFT() {
+    window.$crisp.push(['do', 'chat:open']);
+  }
+
+  function showSuccessPopupEFT() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Pesanan Terkirim!',
+      text: 'Silakan lakukan pembayaran untuk memproses pesanan Anda.',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Bayar',
+      cancelButtonText: 'Batal',
+      customClass: {
+        container: 'success-popup-container',
+        popup: 'success-popup',
+        title: 'success-popup-title',
+        text: 'success-popup-text',
+        confirmButton: 'success-popup-confirm-button',
+        cancelButton: 'success-popup-cancel-button',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const checkboxes = document.getElementsByName('rental-mp');
+        let selectedButtonId;
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            const value = checkbox.value;
+            if (value === '1tahun-activation') {
+              selectedButtonId = 'bayarButton1tahunActivationEFT';
+            } else if (value === '1tahun-renew') {
+              selectedButtonId = 'bayarButton1tahunRenewEFT';
+            }
+          }
+        });
+        if (selectedButtonId) {
+          document.getElementById(selectedButtonId).click();
+        }
+      }
+    });
+  }
+</script>
 
 
 
@@ -4935,7 +5424,10 @@ function showSuccessPopupCf1() {
       'Shark tool',
       'Credit Cf Tool',
       'Auth Token Decrypt',
-      'Unblock IMEI'
+      'Unblock IMEI',
+      'Estech Schematic',
+      'Borneo Schematics',
+      'EFT Pro Tool'
     ];
   
     searchInput3.addEventListener('input', function () {
