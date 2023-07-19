@@ -37,9 +37,46 @@
   }
 
   .marquee-text {
-    white-space: nowrap;
  
-  }
+                -moz-transform: translateX(100%);
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+                -moz-animation: scroll-left 2s linear infinite;
+                -webkit-animation: scroll-left 2s linear infinite;
+                animation: scroll-left 20s linear infinite;
+            }
+            
+            @-moz-keyframes scroll-left {
+                0% {
+                    -moz-transform: translateX(100%);
+                }
+                100% {
+                    -moz-transform: translateX(-100%);
+                }
+            }
+            
+            @-webkit-keyframes scroll-left {
+                0% {
+                    -webkit-transform: translateX(100%);
+                }
+                100% {
+                    -webkit-transform: translateX(-100%);
+                }
+            }
+            
+            @keyframes scroll-left {
+                0% {
+                    -moz-transform: translateX(100%);
+                    -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
+                }
+                100% {
+                    -moz-transform: translateX(-100%);
+                    -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
+                }
+            }
+
       /* Gaya input untuk laptop atau layar yang lebih lebar */
   @media (min-width: 768px) {
     #searchInput3 {
@@ -2068,6 +2105,7 @@ navigator.clipboard.writeText(textToCopy);
     </script>
 
 
+
 <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md mx-8 my-4" role="alert">
   <div class="flex">
     <div class="py-1">
@@ -2077,45 +2115,12 @@ navigator.clipboard.writeText(textToCopy);
     </div>
     <div class="marquee-container">
       <p class="font-bold text-black">Teknisi Jaman Now</p>
-      <p class="text-sm marquee-text text-gray-600" id="marqueeText"></p>
+      <p class="text-sm marquee-text" id="marqueeText" style="font-weight: 300;">Kami siap REMOTE Unlock Pattern,FRP Bypass,Unlock iCloud,Unlock MiCloud,Unlock Bypass MiCloud,Change IMEI,Repair Besiband,Auth Mi Server,Auth OPPO Server,dan lainnya</p>
     </div>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-<script>
-  function marquee() {
-    const marqueeText = document.getElementById('marqueeText');
 
-    const services = [
-      "Unlock Pattern",
-      "FRP Bypass",
-      "Unlock iCloud",
-      "Unlock MiCloud",
-      "Unlock Bypass MiCloud",
-      "Change IMEI",
-      "Repair Besiband",
-      "Auth Mi Server",
-      "Auth OPPO Server",
-      "dan lainnya"
-    ];
-
-    marqueeText.textContent = "Berikut adalah beberapa layanan yang kami sediakan: " + services.join(", ");
-
-    const animation = gsap.fromTo(
-      marqueeText,
-      { x: marqueeText.parentNode.offsetWidth },
-      {
-        x: -marqueeText.offsetWidth,
-        duration: 20,
-        repeat: -2,
-        ease: "linear"
-      }
-    );
-  }
-
-  marquee();
-</script>
 
 
 
